@@ -10,7 +10,7 @@ import { CounterComponent } from './components/counter/counter.component';
 @NgModule({
     bootstrap: [ AppComponent ],
     declarations: [
-        AppComponent,
+        AppComponent, 
         NavMenuComponent,
         CounterComponent,
         FetchDataComponent,

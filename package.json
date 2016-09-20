@@ -37,5 +37,5 @@
     "webpack-externals-plugin": "^1.0.0",
     "webpack-hot-middleware": "^2.10.0",
     "zone.js": "^0.6.21"
-  }
+  } 
 }

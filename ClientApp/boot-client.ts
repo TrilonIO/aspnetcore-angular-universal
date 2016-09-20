@@ -10,7 +10,7 @@ if (hotModuleReplacement) {
     hotModuleReplacement.accept();
     hotModuleReplacement.dispose(() => { platform.destroy(); });
 } else {
-    enableProdMode();
+    enableProdMode(); 
 }
 
 // Boot the application, either now or when the DOM content is loaded

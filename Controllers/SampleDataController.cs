@@ -12,7 +12,7 @@ namespace WebApplicationBasic.Controllers
         private static string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
+        }; 
 
         [HttpGet("[action]")]
         public IEnumerable<WeatherForecast> WeatherForecasts()

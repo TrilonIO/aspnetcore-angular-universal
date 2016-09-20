@@ -10,7 +10,7 @@ const platform = platformNodeDynamic();
 export default function (params: any) : Promise<{ html: string, globals?: any }> {
     const requestZone = Zone.current.fork({
         name: 'angular-universal request',
-        properties: {
+        properties: { 
             baseUrl: '/',
             requestUrl: params.url,
             originUrl: params.origin,

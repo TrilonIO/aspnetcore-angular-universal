@@ -5,7 +5,7 @@ var extractCSS = new ExtractTextPlugin('vendor.css');
 var isDevelopment = process.env.ASPNETCORE_ENVIRONMENT === 'Development';
 
 module.exports = {
-    resolve: {
+    resolve: { 
         extensions: [ '', '.js' ]
     },
     module: {
