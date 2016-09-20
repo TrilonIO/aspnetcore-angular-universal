@@ -1,6 +1,9 @@
 {
-  "name": "Angular2Spa",
+  "name": "aspnetcore-angular2-universal-starter",
   "version": "0.0.0",
+  "scripts": {
+    "postinstall": "webpack --config webpack.config.vendor.js"
+  },
   "dependencies": {
     "@angular/common": "2.0.0",
     "@angular/compiler": "2.0.0",
