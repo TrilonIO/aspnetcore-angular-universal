@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
@@ -9,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace WebApplicationBasic 
+namespace Angular2Spa
 {
     public class Startup
     {
@@ -20,6 +16,7 @@ namespace WebApplicationBasic
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
+
             Configuration = builder.Build();
         }
 
@@ -41,6 +38,8 @@ namespace WebApplicationBasic
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
+                // Webpack middleware setup
                 app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions {
                     HotModuleReplacement = true
                 });
@@ -52,6 +51,9 @@ namespace WebApplicationBasic
 
             app.UseStaticFiles();
 
+            //  ** Setup Websockets **
+
+            //  ** MVC / WebAPI Routing & default SPA fallback Routing
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

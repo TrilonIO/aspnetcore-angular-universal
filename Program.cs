@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 
-namespace WebApplicationBasic
+namespace Angular2Spa
 {
     public class Program
     {
