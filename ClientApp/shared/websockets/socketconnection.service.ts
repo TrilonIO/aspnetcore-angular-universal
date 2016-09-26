@@ -2,22 +2,31 @@
 import { Observable, Subject } from 'rxjs/Rx';
 import { WebSocketService } from './websocket.service';
 
-const SOCKET_URL = 'ws://localhost:3005';
+const scheme = document.location.protocol == "https:" ? "wss" : "ws";
+const port = document.location.port ? (":" + document.location.port) : "";
 
-export interface IMessage {
+// const SOCKET_URL = 'ws://localhost:53223/ws/websocket';
+const SOCKET_URL = scheme + "://" + document.location.hostname + port + '/ws';
+
+console.log(SOCKET_URL);
+
+export interface ISocketMessage {
     ACTION: string,
-    PAYLOAD: string,
+    PAYLOAD: any,
     TIME?: string
 }
 
 @Injectable()
 export class SocketConnectionService {
-    public messages: Subject<IMessage>;
+    public frames: Subject<ISocketMessage>;
 
     constructor(wsService: WebSocketService) {
-        this.messages = <Subject<IMessage>>wsService
+        this.frames = <Subject<ISocketMessage>>wsService
             .connect(SOCKET_URL)
-            .map((response: MessageEvent): IMessage => {
+            .map((response: MessageEvent): ISocketMessage => {
+
+                console.log('RESPONSE CAME BACK?\n');
+                console.log(response);
 
                 let data = JSON.parse(response.data);
 

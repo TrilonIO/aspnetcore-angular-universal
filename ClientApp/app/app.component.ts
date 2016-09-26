@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SocketConnectionService, ISocketMessage } from '../shared/websockets';
 
 @Component({
     selector: 'app',
@@ -6,8 +7,10 @@ import { Component } from '@angular/core';
     styles: [require('./app.component.css')]
 })
 export class AppComponent {
-    constructor () {
-        let b = '123';
-        console.log(b); 
+
+    private frames: ISocketMessage[] = [];
+
+    constructor(private socketConnection : SocketConnectionService) {
+        
     }
 }

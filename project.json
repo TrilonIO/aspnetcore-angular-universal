@@ -75,6 +75,6 @@
   },
 
   "tooling": {
-    "defaultNamespace": "WebApplicationBasic"
+    "defaultNamespace": "Angular2Spa"
   }
 }

@@ -16,7 +16,7 @@ import {
 } from '../containers';
 
 // Provider (aka: "services") imports
-import { SocketConnectionService } from '../shared/websockets';
+import { SocketConnectionService, WebSocketService } from '../shared/websockets';
 
 @NgModule({
     bootstrap: [ AppComponent ],
@@ -28,7 +28,8 @@ import { SocketConnectionService } from '../shared/websockets';
         HomeComponent
     ],
     providers: [
-        SocketConnectionService
+        SocketConnectionService,
+        WebSocketService
     ],
     imports: [
         UniversalModule, // Must be first import. This automatically imports BrowserModule, HttpModule, and JsonpModule too.
