@@ -2,15 +2,21 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { UniversalModule } from 'angular2-universal';
 
+// Main "APP" Root Component
 import { AppComponent } from './app.component';
 
+// Component imports
 import { NavMenuComponent } from '../components';
 
+// Container (aka: "pages") imports
 import { 
     HomeComponent,
     FetchDataComponent,
     CounterComponent
 } from '../containers';
+
+// Provider (aka: "services") imports
+import { SocketConnectionService } from '../shared/websockets';
 
 @NgModule({
     bootstrap: [ AppComponent ],
@@ -20,6 +26,9 @@ import {
         CounterComponent,
         FetchDataComponent,
         HomeComponent
+    ],
+    providers: [
+        SocketConnectionService
     ],
     imports: [
         UniversalModule, // Must be first import. This automatically imports BrowserModule, HttpModule, and JsonpModule too.

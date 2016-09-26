@@ -52,6 +52,7 @@ namespace Angular2Spa
             app.UseStaticFiles();
 
             //  ** Setup Websockets **
+            app.Map("/ws", WebSocketHandler.Map);
 
             //  ** MVC / WebAPI Routing & default SPA fallback Routing
             app.UseMvc(routes =>
