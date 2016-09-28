@@ -8,14 +8,14 @@
   - Featuring Server-side Pre-rendering (Angular Universal)
 	- Faster paints, better SEO, deep-linking, etc
   - Baked in best-practices (follows Angular style guide)
-  - NgRx (reactive Redux application state management)
-  - Material Design
-  - Unit testing with Karma/Jasmine
+  - NgRx (reactive Redux application state management) TODO
+  - Material Design TODO
+  - Unit testing with Karma/Jasmine TODO
 
 - Webpack build system
   - HMR : Hot Module Reloading/Replacement 
   - Production builds
 
 - asp.NET Core
-  - Built-in Websocket support featuring a Redux-style Eventing system
+  - Built-in Websocket support featuring a Redux-style Eventing system ALMOST DONE
   - Integration with NodeJS to provide pre-rendering, as well as any other Node module asset you want to use.
