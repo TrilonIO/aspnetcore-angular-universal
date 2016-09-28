@@ -1,0 +1,15 @@
+<h2>WebSocket Test:</h2>
+
+<blockquote>
+    <strong>NOTE:</strong>
+    This isn't working completely yet!! At the moment it's shut off.<br>
+    Disregard this page at the moment 
+</blockquote>
+
+<ul>
+    <li *ngFor="let msg of frames">{{ msg | json }}</li>
+</ul>
+
+<input #msgInput />
+
+<button disabled="disabled" (click)="triggerFakeSocketEvent(msgInput)">Send message to Socket Handler</button>

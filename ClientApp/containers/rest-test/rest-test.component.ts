@@ -2,15 +2,16 @@ import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 
 @Component({
-    selector: 'fetchdata',
-    template: require('./fetchdata.component.html')
+    selector: 'rest-test',
+    template: require('./rest-test.component.html')
 })
-export class FetchDataComponent {
+export class RestTestComponent {
     public forecasts: WeatherForecast[];
 
     constructor(http: Http) {
         http.get('/api/SampleData/WeatherForecasts').subscribe(result => {
             this.forecasts = result.json();
+            console.log(result.json());
         });
     }
 }

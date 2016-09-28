@@ -1,2 +1,2 @@
-﻿export * from './socketconnection.service.ts';
-export * from './websocket.service.ts';
+﻿export * from './socketconnection.service';
+export * from './websocket.service';

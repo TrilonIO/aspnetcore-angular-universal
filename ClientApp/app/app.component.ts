@@ -10,7 +10,7 @@ export class AppComponent {
 
     private frames: ISocketMessage[] = [];
 
-    constructor(private socketConnection : SocketConnectionService) {
+    constructor() {
         
     }
 }

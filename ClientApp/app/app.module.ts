@@ -11,8 +11,8 @@ import { NavMenuComponent } from '../components';
 // Container (aka: "pages") imports
 import { 
     HomeComponent,
-    FetchDataComponent,
-    CounterComponent
+    WebSocketTestComponent,
+    RestTestComponent
 } from '../containers';
 
 // Provider (aka: "services") imports
@@ -23,21 +23,21 @@ import { SocketConnectionService, WebSocketService } from '../shared/websockets'
     declarations: [
         AppComponent, 
         NavMenuComponent,
-        CounterComponent,
-        FetchDataComponent,
+        RestTestComponent,
+        WebSocketTestComponent,
         HomeComponent
     ],
     providers: [
-        SocketConnectionService,
-        WebSocketService
+        // SocketConnectionService,
+        // WebSocketService
     ],
     imports: [
         UniversalModule, // Must be first import. This automatically imports BrowserModule, HttpModule, and JsonpModule too.
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
-            { path: 'counter', component: CounterComponent },
-            { path: 'fetch-data', component: FetchDataComponent },
+            { path: 'rest-test', component: RestTestComponent },
+            { path: 'websocket-test', component: WebSocketTestComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]
