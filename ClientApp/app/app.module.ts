@@ -16,8 +16,8 @@ import {
     RestTestComponent
 } from '../containers';
 
-// Provider (aka: "services") imports
-import { SocketConnectionService, WebSocketService } from '../shared/websockets';
+// Provider (aka: "shared" | "services") imports
+import { SocketConnectionService, WebSocketService } from '../shared';
 
 @NgModule({
     bootstrap: [ AppComponent ],
