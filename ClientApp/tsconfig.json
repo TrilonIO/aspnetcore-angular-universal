@@ -3,11 +3,18 @@
     "moduleResolution": "node",
     "target": "es5",
     "sourceMap": true,
+    "rootDir": ".",
+    "baseUrl": ".",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "skipDefaultLibCheck": true,
     "lib": [ "es6", "dom" ],
-    "types": [ "node" ]
+    "types": [ "node" ],
+    "paths": {
+      "nh-shared": [ "./shared" ],
+      "nh-containers": [ "./containers" ],
+      "nh-components": [ "./components" ]
+    }
   },
   "exclude": [ "bin", "node_modules" ],
   "atom": { "rewriteTsconfig": false }

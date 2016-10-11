@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { SocketConnectionService, ISocketMessage } from '../shared/websockets';
+import { SocketConnectionService, ISocketMessage } from '../shared';
+import { isBrowser } from 'angular2-universal';
 
 @Component({
     selector: 'app',
@@ -11,6 +12,10 @@ export class AppComponent {
     private frames: ISocketMessage[] = [];
 
     constructor() {
-        
+        if (isBrowser) {
+            // example
+            // alert('yay');
+        }
     }
+
 }

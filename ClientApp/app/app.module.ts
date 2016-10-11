@@ -40,10 +40,15 @@ import { SocketConnectionService, WebSocketService } from '../shared';
         // isBrowser ? something : somethingElse, <- basic pseudo example
 
         RouterModule.forRoot([
+            // Base route
             { path: '', redirectTo: 'home', pathMatch: 'full' },
+
+            // Other routes
             { path: 'home', component: HomeComponent },
             { path: 'rest-test', component: RestTestComponent },
             { path: 'websocket-test', component: WebSocketTestComponent },
+
+            // All else fails - go home
             { path: '**', redirectTo: 'home' }
         ])
     ]
