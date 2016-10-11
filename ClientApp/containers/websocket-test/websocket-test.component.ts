@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SocketConnectionService, ISocketMessage } from '../../shared/websockets';
+import { SocketConnectionService, ISocketMessage } from '../../shared';
 
 @Component({
     selector: 'websocket-test',
