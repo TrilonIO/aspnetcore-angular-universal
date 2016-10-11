@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { UniversalModule } from 'angular2-universal';
+
+import { UniversalModule, isBrowser, isNode } from 'angular2-universal';
 
 // Main "APP" Root Component
 import { AppComponent } from './app.component';
@@ -33,6 +34,11 @@ import { SocketConnectionService, WebSocketService } from '../shared/websockets'
     ],
     imports: [
         UniversalModule, // Must be first import. This automatically imports BrowserModule, HttpModule, and JsonpModule too.
+
+        // Here we can import other stuff
+        // Even make it dynamic whether it's for Browser or Server (Dependency Injection)
+        // isBrowser ? something : somethingElse, <- basic pseudo example
+
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
