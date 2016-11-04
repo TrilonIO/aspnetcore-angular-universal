@@ -5,6 +5,7 @@ import { AppModule } from './app/app.module';
 import 'bootstrap';
 
 // Enable either Hot Module Reloading or production mode
+// Add Redux HMR state management here
 if (module['hot']) {
     module['hot'].accept();
     module['hot'].dispose(() => { platform.destroy(); });
