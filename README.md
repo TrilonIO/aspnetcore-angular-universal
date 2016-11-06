@@ -1,4 +1,4 @@
-# asp.NET Core & Angular2-webpack starter featuring Websockets, Angular Universal
+# ASP.NET Core & Angular2 Universal starter
 
 # [WIP] Work in progress !
 
@@ -24,3 +24,4 @@
   - Unit testing with Karma/Jasmine TODO
   - HMR State management
   - Angular 2.1.1+ fixes (for Universal)
+  - Websockets example
