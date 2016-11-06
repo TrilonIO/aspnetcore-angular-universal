@@ -1,24 +1,20 @@
 <h1>This is a RestAPI Example (hitting WebAPI in our case)</h1>
 
-<p>Let's get some stuff from the server!</p>
+<p>Let's get some fake users from Rest:</p>
 
-<p *ngIf="!forecasts"><em>Loading...</em></p>
+<p *ngIf="!users"><em>Loading...</em></p>
 
-<table class="table" *ngIf="forecasts">
+<table class="table" *ngIf="users">
     <thead>
         <tr>
-            <th>Date</th>
-            <th>Temp. (C)</th>
-            <th>Temp. (F)</th>
-            <th>Summary</th>
+            <th>User ID</th>
+            <th>Name</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let forecast of forecasts">
-            <td>{{ forecast.dateFormatted }}</td>
-            <td>{{ forecast.temperatureC }}</td>
-            <td>{{ forecast.temperatureF }}</td>
-            <td>{{ forecast.summary }}</td>
+        <tr *ngFor="let user of users">
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
         </tr>
     </tbody>
 </table>

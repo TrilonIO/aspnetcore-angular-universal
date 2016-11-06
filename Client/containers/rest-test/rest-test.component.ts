@@ -6,26 +6,16 @@ import { Http } from '@angular/http';
     template: require('./rest-test.component.html')
 })
 export class RestTestComponent {
-    public forecasts: IWeatherForecast[];
+    public users: IUser[];
 
     constructor(private http: Http) {
-        this.http.get('/api/SampleData/WeatherForecasts').subscribe(result => {
-
-            this.forecasts = result.json();
-
-            //xhrService.cacheResponse({
-            //    method: '/api/SampleData/WeatherForecasts',
-            //    response: result.json()
-            //});
-
-            console.log(result.json());
+        this.http.get('/api/test/users').subscribe(result => {
+            this.users = result.json();
         });
     }
 }
 
-interface IWeatherForecast {
-    dateFormatted: string;
-    temperatureC: number;
-    temperatureF: number;
-    summary: string;
+interface IUser {
+    id: number;
+    name: string;
 }
