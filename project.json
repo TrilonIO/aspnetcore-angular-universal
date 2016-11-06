@@ -4,6 +4,7 @@
       "version": "1.0.1",
       "type": "platform"
     },
+    "Microsoft.Extensions.Caching.Memory": "1.0.0",
     "Microsoft.AspNetCore.AngularServices": "1.0.0-*",
     "Microsoft.AspNetCore.Diagnostics": "1.0.0",
     "Microsoft.AspNetCore.WebSockets.Server": "0.1.0",

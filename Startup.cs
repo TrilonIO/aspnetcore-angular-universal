@@ -36,6 +36,7 @@ namespace Angular2Spa
         {
             // Add framework services.
             services.AddMvc();
+            services.AddMemoryCache();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,26 +61,6 @@ namespace Angular2Spa
 
             app.UseStaticFiles();
 
-            app.UseWebSockets();
-
-            app.Use(async (context, next) =>
-            {
-                if (context.WebSockets.IsWebSocketRequest)
-                {
-                    var webSocket = await context.WebSockets.AcceptWebSocketAsync();
-                    await Echo(context, webSocket, loggerFactory.CreateLogger("Echo"));
-                }
-                else
-                {
-                    await next();
-                }
-            });
-
-            // **** Coming back soon ****
-            //  ** Setup Websockets **
-            // app.Map("/ws", WebSocketHandler.Map);
-           
-
             //  ** MVC / WebAPI Routing & default SPA fallback Routing
             app.UseMvc(routes =>
             {
@@ -91,6 +72,30 @@ namespace Angular2Spa
                     name: "spa-fallback",
                     defaults: new { controller = "Home", action = "Index" });
             });
+
+
+
+
+            //app.UseWebSockets();
+
+            //app.Use(async (context, next) =>
+            //{
+            //    if (context.WebSockets.IsWebSocketRequest)
+            //    {
+            //        var webSocket = await context.WebSockets.AcceptWebSocketAsync();
+            //        await Echo(context, webSocket, loggerFactory.CreateLogger("Echo"));
+            //    }
+            //    else
+            //    {
+            //        await next();
+            //    }
+            //});
+
+            // **** Coming back soon ****
+            //  ** Setup Websockets **
+            // app.Map("/ws", WebSocketHandler.Map);
+
+
         }
 
         //public class WebSocketEventMessage
@@ -105,7 +110,7 @@ namespace Angular2Spa
         //    var buffer = new byte[1024 * 4];
 
         //    WebSocketReceiveResult result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
-            
+
         //    LogFrame(logger, result, buffer);
         //    while (!result.CloseStatus.HasValue)
         //    {

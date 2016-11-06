@@ -1,7 +1,9 @@
 import 'angular2-universal-polyfills/browser';
 import { enableProdMode } from '@angular/core';
 import { platformUniversalDynamic } from 'angular2-universal';
-import { AppModule } from './app/app.module';
+
+// Grab the browser-specific NgModule
+import { AppModule } from './app/app.browser.module';
 
 // Enable either Hot Module Reloading or production mode
 // Add Redux HMR state management here
