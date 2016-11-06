@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 
-import { XhrService } from 'app-shared';
-
 @Component({
     selector: 'rest-test',
     template: require('./rest-test.component.html')
@@ -10,15 +8,15 @@ import { XhrService } from 'app-shared';
 export class RestTestComponent {
     public forecasts: IWeatherForecast[];
 
-    constructor(private http: Http, private xhrService: XhrService) {
+    constructor(private http: Http) {
         this.http.get('/api/SampleData/WeatherForecasts').subscribe(result => {
 
             this.forecasts = result.json();
 
-            xhrService.cacheResponse({
-                method: '/api/SampleData/WeatherForecasts',
-                response: result.json()
-            });
+            //xhrService.cacheResponse({
+            //    method: '/api/SampleData/WeatherForecasts',
+            //    response: result.json()
+            //});
 
             console.log(result.json());
         });
