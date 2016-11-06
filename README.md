@@ -1,6 +1,6 @@
 # ASP.NET Core & Angular2 Universal starter
 
-# [WIP] Work in progress !
+## - Fully functioning (some additional features coming soon!)
 
 ### Featuring:
 
