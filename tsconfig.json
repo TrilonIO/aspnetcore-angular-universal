@@ -11,9 +11,9 @@
     "lib": [ "es6", "dom" ],
     "types": [ "node" ],
     "paths": {
-      "app-shared": [ "./clientapp/shared" ],
-      "app-containers": [ "./clientapp/containers" ],
-      "app-components": [ "./clientapp/components" ]
+      "app-shared": [ "./Client/shared" ],
+      "app-containers": [ "./Client/containers" ],
+      "app-components": [ "./Client/components" ]
     }
   },
   "exclude": [ "bin", "node_modules" ],

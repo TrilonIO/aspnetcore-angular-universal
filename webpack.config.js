@@ -33,7 +33,7 @@ module.exports = setTypeScriptAlias(require('./tsconfig.json'), {
 
     // What are our "entry" points for webpack to create "Chunks"
     entry: {
-        main: ['./ClientApp/boot-client.ts']
+        main: ['./Client/bootstrap-client.ts']
     },
 
     // Where should webpack put files after they're processed
@@ -120,7 +120,7 @@ module.exports = setTypeScriptAlias(require('./tsconfig.json'), {
         new ContextReplacementPlugin(
             // The (\\|\/) piece accounts for path separators in *nix and Windows
             /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
-            root('./ClientApp')
+            root('./Client')
         ),
 
         new TsConfigPathsPlugin({
@@ -185,12 +185,12 @@ function root(args) {
 //module.exports = {
 //    devtool: isDevBuild ? 'inline-source-map' : null,
 //    resolve: { extensions: [ '', '.js', '.ts' ] },
-//    entry: { main: ['./ClientApp/boot-client.ts'] },
+//    entry: { main: ['./Client/bootstrap-client.ts'] },
 //    module: {
 //        loaders: [
-//            { test: /\.ts$/, include: /ClientApp/, loader: 'ts', query: { silent: true } },
-//            { test: /\.html$/, include: /ClientApp/, loader: 'raw' },
-//            { test: /\.css/, include: /ClientApp/, loader: 'raw' }
+//            { test: /\.ts$/, include: /Client/, loader: 'ts', query: { silent: true } },
+//            { test: /\.html$/, include: /Client/, loader: 'raw' },
+//            { test: /\.css/, include: /Client/, loader: 'raw' }
 //        ]
 //    },
 //    output: {

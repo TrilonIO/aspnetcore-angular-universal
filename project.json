@@ -55,7 +55,7 @@
   "publishOptions": {
     "include": [
       "appsettings.json",
-      "ClientApp",
+      "Client",
       "node_modules",
       "typings",
       "Views",

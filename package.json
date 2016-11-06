@@ -1,8 +1,14 @@
 {
   "name": "aspnetcore-angular2-universal-starter",
-  "version": "0.0.0",
-  "scripts": {
-    "postinstall": "webpack --config webpack.config.vendor.js"
+  "version": "0.5.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarkPieszak/aspnetcore-angular2-starter.git"
+  },
+  "author": {
+    "name": "Mark Pieszak",
+    "email": "mpieszak84@gmail.com",
+    "url": "http://www.github.com/MarkPieszak"
   },
   "dependencies": {
     "@angular/common": "2.1.0",
@@ -51,5 +57,41 @@
     "webpack-merge": "^0.14.1",
     "webpack-node-externals": "^1.4.3",
     "zone.js": "^0.6.21"
-  } 
+  },
+  "keywords": [
+    "aspnetcore",
+    "angular2",
+    "angular2-universal",
+    "angular2universal",
+    "universal",
+    "typescript",
+    "typescript2",
+    "ts2",
+    "webpack",
+    "webpack2"
+  ],
+  "scripts": {
+    "ci": "npm test && npm run e2e",
+    "clean": "npm cache clean && npm run rimraf -- node_modules doc typings coverage wwwroot/dist",
+    "clean:dist": "npm run rimraf -- wwwroot/dist",
+    "docs": "npm run typedoc -- --options typedoc.json --exclude '**/*.spec.ts' ./Client/",
+    "e2e": "npm run protractor",
+    "e2e:live": "npm run e2e -- --elementExplorer",
+    "lint": "npm run tslint \"Client/**/*.ts\"",
+    "postinstall": "webpack --config webpack.config.vendor.js",
+    "posttest": "npm run coverage",
+    "postversion": "git push && git push --tags",
+    "pretest": "npm run lint",
+    "preversion": "npm test",
+    "protractor": "protractor",
+    "rimraf": "rimraf",
+    "test": "karma start",
+    "tslint": "tslint",
+    "typedoc": "typedoc",
+    "version": "npm run build",
+    "webdriver:start": "npm run webdriver-manager start",
+    "webdriver:update": "npm run webdriver-manager update",
+    "webdriver-manager": "webdriver-manager",
+    "webpack": "webpack"
+  }
 }

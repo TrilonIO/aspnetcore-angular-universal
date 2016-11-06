@@ -2,13 +2,13 @@
 import { Observable, Subject } from 'rxjs/Rx';
 import { WebSocketService } from './websocket.service';
 
-const scheme = document.location.protocol == "https:" ? "wss" : "ws";
-const port = document.location.port ? (":" + document.location.port) : "";
+//const scheme = document.location.protocol == "https:" ? "wss" : "ws";
+//const port = document.location.port ? (":" + document.location.port) : "";
 
-// const SOCKET_URL = 'ws://localhost:53223/ws/websocket';
-const SOCKET_URL = scheme + "://" + document.location.hostname + port + '/ws';
+//// const SOCKET_URL = 'ws://localhost:53223/ws/websocket';
+//const SOCKET_URL = scheme + "://" + document.location.hostname + port + '/ws';
 
-console.log(SOCKET_URL);
+//console.log(SOCKET_URL);
 
 export interface ISocketMessage {
     ACTION: string,
@@ -22,7 +22,7 @@ export class SocketConnectionService {
 
     constructor(wsService: WebSocketService) {
         this.frames = <Subject<ISocketMessage>>wsService
-            .connect(SOCKET_URL)
+            .connect(''/*SOCKET_URL*/)
             .map((response: MessageEvent): ISocketMessage => {
 
                 console.log('RESPONSE CAME BACK?\n');
