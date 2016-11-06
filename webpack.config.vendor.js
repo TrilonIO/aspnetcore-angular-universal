@@ -5,8 +5,7 @@ var ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var extractCSS = new ExtractTextPlugin('vendor.css');
 
-// var isDevelopment = process.env.ASPNETCORE_ENVIRONMENT === 'Production' ? false : true;
-var isDevelopment = true;
+var isDevelopment = process.env.ASPNETCORE_ENVIRONMENT === 'Production' ? false : true;
 
 module.exports = {
     resolve: {
@@ -31,12 +30,9 @@ module.exports = {
             '@angular/router',
             '@angular/platform-server',
             'angular2-universal',           
-            'angular2-universal-polyfills', 
-            //'bootstrap',
-            //'bootstrap/dist/css/bootstrap.css',
+            'angular2-universal-polyfills',
             'es6-shim',
             'es6-promise',
-            //'jquery',
             'zone.js',
         ]
     },
