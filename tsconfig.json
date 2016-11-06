@@ -11,9 +11,9 @@
     "lib": [ "es6", "dom" ],
     "types": [ "node" ],
     "paths": {
-      "nh-shared": [ "./shared" ],
-      "nh-containers": [ "./containers" ],
-      "nh-components": [ "./components" ]
+      "app-shared": [ "./clientapp/shared" ],
+      "app-containers": [ "./clientapp/containers" ],
+      "app-components": [ "./clientapp/components" ]
     }
   },
   "exclude": [ "bin", "node_modules" ],

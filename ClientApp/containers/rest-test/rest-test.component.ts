@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 
-import { XhrService } from 'nh-shared';
+import { XhrService } from 'app-shared';
 
 @Component({
     selector: 'rest-test',

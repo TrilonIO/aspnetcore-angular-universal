@@ -7,7 +7,7 @@
     So instead of having to do something crazy like: "from '../../components/'"
 
     We can just do:
-        import { NavMenuComponent } from 'nh-components';
+        import { NavMenuComponent } from 'app-components';
 
     Makes life easier!
 */

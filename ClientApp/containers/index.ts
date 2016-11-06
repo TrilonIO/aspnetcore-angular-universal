@@ -7,7 +7,7 @@
     So instead of having to do something crazy like: "from '../../containers/'"
 
     We can just do:
-        import { HomeComponent } from 'nh-containers';
+        import { HomeComponent } from 'app-containers';
 
     Makes life easier!
 */

@@ -7,7 +7,7 @@
     So instead of having to do something crazy like: "from '../../shared/'"
 
     We can just do:
-        import { XhrService } from 'nh-shared';
+        import { XhrService } from 'app-shared';
 
     Makes life easier!
 */
