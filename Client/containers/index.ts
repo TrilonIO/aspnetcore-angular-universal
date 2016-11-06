@@ -15,3 +15,4 @@
 export * from './websocket-test/websocket-test.component';
 export * from './rest-test/rest-test.component';
 export * from './home/home.component';
+export * from './bootstrap/bootstrap.component';

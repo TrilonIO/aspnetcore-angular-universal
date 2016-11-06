@@ -40,6 +40,7 @@
     "jquery": "^2.2.1",
     "js.clone": "0.0.3",
     "json-loader": "^0.5.4",
+    "ng2-bootstrap": "^1.1.16",
     "preboot": "^4.5.2",
     "raw-loader": "^0.5.1",
     "reflect-metadata": "^0.1.8",

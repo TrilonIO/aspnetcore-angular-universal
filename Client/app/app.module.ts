@@ -1,10 +1,15 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { UniversalModule, isBrowser, isNode } from 'angular2-universal';
 
+// Bootstrap (non-jQuery implementation
+import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
+
 // Main "APP" Root Component
 import { AppComponent } from './app.component';
+import { ROUTES } from './app.routes';
 
 // Component imports
 import { NavMenuComponent } from '../components';
@@ -13,7 +18,8 @@ import { NavMenuComponent } from '../components';
 import { 
     HomeComponent,
     WebSocketTestComponent,
-    RestTestComponent
+    RestTestComponent,
+    BootstrapComponent
 } from '../containers';
 
 // Provider (aka: "shared" | "services") imports
@@ -26,11 +32,11 @@ import { SocketConnectionService, WebSocketService } from '../shared';
         NavMenuComponent,
         RestTestComponent,
         WebSocketTestComponent,
-        HomeComponent
+        HomeComponent,
+        BootstrapComponent
     ],
     providers: [
-        // SocketConnectionService,
-        // WebSocketService
+
     ],
     imports: [
         UniversalModule, // Must be first import. This automatically imports BrowserModule, HttpModule, and JsonpModule too.
@@ -39,18 +45,10 @@ import { SocketConnectionService, WebSocketService } from '../shared';
         // Even make it dynamic whether it's for Browser or Server (Dependency Injection)
         // isBrowser ? something : somethingElse, <- basic pseudo example
 
-        RouterModule.forRoot([
-            // Base route
-            { path: '', redirectTo: 'home', pathMatch: 'full' },
+        FormsModule,
+        Ng2BootstrapModule,
 
-            // Other routes
-            { path: 'home', component: HomeComponent },
-            { path: 'rest-test', component: RestTestComponent },
-            { path: 'websocket-test', component: WebSocketTestComponent },
-
-            // All else fails - go home
-            { path: '**', redirectTo: 'home' }
-        ])
+        RouterModule.forRoot(ROUTES)
     ]
 })
 export class AppModule {
