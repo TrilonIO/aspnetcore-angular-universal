@@ -7,7 +7,7 @@ import { UniversalModule, isBrowser, isNode } from 'angular2-universal/browser';
 
 // Universal : XHR Cache
 import { CacheService } from './universal-cache';
-import { ApiService, ModelService } from './api';
+import { ApiService } from './api';
 export const UNIVERSAL_KEY = 'UNIVERSAL_CACHE';
 
 // Bootstrap (non-jQuery implementation)
@@ -45,8 +45,7 @@ import { SocketConnectionService, WebSocketService } from 'app-shared';
         { provide: 'isBrowser', useValue: isBrowser },
         { provide: 'isNode', useValue: isNode },
         CacheService,
-        ApiService,
-        ModelService
+        ApiService
     ],
     imports: [
         UniversalModule, // Must be first import. This automatically imports BrowserModule, HttpModule, and JsonpModule too.
@@ -68,12 +67,15 @@ export class AppModule {
     }
 
     doRehydrate() {
+        console.log('DO REHYDRATE');
         let defaultValue = {};
         let serverCache = this._getCacheValue(CacheService.KEY, defaultValue);
         this.cache.rehydrate(serverCache);
     }
 
     _getCacheValue(key: string, defaultValue: any): any {
+        console.log('_getCacheValue for ' + key)
+        console.log(window[UNIVERSAL_KEY]);
         // browser
         const win: any = window;
         if (win[UNIVERSAL_KEY] && win[UNIVERSAL_KEY][key]) {

@@ -7,7 +7,7 @@ import { UniversalModule, isBrowser, isNode } from 'angular2-universal/node';
 
 // Universal : XHR Cache
 import { CacheService } from './universal-cache';
-import { ApiService, ModelService } from './api';
+import { ApiService } from './api';
 
 // Bootstrap (non-jQuery implementation)
 import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
@@ -44,8 +44,7 @@ import { SocketConnectionService, WebSocketService } from 'app-shared';
         { provide: 'isBrowser', useValue: isBrowser },
         { provide: 'isNode', useValue: isNode },
         CacheService,
-        ApiService,
-        ModelService
+        ApiService
     ],
     imports: [
         UniversalModule, // Must be first import. This automatically imports NodeModule, NodeHttpModule, and NodeJsonpModule too.
@@ -70,6 +69,7 @@ export class AppModule {
      * in Universal for now until it's fixed
      */
     universalDoDehydrate = (universalCache) => {
+        console.log('universalDoDehydrate ****');
         universalCache[CacheService.KEY] = JSON.stringify(this.cache.dehydrate());
     }
 

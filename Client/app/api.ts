@@ -23,47 +23,23 @@ export function hashCode(str) {
 
 @Injectable()
 export class ApiService {
-    constructor(public _http: Http) {
+
+    constructor(public _http: Http, public _cache: CacheService) {
 
     }
-
-    /**
-     * whatever domain/feature method name
-     */
-    get(url: string, options?: any) {
-        return this._http.get(url, options)
-            .map(res => res.json())
-            .catch(err => {
-                console.log('Error: ', err);
-                return Observable.throw(err);
-            });
-    }
-
-}
-
-@Injectable()
-export class ModelService {
-
-    constructor(public _api: ApiService, public _cache: CacheService) {
-
-    }
-
-    /**
-     * whatever domain/feature method name
-     */
-    get(url) {
-        // you want to return the cache if there is a response in it. This would cache the first response so if your API isn't idempotent you probably want to remove the item from the cache after you use it. LRU of 1
+    // whatever domain/feature method name
+    getModel(url) {
+        // you want to return the cache if there is a response in it. This would cache the first response so if your API isn't idempotent you probably want to remove the item from the cache after you use it. LRU of 1 
         let key = url;
-
         if (this._cache.has(key)) {
             return Observable.of(this._cache.get(key));
         }
         // you probably shouldn't .share() and you should write the correct logic
-        return this._api.get(url)
+        return this._http.get(url)
+            .map(res => res.json())
             .do(json => {
                 this._cache.set(key, json);
             })
             .share();
     }
-
 }
