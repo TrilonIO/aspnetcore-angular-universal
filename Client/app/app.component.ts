@@ -1,6 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { SocketConnectionService, ISocketMessage } from '../shared';
-import { isBrowser } from 'angular2-universal';
+import { isBrowser, isNode } from 'angular2-universal';
 
 @Component({
     selector: 'app',
@@ -10,13 +9,16 @@ import { isBrowser } from 'angular2-universal';
 })
 export class AppComponent {
 
-    private frames: ISocketMessage[] = [];
-
     constructor() {
+
         if (isBrowser) {
-            // example
-            // alert('yay');
+            // With use of isBrowser or isNode you could do conditional things
+            // in the different environments!
+
+            // IE: Let's say you wanted to touch the `window` or `document`
+            // This would break on the server-side, but not in the browser!
         }
+
     }
 
 }

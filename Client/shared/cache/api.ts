@@ -22,7 +22,7 @@ export function hashCode(str) {
 }
 
 @Injectable()
-export class ApiService {
+export class ApiCacheService {
 
     constructor(public _http: Http, public _cache: CacheService) {
 

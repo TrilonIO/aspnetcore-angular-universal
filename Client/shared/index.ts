@@ -7,12 +7,12 @@
     So instead of having to do something crazy like: "from '../../shared/'"
 
     We can just do:
-        import { XhrService } from 'app-shared';
+        import { WebSocketService } from 'app-shared';
 
     Makes life easier!
 */
 
-export * from './websockets/socketconnection.service';
-export * from './websockets/websocket.service';
+// Put Shared SERVICES here in /shared
 
-export * from './xhr/xhr.service';
+export * from './cache/api';
+export * from './cache/universal-cache';
