@@ -5,11 +5,6 @@ import { RouterModule } from '@angular/router';
 // for AoT we need to manually split universal packages (/browser & /node)
 import { UniversalModule, isBrowser, isNode } from 'angular2-universal/browser';
 
-// Universal : XHR Cache
-import { CacheService } from './universal-cache';
-import { ApiService } from './api';
-export const UNIVERSAL_KEY = 'UNIVERSAL_CACHE';
-
 // Bootstrap (non-jQuery implementation)
 import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
 
@@ -23,13 +18,16 @@ import { NavMenuComponent } from 'app-components';
 // Container (aka: "pages") imports
 import { 
     HomeComponent,
-    WebSocketTestComponent,
     RestTestComponent,
     BootstrapComponent
 } from 'app-containers';
 
 // Provider (aka: "shared" | "services") imports
-import { SocketConnectionService, WebSocketService } from 'app-shared';
+import {
+    ApiCacheService, CacheService // Universal : XHR Cache
+} from 'app-shared';
+
+export const UNIVERSAL_KEY = 'UNIVERSAL_CACHE';
 
 @NgModule({
     bootstrap: [ AppComponent ],
@@ -37,7 +35,6 @@ import { SocketConnectionService, WebSocketService } from 'app-shared';
         AppComponent, 
         NavMenuComponent,
         RestTestComponent,
-        WebSocketTestComponent,
         HomeComponent,
         BootstrapComponent
     ],
@@ -45,7 +42,7 @@ import { SocketConnectionService, WebSocketService } from 'app-shared';
         { provide: 'isBrowser', useValue: isBrowser },
         { provide: 'isNode', useValue: isNode },
         CacheService,
-        ApiService
+        ApiCacheService
     ],
     imports: [
         UniversalModule, // Must be first import. This automatically imports BrowserModule, HttpModule, and JsonpModule too.
