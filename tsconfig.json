@@ -9,13 +9,27 @@
     "emitDecoratorMetadata": true,
     "skipDefaultLibCheck": true,
     "lib": [ "es6", "dom" ],
-    "types": [ "node" ],
+    "types": [
+      "hammerjs",
+      "jasmine",
+      "node",
+      "protractor",
+      "source-map",
+      "uglify-js",
+      "webpack"
+    ],
     "paths": {
       "app-shared": [ "./Client/shared" ],
       "app-containers": [ "./Client/containers" ],
       "app-components": [ "./Client/components" ]
     }
   },
-  "exclude": [ "bin", "node_modules" ],
+  "exclude": [ "bin", "wwwroot", "node_modules" ],
+  "compileOnSave": false,
+  "awesomeTypescriptLoaderOptions": {
+    "forkChecker": true,
+    "useWebpackText": true
+  },
+  "buildOnSave": false,
   "atom": { "rewriteTsconfig": false }
-} 
+}
