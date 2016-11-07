@@ -19,6 +19,9 @@
   
 ### Getting Started?
 
+> You'll need ASP.NET Core installed (1.0.1). 
+> Make sure you have VStudio 2015 update 3 installed as well.
+
  - Fork & Clone repo
  - `npm install && dotnet restore` (if using Visual Studio it will do both of these automatically when the project is opened)
  
