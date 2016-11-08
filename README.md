@@ -5,9 +5,24 @@
 This repository is maintained by Angular Universal and is meant to be an advanced starter for both ASP.NET Core using 
 Angular2, not only for the client-side, but to be rendered on the *server*. 
 
+This is meant to be an advanced starter, feature-rich, and include many real-world examples and libraries needed in todays Single Page Applications (SPAs).
+
 ---
 
-### What does this repo include?
+# Table of Contents
+
+* [Features](#features)
+* [Getting Started](#getting-started)
+* [Upcoming Features](#upcoming-features)
+* [Universal Gotchas](#universal-gotchas)
+* [Special Thanks](#special-thanks)
+* [License](#license)
+
+---
+
+### Features:
+
+> These are just some of the features found in this starter!
 
 - Angular2
   - Featuring Server-side rendering (Angular Universal)
@@ -49,10 +64,10 @@ Angular2, not only for the client-side, but to be rendered on the *server*.
   - [ ] NgRx (reactive Redux application state management)
   - [ ] HMR State management
   - [ ] Websockets example
-  - [x] Unit testing with Karma/Jasmine
-  - [x] Add e2e protractor tests
-  - [x] Add codelyzer for static code analysis
-  - [x] Angular 2.1.1+ fixes (for Universal)
+  - [x] ~~Unit testing with Karma/Jasmine~~
+  - [x] ~~Add e2e protractor tests~~
+  - [x] ~~Add codelyzer for static code analysis~~
+  - [x] ~~Angular 2.1.1+ fixes (for Universal)~~
 
 ----
 
@@ -75,3 +90,13 @@ constructor(element: ElementRef, renderer: Renderer) {
     - Use a [UniversalCache](https://github.com/angular/universal-starter/blob/master/src/app/universal-cache.ts) to save certain requests so they aren't re-ran again on the Client.
  - Know the difference between attributes and properties in relation to the DOM.
  - Keep your directives stateless as much as possible. For stateful directives, you may need to provide an attribute that reflects the corresponding property with an initial string value such as url in img tag. For our native <img src=""> element the src attribute is reflected as the src property of the element type HTMLImageElement.
+ 
+ ----
+ 
+ ### Special Thanks
+ 
+ Many thanks go out to Steve Sanderson from Microsoft and his amazing work on JavaScriptServices and integrating the world of Node with ASP.NET Core.
+ 
+ ### License
+ 
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](/LICENSE)
