@@ -15,6 +15,7 @@
       "node",
       "protractor",
       "source-map",
+      "selenium-webdriver",
       "uglify-js",
       "webpack"
     ],

@@ -1,6 +1,6 @@
 {
   "name": "aspnetcore-angular2-universal-starter",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "author": {
     "name": "Mark Pieszak",
     "email": "mpieszak84@gmail.com",
@@ -36,6 +36,7 @@
     "@types/jasmine": "2.5.35",
     "@types/node": "^6.0.46",
     "@types/protractor": "1.5.20",
+    "@types/selenium-webdriver": "2.44.29",
     "@types/source-map": "0.1.28",
     "@types/uglify-js": "2.6.28",
     "@types/webpack": "1.12.35",
