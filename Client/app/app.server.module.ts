@@ -24,7 +24,7 @@ import {
 
 // Provider (aka: "shared" | "services") imports
 import {
-    ApiCacheService, CacheService // Universal : XHR Cache
+    HttpCacheService, CacheService // Universal : XHR Cache
 } from 'app-shared';
 
 @NgModule({
@@ -40,7 +40,7 @@ import {
         { provide: 'isBrowser', useValue: isBrowser },
         { provide: 'isNode', useValue: isNode },
         CacheService,
-        ApiCacheService
+        HttpCacheService
     ],
     imports: [
         UniversalModule, // Must be first import. This automatically imports NodeModule, NodeHttpModule, and NodeJsonpModule too.

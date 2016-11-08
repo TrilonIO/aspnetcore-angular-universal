@@ -24,7 +24,7 @@ import {
 
 // Provider (aka: "shared" | "services") imports
 import {
-    ApiCacheService, CacheService // Universal : XHR Cache
+    HttpCacheService, CacheService // Universal : XHR Cache
 } from 'app-shared';
 
 export const UNIVERSAL_KEY = 'UNIVERSAL_CACHE';
@@ -42,7 +42,7 @@ export const UNIVERSAL_KEY = 'UNIVERSAL_CACHE';
         { provide: 'isBrowser', useValue: isBrowser },
         { provide: 'isNode', useValue: isNode },
         CacheService,
-        ApiCacheService
+        HttpCacheService
     ],
     imports: [
         UniversalModule, // Must be first import. This automatically imports BrowserModule, HttpModule, and JsonpModule too.

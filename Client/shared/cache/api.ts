@@ -22,13 +22,13 @@ export function hashCode(str) {
 }
 
 @Injectable()
-export class ApiCacheService {
+export class HttpCacheService {
 
     constructor(public _http: Http, public _cache: CacheService) {
 
     }
     // whatever domain/feature method name
-    getModel(url) {
+    get(url) {
         // you want to return the cache if there is a response in it. This would cache the first response so if your API isn't idempotent you probably want to remove the item from the cache after you use it. LRU of 1 
         let key = url;
         if (this._cache.has(key)) {

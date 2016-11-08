@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 
-import { ApiCacheService } from 'app-shared';
+import { HttpCacheService } from 'app-shared';
 
 @Component({
     selector: 'rest-test',
@@ -10,12 +10,10 @@ import { ApiCacheService } from 'app-shared';
 export class RestTestComponent implements OnInit {
     public users: IUser[];
 
-    constructor(private _apiCacheService: ApiCacheService) { }
+    constructor(private httpCache: HttpCacheService) { }
 
     ngOnInit() {
-        this._apiCacheService.getModel('/api/test/users').subscribe(result => {
-            console.log('AFTER SUBSCRIBE');
-            console.log(result);
+        this.httpCache.get('/api/test/users').subscribe(result => {
             this.users = result;
         });
     }
