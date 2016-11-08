@@ -51,7 +51,7 @@ Angular2, not only for the client-side, but to be rendered on the *server*.
   - [x] Add e2e protractor tests
   - [x] Add codelyzer for static code analysis
   - [ ] HMR State management
-  - [ ] Angular 2.1.1+ fixes (for Universal)
+  - [x] Angular 2.1.1+ fixes (for Universal)
   - [ ] Websockets example
 
 ----
