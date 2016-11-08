@@ -1,3 +1,4 @@
+import './__2.1.1.workaround.ts';
 import 'angular2-universal-polyfills/browser';
 import { enableProdMode } from '@angular/core';
 import { platformUniversalDynamic } from 'angular2-universal';
