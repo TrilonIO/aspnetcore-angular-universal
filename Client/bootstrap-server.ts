@@ -24,9 +24,9 @@ export default function (params: any): Promise<{ html: string, globals?: any }> 
     `;
 
     // hold platform reference
-    var platformRef = platformNodeDynamic();
+    const platformRef = platformNodeDynamic();
 
-    var platformConfig = {
+    let platformConfig = {
         ngModule: AppModule,
         document: doc,
         preboot: false,
@@ -36,11 +36,11 @@ export default function (params: any): Promise<{ html: string, globals?: any }> 
     };
 
     // defaults
-    var cancel = false;
+    let cancel = false;
 
     const _config = Object.assign({
         get cancel() { return cancel; },
-        cancelHandler() { return Zone.current.get('cancel') }
+        cancelHandler() { return Zone.current.get('cancel'); }
     }, platformConfig);
 
     // for each user
@@ -52,7 +52,7 @@ export default function (params: any): Promise<{ html: string, globals?: any }> 
 
     return Promise.resolve(
         zone.run(() => {
-            return platformRef.serializeModule(Zone.current.get('ngModule'))
+            return platformRef.serializeModule(Zone.current.get('ngModule'));
         })
     ).then(html => {
 

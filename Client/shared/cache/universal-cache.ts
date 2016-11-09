@@ -30,6 +30,18 @@ export class CacheService {
     }
 
     /**
+     * remove specific cache item
+     */
+    remove(key: string | number): boolean {
+        let _key = this.normalizeKey(key);
+        if (_key && this._cache.has(_key)) { 
+            this._cache.delete(_key);
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * release memory refs
      */
     clear(): void {

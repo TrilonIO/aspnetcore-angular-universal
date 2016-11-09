@@ -8,12 +8,15 @@ import { AppModule } from './app/app.browser.module';
 
 // Enable either Hot Module Reloading or production mode
 // Add Redux HMR state management here
+
+/* tslint:disable */
 if (module['hot']) {
     module['hot'].accept();
     module['hot'].dispose(() => { platform.destroy(); });
 } else {
     enableProdMode();
 }
+/* tslint:enable */
 
 // Boot the application, either now or when the DOM content is loaded
 const platform = platformUniversalDynamic();

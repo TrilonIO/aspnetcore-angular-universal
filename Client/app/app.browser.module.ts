@@ -16,7 +16,7 @@ import { ROUTES } from './app.routes';
 import { NavMenuComponent } from 'app-components';
 
 // Container (aka: "pages") imports
-import { 
+import {
     HomeComponent,
     RestTestComponent,
     BootstrapComponent
@@ -32,7 +32,7 @@ export const UNIVERSAL_KEY = 'UNIVERSAL_CACHE';
 @NgModule({
     bootstrap: [ AppComponent ],
     declarations: [
-        AppComponent, 
+        AppComponent,
         NavMenuComponent,
         RestTestComponent,
         HomeComponent,
@@ -71,8 +71,10 @@ export class AppModule {
     }
 
     _getCacheValue(key: string, defaultValue: any): any {
-        console.log('_getCacheValue for ' + key)
+
+        console.log('_getCacheValue for ' + key);
         console.log(window[UNIVERSAL_KEY]);
+
         // browser
         const win: any = window;
         if (win[UNIVERSAL_KEY] && win[UNIVERSAL_KEY][key]) {
