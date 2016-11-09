@@ -1,6 +1,6 @@
 {
   "name": "aspnetcore-angular2-universal-starter",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "author": {
     "name": "Mark Pieszak",
     "email": "mpieszak84@gmail.com",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MarkPieszak/aspnetcore-angular2-starter.git"
+    "url": "git+https://github.com/MarkPieszak/aspnetcore-angular2-universal.git"
   },
   "dependencies": {
     "@angular/common": "2.1.2",
