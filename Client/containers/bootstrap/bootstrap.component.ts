@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'bootstrap',
+    selector: 'app-bootstrap',
     template: require('./bootstrap.component.html')
 })
 export class BootstrapComponent {
@@ -25,7 +25,9 @@ export class BootstrapComponent {
         }
     ];
 
-    public addItem(): void {
+    constructor () {}
+
+    addItem(): void {
         this.items.push(`Items ${this.items.length + 1}`);
     }
 

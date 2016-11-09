@@ -4,7 +4,7 @@ import { Http } from '@angular/http';
 import { HttpCacheService } from 'app-shared';
 
 @Component({
-    selector: 'rest-test',
+    selector: 'app-rest-test',
     template: require('./rest-test.component.html')
 })
 export class RestTestComponent implements OnInit {

@@ -38,10 +38,13 @@ This is meant to be an advanced starter, feature-rich, and include many real-wor
   - Unit testing with Karma/Jasmine
 
 - Productivity 
-  - Codelyzer (for real-time static code analysis) `npm run lint`
-	- *Note, only VSCode & Atom can provide real-time code analysis at this moment*
+  - Codelyzer (for Real-Sime static code analysis) 
+    - VSCode & Atom provide real-time analysis out of the box.
+    - **NOTE**: In Visual Studio 2015, for codelyzer to work, you must *at least* have .NET Core >= **1.1.0-preview1** and Update 3 installed. You can find the [1.1.0 download here](https://github.com/dotnet/core/blob/master/release-notes/preview-download.md). 
+    
 
 - asp.NET Core 1.0.1
+  - Install 1.1 preview 1 & SDK 1.0 Preview 2.1 for the best results with codelyzer etc [1.1.0 download here](https://github.com/dotnet/core/blob/master/release-notes/preview-download.md).
   - RestAPI integration
   - Integration with NodeJS to provide pre-rendering, as well as any other Node module asset you want to use.
  
