@@ -87,7 +87,7 @@ constructor(element: ElementRef, renderer: Renderer) {
 }
 ```
  - The application runs XHR requests on the server & once again on the Client-side (when the application bootstraps)
-    - Use a [UniversalCache](https://github.com/angular/universal-starter/blob/master/src/app/universal-cache.ts) to save certain requests so they aren't re-ran again on the Client.
+    - Use the [HttpCacheService ](https://github.com/MarkPieszak/aspnetcore-angular2-universal/blob/master/Client/shared/cache/api.ts), as opposed to using the `Http` service, to save certain requests so they aren't re-ran again on the Client. Use this for imports calls on pages that you expect a client to first-hit your site. Homepage, maybe a products page, etc.
  - Know the difference between attributes and properties in relation to the DOM.
  - Keep your directives stateless as much as possible. For stateful directives, you may need to provide an attribute that reflects the corresponding property with an initial string value such as url in img tag. For our native <img src=""> element the src attribute is reflected as the src property of the element type HTMLImageElement.
  
@@ -103,3 +103,4 @@ Many thanks go out to Steve Sanderson from Microsoft and his amazing work on Jav
 ### License
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](/LICENSE)
+, as
