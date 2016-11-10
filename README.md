@@ -7,6 +7,8 @@ Angular2, not only for the client-side, but to be rendered on the *server*.
 
 This is meant to be an advanced starter, feature-rich, and include many real-world examples and libraries needed in todays Single Page Applications (SPAs).
 
+Currently in Beta - some improvements & functionality to come, 1.0 version will be released very shortly.
+
 ---
 
 # Table of Contents
