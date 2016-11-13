@@ -9,7 +9,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 // HMR state management 
 import { handleHmr } from 'app';
 // Grab the browser-specific NgModule
-import { AppModule } from './app/platform-modules/app.browser.module';
+import { AppBrowserModule } from './app/platform-modules/app.browser.module';
 
 let platform;
 
@@ -22,7 +22,7 @@ if ('production' === process.env.ENV) {
 }
 
 // Boot the application normally
-const bootApplication = () => platform.bootstrapModule(AppModule);
+const bootApplication = () => platform.bootstrapModule(AppBrowserModule);
 
 // HMR bootstrap overload
 const hmrBootstrap = () => { handleHmr(module, bootApplication); };

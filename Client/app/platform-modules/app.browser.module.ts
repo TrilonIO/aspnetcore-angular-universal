@@ -1,99 +1,55 @@
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-
-import { Store, StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-
-import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { Store, StoreModule } from '@ngrx/store';
 
 // for AoT we need to manually split universal packages (/browser & /node)
 import { UniversalModule, isBrowser, isNode } from 'angular2-universal/browser';
 
-// Main "APP" Root Component
-import { AppComponent, ROUTES, appReducer } from 'app';
+import { AppCommonModule } from './common.module';
+import { AppComponent, appReducer, appState, ROUTES } from 'app';
 
-// Component imports
-import { NavMenuComponent } from 'app-components';
-
-// Container (aka: "pages") imports
-import {
-    HomeComponent,
-    RestTestComponent,
-    BootstrapComponent,
-    LoginComponent
-} from 'app-containers';
-
-// Provider (aka: "shared" | "services") imports
-import {
-    HttpCacheService, CacheService // Universal : XHR Cache
-} from 'app-shared';
-
-//////////////////////////////////////////////////////////////////
-
-// This imports the variable that, in a hot loading situation, holds
-// a reference to the previous application's last state before
-// it was destroyed.
-import { appState } from 'app';
+// Universal : XHR Cache 
+import { CacheService } from 'app-shared';
 
 export const UNIVERSAL_KEY = 'UNIVERSAL_CACHE';
 
 @NgModule({
     bootstrap: [ AppComponent ],
-    declarations: [
-        AppComponent,
-        NavMenuComponent,
-        RestTestComponent,
-        HomeComponent,
-        LoginComponent,
-        BootstrapComponent
-    ],
-    providers: [
-        { provide: 'isBrowser', useValue: isBrowser },
-        { provide: 'isNode', useValue: isNode },
-        CacheService,
-        HttpCacheService
-    ],
     imports: [
-        UniversalModule, // Must be first import. This automatically imports BrowserModule, HttpModule, and JsonpModule too.
+        // "UniversalModule" Must be first import.
+        // ** NOTE ** : This automatically imports BrowserModule, HttpModule, and JsonpModule for Browser,
+        // and NodeModule, NodeHttpModule etc for the server.
+        UniversalModule, 
 
-        // Here we can import other stuff
-        // Even make it dynamic whether it's for Browser or Server (Dependency Injection)
-        // isBrowser ? something : somethingElse, <- basic pseudo example
+        AppCommonModule,
 
         // NgRx
-        StoreModule.provideStore(appReducer, appState),
-        EffectsModule,
-        StoreDevtoolsModule.instrumentOnlyWithExtension(),
-
-        // Angular
-        FormsModule,
-        ReactiveFormsModule,
-        Ng2BootstrapModule,
-
-        // Routing
-        RouterModule.forRoot(ROUTES)
+        StoreDevtoolsModule.instrumentOnlyWithExtension()
+    ],
+    providers: [
+        // Can be used inside Components within the app to declaritively run code
+        // depending on the platform it's in
+        { provide: 'isBrowser', useValue: isBrowser },
+        { provide: 'isNode', useValue: isNode }
     ]
 })
-export class AppModule {
+export class AppBrowserModule {
+
     constructor(public cache: CacheService) {
-        // TODO(gdi2290): refactor into a lifecycle hook
         this.doRehydrate();
     }
 
+    // Universal Cache "hook"
     doRehydrate() {
         let defaultValue = {};
         let serverCache = this._getCacheValue(CacheService.KEY, defaultValue);
         this.cache.rehydrate(serverCache);
     }
 
+    // Universal Cache "hook
     _getCacheValue(key: string, defaultValue: any): any {
-
-        console.log('Universal Cache for key :: ' + key);
-        console.log(window[UNIVERSAL_KEY]);
-
-        // browser
+        // Get cache that came from the server
         const win: any = window;
         if (win[UNIVERSAL_KEY] && win[UNIVERSAL_KEY][key]) {
             let serverCache = defaultValue;

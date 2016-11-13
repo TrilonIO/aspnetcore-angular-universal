@@ -1,77 +1,39 @@
-import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
 
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { Store, StoreModule } from '@ngrx/store';
 // for AoT we need to manually split universal packages (/browser & /node)
 import { UniversalModule, isBrowser, isNode } from 'angular2-universal/node';
 
-// Bootstrap (non-jQuery implementation)
-import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { AppCommonModule } from './common.module';
+import { AppComponent, appReducer, appState, ROUTES } from 'app';
 
-// Main "APP" Root Component
-import { AppComponent, ROUTES, appReducer } from 'app';
-
-// Component imports
-import { NavMenuComponent } from 'app-components';
-
-// HMR Application State
-import { appState } from 'app';
-
-// Container (aka: "pages") imports
-import {
-    HomeComponent,
-    RestTestComponent,
-    BootstrapComponent,
-    LoginComponent
-} from 'app-containers';
-
-// Provider (aka: "shared" | "services") imports
-import {
-    HttpCacheService, CacheService // Universal : XHR Cache
-} from 'app-shared';
+// Universal : XHR Cache 
+import { CacheService } from 'app-shared';
 
 @NgModule({
     bootstrap: [ AppComponent ],
-    declarations: [
-        AppComponent,
-        NavMenuComponent,
-        RestTestComponent,
-        HomeComponent,
-        LoginComponent,
-        BootstrapComponent
+    imports: [
+        // "UniversalModule" Must be first import.
+        // ** NOTE ** : This automatically imports BrowserModule, HttpModule, and JsonpModule for Browser,
+        // and NodeModule, NodeHttpModule etc for the server.
+        UniversalModule, 
+
+        AppCommonModule
     ],
     providers: [
+        // Can be used inside Components within the app to declaritively run code
+        // depending on the platform it's in
         { provide: 'isBrowser', useValue: isBrowser },
-        { provide: 'isNode', useValue: isNode },
-        CacheService,
-        HttpCacheService
-    ],
-    imports: [
-        UniversalModule, // Must be first import. This automatically imports NodeModule, NodeHttpModule, and NodeJsonpModule too.
-
-        // Here we can import other stuff
-        // Even make it dynamic whether it's for Browser or Server (Dependency Injection)
-        // isBrowser ? something : somethingElse, <- basic pseudo example
-
-        // NgRx
-        StoreModule.provideStore(appReducer, appState),
-        EffectsModule,
-
-        FormsModule,
-        ReactiveFormsModule,
-        Ng2BootstrapModule,
-
-        RouterModule.forRoot(ROUTES)
+        { provide: 'isNode', useValue: isNode }
     ]
 })
-export class AppModule {
-    constructor(public cache: CacheService) {
+export class AppServerModule {
 
-    }
+    constructor(public cache: CacheService) { }
 
-    /**
+    /** Universal Cache "hook"
      * We need to use the arrow function here to bind the context as this is a gotcha
      * in Universal for now until it's fixed
      */
@@ -80,7 +42,7 @@ export class AppModule {
         universalCache[CacheService.KEY] = JSON.stringify(this.cache.dehydrate());
     }
 
-    /**
+    /** Universal Cache "hook"
      * Clear the cache after it's rendered
      */
     universalAfterDehydrate = () => {

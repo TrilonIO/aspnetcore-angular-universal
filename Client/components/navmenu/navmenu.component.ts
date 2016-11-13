@@ -21,7 +21,7 @@ export class NavMenuComponent {
 
         store.select('loggedInUser').subscribe(user => {
             this.user$ = user;
-        });
+        }); 
     }
 
     logout() {

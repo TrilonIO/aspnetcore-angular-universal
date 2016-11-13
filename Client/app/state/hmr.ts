@@ -41,7 +41,11 @@ export function handleHmr(
     // Get the current state from the Store. The store is an Observable so
     // we can use the Observable API to get the state. We'll get it synchronously
     // though this code may look like we might not.
-    store.take(1).subscribe(s => appState = s);
+    store.take(1).subscribe(s => {
+      console.log('inside store');
+      console.log(s);
+      appState = s;
+    });
 
     // When an Angular app is destroyed, it will also remove the DOM elements
     // of its root component(s) from the page. When doing hot loading, this is

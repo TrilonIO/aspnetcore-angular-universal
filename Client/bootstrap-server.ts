@@ -5,7 +5,7 @@ import { enableProdMode } from '@angular/core';
 import { platformNodeDynamic } from 'angular2-universal';
 
 // Grab the (Node) server-specific NgModule
-import { AppModule } from './app/platform-modules/app.server.module';
+import { AppServerModule } from './app/platform-modules/app.server.module';
 
 enableProdMode();
 
@@ -27,7 +27,7 @@ export default function (params: any): Promise<{ html: string, globals?: any }> 
     const platformRef = platformNodeDynamic();
 
     let platformConfig = {
-        ngModule: AppModule,
+        ngModule: AppServerModule,
         document: doc,
         preboot: false,
         baseUrl: '/',
