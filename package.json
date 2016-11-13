@@ -129,6 +129,8 @@
     "webdriver:start": "npm run webdriver-manager start",
     "webdriver:update": "npm run webdriver-manager update",
     "webdriver-manager": "webdriver-manager",
-    "webpack": "webpack"
+    "webpack": "webpack",
+    "start:dashboard": "npm run webpack-dashboard -- webpack-dev-server --inline --hot --progress --port 8080",
+    "webpack-dashboard": "webpack-dashboard"
   }
 }
