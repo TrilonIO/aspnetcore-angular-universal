@@ -2,13 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { Store, StoreModule } from '@ngrx/store';
-
 // for AoT we need to manually split universal packages (/browser & /node)
 import { UniversalModule, isBrowser, isNode } from 'angular2-universal/browser';
 
 import { AppCommonModule } from './common.module';
-import { AppComponent, appReducer, appState, ROUTES } from 'app';
-
+import { AppComponent } from 'app';
 // Universal : XHR Cache 
 import { CacheService } from 'app-shared';
 

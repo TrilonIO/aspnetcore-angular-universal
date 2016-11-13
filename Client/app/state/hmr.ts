@@ -42,8 +42,6 @@ export function handleHmr(
     // we can use the Observable API to get the state. We'll get it synchronously
     // though this code may look like we might not.
     store.take(1).subscribe(s => {
-      console.log('inside store');
-      console.log(s);
       appState = s;
     });
 

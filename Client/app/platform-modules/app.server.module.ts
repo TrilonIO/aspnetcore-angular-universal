@@ -7,8 +7,7 @@ import { Store, StoreModule } from '@ngrx/store';
 import { UniversalModule, isBrowser, isNode } from 'angular2-universal/node';
 
 import { AppCommonModule } from './common.module';
-import { AppComponent, appReducer, appState, ROUTES } from 'app';
-
+import { AppComponent } from 'app';
 // Universal : XHR Cache 
 import { CacheService } from 'app-shared';
 
