@@ -4,10 +4,11 @@
 import {
     HomeComponent,
     RestTestComponent,
-    BootstrapComponent
-} from '../containers';
+    BootstrapComponent,
+    LoginComponent
+} from 'app-containers';
 
-export const ROUTES : Route[] = [
+export const ROUTES: Route[] = [
     // Base route
     { path: '', redirectTo: 'home', pathMatch: 'full' },
 
@@ -15,7 +16,8 @@ export const ROUTES : Route[] = [
     { path: 'home', component: HomeComponent },
     { path: 'bootstrap', component: BootstrapComponent },
     { path: 'rest-test', component: RestTestComponent },
+    { path: 'login', component: LoginComponent },
 
     // All else fails - go home
     { path: '**', redirectTo: 'home' }
-]
+];

@@ -3,7 +3,12 @@ import { isBrowser, isNode } from 'angular2-universal';
 
 @Component({
     selector: 'app',
-    template: require('./app.component.html'),
+    template: `
+        <div class="container-fluid">
+            <app-nav-menu></app-nav-menu>
+            <router-outlet></router-outlet>
+        </div>
+    `,
     styles: [require('./app.component.css')],
     encapsulation: ViewEncapsulation.None
 })

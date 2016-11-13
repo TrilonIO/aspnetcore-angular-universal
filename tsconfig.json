@@ -20,6 +20,7 @@
       "webpack"
     ],
     "paths": {
+      "app" : ["./Client/app" ],
       "app-shared": [ "./Client/shared" ],
       "app-containers": [ "./Client/containers" ],
       "app-components": [ "./Client/components" ]

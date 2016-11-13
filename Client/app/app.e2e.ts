@@ -1,9 +1,9 @@
 ﻿describe('App', () => {
 
     beforeEach(() => {
-        //browser.get('/');
+        // browser.get('/');
     });
-    
+
     it('e2e test should run', () => {
         let subject = true;
         let result = true;

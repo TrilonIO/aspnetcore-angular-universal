@@ -1,29 +1,36 @@
-import './__2.1.1.workaround.ts';
-import 'angular2-universal-polyfills/browser';
+import './__2.1.1.workaround.ts'; // temporary until 2.1.1 things are patched in Core
+import 'angular2-universal-polyfills/browser'; // This needs to be at the top, Universal neccessary polyfills
+
 import { enableProdMode } from '@angular/core';
+// We're going to let Universal take over the Clients "bootstrap" (instead of the normal platformBrowserDynamic)
 import { platformUniversalDynamic } from 'angular2-universal';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
+// HMR state management 
+import { handleHmr } from 'app';
 // Grab the browser-specific NgModule
-import { AppModule } from './app/app.browser.module';
+import { AppModule } from './app/platform-modules/app.browser.module';
 
-// Enable either Hot Module Reloading or production mode
-// Add Redux HMR state management here
+let platform;
 
-/* tslint:disable */
-if (module['hot']) {
-    module['hot'].accept();
-    module['hot'].dispose(() => { platform.destroy(); });
+if ('production' === process.env.ENV) {
+  enableProdMode();
+  platform = platformUniversalDynamic();
 } else {
-    enableProdMode();
+  // Development mode
+  platform = platformBrowserDynamic();
 }
-/* tslint:enable */
 
-// Boot the application, either now or when the DOM content is loaded
-const platform = platformUniversalDynamic();
-const bootApplication = () => { platform.bootstrapModule(AppModule); };
+// Boot the application normally
+const bootApplication = () => platform.bootstrapModule(AppModule);
 
-if (document.readyState === 'complete') {
+// HMR bootstrap overload
+const hmrBootstrap = () => { handleHmr(module, bootApplication); };
+
+if ((<any>module).hot) {
+    console.log('we just HMR bootstrapped!');
+    hmrBootstrap();
+} else {
     bootApplication();
-} else {
-    document.addEventListener('DOMContentLoaded', bootApplication);
 }
+

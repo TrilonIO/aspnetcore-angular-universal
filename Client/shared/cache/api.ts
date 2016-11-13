@@ -24,7 +24,7 @@ export class HttpCacheService {
 
         if (this._cache.has(key)) {
 
-            var cachedResponse = this._cache.get(key);
+            const cachedResponse = this._cache.get(key);
 
             // if autoClear is set to false, item will stay in cache until you manually clear it
             // ie: trigger CacheService.remove(url /* with the url/key used here */)

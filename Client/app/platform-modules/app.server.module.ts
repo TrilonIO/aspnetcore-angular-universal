@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 // for AoT we need to manually split universal packages (/browser & /node)
 import { UniversalModule, isBrowser, isNode } from 'angular2-universal/node';
@@ -9,17 +11,20 @@ import { UniversalModule, isBrowser, isNode } from 'angular2-universal/node';
 import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 // Main "APP" Root Component
-import { AppComponent } from './app.component';
-import { ROUTES } from './app.routes';
+import { AppComponent, ROUTES, appReducer } from 'app';
 
 // Component imports
 import { NavMenuComponent } from 'app-components';
+
+// HMR Application State
+import { appState } from 'app';
 
 // Container (aka: "pages") imports
 import {
     HomeComponent,
     RestTestComponent,
-    BootstrapComponent
+    BootstrapComponent,
+    LoginComponent
 } from 'app-containers';
 
 // Provider (aka: "shared" | "services") imports
@@ -30,10 +35,11 @@ import {
 @NgModule({
     bootstrap: [ AppComponent ],
     declarations: [
-        AppComponent, 
+        AppComponent,
         NavMenuComponent,
         RestTestComponent,
         HomeComponent,
+        LoginComponent,
         BootstrapComponent
     ],
     providers: [
@@ -49,7 +55,12 @@ import {
         // Even make it dynamic whether it's for Browser or Server (Dependency Injection)
         // isBrowser ? something : somethingElse, <- basic pseudo example
 
+        // NgRx
+        StoreModule.provideStore(appReducer, appState),
+        EffectsModule,
+
         FormsModule,
+        ReactiveFormsModule,
         Ng2BootstrapModule,
 
         RouterModule.forRoot(ROUTES)

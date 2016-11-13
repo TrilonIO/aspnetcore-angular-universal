@@ -15,3 +15,4 @@
 export * from './rest-test/rest-test.component';
 export * from './home/home.component';
 export * from './bootstrap/bootstrap.component';
+export * from './login/login.component';

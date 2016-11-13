@@ -15,4 +15,13 @@
             <span class="glyphicon glyphicon-education"></span> RestAPI Demo
         </a>
     </li>
+    <li *ngIf="!loggedIn$" [routerLinkActive]="['link-active']">
+        <a [routerLink]="['/login']">
+            <span class="glyphicon glyphicon-user"></span> Login
+        </a>
+    </li>
+    <li *ngIf="loggedIn$" (click)="logout()">
+        <a [routerLink]="['/']">
+        </a>
+    </li>
 </ul>

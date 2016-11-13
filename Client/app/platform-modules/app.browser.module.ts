@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+
+import { Store, StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
+import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 // for AoT we need to manually split universal packages (/browser & /node)
 import { UniversalModule, isBrowser, isNode } from 'angular2-universal/browser';
 
-// Bootstrap (non-jQuery implementation)
-import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
-
 // Main "APP" Root Component
-import { AppComponent } from './app.component';
-import { ROUTES } from './app.routes';
+import { AppComponent, ROUTES, appReducer } from 'app';
 
 // Component imports
 import { NavMenuComponent } from 'app-components';
@@ -19,13 +21,21 @@ import { NavMenuComponent } from 'app-components';
 import {
     HomeComponent,
     RestTestComponent,
-    BootstrapComponent
+    BootstrapComponent,
+    LoginComponent
 } from 'app-containers';
 
 // Provider (aka: "shared" | "services") imports
 import {
     HttpCacheService, CacheService // Universal : XHR Cache
 } from 'app-shared';
+
+//////////////////////////////////////////////////////////////////
+
+// This imports the variable that, in a hot loading situation, holds
+// a reference to the previous application's last state before
+// it was destroyed.
+import { appState } from 'app';
 
 export const UNIVERSAL_KEY = 'UNIVERSAL_CACHE';
 
@@ -36,6 +46,7 @@ export const UNIVERSAL_KEY = 'UNIVERSAL_CACHE';
         NavMenuComponent,
         RestTestComponent,
         HomeComponent,
+        LoginComponent,
         BootstrapComponent
     ],
     providers: [
@@ -51,9 +62,17 @@ export const UNIVERSAL_KEY = 'UNIVERSAL_CACHE';
         // Even make it dynamic whether it's for Browser or Server (Dependency Injection)
         // isBrowser ? something : somethingElse, <- basic pseudo example
 
+        // NgRx
+        StoreModule.provideStore(appReducer, appState),
+        EffectsModule,
+        StoreDevtoolsModule.instrumentOnlyWithExtension(),
+
+        // Angular
         FormsModule,
+        ReactiveFormsModule,
         Ng2BootstrapModule,
 
+        // Routing
         RouterModule.forRoot(ROUTES)
     ]
 })
@@ -64,7 +83,6 @@ export class AppModule {
     }
 
     doRehydrate() {
-        console.log('DO REHYDRATE');
         let defaultValue = {};
         let serverCache = this._getCacheValue(CacheService.KEY, defaultValue);
         this.cache.rehydrate(serverCache);
@@ -72,7 +90,7 @@ export class AppModule {
 
     _getCacheValue(key: string, defaultValue: any): any {
 
-        console.log('_getCacheValue for ' + key);
+        console.log('Universal Cache for key :: ' + key);
         console.log(window[UNIVERSAL_KEY]);
 
         // browser

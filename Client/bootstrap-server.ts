@@ -5,7 +5,7 @@ import { enableProdMode } from '@angular/core';
 import { platformNodeDynamic } from 'angular2-universal';
 
 // Grab the (Node) server-specific NgModule
-import { AppModule } from './app/app.server.module';
+import { AppModule } from './app/platform-modules/app.server.module';
 
 enableProdMode();
 
