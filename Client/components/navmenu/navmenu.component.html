@@ -22,6 +22,7 @@
     </li>
     <li *ngIf="loggedIn$" (click)="logout()">
         <a [routerLink]="['/']">
+            <span class="glyphicon glyphicon-user"></span> Welcome, {{ user$.username }} - Logout
         </a>
     </li>
 </ul>
