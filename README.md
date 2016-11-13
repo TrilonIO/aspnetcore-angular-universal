@@ -31,6 +31,7 @@ needed in todays Single Page Applications (SPAs).
   - Featuring Server-side rendering (Angular Universal)
 	  - Faster paints, better SEO, deep-linking, etc
   - NgRx - Reactive Redux state management architecture
+    - Built to work with the real-time Redux Devtools. [Get the Chrome extension here](https://github.com/zalmoxisus/redux-devtools-extension) 
   - Baked in best-practices (follows Angular style guide)
   - Bootstrap4 (with ng2-bootstrap) - can be rendered on the server
 
