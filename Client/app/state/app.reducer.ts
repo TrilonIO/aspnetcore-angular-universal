@@ -10,7 +10,7 @@ import { List, Range } from 'immutable';
 import { AppStateRecord, appStateFactory } from 'app';
 
 // Action definitions
-export const LOGIN_USER = 'LOlGIN_USER'; 
+export const LOGIN_USER = 'LOGIN_USER'; 
 export const LOGOUT_USER = 'LOGOUT_USER';
 
 // The reducer function. Receives actions and produces new application states.
