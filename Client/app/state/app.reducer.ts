@@ -19,9 +19,6 @@ export const appReducer: ActionReducer<AppStateRecord> = (state = makeInitialSta
   switch (action.type) {
 
     case LOGIN_USER:
-      console.log(action.payload);
-      // state.set('loggedInUser', action.payload);
-      // state.set('loggedIn', true);
       return state.merge({ loggedInUser: action.payload, loggedIn: true });
 
     case LOGOUT_USER:

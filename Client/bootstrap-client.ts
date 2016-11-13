@@ -28,7 +28,6 @@ const bootApplication = () => platform.bootstrapModule(AppModule);
 const hmrBootstrap = () => { handleHmr(module, bootApplication); };
 
 if ((<any>module).hot) {
-    console.log('we just HMR bootstrapped!');
     hmrBootstrap();
 } else {
     bootApplication();
