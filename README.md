@@ -2,12 +2,13 @@
 
 ### What is this repo?
 
-This repository is maintained by Angular Universal and is meant to be an advanced starter for both ASP.NET Core using 
+This repository is maintained by [Angular Universal](https://github.com/angular/universal) and is meant to be an advanced starter for both ASP.NET Core using 
 Angular2, not only for the client-side, but to be rendered on the *server*. 
 
-This is meant to be an advanced starter, feature-rich, and include many real-world examples and libraries needed in todays Single Page Applications (SPAs).
+This is meant to be a Feature-Rich Starter application, and include many real-world examples and libraries 
+needed in todays Single Page Applications (SPAs). 
 
-Currently in Beta - some improvements & functionality to come, 1.0 version will be released very shortly.
+[11/13] Fully operational, some improvements & new functionality to come, keep an eye out for the latest updates!
 
 ---
 
@@ -28,13 +29,16 @@ Currently in Beta - some improvements & functionality to come, 1.0 version will 
 
 - Angular2
   - Featuring Server-side rendering (Angular Universal)
-	- Faster paints, better SEO, deep-linking, etc
+	  - Faster paints, better SEO, deep-linking, etc
+  - NgRx - Reactive Redux state management architecture
   - Baked in best-practices (follows Angular style guide)
   - Bootstrap4 (with ng2-bootstrap) - can be rendered on the server
 
 - Webpack build system
   - HMR : Hot Module Reloading/Replacement 
+    - NgRx state management integrated to hold state between HMR builds!
   - Production builds
+  - Webpack Dashboard
 
 - Testing frameworks
   - Unit testing with Karma/Jasmine
@@ -42,11 +46,9 @@ Currently in Beta - some improvements & functionality to come, 1.0 version will 
 - Productivity 
   - Codelyzer (for Real-Sime static code analysis) 
     - VSCode & Atom provide real-time analysis out of the box.
-    - **NOTE**: In Visual Studio 2015, for codelyzer to work, you must *at least* have .NET Core >= **1.1.0-preview1** and Update 3 installed. You can find the [1.1.0 download here](https://github.com/dotnet/core/blob/master/release-notes/preview-download.md). 
-    
+    - **NOTE**: Does not fully work with Visual Studio yet. (Even with 1.1.0-preview)
 
-- asp.NET Core 1.0.1
-  - Install 1.1 preview 1 & SDK 1.0 Preview 2.1 for the best results with codelyzer etc [1.1.0 download here](https://github.com/dotnet/core/blob/master/release-notes/preview-download.md).
+- ASP.NET Core 1.0.1
   - RestAPI integration
   - Integration with NodeJS to provide pre-rendering, as well as any other Node module asset you want to use.
  
@@ -66,9 +68,9 @@ Currently in Beta - some improvements & functionality to come, 1.0 version will 
 
 # UPCOMING Features:
 
-  - [ ] NgRx (reactive Redux application state management)
-  - [ ] HMR State management
   - [ ] Websockets example
+  - [x] ~~NgRx (reactive Redux application state management)~~
+  - [x] ~~HMR State management~~
   - [x] ~~Unit testing with Karma/Jasmine~~
   - [x] ~~Add e2e protractor tests~~
   - [x] ~~Add codelyzer for static code analysis~~

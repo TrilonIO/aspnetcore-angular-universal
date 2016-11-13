@@ -17,7 +17,7 @@ export const LOGOUT_USER = 'LOGOUT_USER';
 export const appReducer: ActionReducer<AppStateRecord> = (state = makeInitialState(), action: Action) => { 
 
   switch (action.type) {
-    
+
     case LOGIN_USER:
       console.log(action.payload);
       // state.set('loggedInUser', action.payload);
@@ -30,7 +30,7 @@ export const appReducer: ActionReducer<AppStateRecord> = (state = makeInitialSta
     default:
       return state;
   }
-}
+};
 
 // Initial AppState, used to bootstrap the reducer.
 function makeInitialState() {
