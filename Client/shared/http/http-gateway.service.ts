@@ -10,9 +10,6 @@ import { Http, Response, RequestOptions, RequestMethod, URLSearchParams } from '
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
-// Import the rxjs operators we need (in a production app you'll
-//  probably want to import only the operators you actually use)
-//
 export class ApiGatewayOptions {
     method: RequestMethod;
     url: string;
@@ -20,7 +17,6 @@ export class ApiGatewayOptions {
     params = {};
     data = {};
 }
-
 
 @Injectable()
 export class ApiGatewayService {
@@ -36,22 +32,18 @@ export class ApiGatewayService {
         this.pendingCommands$ = this.pendingCommandsSubject.asObservable();
     }
 
-    // I perform a GET request to the API, appending the given params
-    // as URL search parameters. Returns a stream.
-    get(url: string, params: any): Observable<Response> {
+    // Http overrides 
+    // -------------------
+
+    get(url: string, params?: any): Observable<Response> {
         let options = new ApiGatewayOptions();
-        options.method = RequestMethod.Get;
-        options.url = url;
-        options.params = params;
-        return this.request(options);
+
+        this.addBearerToken(options);
+
+        return this.http.get(url, options);
     }
 
-    // I perform a POST request to the API. If both the params and data
-    // are present, the params will be appended as URL search parameters
-    // and the data will be serialized as a JSON payload. If only the
-    // data is present, it will be serialized as a JSON payload. Returns
-    // a stream.
-    post(url: string, data: any, params: any): Observable<Response> {
+    post(url: string, data?: any, params?: any): Observable<Response> {
         if (!data) {
             data = params;
             params = {};
@@ -64,6 +56,30 @@ export class ApiGatewayService {
         return this.request(options);
     }
 
+    put(url: string, data?: any, params?: any): Observable<Response> {
+        if (!data) {
+            data = params;
+            params = {};
+        }
+        let options = new ApiGatewayOptions();
+        options.method = RequestMethod.Put;
+        options.url = url;
+        options.params = params;
+        options.data = data;
+        return this.request(options);
+    }
+
+    delete(url: string, params?: any): Observable<Response> {
+        let options = new ApiGatewayOptions();
+        options.method = RequestMethod.Delete;
+        options.url = url;
+        options.params = params;
+        return this.request(options);
+    }
+
+
+    // Internal methods
+    // --------------------
 
     private request(options: ApiGatewayOptions): Observable<any> {
         options.method = (options.method || RequestMethod.Get);
@@ -75,8 +91,7 @@ export class ApiGatewayService {
         this.interpolateUrl(options);
         this.addXsrfToken(options);
         this.addContentType(options);
-        // TODO add auth token when available
-        // this.addAuthToken(options);
+        this.addBearerToken(options);
 
         let requestOptions = new RequestOptions();
         requestOptions.method = options.method;
@@ -117,8 +132,10 @@ export class ApiGatewayService {
         return options;
     }
 
-    private addAuthToken(options: ApiGatewayOptions): ApiGatewayOptions {
-        options.headers.Authorization = 'Bearer ' + JSON.parse(sessionStorage.getItem('accessToken'));
+    private addBearerToken(options: ApiGatewayOptions): ApiGatewayOptions {
+        if (sessionStorage.getItem('accessToken')) {
+            options.headers.Authorization = 'Bearer ' + sessionStorage.getItem('accessToken');
+        }
         return options;
     }
 

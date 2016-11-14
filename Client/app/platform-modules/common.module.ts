@@ -32,7 +32,8 @@ import {
 
 // Provider (aka: "shared" | "services") imports
 import {
-    HttpCacheService, CacheService // Universal : XHR Cache
+    HttpCacheService, CacheService, // Universal : XHR Cache
+    ApiGatewayService
 } from 'app-shared';
 
 //////////////////////////////////////////////////////////////////
@@ -79,7 +80,8 @@ const COMPONENTS = [
 const PROVIDERS = [
     // put shared services here
     CacheService,
-    HttpCacheService
+    HttpCacheService,
+    ApiGatewayService
 ];
 
 @NgModule({
