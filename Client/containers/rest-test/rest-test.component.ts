@@ -1,11 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
+import { 
+    Component, OnInit, 
+    // animation imports
+    trigger, state, style, transition, animate } from '@angular/core';
 
+import { Http } from '@angular/http';
 import { HttpCacheService } from 'app-shared';
 
 @Component({
     selector: 'app-rest-test',
-    template: require('./rest-test.component.html')
+    template: require('./rest-test.component.html'),
+    animations: [
+        // Animation example
+        // Triggered in the ngFor with [@flyInOut]
+        trigger('flyInOut', [
+            state('in', style({transform: 'translateY(0)'})),
+            transition('void => *', [
+                style({transform: 'translateY(-100%)'}),
+                animate(1000)
+            ]),
+            transition('* => void', [
+                animate(1000, style({transform: 'translateY(100%)'}))
+            ])
+        ])
+    ]
 })
 export class RestTestComponent implements OnInit {
     

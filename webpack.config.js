@@ -16,7 +16,7 @@ var ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
 var isDevBuild = process.env.ASPNETCORE_ENVIRONMENT === 'Production' ? false : true;
 
 // Sourcemaps (for Development only)
-var devTool = isDevBuild ? 'inline-source-map' : '';
+var devTool = isDevBuild ? 'source-map' : '';
 
 // Webpack configuration Export
 // Here we wrap the configuration around setTypeScriptAlias so that it can properly map our "paths: []" from tsconfig

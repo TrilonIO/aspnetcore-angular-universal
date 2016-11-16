@@ -12,7 +12,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let user of users">
+        <tr *ngFor="let user of users" [@flyInOut]>
             <td>{{ user.id }}</td>
             <td>{{ user.name }}</td>
         </tr>

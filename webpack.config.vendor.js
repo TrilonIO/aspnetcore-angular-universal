@@ -7,7 +7,13 @@ var extractCSS = new ExtractTextPlugin('vendor.css');
 
 var isDevelopment = process.env.ASPNETCORE_ENVIRONMENT === 'Production' ? false : true;
 
+// Sourcemaps (for Development only)
+var devTool = isDevelopment ? 'source-map' : '';
+
 module.exports = {
+    
+    devtool: devTool,
+
     resolve: {
         extensions: ['.js']
     },

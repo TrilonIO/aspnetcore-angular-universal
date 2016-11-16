@@ -5,6 +5,7 @@
     "sourceMap": true,
     "rootDir": ".",
     "baseUrl": ".",
+    "outDir": "wwwroot/dist",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "skipDefaultLibCheck": true,
