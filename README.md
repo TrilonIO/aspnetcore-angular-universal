@@ -69,12 +69,14 @@ needed in todays Single Page Applications (SPAs).
 
 # UPCOMING Features:
 
+  - [ ] AoT (Ahead-of-time compilation) production builds
   - [ ] Websockets example
+  - [ ] Update components real unit & e2e tests
   - [x] ~~NgRx (reactive Redux application state management)~~
-  - [x] ~~HMR State management~~
+  - [x] ~~HMR State management (hold state when hot reload occurs)~~
   - [x] ~~Unit testing with Karma/Jasmine~~
   - [x] ~~Add e2e protractor tests~~
-  - [x] ~~Add codelyzer for static code analysis~~
+  - [x] ~~Add codelyzer for static code analysis (VSCode / Atom only so far)~~
   - [x] ~~Angular 2.1.1+ fixes (for Universal)~~
 
 ----
