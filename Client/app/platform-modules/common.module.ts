@@ -27,7 +27,8 @@ import {
     HomeComponent,
     RestTestComponent,
     BootstrapComponent,
-    LoginComponent
+    LoginComponent,
+    ExamplesComponent
 } from 'app-containers';
 
 // Provider (aka: "shared" | "services") imports
@@ -74,7 +75,8 @@ const COMPONENTS = [
     RestTestComponent,
     HomeComponent,
     LoginComponent,
-    BootstrapComponent
+    BootstrapComponent,
+    ExamplesComponent
 ];
 
 const PROVIDERS = [

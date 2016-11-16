@@ -8,10 +8,14 @@ import { HttpCacheService } from 'app-shared';
     template: require('./rest-test.component.html')
 })
 export class RestTestComponent implements OnInit {
+    
     public users: IUser[];
 
+    // Use "constructor"s only for dependency injection
     constructor(private httpCache: HttpCacheService) { }
 
+    // Here you want to handle anything with @Input()'s @Output()'s
+    // Data retrieval / etc - this is when the Component is "ready" and wired up
     ngOnInit() {
         this.httpCache.get('/api/test/users').subscribe(result => {
             this.users = result;

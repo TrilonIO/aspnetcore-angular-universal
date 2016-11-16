@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { AppState, LOGIN_USER } from 'app';
 
@@ -28,11 +28,18 @@ export class UserModel {
         </form>
     `
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
     user: UserModel = new UserModel();
 
+    // Use "constructor"s only for dependency injection
     constructor(private router: Router, private store: Store<AppState>) {}
+
+    // Here you want to handle anything with @Input()'s @Output()'s
+    // Data retrieval / etc - this is when the Component is "ready" and wired up
+    ngOnInit () {
+
+    }
 
     submitUser () {
 

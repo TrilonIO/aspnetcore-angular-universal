@@ -25,6 +25,7 @@ export class BootstrapComponent {
         }
     ];
 
+    // Use "constructor"s only for dependency injection
     constructor () {}
 
     addItem(): void {
