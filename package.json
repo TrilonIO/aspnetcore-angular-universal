@@ -10,6 +10,14 @@
     "type": "git",
     "url": "git+https://github.com/MarkPieszak/aspnetcore-angular2-universal.git"
   },
+  "config": {
+    "engine-strict": true
+  },
+  "engineStrict": true,
+  "engines": {
+    "node": ">= 5 <= 7",
+    "npm": ">= 3"
+  },
   "dependencies": {
     "@angular/common": "2.2.0",
     "@angular/compiler": "2.2.0",
