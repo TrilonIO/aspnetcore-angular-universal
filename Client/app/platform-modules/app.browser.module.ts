@@ -5,7 +5,7 @@ import { Store, StoreModule } from '@ngrx/store';
 // for AoT we need to manually split universal packages (/browser & /node)
 import { UniversalModule, isBrowser, isNode, AUTO_PREBOOT } from 'angular2-universal/browser';
 
-import { AppCommonModule } from './common.module';
+import { AppCommonModule } from './app.common.module';
 import { AppComponent } from 'app';
 // Universal : XHR Cache 
 import { CacheService } from 'app-shared';

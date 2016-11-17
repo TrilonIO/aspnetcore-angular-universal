@@ -20,6 +20,11 @@
             <span class="glyphicon glyphicon-education"></span> RestAPI Demo
         </a>
     </li>
+    <li [routerLinkActive]="['link-active']">
+        <a [routerLink]="['/faq']">
+            <span class="glyphicon glyphicon-education"></span> FAQ
+        </a>
+    </li>
     <li *ngIf="!loggedIn$" [routerLinkActive]="['link-active']">
         <a [routerLink]="['/login']">
             <span class="glyphicon glyphicon-user"></span> Login

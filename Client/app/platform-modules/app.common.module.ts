@@ -1,5 +1,5 @@
 /*
- * _Common_ NgModule to share between Browser & Server platforms
+ * _Common_ NgModule to share between our "BASE" App.Browser & App.Server module platforms
  *
  *  If something belongs to BOTH, just put it Here.
  * - If you need something to be very "platform"-specific, put it 
@@ -7,8 +7,6 @@
  */
 
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { Store, StoreModule } from '@ngrx/store';
@@ -17,7 +15,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 // Main "APP" Root Component
-import { AppComponent, ROUTES, appReducer } from 'app';
+import { BaseSharedModule, AppComponent, ROUTES, appReducer } from 'app';
 
 // Component imports
 import { NavMenuComponent } from 'app-components';
@@ -47,11 +45,12 @@ import { appState } from 'app';
 const MODULES = [
     // Do NOT include UniversalModule, HttpModule, or JsonpModule here
 
+    // This has ALL the "Common" stuff (CommonModule, FormsModule, ReactiveFormsModule, etc etc)
+    // You would import this into your child NgModules so you don't need to duplicate so much code
+    BaseSharedModule,
+
     // Angular
-    CommonModule,
     RouterModule,
-    FormsModule,
-    ReactiveFormsModule,
 
     // NgRx
     StoreModule.provideStore(appReducer, appState),
