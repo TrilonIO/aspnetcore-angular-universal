@@ -11,7 +11,7 @@ enableProdMode();
 
 declare var Zone: any;
 
-export default function (params: any): Promise<{ html: string, globals?: any }> {
+export default function (params: IParams): Promise<{ html: string, globals?: any }> {
 
     const doc = `
         <!DOCTYPE html>\n
@@ -56,10 +56,18 @@ export default function (params: any): Promise<{ html: string, globals?: any }> 
         })
     ).then(html => {
 
+        // Something went wrong, return the original blank document at least
         if (typeof html !== 'string') {
             return { html: doc };
         }
-        return { html };
+
+        /*  Successfully serialized Application
+         *  You can pass "Globals" here if you want to pass some data to every request
+         *  (also you could pass in params.data if you want to pass data from the server that came through the Views/Index.cshtml page
+         *   inside of the asp-prerender-data="" attribute
+         *      globals: params.data
+         */
+        return { html /*, globals: someObject */ };
 
     }).catch(err => {
 
@@ -68,4 +76,11 @@ export default function (params: any): Promise<{ html: string, globals?: any }> 
 
     });
 
+}
+
+export interface IParams {
+    origin: string;
+    url: string;
+    absoluteUrl: string;
+    data: {}; // custom user data sent from server (through asp-prerender-data="" attribute on index.cshtml)
 }

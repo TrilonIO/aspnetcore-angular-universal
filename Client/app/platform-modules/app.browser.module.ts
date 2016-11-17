@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { Store, StoreModule } from '@ngrx/store';
 // for AoT we need to manually split universal packages (/browser & /node)
-import { UniversalModule, isBrowser, isNode } from 'angular2-universal/browser';
+import { UniversalModule, isBrowser, isNode, AUTO_PREBOOT } from 'angular2-universal/browser';
 
 import { AppCommonModule } from './common.module';
 import { AppComponent } from 'app';
@@ -11,6 +11,13 @@ import { AppComponent } from 'app';
 import { CacheService } from 'app-shared';
 
 export const UNIVERSAL_KEY = 'UNIVERSAL_CACHE';
+
+export function getRequest() {
+  return {};
+}
+export function getResponse() {
+  return {};
+}
 
 @NgModule({
     bootstrap: [ AppComponent ],
@@ -26,10 +33,15 @@ export const UNIVERSAL_KEY = 'UNIVERSAL_CACHE';
         StoreDevtoolsModule.instrumentOnlyWithExtension()
     ],
     providers: [
-        // Can be used inside Components within the app to declaritively run code
-        // depending on the platform it's in
-        { provide: 'isBrowser', useValue: isBrowser },
-        { provide: 'isNode', useValue: isNode }
+        // Angular -Universal- providers below ::
+        { provide: 'isBrowser', useValue: isBrowser }, 
+        { provide: 'isNode', useValue: isNode },
+        { provide: 'req', useFactory: getRequest },
+        { provide: 'res', useFactory: getResponse }
+        // Universal concept. Uncomment this if you want to Turn OFF auto preboot complete
+        // { provide: AUTO_PREBOOT, useValue: false } 
+
+        // Other providers you want to add that you don't want shared in "Common" but are browser only
     ]
 })
 export class AppBrowserModule {

@@ -135,6 +135,10 @@ module.exports = setTypeScriptAlias(require('./tsconfig.json'), {
 
     ].concat(isDevBuild ? [] : [
         // Plugins that apply in production builds only
+
+        // problem with platformUniversalDynamic on the server/client
+        new webpack.IgnorePlugin(/@angular(\\|\/)compiler/),
+
         //new webpack.optimize.OccurrenceOrderPlugin(), <-- not needed in webpack2 anymore
         new webpack.optimize.UglifyJsPlugin()
     ]),
