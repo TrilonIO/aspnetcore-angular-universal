@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { isBrowser } from 'angular2-universal';
-import { Observable } from 'rxjs/Rx';
 
 @Component({
     selector: 'app-home',
