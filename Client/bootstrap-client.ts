@@ -13,7 +13,7 @@ import { AppBrowserModule } from './app/platform-modules/app.browser.module';
 
 let platform;
 
-if ('production' === process.env.ENV) {
+if (process.env.production) {
   enableProdMode();
   platform = platformUniversalDynamic();
 } else {
@@ -27,7 +27,7 @@ const bootApplication = () => platform.bootstrapModule(AppBrowserModule);
 // HMR bootstrap overload
 const hmrBootstrap = () => { handleHmr(module, bootApplication); };
 
-if ((<any>module).hot) {
+if ((<any>module).hot && process.env.development) {
     hmrBootstrap();
 } else {
     bootApplication();

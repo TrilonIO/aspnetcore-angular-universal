@@ -11,9 +11,11 @@ var clone = require('js.clone');
 var ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
 var TsConfigPathsPlugin = require('awesome-typescript-loader').TsConfigPathsPlugin;
 var ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
+var DefinePlugin = require('webpack/lib/DefinePlugin');
 
 // Test if Development build from ASPNETCore environment
 var isDevBuild = process.env.ASPNETCORE_ENVIRONMENT === 'Production' ? false : true;
+
 
 // Sourcemaps (for Development only)
 var devTool = isDevBuild ? 'source-map' : '';
@@ -116,6 +118,12 @@ module.exports = setTypeScriptAlias(require('./tsconfig.json'), {
     // (the vendor file has all the 3rd party things we need to get our project going)
     plugins: [
 
+        new DefinePlugin({
+            'process.env': {
+                'development': true
+            }
+        }),
+
         new ContextReplacementPlugin(
             // The (\\|\/) piece accounts for path separators in *nix and Windows
             /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
@@ -135,9 +143,17 @@ module.exports = setTypeScriptAlias(require('./tsconfig.json'), {
 
     ].concat(isDevBuild ? [] : [
         // Plugins that apply in production builds only
+        new DefinePlugin({
+            'process.env': {
+                'production': true
+            }
+        }),
 
         // problem with platformUniversalDynamic on the server/client
-        new webpack.IgnorePlugin(/@angular(\\|\/)compiler/),
+        new webpack.NormalModuleReplacementPlugin(
+            /@angular(\\|\/)compiler/,
+            root('empty.js')
+        ),
 
         //new webpack.optimize.OccurrenceOrderPlugin(), <-- not needed in webpack2 anymore
         new webpack.optimize.UglifyJsPlugin()
