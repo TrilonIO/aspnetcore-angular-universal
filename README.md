@@ -68,6 +68,7 @@ needed in todays Single Page Applications (SPAs).
 (Temporarily) But for VSCode, in order to see the full Production version you must go to Command Line and set the environment variable 
 to: `ASPNETCORE_ENVIRONMENT=Production`, then run `webpack` manually. Then you can launch the [Production] Launch Web option from VSCode.
 
+> Note: `set ASPNETCORE_ENVIRONMENT=Production` on Windows. `export ASPNETCORE_ENVIRONMENT=Production` on Mac/Linux.
 
 ----
 
