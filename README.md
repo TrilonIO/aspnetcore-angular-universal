@@ -63,7 +63,11 @@ needed in todays Single Page Applications (SPAs).
  - Fork & Clone repo
  - `npm install && dotnet restore` (if using Visual Studio it will do both of these automatically when the project is opened)
  
- > Both Visual Studio & VSCode have the neccessary Launch files to be able to run & debug immidiately.
+ > Both Visual Studio & VSCode have the neccessary (Dev & Prod) Launch files to be able to run & debug immidiately.
+
+(Temporarily) But for VSCode, in order to see the full Production version you must go to Command Line and set the environment variable 
+to: `ASPNETCORE_ENVIRONMENT=Production`, then run `webpack` manually. Then you can launch the [Production] Launch Web option from VSCode.
+
 
 ----
 
