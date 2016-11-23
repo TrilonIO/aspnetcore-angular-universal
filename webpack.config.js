@@ -16,7 +16,6 @@ var DefinePlugin = require('webpack/lib/DefinePlugin');
 // Test if Development build from ASPNETCore environment
 var isDevBuild = process.env.ASPNETCORE_ENVIRONMENT === 'Production' ? false : true;
 
-
 // Sourcemaps (for Development only)
 var devTool = isDevBuild ? 'source-map' : '';
 
