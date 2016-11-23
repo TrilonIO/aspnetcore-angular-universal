@@ -31,7 +31,8 @@
   "compileOnSave": false,
   "awesomeTypescriptLoaderOptions": {
     "forkChecker": true,
-    "useWebpackText": true
+    "useWebpackText": true,
+    "useCache": true
   },
   "buildOnSave": false,
   "atom": { "rewriteTsconfig": false }

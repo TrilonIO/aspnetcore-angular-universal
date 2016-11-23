@@ -136,7 +136,7 @@ module.exports = setTypeScriptAlias(require('./tsconfig.json'), {
         new ForkCheckerPlugin(),
 
         new webpack.DllReferencePlugin({
-            context: __dirname,
+            context: '.',
             manifest: require('./wwwroot/dist/vendor-manifest.json')
         })
 
