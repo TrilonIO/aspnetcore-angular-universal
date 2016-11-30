@@ -5,10 +5,9 @@
 This repository is maintained by [Angular Universal](https://github.com/angular/universal) and is meant to be an advanced starter for both ASP.NET Core using 
 Angular2, not only for the client-side, but to be rendered on the *server*. 
 
-This is meant to be a Feature-Rich Starter application, and include many real-world examples and libraries 
-needed in todays Single Page Applications (SPAs). 
+This is meant to be a Feature-Rich Starter application containing all of the latest technologies, best build systems available, and include many real-world examples and libraries needed in todays Single Page Applications (SPAs).
 
-[11/13] Fully operational, some improvements & new functionality to come, keep an eye out for the latest updates!
+[11/29] Fully operational, some improvements & new functionality to come, keep an eye out for the latest updates!
 
 ---
 
@@ -104,12 +103,17 @@ constructor(element: ElementRef, renderer: Renderer) {
 }
 ```
  - The application runs XHR requests on the server & once again on the Client-side (when the application bootstraps)
-    - Use a Universal [HttpCacheService](https://github.com/MarkPieszak/aspnetcore-angular2-universal/blob/master/Client/shared/cache/api.ts#L14-L47) instead of making regular Http requests, to save certain requests so they aren't re-ran again on the Client. [demo'd here](https://github.com/MarkPieszak/aspnetcore-angular2-universal/blob/master/Client/containers/rest-test/rest-test.component.ts#L13-L19)
+    - Use a Universal [HttpCacheService](https://github.com/MarkPieszak/aspnetcore-angular2-universal/blob/master/Client/shared/cache/api.ts#L14-L47) instead of making regular Http requests, to save certain requests so they aren't re-ran again on the Client. [demo'd here](https://github.com/MarkPieszak/aspnetcore-angular2-universal/blob/master/Client/containers/rest-test/rest-test.component.ts#L32-L40)
  - Know the difference between attributes and properties in relation to the DOM.
  - Keep your directives stateless as much as possible. For stateful directives, you may need to provide an attribute that reflects the corresponding property with an initial string value such as url in img tag. For our native `<img src="">` element the src attribute is reflected as the _src_ property of the element type `HTMLImageElement`.
 
+----
  
- 
+### Found a Bug? Want to Contribute?
+
+Nothing's ever perfect, but please let me know by creating an issue (make sure there isn't an existing one about it already), and we'll try and work out a fix for it! If you have any good ideas, or want to contribute, feel free to either make an Issue with the Proposal, or just make a PR from your Fork.
+
+
 ----
  
 ### Special Thanks
