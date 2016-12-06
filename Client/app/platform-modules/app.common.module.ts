@@ -1,3 +1,4 @@
+
 /*
  * _Common_ NgModule to share between our "BASE" App.Browser & App.Server module platforms
  *
@@ -32,7 +33,8 @@ import {
 // Provider (aka: "shared" | "services") imports
 import {
     HttpCacheService, CacheService, // Universal : XHR Cache
-    ApiGatewayService
+    ApiGatewayService, 
+    RxContextDirective
 } from 'app-shared';
 
 //////////////////////////////////////////////////////////////////
@@ -75,7 +77,10 @@ const COMPONENTS = [
     HomeComponent,
     LoginComponent,
     BootstrapComponent,
-    ExamplesComponent
+    ExamplesComponent,
+
+    // Directives
+    RxContextDirective
 ];
 
 const PROVIDERS = [
