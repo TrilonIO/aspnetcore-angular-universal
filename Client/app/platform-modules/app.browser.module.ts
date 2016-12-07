@@ -34,10 +34,14 @@ export function getResponse() {
     ],
     providers: [
         // Angular -Universal- providers below ::
+        // Use them as found in the example in /containers/home.component using for example:
+        //     ` @Inject('isBrowser') private isBrowser: boolean ` in your constructor
         { provide: 'isBrowser', useValue: isBrowser }, 
         { provide: 'isNode', useValue: isNode },
+
         { provide: 'req', useFactory: getRequest },
         { provide: 'res', useFactory: getResponse }
+        
         // Universal concept. Uncomment this if you want to Turn OFF auto preboot complete
         // { provide: AUTO_PREBOOT, useValue: false } 
 

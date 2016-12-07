@@ -29,12 +29,15 @@ export function getResponse() {
         AppCommonModule
     ],
     providers: [
-        // Can be used inside Components within the app to declaritively run code
-        // depending on the platform it's in
-        { provide: 'isBrowser', useValue: isBrowser },
+        // Angular -Universal- providers below ::
+        // Use them as found in the example in /containers/home.component using for example:
+        //     ` @Inject('isBrowser') private isBrowser: boolean ` in your constructor
+        { provide: 'isBrowser', useValue: isBrowser }, 
         { provide: 'isNode', useValue: isNode },
+
         { provide: 'req', useFactory: getRequest },
         { provide: 'res', useFactory: getResponse }
+        
 
         // Other providers you want to add that you don't want shared in "Common" but are browser only
     ]
