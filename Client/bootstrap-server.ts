@@ -13,15 +13,8 @@ declare var Zone: any;
 
 export default function (params: IParams): Promise<{ html: string, globals?: any }> {
 
-    const doc = `
-        <!DOCTYPE html>\n
-        <html>
-            <head></head>
-            <body>
-                <app></app>
-            </body>
-        </html>
-    `;
+    // Our Root application document
+    const doc = '<app></app>';
 
     // hold platform reference
     const platformRef = platformNodeDynamic();
