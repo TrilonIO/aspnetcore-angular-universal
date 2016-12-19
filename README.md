@@ -1,5 +1,9 @@
 # ASP.NET Core & Angular2 Universal starter
 
+<p align="center">
+    <img src="https://github.com/markpieszak/aspnetcore-angular2-starter/blob/master/architecture.png" alt="ASP.NET Core Vue 2.* Starter" title="ASP.NET Core Vue 2.* Starter">
+</p>
+
 ### What is this repo?
 
 This repository is maintained by [Angular Universal](https://github.com/angular/universal) and is meant to be an advanced starter for both ASP.NET Core using 
