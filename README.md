@@ -11,6 +11,8 @@ Angular2, not only for the client-side, but to be rendered on the *server*.
 
 This is meant to be a Feature-Rich Starter application containing all of the latest technologies, best build systems available, and include many real-world examples and libraries needed in todays Single Page Applications (SPAs).
 
+This utilizes all the latest standards, no gulp, no bower, no typings, no manually "building" anything. NPM, Webpack and .NET handle everything for you!
+
 [11/29] Fully operational, some improvements & new functionality to come, keep an eye out for the latest updates!
 
 ---
