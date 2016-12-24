@@ -30,7 +30,7 @@ This is meant to be a Feature-Rich Starter application containing all of the lat
 
 > These are just some of the features found in this starter!
 
-- Angular2
+- **Angular2**
   - Featuring Server-side rendering (Angular Universal)
 	  - Faster paints, better SEO, deep-linking, etc
   - NgRx - Reactive Redux state management architecture
@@ -38,25 +38,25 @@ This is meant to be a Feature-Rich Starter application containing all of the lat
   - Baked in best-practices (follows Angular style guide)
   - Bootstrap4 (with ng2-bootstrap) - can be rendered on the server
 
-- Webpack build system (Webpack 2)
+- **Webpack build system (Webpack 2)**
   - HMR : Hot Module Reloading/Replacement 
     - NgRx utilized and setup to **hold app State between HMR builds**
   - Production builds
   - Webpack Dashboard
 
-- Docker support
+- **Docker support**
 
-- Testing frameworks
+- **Testing frameworks**
   - Unit testing with Karma/Jasmine
   - E2E testing with Protractor
 
-- Productivity 
+- **Productivity**
   - Typescript 2
   - Codelyzer (for Real-Sime static code analysis) 
     - VSCode & Atom provide real-time analysis out of the box.
     - **NOTE**: Does not fully work with Visual Studio yet. (Even with 1.1.0-preview)
 
-- ASP.NET Core 1.0.1
+- **ASP.NET Core 1.1**
   - RestAPI integration
   - Integration with NodeJS to provide pre-rendering, as well as any other Node module asset you want to use.
  
@@ -66,7 +66,7 @@ This is meant to be a Feature-Rich Starter application containing all of the lat
 
 **Make sure you have at least Node 4.x or higher installed!**
 
-> You'll need ASP.NET Core installed (1.0.1). 
+> You'll need ASP.NET Core installed (1.0.1 or 1.1). 
 > Make sure you have VStudio 2015 update 3 installed as well.
 
  - Fork & Clone repo
