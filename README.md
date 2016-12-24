@@ -38,16 +38,20 @@ This is meant to be a Feature-Rich Starter application containing all of the lat
   - Baked in best-practices (follows Angular style guide)
   - Bootstrap4 (with ng2-bootstrap) - can be rendered on the server
 
-- Webpack build system
+- Webpack build system (Webpack 2)
   - HMR : Hot Module Reloading/Replacement 
-    - NgRx state management integrated to hold state between HMR builds!
+    - NgRx utilized and setup to **hold app State between HMR builds**
   - Production builds
   - Webpack Dashboard
 
+- Docker support
+
 - Testing frameworks
   - Unit testing with Karma/Jasmine
+  - E2E testing with Protractor
 
 - Productivity 
+  - Typescript 2
   - Codelyzer (for Real-Sime static code analysis) 
     - VSCode & Atom provide real-time analysis out of the box.
     - **NOTE**: Does not fully work with Visual Studio yet. (Even with 1.1.0-preview)
@@ -59,6 +63,8 @@ This is meant to be a Feature-Rich Starter application containing all of the lat
 ----
   
 ### Getting Started?
+
+**Make sure you have at least Node 4.x or higher installed!**
 
 > You'll need ASP.NET Core installed (1.0.1). 
 > Make sure you have VStudio 2015 update 3 installed as well.
@@ -77,6 +83,7 @@ to: `ASPNETCORE_ENVIRONMENT=Production`, then run `webpack` manually. Then you c
 
 # UPCOMING Features:
 
+  - [ ] Example of NgRx (redux) transfering App State from server to client
   - [ ] AoT (Ahead-of-time compilation) production builds
   - [ ] Websockets example
   - [ ] Update components real unit & e2e tests
