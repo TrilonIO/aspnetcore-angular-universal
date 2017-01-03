@@ -81,6 +81,8 @@ module.exports = function (config) {
           'PhantomJS'
 
         ],
+        
+        mime: { 'application/javascript': ['ts','tsx'] },
 
         customLaunchers: {
             ChromeTravisCi: {
