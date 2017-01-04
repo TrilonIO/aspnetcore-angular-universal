@@ -23,7 +23,7 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
 * [Getting Started](#getting-started)
 * [Upcoming Features](#upcoming-features)
 * [Universal Gotchas](#universal-gotchas)
-# [FAQ](#FAQ)
+* [FAQ](#faq)
 * [Special Thanks](#special-thanks)
 * [License](#license)
 
