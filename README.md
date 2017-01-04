@@ -23,6 +23,7 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
 * [Getting Started](#getting-started)
 * [Upcoming Features](#upcoming-features)
 * [Universal Gotchas](#universal-gotchas)
+# [FAQ](#FAQ)
 * [Special Thanks](#special-thanks)
 * [License](#license)
 
@@ -126,6 +127,17 @@ constructor(element: ElementRef, renderer: Renderer) {
 
 Nothing's ever perfect, but please let me know by creating an issue (make sure there isn't an existing one about it already), and we'll try and work out a fix for it! If you have any good ideas, or want to contribute, feel free to either make an Issue with the Proposal, or just make a PR from your Fork.
 
+----
+ 
+### FAQ
+
+**How can I disable Universal / SSR (Server-side rendering)?**
+
+To disable SSR, go to `Views/Home/Index.cshtml` and remove `asp-prerender-module="Client/bootstrap-server"` from the `<app>` component there in the cshtml file.  
+
+**How can I use Material2 with this Repo?**
+
+For now, Material2 is still in beta, and isn't fully functioning with Universal (it will sometime soon though!), so temporarily disable SSR (server-side rendering) so you can use it within your application until updates come from Material, and you can have it rendered on the server as well. Read the Material docs to see how to add Material to your Angular application, with SSR disabled everything should work without any problems.
 
 ----
  
