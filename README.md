@@ -15,6 +15,8 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
 
 [11/29] Fully operational, some improvements & new functionality to come, keep an eye out for the latest updates!
 
+> NOTE: Angular Universal is currently moving to Angular Core (https://github.com/angular/angular/issues/13822), we will need to wait for that and angular v4 to finish certain aspects (aot for example)
+
 ---
 
 # Table of Contents
