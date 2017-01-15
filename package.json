@@ -59,7 +59,7 @@
     "aspnet-webpack": "^1.0.24",
     "bootstrap": "4.0.0-alpha.5",
     "immutable": "3.8.1",
-    "ng2-bootstrap": "^1.1.16",
+    "ng2-bootstrap": "1.1.16",
     "preboot": "^4.5.2",
     "rxjs": "5.0.0-rc.2",
     "typed-immutable-record": "0.0.6",
