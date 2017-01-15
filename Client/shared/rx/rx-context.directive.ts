@@ -5,9 +5,11 @@ import {
 
 import { Observable } from 'rxjs/Rx';
 
+/* tslint:disable */ // <-- disabled to ignore app- prefix 
 @Directive({
-    selector: '[rxContext][rxContextOn]'
+    selector: '[rxContext][apprxContextOn]'
 })
+/* tslint:enable */
 export class RxContextDirective implements OnInit {
 
     @Input() rxContextOn: Observable<any>;

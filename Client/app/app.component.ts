@@ -2,7 +2,7 @@ import { Component, ViewEncapsulation, Inject } from '@angular/core';
 import { isBrowser, isNode } from 'angular2-universal';
 
 @Component({
-    selector: 'app',
+    selector: 'app-root',
     template: `
         <div class="container-fluid">
             <app-nav-menu></app-nav-menu>

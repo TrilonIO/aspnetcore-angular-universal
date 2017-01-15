@@ -87,7 +87,7 @@ export class CacheService {
     }
 
     _isInvalidValue(key): boolean {
-        return key === null ||
+        return key === undefined ||
             key === undefined ||
             key === 0 ||
             key === '' ||

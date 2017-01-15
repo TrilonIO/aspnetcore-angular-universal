@@ -14,7 +14,7 @@ declare var Zone: any;
 export default function (params: IParams): Promise<{ html: string, globals?: any }> {
 
     // Our Root application document
-    const doc = '<app></app>';
+    const doc = '<app-root></app-root>';
 
     // hold platform reference
     const platformRef = platformNodeDynamic();
