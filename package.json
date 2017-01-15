@@ -1,6 +1,6 @@
 {
   "name": "aspnetcore-angular2-universal-starter",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "author": {
     "name": "Mark Pieszak",
     "email": "mpieszak84@gmail.com",
@@ -10,13 +10,32 @@
     "type": "git",
     "url": "git+https://github.com/MarkPieszak/aspnetcore-angular2-universal.git"
   },
-  "config": {
-    "engine-strict": true
-  },
-  "engineStrict": true,
-  "engines": {
-    "node": ">= 5 <= 7",
-    "npm": ">= 3"
+  "scripts": {
+    "ci": "npm test && npm run e2e",
+    "clean": "npm cache clean && npm run rimraf -- node_modules doc typings coverage wwwroot/dist",
+    "clean:dist": "npm run rimraf -- wwwroot/dist",
+    "docs": "npm run typedoc -- --options typedoc.json --exclude '**/*.spec.ts' ./Client/",
+    "e2e": "npm run protractor",
+    "e2e:live": "npm run e2e -- --elementExplorer",
+    "lint": "npm run tslint \"Client/**/*.ts\"",
+    "postinstall": "webpack --config webpack.config.vendor.js",
+    "posttest": "npm run coverage",
+    "postversion": "git push && git push --tags",
+    "pretest": "npm run lint",
+    "preversion": "npm test",
+    "protractor": "protractor",
+    "pree2e": "npm run webdriver:update -- --standalone",
+    "rimraf": "rimraf",
+    "test": "karma start",
+    "tslint": "tslint",
+    "typedoc": "typedoc",
+    "version": "npm run build",
+    "webdriver:start": "npm run webdriver-manager start",
+    "webdriver:update": "npm run webdriver-manager update",
+    "webdriver-manager": "webdriver-manager",
+    "webpack": "webpack",
+    "start:dashboard": "npm run webpack-dashboard -- webpack-dev-server --inline --hot --progress --port 8080",
+    "webpack-dashboard": "webpack-dashboard"
   },
   "dependencies": {
     "@angular/common": "2.2.1",
@@ -48,8 +67,8 @@
   },
   "devDependencies": {
     "@types/chai": "^3.4.34",
-    "@types/hammerjs": "2.0.33",
-    "@types/jasmine": "2.5.35",
+    "@types/hammerjs": "2.0.34",
+    "@types/jasmine": "2.5.40",
     "@types/node": "^6.0.46",
     "@types/protractor": "1.5.20",
     "@types/selenium-webdriver": "2.44.29",
@@ -97,11 +116,11 @@
     "typescript": "2.0.10",
     "url-loader": "^0.5.7",
     "webpack": "2.1.0-beta.25",
-    "webpack-dashboard": "0.2.0",
-    "webpack-dev-middleware": "^1.8.4",
+    "webpack-dashboard": "0.2.1",
+    "webpack-dev-middleware": "^1.9.0",
     "webpack-dev-server": "^2.1.0-beta.9",
     "webpack-externals-plugin": "^1.0.0",
-    "webpack-hot-middleware": "^2.13.2",
+    "webpack-hot-middleware": "^2.15.0",
     "webpack-merge": "^0.15.0",
     "webpack-node-externals": "^1.5.4"
   },
@@ -116,32 +135,5 @@
     "ts2",
     "webpack",
     "webpack2"
-  ],
-  "scripts": {
-    "ci": "npm test && npm run e2e",
-    "clean": "npm cache clean && npm run rimraf -- node_modules doc typings coverage wwwroot/dist",
-    "clean:dist": "npm run rimraf -- wwwroot/dist",
-    "docs": "npm run typedoc -- --options typedoc.json --exclude '**/*.spec.ts' ./Client/",
-    "e2e": "npm run protractor",
-    "e2e:live": "npm run e2e -- --elementExplorer",
-    "lint": "npm run tslint \"Client/**/*.ts\"",
-    "postinstall": "webpack --config webpack.config.vendor.js",
-    "posttest": "npm run coverage",
-    "postversion": "git push && git push --tags",
-    "pretest": "npm run lint",
-    "preversion": "npm test",
-    "protractor": "protractor",
-    "pree2e": "npm run webdriver:update -- --standalone",
-    "rimraf": "rimraf",
-    "test": "karma start",
-    "tslint": "tslint",
-    "typedoc": "typedoc",
-    "version": "npm run build",
-    "webdriver:start": "npm run webdriver-manager start",
-    "webdriver:update": "npm run webdriver-manager update",
-    "webdriver-manager": "webdriver-manager",
-    "webpack": "webpack",
-    "start:dashboard": "npm run webpack-dashboard -- webpack-dev-server --inline --hot --progress --port 8080",
-    "webpack-dashboard": "webpack-dashboard"
-  }
+  ]
 }
