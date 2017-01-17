@@ -37,7 +37,7 @@ module.exports = {
             '@angular/platform-server',
             'angular2-universal',           
             'angular2-universal-polyfills',
-            'es6-shim',
+            'core-js',
             'es6-promise',
             'zone.js',
         ]
