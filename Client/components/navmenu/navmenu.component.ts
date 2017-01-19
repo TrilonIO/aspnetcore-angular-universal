@@ -6,8 +6,8 @@ import { AppState, LOGOUT_USER } from 'app';
 
 @Component({
     selector: 'app-nav-menu',
-    template: require('./navmenu.component.html'),
-    styles: [require('./navmenu.component.css')]
+    templateUrl: './navmenu.component.html',
+    styleUrls: ['./navmenu.component.css']
 })
 export class NavMenuComponent implements OnInit {
     

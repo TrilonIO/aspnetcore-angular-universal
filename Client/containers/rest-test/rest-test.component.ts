@@ -8,7 +8,7 @@ import { HttpCacheService } from 'app-shared';
 
 @Component({
     selector: 'app-rest-test',
-    template: require('./rest-test.component.html'),
+    templateUrl: './rest-test.component.html',
     animations: [
         // Animation example
         // Triggered in the ngFor with [@flyInOut]

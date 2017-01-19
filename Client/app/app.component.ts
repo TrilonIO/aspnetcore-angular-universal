@@ -9,7 +9,7 @@ import { isBrowser, isNode } from 'angular2-universal';
             <router-outlet></router-outlet>
         </div>
     `,
-    styles: [require('./app.component.css')],
+    styleUrls: ['./app.component.css'],
     encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
