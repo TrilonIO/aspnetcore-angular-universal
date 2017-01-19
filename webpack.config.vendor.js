@@ -22,8 +22,7 @@ module.exports = {
             { test: /\.(png|woff|woff2|eot|ttf|svg)(\?|$)/, loader: 'url-loader?limit=100000' },
             {
                 test: /\.css/,
-                exclude : /node_modules/,
-                loader: ExtractTextPlugin.extract('style-loader','css-loader')
+                loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader' })
             },
             // JSON files
             { test: /\.json$/, loader: 'json-loader' }
