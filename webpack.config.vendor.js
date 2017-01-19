@@ -19,8 +19,12 @@ module.exports = {
     },
     module: {
         loaders: [
-            { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' },
-            { test: /\.css/, loader: extractCSS.extract(['css']) },
+            { test: /\.(png|woff|woff2|eot|ttf|svg)(\?|$)/, loader: 'url-loader?limit=100000' },
+            {
+                test: /\.css/,
+                exclude : /node_modules/,
+                loader: ExtractTextPlugin.extract('style-loader','css-loader')
+            },
             // JSON files
             { test: /\.json$/, loader: 'json-loader' }
         ]
@@ -40,6 +44,9 @@ module.exports = {
             'core-js',
             'es6-promise',
             'zone.js',
+            //CSS
+            './node_modules/bootstrap/dist/css/bootstrap.css',
+            './node_modules/font-awesome/css/font-awesome.css'
         ]
     },
     output: {

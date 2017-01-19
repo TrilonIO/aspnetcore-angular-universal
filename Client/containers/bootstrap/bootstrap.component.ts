@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-bootstrap',
-    template: require('./bootstrap.component.html')
+    templateUrl: './bootstrap.component.html'
 })
 export class BootstrapComponent {
 

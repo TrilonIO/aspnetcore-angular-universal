@@ -3,7 +3,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 
 @Component({
     selector: 'app-home',
-    template: require('./home.component.html')
+    templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
 
