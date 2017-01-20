@@ -1,7 +1,7 @@
 # ASP.NET Core & Angular2 Universal starter
 
 <p align="center">
-    <img src="https://github.com/markpieszak/aspnetcore-angular2-starter/blob/master/architecture.png" alt="ASP.NET Core Angular2 Starter" title="ASP.NET Core Angular2 Starter">
+    <img src="./docs/architecture.png" alt="ASP.NET Core Angular2 Starter" title="ASP.NET Core Angular2 Starter">
 </p>
 
 ### What is this repo?
@@ -90,7 +90,7 @@ to: `ASPNETCORE_ENVIRONMENT=Production`, then run `webpack` manually. Then you c
 
   - [ ] Example of NgRx (redux) transfering App State from server to client
   - [ ] AoT (Ahead-of-time compilation) production builds
-  - [ ] Websockets example
+  - [ ] SignalR example
   - [ ] Update components real unit & e2e tests
   - [x] ~~NgRx (reactive Redux application state management)~~
   - [x] ~~HMR State management (hold state when hot reload occurs)~~
