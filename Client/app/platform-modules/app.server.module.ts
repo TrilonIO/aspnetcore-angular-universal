@@ -9,7 +9,7 @@ import { UniversalModule, isBrowser, isNode } from 'angular2-universal/node';
 import { AppCommonModule } from './app.common.module';
 import { AppComponent } from 'app';
 // Universal : XHR Cache 
-import { CacheService } from 'app-shared';
+import { CacheService, StorageService, ServerStorage } from 'app-shared';
 
 export function getRequest() {
   return Zone.current.get('req') || {};
@@ -36,7 +36,10 @@ export function getResponse() {
         { provide: 'isNode', useValue: isNode },
 
         { provide: 'req', useFactory: getRequest },
-        { provide: 'res', useFactory: getResponse }
+        { provide: 'res', useFactory: getResponse },
+
+        // We're using Dependency Injection here to use a Server/Node specific "Storage" through the empty shell class StorageService
+        { provide: StorageService, useClass: ServerStorage }
         
 
         // Other providers you want to add that you don't want shared in "Common" but are browser only

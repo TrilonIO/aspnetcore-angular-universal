@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { isBrowser } from 'angular2-universal';
 import { Observable } from 'rxjs/Rx';
+import { StorageService } from 'app-shared';
 
 @Component({
     selector: 'app-examples',
@@ -31,7 +32,7 @@ export class ExamplesComponent implements OnInit {
     browserPlatformInterval: Observable<any>;
     
     // Use "constructor"s only for dependency injection
-    constructor () {}
+    constructor (private storage: StorageService) {}
 
     // Here you want to handle anything with @Input()'s @Output()'s
     // Data retrieval / etc - this is when the Component is "ready" and wired up
@@ -44,6 +45,18 @@ export class ExamplesComponent implements OnInit {
         if (isBrowser) {
             this.browserPlatformInterval = Observable.interval(300);
         }
+
+        // ************
+        // Now let's play around with "Storage", but on a Platform level 
+        // Node will use in memory variable, while the Browser uses "localStorage"
+        // Both are abstracted out use Dependency Injection to provide different classes for each use-case.
+        // [high-five] :)
+
+        this.storage.setItem('test', 'This came from Storage within each Platform !!');
+
+        let storedItem = this.storage.getItem('test');
+
+        console.log('Platform [Storage] test :: ' + storedItem);
     }
     
 }
