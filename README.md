@@ -1,13 +1,13 @@
-# ASP.NET Core & Angular2 Universal starter
+# ASP.NET Core & Angular 2+ Universal starter
 
 <p align="center">
-    <img src="https://github.com/markpieszak/aspnetcore-angular2-starter/blob/master/architecture.png" alt="ASP.NET Core Angular2 Starter" title="ASP.NET Core Angular2 Starter">
+    <img src="https://github.com/markpieszak/aspnetcore-angular2-starter/blob/master/architecture.png" alt="ASP.NET Core Angular 2+ Starter" title="ASP.NET Core Angular2 Starter">
 </p>
 
 ### What is this repo?
 
 This repository is maintained by [Angular Universal](https://github.com/angular/universal) and is meant to be an advanced starter for both ASP.NET Core using 
-Angular2, not only for the client-side, but to be rendered on the *server*. 
+Angular 2.x(+), not only for the client-side, but to be rendered on the *server*. 
 
 This is meant to be a Feature-Rich Starter application containing all of the latest technologies, best build systems available, and include many real-world examples and libraries needed in todays Single Page Applications (SPAs).
 
@@ -35,7 +35,7 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
 
 > These are just some of the features found in this starter!
 
-- **Angular2**
+- **Angular 2.x+**
   - Featuring Server-side rendering (Angular Universal)
 	  - Faster paints, better SEO, deep-linking, etc
   - NgRx - Reactive Redux state management architecture
