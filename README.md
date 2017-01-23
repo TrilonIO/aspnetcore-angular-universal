@@ -90,7 +90,7 @@ to: `ASPNETCORE_ENVIRONMENT=Production`, then run `webpack` manually. Then you c
 
   - [ ] Example of NgRx (redux) transfering App State from server to client
   - [ ] AoT (Ahead-of-time compilation) production builds
-  - [ ] SignalR example
+  - [ ] Adding [SignalR](https://github.com/aspnet/SignalR) example
   - [ ] Update components real unit & e2e tests
   - [x] ~~NgRx (reactive Redux application state management)~~
   - [x] ~~HMR State management (hold state when hot reload occurs)~~
