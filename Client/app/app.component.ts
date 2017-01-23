@@ -15,8 +15,8 @@ import { isBrowser, isNode } from 'angular2-universal';
 export class AppComponent {
 
     constructor(@Inject('req') req: any, @Inject('res') res: any) {
-        console.log('req',  req);
-        console.log('res',  res);
+        // console.log('req',  req);
+        // console.log('res',  res);
     }
 
 }
