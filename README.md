@@ -7,7 +7,9 @@
 ### What is this repo?
 
 This repository is maintained by [Angular Universal](https://github.com/angular/universal) and is meant to be an advanced starter for both ASP.NET Core using 
-Angular 2.x(+), not only for the client-side, but to be rendered on the *server*. 
+Angular2, not only for the client-side, but to be rendered on the *server* for instant application paints 
+(*Note*: If you don't need Universal (SSR) [read here](https://github.com/MarkPieszak/aspnetcore-angular2-universal#faq) on how to disable it). 
+
 
 This is meant to be a Feature-Rich Starter application containing all of the latest technologies, best build systems available, and include many real-world examples and libraries needed in todays Single Page Applications (SPAs).
 
@@ -88,10 +90,10 @@ to: `ASPNETCORE_ENVIRONMENT=Production`, then run `webpack` manually. Then you c
 
 # UPCOMING Features:
 
-  - [ ] Example of NgRx (redux) transfering App State from server to client
-  - [ ] AoT (Ahead-of-time compilation) production builds
-  - [ ] Websockets example
-  - [ ] Update components real unit & e2e tests
+  - [ ] Example of NgRx (redux) transfering App State from server to client - track [#29](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/29)
+  - [ ] AoT (Ahead-of-time compilation) production builds - track [#10](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/10)
+  - [ ] SignalR (Websockets) example - track [#39](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/39)
+  - [ ] Update components real unit & e2e tests - track [#45](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/45)
   - [x] ~~NgRx (reactive Redux application state management)~~
   - [x] ~~HMR State management (hold state when hot reload occurs)~~
   - [x] ~~Unit testing with Karma/Jasmine~~
