@@ -17,9 +17,11 @@ you think others would benefit from as well!
 
 ### 1.0.0-beta.3 - 1/23/2017
 
-- [Closes #35](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/35) Implemented Storage service for Browser (localStorage) & Server (in memory variable) 
+- [Closes #35](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/35) Implemented Storage service for 
+Browser (localStorage) & Server (in memory variable) - [commit](https://github.com/MarkPieszak/aspnetcore-angular2-universal/commit/a5b3be3cf35c9da4c2bd7b3ede98b07f243cfeac)
 
-- [Closes #34](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/45) Fix karma to handle Angular testing [commit](https://github.com/MarkPieszak/aspnetcore-angular2-universal/commit/1777f43ca23ede6c46d3cd37c1a2d35605a1355d)
+- [Closes #34](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/45) Fix karma to handle Angular 
+testing - [commit](https://github.com/MarkPieszak/aspnetcore-angular2-universal/commit/1777f43ca23ede6c46d3cd37c1a2d35605a1355d)
 
 
 ### 1.0.0-beta.2 - 1/14/2017
