@@ -21,4 +21,3 @@ export * from './state/app-state';
 export * from './state/hmr';
 
 export * from './shared-module/base.shared.module';
-

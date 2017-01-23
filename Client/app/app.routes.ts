@@ -6,7 +6,8 @@ import {
     RestTestComponent,
     BootstrapComponent,
     LoginComponent,
-    ExamplesComponent
+    ExamplesComponent,
+    NotFoundComponent
 } from 'app-containers';
 
 export const ROUTES: Route[] = [
@@ -19,6 +20,7 @@ export const ROUTES: Route[] = [
     { path: 'rest-test', component: RestTestComponent },
     { path: 'login', component: LoginComponent },
     { path: 'examples', component: ExamplesComponent },
+    { path: 'not-found', component: NotFoundComponent },
 
     {   // ** LAZY-LOADING EXAMPLE **
         // Notice we don't reference the file anywhere else, imports, declarations, anywhere
@@ -33,5 +35,5 @@ export const ROUTES: Route[] = [
      // loadChildren: '../containers/+faq/faq.module#FAQModule' },
     
     // All else fails - go home
-    { path: '**', redirectTo: 'home' }
+    { path: '**', redirectTo: 'not-found' }
 ];

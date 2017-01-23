@@ -1,14 +1,35 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Angular2Spa.Hubs;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR.Infrastructure;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.SignalR;
+using System.IO;
 
 namespace Angular2Spa.Server.Controllers
 {
     [Route("api/[controller]")]
     public class TestController : Controller
     {
+        /*
+        private IHubContext _hub;
+        private ILogger<TestController> _logger;
+        private string uploadDirectory;
+
+        public TestController(ILogger<TestController> logger, IHostingEnvironment environment, IConnectionManager connectionManager) //, IHostingEnvironment environment
+        {
+            _hub = connectionManager.GetHubContext<ChatHub>();
+            _logger = logger;
+            IHostingEnvironment  _environment = environment;
+            var location = System.Reflection.Assembly.GetEntryAssembly().Location;
+            uploadDirectory = _environment.WebRootPath + $@"/{"uploads"}";
+            Directory.CreateDirectory(uploadDirectory);      //Should be in startup
+        }
+        */
+
         private static string[] Names = new[]
         {
             "Mark Pieszak", "Angular mcAngular", "Redux-man", "Nintendo"
@@ -18,6 +39,10 @@ namespace Angular2Spa.Server.Controllers
         public IEnumerable<SampleData> Users()
         {
             var random = new Random();
+
+            //Calling a hub function
+            //_hub.Clients.All.Send("REST Working");
+
             return Enumerable.Range(1, 5).Select(index => new SampleData
             {
                 ID = random.Next(0, 2000),

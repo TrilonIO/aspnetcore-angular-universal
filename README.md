@@ -133,6 +133,16 @@ Nothing's ever perfect, but please let me know by creating an issue (make sure t
  
 ### FAQ
 
+ 
+**How to add a route in the app**
+
+1. Create a folder in `Client\Containers\`
+2. Create a component in the folder
+3. Add the container in the `Client\Containers\index.ts`
+4. Add the container in the `\Client\app\app.routes.ts`
+5. Add the container in the `\Client\app\platform-modules\app.common.module.ts`
+
+
 **How can I disable Universal / SSR (Server-side rendering)?**
 
 To disable SSR, go to `Views/Home/Index.cshtml` and remove `asp-prerender-module="Client/bootstrap-server"` from the `<app>` component there in the cshtml file.  
@@ -142,10 +152,11 @@ To disable SSR, go to `Views/Home/Index.cshtml` and remove `asp-prerender-module
 For now, Material2 is still in beta, and isn't fully functioning with Universal (it will sometime soon though!), so temporarily disable SSR (server-side rendering) so you can use it within your application until updates come from Material, and you can have it rendered on the server as well. Read the Material docs to see how to add Material to your Angular application, with SSR disabled everything should work without any problems.
 
 ----
- 
+
 ### Special Thanks
 
 Many thanks go out to Steve Sanderson (@SteveSandersonMS) from Microsoft and his amazing work on JavaScriptServices and integrating the world of Node with ASP.NET Core.
+
 
 ----
 

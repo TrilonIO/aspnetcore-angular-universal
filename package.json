@@ -63,6 +63,7 @@
     "ng2-bootstrap": "1.1.16",
     "preboot": "^4.5.2",
     "rxjs": "5.0.0-rc.2",
+    "signalr-no-jquery": "^0.1.6",
     "typed-immutable-record": "0.0.6",
     "zone.js": "^0.6.26"
   },

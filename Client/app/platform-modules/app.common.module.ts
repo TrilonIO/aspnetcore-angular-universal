@@ -27,7 +27,8 @@ import {
     RestTestComponent,
     BootstrapComponent,
     LoginComponent,
-    ExamplesComponent
+    ExamplesComponent,
+    NotFoundComponent
 } from 'app-containers';
 
 // Provider (aka: "shared" | "services") imports
@@ -78,6 +79,7 @@ const COMPONENTS = [
     LoginComponent,
     BootstrapComponent,
     ExamplesComponent,
+    NotFoundComponent,
 
     // Directives
     RxContextDirective

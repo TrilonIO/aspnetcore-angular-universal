@@ -19,7 +19,7 @@ namespace Angular2Spa.Hubs
         public override Task OnConnected()
         {
             _logger.LogWarning(
-                                  this.Context.ConnectionId + " - Connected"
+                                  Context.ConnectionId + " - Connected"
                               );
             return base.OnConnected();
         }
@@ -29,7 +29,7 @@ namespace Angular2Spa.Hubs
         public override Task OnReconnected()
         {
             _logger.LogWarning(
-                                 this.Context.ConnectionId + " ReConnected"
+                                 Context.ConnectionId + " ReConnected"
                               );
             return base.OnReconnected();
         }
@@ -37,7 +37,7 @@ namespace Angular2Spa.Hubs
         public override Task OnDisconnected(bool stopCalled)
         {
             _logger.LogWarning(
-                                 this.Context.ConnectionId + " DisConnected"
+                                 Context.ConnectionId + " DisConnected"
                               );
 
             return base.OnDisconnected(stopCalled);
@@ -55,7 +55,11 @@ namespace Angular2Spa.Hubs
 
         public void Send(string message)
         {
-            Clients.All.messageReceived( this.Context.ConnectionId.ToString(), message );
+            Clients.All.messageReceived(Context.ConnectionId.ToString(), message );
+
+            _logger.LogWarning(
+                                 Context.ConnectionId + " - " + message
+                              );
         }
     }
 }
