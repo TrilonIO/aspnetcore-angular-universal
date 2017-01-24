@@ -96,9 +96,10 @@ to: `ASPNETCORE_ENVIRONMENT=Production`, then run `webpack` manually. Then you c
 
 # UPCOMING Features:
 
-  - [ ] Example of NgRx (redux) transfering App State from server to client - track [#29](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/29)
-  - [ ] AoT (Ahead-of-time compilation) production builds - track [#10](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/10)
+  - [ ] (On-hold) Example of NgRx (redux) transfering App State from server to client - track [#29](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/29)
+  - [ ] (On-hold) AoT (Ahead-of-time compilation) production builds - track [#10](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/10)
   - [ ] SignalR (Websockets) example - track [#39](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/39)
+  - [x] ~~Automatically update Browser Title on Route change [#32](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/32)~~
   - [x] ~~Update components real unit & e2e tests - track [#45](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/45)~~
   - [x] ~~Storage Service (localStorage) showcasing Dependency Injection per-platform - [#35](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/35)~~
   - [x] ~~NgRx (reactive Redux application state management)~~

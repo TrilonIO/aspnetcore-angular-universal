@@ -17,6 +17,9 @@ you think others would benefit from as well!
 
 ### 1.0.0-beta.3 - 1/23/2017
 
+- [Closes #32](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/32) Feature: Added automatic Title update on Route change based on Route `data:{title:''}` - 
+[commit](https://github.com/MarkPieszak/aspnetcore-angular2-universal/commit/b2f15cd16d2dcc43df30b9549d1cf2ced90f66e2)
+
 - [Closes #35](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/35) Implemented Storage service for 
 Browser (localStorage) & Server (in memory variable) - [commit](https://github.com/MarkPieszak/aspnetcore-angular2-universal/commit/a5b3be3cf35c9da4c2bd7b3ede98b07f243cfeac)
 
