@@ -30,6 +30,7 @@ module.exports = {
     },
     entry: {
         vendor: [
+            //JS Libraries
             '@angular/common',
             '@angular/compiler',
             '@angular/core',
@@ -42,10 +43,12 @@ module.exports = {
             'angular2-universal-polyfills',
             'core-js',
             'es6-promise',
+            'jquery',
+            'signalr',
             'zone.js',
-            //CSS
-            './node_modules/bootstrap/dist/css/bootstrap.css',
-            './node_modules/font-awesome/css/font-awesome.css'
+            //CSS Libraries
+            'bootstrap',
+            'font-awesome'
         ]
     },
     output: {
