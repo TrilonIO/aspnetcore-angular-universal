@@ -7,6 +7,7 @@ import {
     BootstrapComponent,
     LoginComponent,
     ExamplesComponent,
+    ChatComponent,
     NotFoundComponent
 } from 'app-containers';
 
@@ -20,6 +21,7 @@ export const ROUTES: Route[] = [
     { path: 'rest-test', component: RestTestComponent },
     { path: 'login', component: LoginComponent },
     { path: 'examples', component: ExamplesComponent },
+    { path: 'chat', component: ChatComponent },
     { path: 'not-found', component: NotFoundComponent },
 
     {   // ** LAZY-LOADING EXAMPLE **

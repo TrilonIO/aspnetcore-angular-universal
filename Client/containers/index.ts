@@ -18,3 +18,4 @@ export * from './bootstrap/bootstrap.component';
 export * from './login/login.component';
 export * from './platform-examples/examples.component';
 export * from './not-found/not-found.component';
+export * from './chat/chat.component';

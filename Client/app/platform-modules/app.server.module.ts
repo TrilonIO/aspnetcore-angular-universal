@@ -42,6 +42,7 @@ export function getResponse() {
         // Other providers you want to add that you don't want shared in "Common" but are browser only
     ]
 })
+
 export class AppServerModule {
 
     constructor(public cache: CacheService) { }

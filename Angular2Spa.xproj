@@ -23,5 +23,11 @@
     <DnxInvisibleFolder Include=".vs\" />
     <DnxInvisibleFolder Include="docs\" />
   </ItemGroup>
+  <ItemGroup>
+    <DnxInvisibleContent Include="CHANGELOG.md" />
+    <DnxInvisibleContent Include="Dockerfile" />
+    <DnxInvisibleContent Include="LICENSE.md" />
+    <DnxInvisibleContent Include="README.md" />
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\DotNet.Web\Microsoft.DotNet.Web.targets" Condition="'$(VSToolsPath)' != ''" />
 </Project>

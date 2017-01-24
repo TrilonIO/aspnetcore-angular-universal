@@ -139,9 +139,8 @@ Nothing's ever perfect, but please let me know by creating an issue (make sure t
 1. Create a folder in `Client\Containers\`
 2. Create a component in the folder
 3. Add the container in the `Client\Containers\index.ts`
-4. Add the container in the `\Client\app\app.routes.ts`
-5. Add the container in the `\Client\app\platform-modules\app.common.module.ts`
-
+4. Add the container in the `\Client\app\platform-modules\app.common.module.ts`
+5. Add the container in the `\Client\app\app.routes.ts`
 
 **How can I disable Universal / SSR (Server-side rendering)?**
 

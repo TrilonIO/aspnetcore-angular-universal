@@ -1,4 +1,3 @@
-
 /*
  * _Common_ NgModule to share between our "BASE" App.Browser & App.Server module platforms
  *
@@ -28,6 +27,7 @@ import {
     BootstrapComponent,
     LoginComponent,
     ExamplesComponent,
+    ChatComponent,
     NotFoundComponent
 } from 'app-containers';
 
@@ -79,6 +79,7 @@ const COMPONENTS = [
     LoginComponent,
     BootstrapComponent,
     ExamplesComponent,
+    ChatComponent,
     NotFoundComponent,
 
     // Directives

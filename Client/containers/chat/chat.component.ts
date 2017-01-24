@@ -2,11 +2,10 @@ import { Component, OnInit, Inject } from '@angular/core';
 
 
 @Component({
-    selector: 'app-notFound',
-    templateUrl: './not-found.component.html',
-    styleUrls: ['./not-found.component.css']
+    selector: 'app-chat',
+    templateUrl: './chat.component.html'
 })
-export class NotFoundComponent implements OnInit
+export class ChatComponent implements OnInit
 {
     // Use "constructor"s only for dependency injection
     constructor (@Inject('isBrowser') private isBrowser: boolean) {
