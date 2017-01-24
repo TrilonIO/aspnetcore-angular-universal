@@ -34,6 +34,7 @@ export class AppComponent implements OnInit, OnDestroy {
         // Change "Title" on every navigationEnd event
         // Titles come from the data.title property on all Routes (see app.routes.ts)
         this.changeTitleOnNavigation();
+        console.log('oninit'); 
     }
     
     ngOnDestroy() {
