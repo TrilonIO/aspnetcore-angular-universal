@@ -1,7 +1,7 @@
 # ASP.NET Core & Angular 2+ Universal starter
 
 <p align="center">
-    <img src="https://github.com/markpieszak/aspnetcore-angular2-starter/blob/master/architecture.png" alt="ASP.NET Core Angular 2+ Starter" title="ASP.NET Core Angular2 Starter">
+    <img src="./docs/architecture.png" alt="ASP.NET Core Angular 2+ Starter" title="ASP.NET Core Angular 2+ Starter">
 </p>
 
 ### What is this repo?
@@ -98,7 +98,7 @@ to: `ASPNETCORE_ENVIRONMENT=Production`, then run `webpack` manually. Then you c
 
   - [ ] (On-hold) Example of NgRx (redux) transfering App State from server to client - track [#29](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/29)
   - [ ] (On-hold) AoT (Ahead-of-time compilation) production builds - track [#10](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/10)
-  - [ ] SignalR (Websockets) example - track [#39](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/39)
+  - [x] ~~SignalR (Websockets) example - track [#39](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/39)~~
   - [x] ~~Automatically update Browser Title on Route change [#32](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/32)~~
   - [x] ~~Update components real unit & e2e tests - track [#45](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/45)~~
   - [x] ~~Storage Service (localStorage) showcasing Dependency Injection per-platform - [#35](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/35)~~
@@ -252,6 +252,14 @@ Nothing's ever perfect, but please let me know by creating an issue (make sure t
 ----
  
 # FAQ
+ 
+**How to add a route in the app**
+
+1. Create a folder in `Client\Containers\`
+2. Create a component in the folder
+3. Add the container in the `Client\Containers\index.ts` (this is the "barrels" file for all containers)
+4. Add the container in the `\Client\app\platform-modules\app.common.module.ts`
+5. Add the container in the `\Client\app\app.routes.ts`
 
 ### How can I disable Universal / SSR (Server-side rendering)?
 
@@ -299,12 +307,12 @@ In a Component you want to use jQuery, make sure to import it near the top like 
 
 **Always make sure to wrap anything jQuery oriented in Universal's `isBrowser` conditional!**
 
-
 ----
- 
+
 # Special Thanks
 
 Many thanks go out to Steve Sanderson ([@SteveSandersonMS](https://github.com/SteveSandersonMS)) from Microsoft and his amazing work on JavaScriptServices and integrating the world of Node with ASP.NET Core.
+
 
 ----
 

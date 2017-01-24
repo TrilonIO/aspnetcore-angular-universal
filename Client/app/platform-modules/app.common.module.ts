@@ -1,4 +1,3 @@
-
 /*
  * _Common_ NgModule to share between our "BASE" App.Browser & App.Server module platforms
  *
@@ -27,7 +26,9 @@ import {
     RestTestComponent,
     BootstrapComponent,
     LoginComponent,
-    ExamplesComponent
+    ExamplesComponent,
+    ChatComponent,
+    NotFoundComponent
 } from 'app-containers';
 
 // Provider (aka: "shared" | "services") imports
@@ -79,6 +80,8 @@ const COMPONENTS = [
     LoginComponent,
     BootstrapComponent,
     ExamplesComponent,
+    ChatComponent,
+    NotFoundComponent,
 
     // Directives
     RxContextDirective

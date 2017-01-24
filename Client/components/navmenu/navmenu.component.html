@@ -20,6 +20,16 @@
         </a>
     </li>
     <li [routerLinkActive]="['link-active']">
+        <a [routerLink]="['/chat']">
+            <i class="fa fa-comments-o" aria-hidden="true"></i> SignalR Chat
+        </a>
+    </li>
+    <li [routerLinkActive]="['link-active']">
+        <a [routerLink]="['/video-chat']">
+            <i class="fa fa-video-camera" aria-hidden="true"></i> WebRTC Video Chat
+        </a>
+    </li>
+    <li [routerLinkActive]="['link-active']">
         <a [routerLink]="['/faq']">
             <i class="fa fa-question-circle" aria-hidden="true"></i> FAQ
         </a>
