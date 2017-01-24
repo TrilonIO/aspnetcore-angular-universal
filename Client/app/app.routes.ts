@@ -1,4 +1,4 @@
-﻿import { Route } from '@angular/router';
+import { Route } from '@angular/router';
 
 // Container (aka: "pages") imports
 import {
@@ -16,13 +16,13 @@ export const ROUTES: Route[] = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
 
     // Other routes
-    { path: 'home', component: HomeComponent },
-    { path: 'bootstrap', component: BootstrapComponent },
-    { path: 'rest-test', component: RestTestComponent },
-    { path: 'login', component: LoginComponent },
-    { path: 'examples', component: ExamplesComponent },
-    { path: 'chat', component: ChatComponent },
-    { path: 'not-found', component: NotFoundComponent },
+    { path: 'home', component: HomeComponent, data: { title: 'Home'} },
+    { path: 'bootstrap', component: BootstrapComponent, data: { title: 'Bootstrap Examples'} },
+    { path: 'rest-test', component: RestTestComponent, data: { title: 'WebAPI Examples'} },
+    { path: 'login', component: LoginComponent, data: { title: 'Login'} },
+    { path: 'examples', component: ExamplesComponent, data: { title: 'Platform Examples'} },
+    { path: 'chat', component: ChatComponent, data: { title: 'Chat' } },
+    { path: 'not-found', component: NotFoundComponent, data: { title: '404 - Not Found' } },
 
     {   // ** LAZY-LOADING EXAMPLE **
         // Notice we don't reference the file anywhere else, imports, declarations, anywhere
@@ -32,7 +32,8 @@ export const ROUTES: Route[] = [
             // We use .default here since we use `export default` 
             // in the FAQModule NgModule
             return file.default;
-        }) 
+        }),
+        data: { title: 'FAQ'}
     },
      // loadChildren: '../containers/+faq/faq.module#FAQModule' },
     

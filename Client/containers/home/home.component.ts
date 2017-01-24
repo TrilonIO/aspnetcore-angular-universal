@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-
+import { isBrowser } from 'angular2-universal';
 
 @Component({
     selector: 'app-home',
@@ -7,14 +7,15 @@ import { Component, OnInit, Inject } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+    title: string = 'Angular2 Universal & ASP.NET Core advanced starter-kit';
+
     // Use "constructor"s only for dependency injection
-    constructor (@Inject('isBrowser') private isBrowser: boolean) {
-        // Example of how to Inject the isBrowser/isNode we injected in our app.browser & app.server NgModules 
+    constructor () {
     }
 
     // Here you want to handle anything with @Input()'s @Output()'s
     // Data retrieval / etc - this is when the Component is "ready" and wired up
     ngOnInit () {
-        console.log('Are we inside the Browser ? ' + this.isBrowser);
+        console.log('Are we inside the Browser ? ' + isBrowser);
     }
 }

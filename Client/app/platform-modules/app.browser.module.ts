@@ -8,7 +8,7 @@ import { UniversalModule, isBrowser, isNode, AUTO_PREBOOT } from 'angular2-unive
 import { AppCommonModule } from './app.common.module';
 import { AppComponent } from 'app';
 // Universal : XHR Cache 
-import { CacheService } from 'app-shared';
+import { CacheService, StorageService, BrowserStorage } from 'app-shared';
 
 export const UNIVERSAL_KEY = 'UNIVERSAL_CACHE';
 
@@ -25,7 +25,7 @@ export function getResponse() {
         // "UniversalModule" Must be first import.
         // ** NOTE ** : This automatically imports BrowserModule, HttpModule, and JsonpModule for Browser,
         // and NodeModule, NodeHttpModule etc for the server.
-        UniversalModule, 
+        UniversalModule,
 
         AppCommonModule,
 
@@ -40,7 +40,11 @@ export function getResponse() {
         { provide: 'isNode', useValue: isNode },
 
         { provide: 'req', useFactory: getRequest },
-        { provide: 'res', useFactory: getResponse }
+        { provide: 'res', useFactory: getResponse },
+
+        // We're using Dependency Injection here to use a Browser specific "Storage" (localStorage here) through the empty shell class StorageService
+        // The server will use a different one, since window & localStorage do not exist there
+        { provide: StorageService, useClass: BrowserStorage }
         
         // Universal concept. Uncomment this if you want to Turn OFF auto preboot complete
         // { provide: AUTO_PREBOOT, useValue: false } 

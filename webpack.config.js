@@ -97,19 +97,6 @@ module.exports = setTypeScriptAlias(require('./tsconfig.json'), {
             }]
     },
 
-    // Our webpack-dev-server (used for HotModuleReplacement, and in general to serve up our files when we're in the middle
-    // of developing our Application
-    //devServer: {
-    //    port: 9999,
-    //    // host: METADATA.host,
-    //    historyApiFallback: true,
-    //    watchOptions: {
-    //        aggregateTimeout: 300,
-    //        poll: 1000
-    //    },
-    //    outputPath: root('/wwwroot/dist')
-    //},
-
     // Plugins are middleware we can use during webpacks processing cycles to handle other things we want to do
     // Here we need to fix some Angular2 issues 
     // Handle TsConfig paths:[] so webpack is aware of them and it's actually able to process them correctly
