@@ -34,7 +34,8 @@ import {
 import {
     HttpCacheService, CacheService, // Universal : XHR Cache
     ApiGatewayService, 
-    RxContextDirective
+    RxContextDirective,
+    Meta
 } from 'app-shared';
 
 //////////////////////////////////////////////////////////////////
@@ -87,7 +88,9 @@ const PROVIDERS = [
     // put shared services here
     CacheService,
     HttpCacheService,
-    ApiGatewayService
+    ApiGatewayService,
+    
+    Meta // MetaService is a cross platform way to change title, and update anything in the <head>
 ];
 
 @NgModule({
