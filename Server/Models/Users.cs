@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
+namespace Angular2Spa.Models
 {
     public class Users
     {
