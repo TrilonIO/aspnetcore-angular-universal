@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using Angular2Spa.DbModels;
 
 namespace Angular2Spa
 {
@@ -32,6 +34,15 @@ namespace Angular2Spa
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Monitor for performance and usage
+            services.AddApplicationInsightsTelemetry(Configuration);
+
+            //Add DB Context
+            var connectionStringBuilder = new Microsoft.Data.Sqlite.SqliteConnectionStringBuilder { DataSource = "spa.db" };
+            var connectionString = connectionStringBuilder.ToString();
+            services.AddDbContext<SpaDbContext>(options =>
+                options.UseSqlite(connectionString));
+
             // Add framework services.
             services.AddMvc();
             services.AddMemoryCache();
@@ -56,9 +67,6 @@ namespace Angular2Spa
             //SignalR Config		
             app.UseSignalR();
 
-            //Configure monitors your live application to help you detect and diagnose performance issues and exceptions, and discover how your app is used
-            //app.UseApplicationInsightsRequestTelemetry();
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -69,6 +77,9 @@ namespace Angular2Spa
                 app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions {
                     HotModuleReplacement = true
                 });
+
+                //Adding Seeder/Test Data
+                AddTestData(app.ApplicationServices.GetService<SpaDbContext>());
             }
             else
             {
@@ -88,8 +99,17 @@ namespace Angular2Spa
                     name: "spa-fallback",
                     defaults: new { controller = "Home", action = "Index" });
             });
-
         }
-        
+
+        private static void AddTestData(SpaDbContext context)
+        {
+            Users testUser = new Users
+            {
+                Name = "Abrar Jahin"
+            };
+            context.User.Add(testUser);
+
+            context.SaveChanges();
+        }
     }
 }
