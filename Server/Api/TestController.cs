@@ -9,7 +9,7 @@ using System.Linq;
 using Microsoft.AspNetCore.SignalR;
 using System.IO;
 
-namespace Angular2Spa.Server.Controllers
+namespace Angular2Spa.Controllers
 {
     [Route("api/[controller]")]
     public class TestController : Controller

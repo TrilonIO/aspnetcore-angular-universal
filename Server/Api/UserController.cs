@@ -1,11 +1,11 @@
-﻿using Angular2Spa.DbModels;
+﻿using Angular2Spa.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Angular2Spa.Server.Api
+namespace Angular2Spa.Controllers
 {
     [Route("api/user/[action]")]
     public class UserController : Controller

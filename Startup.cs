@@ -6,7 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
-using Angular2Spa.DbModels;
+using Angular2Spa.Models;
 
 namespace Angular2Spa
 {

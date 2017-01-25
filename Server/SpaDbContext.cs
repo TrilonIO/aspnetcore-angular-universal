@@ -1,4 +1,4 @@
-﻿using Angular2Spa.DbModels;
+﻿using Angular2Spa.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Angular2Spa

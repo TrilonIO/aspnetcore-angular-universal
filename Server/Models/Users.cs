@@ -1,7 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Angular2Spa.DbModels
 {
     public class Users
     {
