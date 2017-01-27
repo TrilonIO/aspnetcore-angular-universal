@@ -12,6 +12,7 @@ li.link-active a:focus {
 
 /* Keep the nav menu independent of scrolling and on top of other items */
 .nav { }
+.nav li { display:inline-block; }
 .nav li a { padding:10px 20px; }
 .nav li a:hover, .nav li a:focus { text-decoration: none; }
 
