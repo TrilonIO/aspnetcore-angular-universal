@@ -15,6 +15,11 @@ running with a lot of the eco-system of .NET Core & Angular (v2+).
 Don't hesitate to create an Issue with anything you run into, and Pull-Requests are always welcome for basic implementations of new features & fixes 
 you think others would benefit from as well!
 
+### 1.0.0-beta.4 - 1/27/2017
+- [Closes #48](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/48) Feature: Add CSRF Token cookie so Angular & .NET Core can validate it. - [commit](https://github.com/MarkPieszak/aspnetcore-angular2-universal/commit/5d0cbe48245889a2b6f1cdfb67bad492d80c85c5)
+- Feature: Sample Entity Framework Core added - [commit](https://github.com/MarkPieszak/aspnetcore-angular2-universal/commit/b132d6a5707ccdb826b2cfbc2d8610343901b452)
+- Updated Webpack to 2.2.0 
+
 ### 1.0.0-beta.3 - 1/23/2017
 
 - [Closes #32](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/32) Feature: Added automatic Title update on Route change based on Route `data:{title:''}` - 
