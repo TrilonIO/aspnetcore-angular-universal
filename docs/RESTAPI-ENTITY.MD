@@ -6,6 +6,18 @@
     <img src="./all.jpeg" alt="Get all Data Api" title="Get all Data Api">
 </p>
 
+If you need to use pagination, please crete your requesr URL like this-
+
+- Method - `GET`
+- URL-
+
+		/api/user/all?currentPageNo=1&pageSize=5
+
+Default value (if u hit - `/api/user/all`)
+
+	currentPageNo=1
+	pageSize=20
+
 ### Get a specific data
 
 <p align="center">
