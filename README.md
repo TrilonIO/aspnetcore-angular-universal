@@ -165,27 +165,27 @@ of the entire application to the Browser.
 
 Notice the folder structure here in `./Client/` :
 
-```
-/Client/
+```diff
++ /Client/
 
--- /app/
++   /app/
     ROOT App Component / Routes / global css styles
--->--
--->-- /platform-modules/
-          Platform specific NgModules (browser & server separated)
--->-- /shared-module/
-          BaseSharedModule (the lowest delimiter NgModule)
--->-- /state/
-          Here you will find our NgRx "State", Reducers, and magic HMR handler
 
--- /components/ 
-      Here are all the regular Components that aren't "Pages" or container Components
+++ > ++ > /platform-modules/
+            Platform specific NgModules (browser & server separated)
+++ > ++ > /shared-module/
+            BaseSharedModule (the lowest delimiter NgModule)
+++ > ++ > /state/
+            Here you will find our NgRx "State", Reducers, and magic HMR handler
 
--- /containers/
-      These are the routeable or "Page / Container" Components, sometimes known as "Dumb" Components
+++ > ++ > /components/ 
+      	    Here are all the regular Components that aren't "Pages" or container Components
 
--- /shared/
-      Here we put all shared Services / Directives / Pipes etc
+++ > /containers/
+       These are the routeable or "Page / Container" Components, sometimes known as "Dumb" Components
+
+++ > /shared/
+       Here we put all shared Services / Directives / Pipes etc
 ```
 
 When adding new features/components/etc to your application you'll be commonly adding things to the Root **NgModule**, 
@@ -199,7 +199,7 @@ add in the Platform specific things to either `app.browser.module || app.server.
 For example you can see how we're using Dependency Injection to inject a `StorageService` that is different 
 for the Browser & Server.
 
-```
+```typescript
 // For the Browser (app.browser.module)
 { provide: StorageService, useClass: BrowserStorage }
 
@@ -241,7 +241,7 @@ below we'll list out a few common problems developers trying to make isomorphic 
  - Try to *limit or* **avoid** using **`setTimeout`**. It will slow down the server-side rendering process. Make sure to remove them [`ondestroy`](https://angular.io/docs/ts/latest/api/core/index/OnDestroy-class.html) in Components.
    - Also for RxJs timeouts, make sure to _cancel_ their stream on success, for they can slow down rendering as well.
  - **Don't manipulate the nativeElement directly**. Use the _Renderer_. We do this to ensure that in any environment we're able to change our view.
-```
+```typescript
 constructor(element: ElementRef, renderer: Renderer) {
   renderer.setElementStyle(element.nativeElement, 'font-size', 'x-large');
 }
@@ -288,7 +288,7 @@ conditionally run code. This is perfect for situations where code could *error* 
 Also, always remember that things like setTimeout / setInterval / etc should always be wrapped in this, 
 as you want to completely *avoid* doing them on the Server.
 
-```
+```typescript
 import { isBrowser } from 'angular2-universal';
 
 if (isBrowser) {
@@ -311,7 +311,9 @@ is included in webpack vendor file, and that you have a webpack Plugin setup for
 Now, make sure any "plugins" etc that you have, are only included in your `bootstrap-client.ts` file. (ie: `import 'slick-carousel';`) 
 In a Component you want to use jQuery, make sure to import it near the top like so:
 
-    import * as $ from 'jquery';
+```typescript
+import * as $ from 'jquery';
+```
 
 **Always make sure to wrap anything jQuery oriented in Universal's `isBrowser` conditional!**
 
