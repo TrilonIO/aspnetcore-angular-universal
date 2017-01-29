@@ -1,11 +1,13 @@
-import './__2.1.1.workaround.ts';
 import 'angular2-universal-polyfills/node';
+import './__2.1.1.workaround.ts';
 
 import { enableProdMode } from '@angular/core';
 import { platformNodeDynamic } from 'angular2-universal';
 
 // Grab the (Node) server-specific NgModule
 import { AppServerModule } from './app/platform-modules/app.server.module';
+
+import { metaStore } from 'app-shared';
 
 enableProdMode();
 
@@ -60,7 +62,7 @@ export default function (params: IParams): Promise<{ html: string, globals?: any
          *   inside of the asp-prerender-data="" attribute
          *      globals: params.data
          */
-        return { html /*, globals: someObject */ };
+        return { html, globals: metaStore };
 
     }).catch(err => {
 

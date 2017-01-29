@@ -3,7 +3,7 @@ import { Router, NavigationEnd, ActivatedRoute, PRIMARY_OUTLET } from '@angular/
 import { Title } from '@angular/platform-browser';
 import { Subscription } from 'rxjs/Subscription';
 import { isBrowser } from 'angular2-universal';
-import { Meta } from 'app-shared';
+import { Meta, metaStore } from 'app-shared';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/filter';
@@ -59,9 +59,14 @@ export class AppComponent implements OnInit, OnDestroy {
                     ? (event['title'] + ' - ' + this.defaultPageTitle)
                     : this.defaultPageTitle;
 
+                metaStore.title = title;
+                metaStore.meta = {
+                    
+                };
+
                 // Temporarily only do this in the Browser
                 // Until we can get entire Html doc (this is a .NET issue since we never pass the entire Document (only root-app))
-                return isBrowser ? this.meta.setTitle(event['title']) : '';
+                return isBrowser ? this.meta.setTitle(title) : '';
             });
     }
 

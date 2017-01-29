@@ -39,7 +39,7 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
 
 > These are just some of the features found in this starter!
 
-- **Angular 2.x+**
+- **Angular 2.x+** : (Currently working with latest Angular `2.4.5`)
   - Featuring Server-side rendering (Angular Universal)
 	  - Faster paints, better SEO, deep-linking, etc
   - NgRx - Reactive Redux state management architecture
@@ -68,6 +68,10 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
 - **ASP.NET Core 1.1**
   - RestAPI integration
   - Integration with NodeJS to provide pre-rendering, as well as any other Node module asset you want to use.
+
+- **Azure**
+  - Microsoft Application Insights setup (for MVC & Web API routing)
+  - (Client-side Angular2 Application Insights integration coming soon)
 
 - **REST API CRUD demo with Entity Framework Core**
   - **[Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) is used for testing the API**

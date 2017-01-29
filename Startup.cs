@@ -12,6 +12,8 @@ using Microsoft.EntityFrameworkCore;
 using Angular2Spa.Models;
 using Microsoft.AspNetCore.Http;
 
+using Microsoft.AspNetCore.NodeServices;
+
 namespace Angular2Spa
 {
     public class Startup
@@ -50,6 +52,8 @@ namespace Angular2Spa
             // Add framework services.
             services.AddMvc();
             services.AddMemoryCache();
+
+            services.AddNodeServices();
 
             services.AddAntiforgery(options => options.HeaderName = "X-XSRF-TOKEN");
 
