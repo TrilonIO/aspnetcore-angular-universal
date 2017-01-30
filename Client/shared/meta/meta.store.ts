@@ -11,6 +11,5 @@ export let metaStore = {
             title: this.title,
             meta: this.meta
         };
-    }
-    
-}
+    }    
+};
