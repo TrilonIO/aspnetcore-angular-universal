@@ -10,6 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/MarkPieszak/aspnetcore-angular2-universal.git"
   },
+  "license": "MIT",
   "scripts": {
     "ci": "npm test && npm run e2e",
     "clean": "npm cache clean && npm run rimraf -- node_modules doc typings coverage wwwroot/dist",
@@ -64,10 +65,10 @@
     "jquery": "^3.1.1",
     "ng2-bootstrap": "1.3.0",
     "preboot": "^4.5.2",
-    "rxjs": "5.0.0-rc.2",
+    "rxjs": "5.0.1",
     "signalr": "^2.2.1",
     "typed-immutable-record": "0.0.6",
-    "zone.js": "^0.6.26"
+    "zone.js": "0.7.2"
   },
   "devDependencies": {
     "@types/chai": "^3.4.34",
