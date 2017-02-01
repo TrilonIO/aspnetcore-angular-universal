@@ -77,7 +77,6 @@
     "@types/jquery": "^2.0.39",
     "@types/node": "^6.0.46",
     "@types/protractor": "1.5.20",
-    "@types/selenium-webdriver": "2.44.29",
     "@types/sinon": "1.16.31",
     "@types/source-map": "0.1.28",
     "@types/uglify-js": "2.6.28",
