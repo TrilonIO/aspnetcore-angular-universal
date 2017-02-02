@@ -39,7 +39,7 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
 
 > These are just some of the features found in this starter!
 
-- **Angular 2.x+**
+- **Angular 2.x+** : (Currently working with latest Angular `2.4.5`)
   - Featuring Server-side rendering (Angular Universal)
 	  - Faster paints, better SEO, deep-linking, etc
   - NgRx - Reactive Redux state management architecture
@@ -69,30 +69,13 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
   - RestAPI integration
   - Integration with NodeJS to provide pre-rendering, as well as any other Node module asset you want to use.
 
+- **Azure**
+  - Microsoft Application Insights setup (for MVC & Web API routing)
+  - (Client-side Angular2 Application Insights integration coming soon)
+
 - **REST API CRUD demo with Entity Framework Core**
-  - Get all data
-<p align="center">
-    <img src="./docs/all.jpeg" alt="Get all Data Api" title="Get all Data Api">
-</p>
-  - Get a specific data
-<p align="center">
-    <img src="./docs/details.jpeg" alt="Get details Data Api" title="Get details Data Api">
-</p>
-  - Insert data
-<p align="center">
-    <img src="./docs/insert.jpeg" alt="insert Data Api" title="insert Data Api">
-</p>
-  - Update data
-<p align="center">
-    <img src="./docs/update.jpeg" alt="Update Data Api" title="Update Data Api">
-</p>
-  - Delete data
-<p align="center">
-    <img src="./docs/delete.jpeg" alt="Delete Data Api" title="Delete Data Api">
-</p>
-
-**[Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) is used for testing the API**
-
+  - **[Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) is used for testing the API**
+  - [View examples here](./docs/RESTAPI-ENTITY.MD)
 
 ----
 
@@ -182,27 +165,27 @@ of the entire application to the Browser.
 
 Notice the folder structure here in `./Client/` :
 
-```
-/Client/
+```diff
++ /Client/
 
--- /app/
++   /app/
     ROOT App Component / Routes / global css styles
--->--
--->-- /platform-modules/
-          Platform specific NgModules (browser & server separated)
--->-- /shared-module/
-          BaseSharedModule (the lowest delimiter NgModule)
--->-- /state/
-          Here you will find our NgRx "State", Reducers, and magic HMR handler
 
--- /components/ 
-      Here are all the regular Components that aren't "Pages" or container Components
+++ > ++ > /platform-modules/
+            Platform specific NgModules (browser & server separated)
+++ > ++ > /shared-module/
+            BaseSharedModule (the lowest delimiter NgModule)
+++ > ++ > /state/
+            Here you will find our NgRx "State", Reducers, and magic HMR handler
 
--- /containers/
-      These are the routeable or "Page / Container" Components, sometimes known as "Dumb" Components
+++ > ++ > /components/ 
+      	    Here are all the regular Components that aren't "Pages" or container Components
 
--- /shared/
-      Here we put all shared Services / Directives / Pipes etc
+++ > /containers/
+       These are the routeable or "Page / Container" Components, sometimes known as "Dumb" Components
+
+++ > /shared/
+       Here we put all shared Services / Directives / Pipes etc
 ```
 
 When adding new features/components/etc to your application you'll be commonly adding things to the Root **NgModule**, 
@@ -216,7 +199,7 @@ add in the Platform specific things to either `app.browser.module || app.server.
 For example you can see how we're using Dependency Injection to inject a `StorageService` that is different 
 for the Browser & Server.
 
-```
+```typescript
 // For the Browser (app.browser.module)
 { provide: StorageService, useClass: BrowserStorage }
 
@@ -258,7 +241,7 @@ below we'll list out a few common problems developers trying to make isomorphic 
  - Try to *limit or* **avoid** using **`setTimeout`**. It will slow down the server-side rendering process. Make sure to remove them [`ondestroy`](https://angular.io/docs/ts/latest/api/core/index/OnDestroy-class.html) in Components.
    - Also for RxJs timeouts, make sure to _cancel_ their stream on success, for they can slow down rendering as well.
  - **Don't manipulate the nativeElement directly**. Use the _Renderer_. We do this to ensure that in any environment we're able to change our view.
-```
+```typescript
 constructor(element: ElementRef, renderer: Renderer) {
   renderer.setElementStyle(element.nativeElement, 'font-size', 'x-large');
 }
@@ -305,7 +288,7 @@ conditionally run code. This is perfect for situations where code could *error* 
 Also, always remember that things like setTimeout / setInterval / etc should always be wrapped in this, 
 as you want to completely *avoid* doing them on the Server.
 
-```
+```typescript
 import { isBrowser } from 'angular2-universal';
 
 if (isBrowser) {
@@ -328,7 +311,9 @@ is included in webpack vendor file, and that you have a webpack Plugin setup for
 Now, make sure any "plugins" etc that you have, are only included in your `bootstrap-client.ts` file. (ie: `import 'slick-carousel';`) 
 In a Component you want to use jQuery, make sure to import it near the top like so:
 
-    import * as $ from 'jquery';
+```typescript
+import * as $ from 'jquery';
+```
 
 **Always make sure to wrap anything jQuery oriented in Universal's `isBrowser` conditional!**
 

@@ -15,6 +15,25 @@ running with a lot of the eco-system of .NET Core & Angular (v2+).
 Don't hesitate to create an Issue with anything you run into, and Pull-Requests are always welcome for basic implementations of new features & fixes 
 you think others would benefit from as well!
 
+### 1.0.0-beta.6 - 2/1/2017
+
+> Breaking changes to build system
+- Webpack build system has changed to a separate client/server system. 
+  - Changes to `bootstrap-server.ts`
+  - Changes to `Views/Home/Index.cshtml`
+  - [Commit here](https://github.com/MarkPieszak/aspnetcore-angular2-universal/commit/5d7c367066bc55b4ab37b82f9335c8be15059fb6)
+
+### 1.0.0-beta.5 - 1/29/2017
+- Feature: Updated to latest Angular 2.4.5
+  - This allows us to upgrade Ng2-bootstrap to the latest 1.3.1 version as well (which requires importing the module differently `from 'ng2-bootstrap';` now), 
+  as well as adding `.forRoot()` when importing it to our own app.common.module.
+- `__2.1.1.workaround.ts` import brought to very **TOP** of `bootstrap-client` & `bootstrap-server` to avoid reflect-metadata issue.
+
+### 1.0.0-beta.4 - 1/27/2017
+- [Closes #48](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/48) Feature: Add CSRF Token cookie so Angular & .NET Core can validate it. - [commit](https://github.com/MarkPieszak/aspnetcore-angular2-universal/commit/5d0cbe48245889a2b6f1cdfb67bad492d80c85c5)
+- Feature: Sample Entity Framework Core added - [commit](https://github.com/MarkPieszak/aspnetcore-angular2-universal/commit/b132d6a5707ccdb826b2cfbc2d8610343901b452)
+- Updated Webpack to 2.2.0 
+
 ### 1.0.0-beta.3 - 1/23/2017
 
 - [Closes #32](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/32) Feature: Added automatic Title update on Route change based on Route `data:{title:''}` - 

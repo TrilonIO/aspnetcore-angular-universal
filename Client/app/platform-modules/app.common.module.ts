@@ -12,7 +12,7 @@ import { RouterModule } from '@angular/router';
 import { Store, StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
-import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { Ng2BootstrapModule } from 'ng2-bootstrap';
 
 // Main "APP" Root Component
 import { BaseSharedModule, AppComponent, ROUTES, appReducer } from 'app';
@@ -61,7 +61,7 @@ const MODULES = [
     EffectsModule,
 
     // Bootstrap
-    Ng2BootstrapModule,
+    Ng2BootstrapModule.forRoot(),
 
     // Routing
     RouterModule.forRoot(ROUTES)

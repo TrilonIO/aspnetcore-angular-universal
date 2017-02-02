@@ -1,5 +1,5 @@
-import './__2.1.1.workaround.ts'; // temporary until 2.1.1 things are patched in Core
 import 'angular2-universal-polyfills/browser'; // This needs to be at the top, Universal neccessary polyfills
+import './__2.1.1.workaround.ts'; // temporary until 2.1.1 things are patched in Core
 
 import { enableProdMode } from '@angular/core';
 // We're going to let Universal take over the Clients "bootstrap" (instead of the normal platformBrowserDynamic)

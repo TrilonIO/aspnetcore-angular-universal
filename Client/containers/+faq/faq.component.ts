@@ -4,12 +4,7 @@ import { Component, Inject, ChangeDetectionStrategy, ViewEncapsulation, OnInit }
   changeDetection: ChangeDetectionStrategy.Default,
   encapsulation: ViewEncapsulation.Emulated,
   selector: 'app-faq',
-  template: `
-    <h1>FAQ</h1>
-    <blockquote>
-      Note: <strong>This component was Lazy-loaded!</strong>
-    </blockquote>
-  `
+  templateUrl: './faq.component.html'
 })
 export class FAQComponent implements OnInit {
 

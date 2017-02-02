@@ -1,12 +1,18 @@
 using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Antiforgery;
+
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using Angular2Spa.Models;
+using Microsoft.AspNetCore.Http;
+
+using Microsoft.AspNetCore.NodeServices;
 
 namespace Angular2Spa
 {
@@ -47,6 +53,10 @@ namespace Angular2Spa
             services.AddMvc();
             services.AddMemoryCache();
 
+            services.AddNodeServices();
+
+            services.AddAntiforgery(options => options.HeaderName = "X-XSRF-TOKEN");
+
             //Adding SignalR Service
             services.AddSignalR(options => {
                 services.AddMemoryCache();
@@ -59,7 +69,7 @@ namespace Angular2Spa
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IAntiforgery antiforgery)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
@@ -85,6 +95,20 @@ namespace Angular2Spa
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            // CSRF / XSRF Token
+            app.Use(async (context, next) =>
+            {
+                if (string.Equals(context.Request.Path.Value, "/", StringComparison.OrdinalIgnoreCase))
+                {
+                    var tokens = antiforgery.GetAndStoreTokens(context);
+
+                    context.Response.Cookies.Append("XSRF-TOKEN", tokens.RequestToken, new CookieOptions() { 
+                        HttpOnly = false
+                    });
+                }
+                await next.Invoke();
+            });
 
             app.UseStaticFiles();
 
