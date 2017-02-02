@@ -15,6 +15,14 @@ running with a lot of the eco-system of .NET Core & Angular (v2+).
 Don't hesitate to create an Issue with anything you run into, and Pull-Requests are always welcome for basic implementations of new features & fixes 
 you think others would benefit from as well!
 
+### 1.0.0-beta.6 - 2/1/2017
+
+> Breaking changes to build system
+- Webpack build system has changed to a separate client/server system. 
+  - Changes to `bootstrap-server.ts`
+  - Changes to `Views/Home/Index.cshtml`
+  - [Commit here](https://github.com/MarkPieszak/aspnetcore-angular2-universal/commit/5d7c367066bc55b4ab37b82f9335c8be15059fb6)
+
 ### 1.0.0-beta.5 - 1/29/2017
 - Feature: Updated to latest Angular 2.4.5
   - This allows us to upgrade Ng2-bootstrap to the latest 1.3.1 version as well (which requires importing the module differently `from 'ng2-bootstrap';` now), 
