@@ -19,7 +19,7 @@
     "e2e": "npm run protractor",
     "e2e:live": "npm run e2e -- --elementExplorer",
     "lint": "npm run tslint \"Client/**/*.ts\"",
-    "postinstall": "webpack --config webpack.config.vendor.js --progress",
+    "postinstall": "npm run webpack-vendor && npm run webpack",
     "posttest": "npm run coverage",
     "postversion": "git push && git push --tags",
     "pree2e": "npm run webdriver:update -- --standalone",
@@ -35,8 +35,9 @@
     "webdriver:start": "npm run webdriver-manager start",
     "webdriver:update": "npm run webdriver-manager update",
     "webdriver-manager": "webdriver-manager",
-    "webpack": "webpack",
-    "webpack-dashboard": "webpack-dashboard"
+    "webpack": "webpack --progress",
+    "webpack-dashboard": "webpack-dashboard",
+    "webpack-vendor": "webpack --config webpack.config.vendor.js --progress"
   },
   "dependencies": {
     "@angular/common": "2.4.5",
