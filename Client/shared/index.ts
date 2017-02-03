@@ -25,3 +25,5 @@ export * from './rx/rx-context.directive';
 export * from './meta/meta.service';
 export * from './meta/meta.store';
 
+export * from './signalr/signalr.service';
+

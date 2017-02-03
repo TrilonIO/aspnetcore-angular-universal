@@ -30,6 +30,7 @@ module.exports = (env) => {
         },
         entry: {
             vendor: [
+                // Angular
                 '@angular/common',
                 '@angular/compiler',
                 '@angular/core',
@@ -38,15 +39,21 @@ module.exports = (env) => {
                 '@angular/platform-browser-dynamic',
                 '@angular/router',
                 '@angular/platform-server',
+
+                // Angular Universal
                 'angular2-universal',           
                 'angular2-universal-polyfills',
+
+                // Polyfills
                 'core-js',
                 'es6-promise',
                 'zone.js',
+
                 //Added JS Libraries here
-                'jquery',
-                'signalr',
-                //Added CSS Libraries here
+                'jquery',  // uncomment if you don't want jQuery
+                'signalr', // uncomment if you don't want to use SignalR (also requires jQuery)
+
+                // Added CSS Libraries here - removed for now (Fontawesome bug)
                 // './node_modules/bootstrap/dist/css/bootstrap.css',
                 // './node_modules/font-awesome/css/font-awesome.css'
             ]
@@ -58,8 +65,8 @@ module.exports = (env) => {
             publicPath: '/dist/'
         },
         plugins: [
-            // Uncomment if you want to use jQuery
-            // new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery' }), // Maps these identifiers to the jQuery package (because Bootstrap expects it to be a global variable)
+            // Uncomment if you want to remove jQuery
+            new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery' }), // Maps these identifiers to the jQuery package (because Bootstrap expects it to be a global variable)
             
             new webpack.ContextReplacementPlugin(/\@angular\b.*\b(bundles|linker)/, path.join(__dirname, './Client')), // Workaround for https://github.com/angular/angular/issues/11580
             // extractCSS,
