@@ -1,6 +1,7 @@
 ﻿import { Injectable } from '@angular/core';
 import { Http, RequestOptionsArgs } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { isNode } from 'angular2-universal';
 
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/observable/of';
@@ -41,7 +42,7 @@ export class HttpCacheService {
 
         return this._http.get(url, options)
             .map(res => res.json())
-            .do(json => { this._cache.set(key, json); })
+            .do(json => { if (isNode) { this._cache.set(key, json); } })
             .share();
     }
 }
