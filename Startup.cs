@@ -7,12 +7,9 @@ using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using Angular2Spa.Models;
 using Microsoft.AspNetCore.Http;
-
-using Microsoft.AspNetCore.NodeServices;
 
 namespace Angular2Spa
 {

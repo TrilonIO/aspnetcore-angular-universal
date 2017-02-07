@@ -1,17 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 
-using Microsoft.AspNetCore.SpaServices.Prerendering;
-using Microsoft.AspNetCore.NodeServices;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Hosting;
-
 namespace Angular2Spa.Controllers
-{ 
+{
     public class HomeController : Controller
     {
         // public async Task<IActionResult> Index()
