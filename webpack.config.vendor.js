@@ -47,8 +47,8 @@ module.exports = (env) => {
                 'jquery',
                 'signalr',
                 //Added CSS Libraries here
-                // './node_modules/bootstrap/dist/css/bootstrap.css',
-                // './node_modules/font-awesome/css/font-awesome.css'
+                './node_modules/bootstrap/dist/css/bootstrap.css',
+                './node_modules/font-awesome/css/font-awesome.css'
             ]
         },
         output: {
