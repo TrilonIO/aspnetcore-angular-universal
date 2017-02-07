@@ -43,9 +43,14 @@ module.exports = (env) => {
                 'core-js',
                 'es6-promise',
                 'zone.js',
-                //Added JS Libraries here
+            //Added JS Libraries here
                 'jquery',
-                'signalr'
+                'signalr',
+            //Added CSS Libraries here
+                //'bootstrap',
+                './node_modules/bootstrap/dist/css/bootstrap.css',
+                //'font-awesome'
+                './node_modules/font-awesome/css/font-awesome.css'
             ]
         },
         output: {
