@@ -109,7 +109,39 @@ module.exports = (env) => {
 
         // Plugins are middleware we can use during webpacks processing cycles to handle other things we want to do
         plugins: [
-            new CheckerPlugin()
+            new CheckerPlugin(),
+
+            // Uglify (minify/etc)
+            new webpack.optimize.UglifyJsPlugin({
+                warnings: true,
+                minimize: true,
+                sourceMap: true,
+                outputs: {
+                    comments: false
+                },
+                compress: {
+                    warnings: true,
+                    properties: true,
+                    sequences: true,
+                    dead_code: true,
+                    conditionals: true,
+                    comparisons: true,
+                    evaluate: true,
+                    booleans: true,
+                    unused: true,
+                    loops: true,
+                    hoist_funs: true,
+                    cascade: true,
+                    if_return: true,
+                    join_vars: true,
+                    //drop_console: true,
+                    drop_debugger: true,
+                    negate_iife: true,
+                    unsafe: true,
+                    //side_effects: true,
+                    hoist_vars: true
+                }
+            })
         ]
 
     };
@@ -185,10 +217,7 @@ module.exports = (env) => {
             new webpack.NormalModuleReplacementPlugin(
                 /@angular(\\|\/)compiler/,
                 root('empty.js')
-            ),
-
-            // Uglify (minify/etc)
-            new webpack.optimize.UglifyJsPlugin()
+            )
         ])
     });
 

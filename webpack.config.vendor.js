@@ -43,12 +43,14 @@ module.exports = (env) => {
                 'core-js',
                 'es6-promise',
                 'zone.js',
-                //Added JS Libraries here
+            //Added JS Libraries here
                 'jquery',
                 'signalr',
-                //Added CSS Libraries here
-                // './node_modules/bootstrap/dist/css/bootstrap.css',
-                // './node_modules/font-awesome/css/font-awesome.css'
+            //Added CSS Libraries here
+                //'bootstrap',
+                './node_modules/bootstrap/dist/css/bootstrap.css',
+                //'font-awesome'
+                './node_modules/font-awesome/css/font-awesome.css'
             ]
         },
         output: {
@@ -69,11 +71,7 @@ module.exports = (env) => {
             //     name: '[name]_[hash]'
             // }),
             new webpack.IgnorePlugin(/^vertx$/) // Workaround for https://github.com/stefanpenner/es6-promise/issues/100
-
         ]
-        // .concat(isDevelopment ? [] : [
-        //     new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } })
-        // ])
     };
 
     const clientConfig = merge(sharedConfig, {
@@ -85,13 +83,17 @@ module.exports = (env) => {
         },
         plugins: [
             extractCSS,
+            new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),
             new webpack.DllPlugin({
                 path: path.join(__dirname, 'wwwroot', 'dist', '[name]-manifest.json'),
                 name: '[name]_[hash]'
             })
-        ].concat(isDevBuild ? [] : [
+        ]
+        /*
+        .concat(isDevBuild ? [] : [
             new webpack.optimize.UglifyJsPlugin()
         ])
+        */
     });
 
     const serverConfig = merge(sharedConfig, {
