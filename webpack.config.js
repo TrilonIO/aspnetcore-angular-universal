@@ -5,6 +5,7 @@ const webpack = require('webpack');
 const path = require('path');
 const clone = require('js.clone');
 const merge = require('webpack-merge');
+const argv = require('yargs').argv;
 
 // TS/Webpack things to enable paths:[] from tsconfig
 // This helps Webpack understand what they are, and where they are coming from so it can "map" them
@@ -25,11 +26,15 @@ var devTool = isDevBuild ? 'source-map' : '';
 // Here we wrap the configuration around setTypeScriptAlias so that it can properly map our "paths: []" from tsconfig
 // to the correct corresponding module resource locations
 module.exports = (env) => {
+
+    const isDashboardMode = argv.define === 'dashboard';
+
+    console.log('isDashboardMode? ' + isDashboardMode);
     
     // production is passed with --env.prod
     const isDevBuild = !(env && env.prod);
 
-    console.log(isDevBuild);
+    console.log('isDevBuild? ' + isDevBuild);
 
     // Where our "Dist" (distribution) directory is
     const distDirectory = './wwwroot/dist';
@@ -110,9 +115,9 @@ module.exports = (env) => {
 
         // Plugins are middleware we can use during webpacks processing cycles to handle other things we want to do
         plugins: [
-            new CheckerPlugin(),
-            new DashboardPlugin({ port: 3001 })
-        ]
+            new CheckerPlugin()
+
+        ].concat(isDashboardMode ? [ new DashboardPlugin({ port: 3001 }) ] : [])
 
     };
 
