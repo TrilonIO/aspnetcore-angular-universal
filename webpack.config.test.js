@@ -11,7 +11,6 @@ var clone = require('js.clone');
 // & create the modules correctly
 var ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
 var TsConfigPathsPlugin = require('awesome-typescript-loader').TsConfigPathsPlugin;
-var ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
 var DefinePlugin = require('webpack/lib/DefinePlugin');
 
 // Test if Development build from ASPNETCore environment
@@ -120,8 +119,6 @@ module.exports = setTypeScriptAlias(require('./tsconfig.json'), {
         new TsConfigPathsPlugin({
             tsconfig: 'tsconfig.json'
         }),
-
-        new ForkCheckerPlugin(),
 
         new webpack.DllReferencePlugin({
             context: '.',

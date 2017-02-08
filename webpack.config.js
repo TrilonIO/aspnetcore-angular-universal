@@ -164,8 +164,6 @@ module.exports = (env) => {
                 tsconfig: 'tsconfig.json'
             }),
 
-            // new ForkCheckerPlugin(),
-
             new webpack.DllReferencePlugin({
                 context: __dirname,
                 manifest: require('./wwwroot/dist/vendor-manifest.json')
