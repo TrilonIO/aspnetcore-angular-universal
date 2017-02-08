@@ -13,6 +13,7 @@ const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin')
 const TsConfigPathsPlugin = require('awesome-typescript-loader').TsConfigPathsPlugin;
 const CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin;
 const DefinePlugin = require('webpack/lib/DefinePlugin');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 
 // Test if Development build from ASPNETCore environment
 var isDevBuild = process.env.ASPNETCORE_ENVIRONMENT === 'Production' ? false : true;
@@ -109,7 +110,8 @@ module.exports = (env) => {
 
         // Plugins are middleware we can use during webpacks processing cycles to handle other things we want to do
         plugins: [
-            new CheckerPlugin()
+            new CheckerPlugin(),
+            new DashboardPlugin({ port: 3001 })
         ]
 
     };
