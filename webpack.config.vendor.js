@@ -71,7 +71,7 @@ module.exports = (env) => {
             new webpack.IgnorePlugin(/^vertx$/) // Workaround for https://github.com/stefanpenner/es6-promise/issues/100
 
         ]
-        // .concat(isDevelopment ? [] : [
+        // .concat(isDevBuild ? [] : [
         //     new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } })
         // ])
     };
