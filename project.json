@@ -2,11 +2,9 @@
   "buildOptions": {
     "compile": {
       "exclude": [
-        "node_modules",
-        "Client"
+        "node_modules"
       ]
     },
-    "debugType": "portable",
     "emitEntryPoint": true,
     "preserveCompilationContext": true
   },

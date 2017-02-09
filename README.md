@@ -4,7 +4,7 @@
     <img src="./docs/architecture.png" alt="ASP.NET Core Angular 2+ Starter" title="ASP.NET Core Angular 2+ Starter">
 </p>
 
-### What is this repo?
+### What is this repo? Live Demo here: [http://aspnetcore-angular2-universal.azurewebsites.net](http://aspnetcore-angular2-universal.azurewebsites.net)**
 
 This repository is maintained by [Angular Universal](https://github.com/angular/universal) and is meant to be an advanced starter for both ASP.NET Core using 
 Angular 2.x(+), not only for the client-side, but to be rendered on the *server* for instant application paints 
@@ -105,9 +105,22 @@ to: `ASPNETCORE_ENVIRONMENT=Production`, then run `webpack` manually. Then you c
 
 # Deployment
 
+### Dotnet publish
+Using `dotnet publish`, when it's finished place the generated folder onto your server and use IIS to fire everything up.
+
+### Heroku 
 <a href="https://dashboard.heroku.com/new?template=https://github.com/MarkPieszak/aspnetcore-angular2-universal.git">
 <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy on Heroku">
 </a>
+
+### Azure
+
+```bash
+git remote add azure https://your-user-name@my-angular2-site.scm.azurewebsites.net:443/my-angular2-site.git
+                     // ^ get this from Azure (Web App Overview section - Git clone url)
+
+git push --set-upstream azure master 
+```
 
 ----
 
