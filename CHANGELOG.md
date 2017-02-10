@@ -15,11 +15,18 @@ running with a lot of the eco-system of .NET Core & Angular (v2+).
 Don't hesitate to create an Issue with anything you run into, and Pull-Requests are always welcome for basic implementations of new features & fixes 
 you think others would benefit from as well!
 
-### 1.0.0-rc.0 - 2/9/2017 - RC Release!!
+## 1.0.0-rc.0 - 2/9/2017 - RC Release!!
 
 > We're getting closer! I feel the repo is getting much more consistent with all the features we've included in here.
 
+- **Breaking change with file structure**
+  - `app.common.module.ts` renamed to `app.module.ts` and moved from `/app/platform-modules/` to `/app/`.
+  - Removed `app.routes.ts` and simply placed them within an `[]` within `app.module.ts` to make it easier to add new Components & Routes.
+  - [commit here](https://github.com/MarkPieszak/aspnetcore-angular2-universal/commit/7c973efa711a292ecc8f8471c08624bc4ff2102b)
+
 - Deployment updates, now able to Deploy to Azure! [commit here](https://github.com/MarkPieszak/aspnetcore-angular2-universal/commit/bb7e2da5b96040acdfbfa4052547b4a22f0e173c)
+
+--- 
 
 ### 1.0.0-beta.6 - 2/1/2017
 

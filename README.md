@@ -287,11 +287,9 @@ Nothing's ever perfect, but please let me know by creating an issue (make sure t
  
 **How to add a route in the app**
 
-1. Create a folder in `Client\Containers\`
-2. Create a component in the folder
-3. Add the container in the `Client\Containers\index.ts` (this is the "barrels" file for all containers)
-4. Add the container in the `\Client\app\platform-modules\app.common.module.ts`
-5. Add the container in the `\Client\app\app.routes.ts`
+1. Create a folder & your new Compoent inside: `Client\Containers\`
+2. Add the Component to: `Client\Containers\index.ts` (this is the "barrels" file for all containers)
+3. Add the Component to MODULES & ROUTES within: `\Client\app\platform-modules\app.common.module.ts`
 
 ### How can I disable Universal / SSR (Server-side rendering)?
 
