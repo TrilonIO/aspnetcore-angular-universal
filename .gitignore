@@ -245,3 +245,6 @@ _Pvt_Extensions
 
 # Ignore AwesomeTypescript cache
 .awcache
+
+# VSCode files
+.vscode/chrome
