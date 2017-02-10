@@ -6,7 +6,7 @@
   "env": {
     "NPM_CONFIG_PRODUCTION": {
       "description": "False as we need to install devDependencies on heroku instance (webpack, ...)",
-      "value" : "false"
+      "value" : "true"
     }
   },
   "buildpacks": [
