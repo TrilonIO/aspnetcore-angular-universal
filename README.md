@@ -86,6 +86,8 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
 
 **Make sure you have at least Node 4.x or higher installed!**
 
+**Development Mode** 
+
 > You'll need ASP.NET Core installed (1.0.1 or 1.1). 
 > Make sure you have VStudio 2015 update 3 installed as well.
 
@@ -93,8 +95,20 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
  - `npm install && dotnet restore` (if using Visual Studio it will do both of these automatically when the project is opened)
  
  > Both Visual Studio & VSCode have the neccessary (Dev & Prod) Launch files to be able to run & debug immidiately.
+ 
+If you're **not** using VSCode (which sets it to Development mode when you push F5), make sure you set the `ASPNETCORE_ENVIRONMENT` variable to `Development`: (VSCode does this through the launch.json file)
+ 
+> Note: `set ASPNETCORE_ENVIRONMENT=Development` on Windows. `export ASPNETCORE_ENVIRONMENT=Development` on Mac/Linux.
 
-(Temporarily) But for VSCode, in order to see the full Production version you must go to Command Line and set the environment variable 
+--- 
+
+**Production Mode**
+
+Run `dotnet publish`, when it finishes, `cd` into the directory where it put everything, typically it's within `/bin/Debug/netcoreapp1.1/publish/`.
+
+Now you can fire up the production applicatoin by running `dotnet aspnetcore-angular2-universal.dll` (If you renamed the project the part before `.dll` could be different, and your project name.
+
+VSCode option 2: go to Command Line and set the environment variable 
 to: `ASPNETCORE_ENVIRONMENT=Production`, then run `webpack` manually. Then you can launch the [Production] Launch Web option from VSCode.
 
 > Note: `set ASPNETCORE_ENVIRONMENT=Production` on Windows. `export ASPNETCORE_ENVIRONMENT=Production` on Mac/Linux.
