@@ -334,7 +334,9 @@ if (isBrowser) {
 
 ### How can I use Material2 with this Repo?
 
-For now, Material2 is still in beta, and isn't fully functioning with Universal (it will sometime soon though!), so temporarily disable SSR (server-side rendering) so you can use it within your application until updates come from Material, and you can have it rendered on the server as well. Read the Material docs to see how to add Material to your Angular application, with SSR disabled everything should work without any problems.
+For now, Material2 is still in beta, and isn't fully functioning with Universal (it will sometime soon though!), so one option is to  temporarily disable SSR (server-side rendering) so you can use it within your application until updates come from Material, and you can have it rendered on the server as well. Read the Material docs to see how to add Material to your Angular application, with SSR disabled everything should work without any problems.
+
+Another option is to look at the workaround [here](https://github.com/angular/material2/issues/308#issuecomment-275361791) and make a separate workaround file `__2.1.1.workaround.node.ts` that you import specifically to the `bootstrap-server.ts` file.
 
 ### How can I use jQuery and/or some jQuery plugins with Angular Universal?
 
