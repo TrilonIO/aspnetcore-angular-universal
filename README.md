@@ -40,7 +40,7 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
 
 > These are just some of the features found in this starter!
 
-- **Angular 2.x+** : (Currently working with latest Angular `2.4.5`)
+- **Angular 2.x+** : (Currently working with latest Angular `2.4.7`)
   - Featuring Server-side rendering (Angular Universal)
 	  - Faster paints, better SEO, deep-linking, etc
   - NgRx - Reactive Redux state management architecture
@@ -207,7 +207,7 @@ Notice the folder structure here in `./Client/` :
 + /Client/
 
 +   /app/
-    ROOT App Component / Routes / global css styles
+    ROOT App NgModule / Component / Routes / global css styles
 
 ++ > ++ > /platform-modules/
             Platform specific NgModules (browser & server separated)
@@ -226,11 +226,11 @@ Notice the folder structure here in `./Client/` :
        Here we put all shared Services / Directives / Pipes etc
 ```
 
-When adding new features/components/etc to your application you'll be commonly adding things to the Root **NgModule**, 
-but why are there **two**?
+When adding new features/components/etc to your application you'll be commonly adding things to the Root **NgModule** (located 
+in `/Client/app/app.module.ts`), but why are there **two** other NgModules in `/platform-modules`?
 
 This is because we want to split our logic **per Platform**, but notice they both share a Common NgModule 
-named `app.common.module.ts` (in the same folder). When adding most things to your application, this is the only 
+named `app.module.ts` (in the folder below them). When adding most things to your application, this is the only 
 place you'll have to add in your new Component / Directive / Pipe / etc.  You'll only occassional need to manually 
 add in the Platform specific things to either `app.browser.module || app.server.module`.
 
