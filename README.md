@@ -299,7 +299,7 @@ Nothing's ever perfect, but please let me know by creating an issue (make sure t
  
 # FAQ
  
-**How to add a route in the app**
+### How to add a new Route 
 
 1. Create a folder & your new Compoent inside: `Client\Containers\`
 2. Add the Component to: `Client\Containers\index.ts` (this is the "barrels" file for all containers)
