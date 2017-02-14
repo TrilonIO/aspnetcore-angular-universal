@@ -1,0 +1,9 @@
+body { line-height:18px; }
+ul { padding:10px 25px; }
+ul li { padding:5px 0; }
+
+h1 { border-bottom: 5px #4189C7 solid; }
+h1, h2, h3 { padding:10px 0; }
+
+blockquote { margin:25px 10px; padding:10px 35px 10px 10px; border-left:10px #158a15 solid; background:#edffed ; } 
+blockquote a, blockquote a:hover { color:#068006; }

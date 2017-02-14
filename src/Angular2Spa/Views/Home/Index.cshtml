@@ -1,0 +1,14 @@
+@{
+    ViewData["Title"] = ".NET Core + Angular + Universal !";
+}
+
+<app-root asp-prerender-module="Client/dist/main-server">
+    ... Loading ...
+</app-root>
+ 
+
+<script src="~/dist/vendor.js" asp-append-version="true"></script>
+
+@section scripts {
+    <script src="~/dist/main-client.js" asp-append-version="true"></script>
+}

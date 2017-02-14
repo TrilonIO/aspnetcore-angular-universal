@@ -1,0 +1,47 @@
+<ul class="nav">
+    <li [routerLinkActive]="['link-active']">
+        <a [routerLink]="['/home']">
+            <i class="fa fa-home" aria-hidden="true"></i> Home
+        </a>
+    </li>
+    <li [routerLinkActive]="['link-active']">
+        <a [routerLink]="['/examples']">
+            <i class="fa fa-window-maximize" aria-hidden="true"></i> Platform Examples
+        </a>
+    </li>
+    <li [routerLinkActive]="['link-active']">
+        <a [routerLink]="['/bootstrap']">
+            <i class="fa fa-graduation-cap" aria-hidden="true"></i> Bootstrap Demo
+        </a>
+    </li>
+    <li [routerLinkActive]="['link-active']">
+        <a [routerLink]="['/rest-test']">
+            <i class="fa fa-chrome" aria-hidden="true"></i> RestAPI Demo
+        </a>
+    </li>
+    <li [routerLinkActive]="['link-active']">
+        <a [routerLink]="['/chat']">
+            <i class="fa fa-comments-o" aria-hidden="true"></i> SignalR Chat
+        </a>
+    </li>
+    <li [routerLinkActive]="['link-active']">
+        <a [routerLink]="['/video-chat']">
+            <i class="fa fa-video-camera" aria-hidden="true"></i> Example 404 Route
+        </a>
+    </li>
+    <li [routerLinkActive]="['link-active']">
+        <a [routerLink]="['/faq']">
+            <i class="fa fa-question-circle" aria-hidden="true"></i> FAQ
+        </a>
+    </li>
+    <li *ngIf="!loggedIn$" [routerLinkActive]="['link-active']">
+        <a [routerLink]="['/login']">
+            <i class="fa fa-user" aria-hidden="true"></i> Login
+        </a>
+    </li>
+    <li *ngIf="loggedIn$" (click)="logout()">
+        <a [routerLink]="['/']">
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i> Welcome, {{ user$.username }} - Logout
+        </a>
+    </li>
+</ul>
