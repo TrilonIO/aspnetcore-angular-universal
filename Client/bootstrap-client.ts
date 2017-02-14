@@ -11,6 +11,9 @@ import { handleHmr } from 'app';
 // Grab the browser-specific NgModule
 import { AppBrowserModule } from './app/platform-modules/app.browser.module';
 
+import * as $ from 'jquery'; 
+import 'signalr/jquery.signalR.min';
+
 let platform;
 
 if (process.env.production) {

@@ -7,8 +7,16 @@ import { UniversalModule, isBrowser, isNode, AUTO_PREBOOT } from 'angular2-unive
 
 import { AppCommonModule } from '../app.module';
 import { AppComponent } from 'app';
-// Universal : XHR Cache 
-import { CacheService, StorageService, BrowserStorage } from 'app-shared';
+
+
+import { 
+    // Universal : XHR Cache 
+    CacheService, StorageService, BrowserStorage,
+    // SignalR
+    ChannelService, ChannelConfig, SignalrWindow
+} from 'app-shared';
+
+import {  } from 'app-shared';
 
 export const UNIVERSAL_KEY = 'UNIVERSAL_CACHE';
 
@@ -18,6 +26,10 @@ export function getRequest() {
 export function getResponse() {
   return {};
 }
+
+let channelConfig = new ChannelConfig();
+channelConfig.url = '/signalr';
+channelConfig.hubName = 'EventHub';
 
 @NgModule({
     bootstrap: [ AppComponent ],
@@ -42,6 +54,11 @@ export function getResponse() {
 
         { provide: 'req', useFactory: getRequest },
         { provide: 'res', useFactory: getResponse },
+
+        // SignalR providers:
+        ChannelService,
+        { provide: SignalrWindow, useValue: window },
+        { provide: 'channel.config', useValue: channelConfig },
 
         // We're using Dependency Injection here to use a Browser specific "Storage" (localStorage here) through the empty shell class StorageService
         // The server will use a different one, since window & localStorage do not exist there
