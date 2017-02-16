@@ -28,8 +28,9 @@ Obj/
 
 # Visual Studio 2015 cache/options directory
 .vs/
-/src/angular2spa/wwwroot/dist/**
-/src/angular2spa/Client/dist/**
+
+/src/*/wwwroot/dist/**
+/src/*/Client/dist/**
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
