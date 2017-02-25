@@ -92,7 +92,7 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
 > Make sure you have VStudio 2015 update 3 installed as well.
 
  - Fork & Clone repo
- - `npm install && dotnet restore` (if using Visual Studio it will do both of these automatically when the project is opened)
+ - Cmd-line run: `npm install && dotnet restore` (If using Visual Studio it will do both of these *automatically* when the project is opened)
  
  > Both Visual Studio & VSCode have the neccessary (Dev & Prod) Launch files to be able to run & debug immidiately.
  

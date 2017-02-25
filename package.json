@@ -1,0 +1,12 @@
+{
+    "name": "Angular 2+ Universal & ASP.NET Core - Advanced Starter",
+    "author": {
+        "name": "Mark Pieszak",
+        "email": "mpieszak84@gmail.com",
+        "url": "https://github.com/MarkPieszak"
+    },
+    "scripts": {
+        "postinstall": "npm run install:angular2spa",
+        "install:angular2spa": "cd ./src/angular2spa/ && npm install"
+    }
+}

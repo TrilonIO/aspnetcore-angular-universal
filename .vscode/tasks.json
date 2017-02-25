@@ -7,7 +7,7 @@
         {
             "taskName": "build",
             "args": [
-                "${workspaceRoot}/project.json"
+                "${workspaceRoot}/src/Angular2Spa/project.json"
             ],
             "isBuildCommand": true,
             "problemMatcher": "$msCompile"

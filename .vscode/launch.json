@@ -6,9 +6,9 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceRoot}/bin/Debug/netcoreapp1.1/aspnetcore-angular2-universal.dll",
+            "program": "${workspaceRoot}/src/Angular2Spa/bin/Debug/netcoreapp1.1/Angular2Spa.dll",
             "args": [],
-            "cwd": "${workspaceRoot}",
+            "cwd": "${workspaceRoot}/src/Angular2Spa",
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart",
             "launchBrowser": {
@@ -29,7 +29,7 @@
                 "ASPNETCORE_ENVIRONMENT": "Development"
             },
             "sourceFileMap": {
-                "/Views": "${workspaceRoot}/Views"
+                "/Views": "${workspaceRoot}/src/Angular2Spa/Views"
             }
         },
         {
@@ -37,7 +37,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceRoot}/bin/Debug/netcoreapp1.1/aspnetcore-angular2-universal.dll",
+            "program": "${workspaceRoot}/bin/Debug/netcoreapp1.1/Angular2Spa.dll",
             "args": [],
             "cwd": "${workspaceRoot}",
             "stopAtEntry": false,
