@@ -3,7 +3,37 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Angular2Spa", "Angular2Spa.xproj", "{8F5CB8A9-3086-4B49-A1C2-32A9F89BCA11}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1A168A42-702E-492C-B212-1E8B30A1A841}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Angular2Spa", "Angular2Spa", "{BD425674-7824-4C09-A35A-05CD276B79DF}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Angular2Spa", "src\Angular2Spa\Angular2Spa.xproj", "{8F5CB8A9-3086-4B49-A1C2-32A9F89BCA11}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{979BD18D-5683-4E93-B33A-55C1330DD025}"
+	ProjectSection(SolutionItems) = preProject
+		docs\all.jpeg = docs\all.jpeg
+		docs\architecture.png = docs\architecture.png
+		docs\delete.jpeg = docs\delete.jpeg
+		docs\details.jpeg = docs\details.jpeg
+		docs\insert.jpeg = docs\insert.jpeg
+		docs\RESTAPI-ENTITY.MD = docs\RESTAPI-ENTITY.MD
+		docs\update.jpeg = docs\update.jpeg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6DEAA758-EE4A-40D7-80D2-D35FAAC84682}"
+	ProjectSection(SolutionItems) = preProject
+		.deployment = .deployment
+		.gitignore = .gitignore
+		CHANGELOG.md = CHANGELOG.md
+		global.json = global.json
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{5316E4AC-13F1-4A7C-852B-421B15280C6C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Angular2Spa.Test", "Angular2Spa.Test", "{9932296F-B75E-4A09-B2B3-0F8EE6EE1623}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Angular2Spa.Test", "test\Angular2Spa.Test\Angular2Spa.Test.xproj", "{D7677314-5B09-4C9A-A695-F046ACE5A97F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +45,18 @@ Global
 		{8F5CB8A9-3086-4B49-A1C2-32A9F89BCA11}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F5CB8A9-3086-4B49-A1C2-32A9F89BCA11}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F5CB8A9-3086-4B49-A1C2-32A9F89BCA11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7677314-5B09-4C9A-A695-F046ACE5A97F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7677314-5B09-4C9A-A695-F046ACE5A97F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7677314-5B09-4C9A-A695-F046ACE5A97F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7677314-5B09-4C9A-A695-F046ACE5A97F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BD425674-7824-4C09-A35A-05CD276B79DF} = {1A168A42-702E-492C-B212-1E8B30A1A841}
+		{8F5CB8A9-3086-4B49-A1C2-32A9F89BCA11} = {BD425674-7824-4C09-A35A-05CD276B79DF}
+		{9932296F-B75E-4A09-B2B3-0F8EE6EE1623} = {5316E4AC-13F1-4A7C-852B-421B15280C6C}
+		{D7677314-5B09-4C9A-A695-F046ACE5A97F} = {9932296F-B75E-4A09-B2B3-0F8EE6EE1623}
 	EndGlobalSection
 EndGlobal
