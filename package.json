@@ -1,10 +1,27 @@
 {
     "name": "Angular 2+ Universal & ASP.NET Core - Advanced Starter",
+    "version": "1.0.0-rc.1",
     "author": {
         "name": "Mark Pieszak",
         "email": "mpieszak84@gmail.com",
         "url": "https://github.com/MarkPieszak"
     },
+    "repository": {
+        "url": "https://github.com/MarkPieszak/aspnetcore-angular2-universal"
+    },
+    "keywords": [
+        "Angular", "Angular2", "Angular4",
+        "ASP.NET Core", "Angular Universal"
+    ],
+    "contributors": [
+        "MarkPieszak",
+        "AbrarJahin",
+        "Ketrex",
+        "dave01001",
+        "ORuban",
+        "nalex095",
+        "paonath"
+    ],
     "scripts": {
         "postinstall": "npm run install:angular2spa",
         "install:angular2spa": "cd ./src/angular2spa/ && npm install"

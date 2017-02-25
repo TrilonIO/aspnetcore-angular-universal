@@ -16,7 +16,7 @@ This is meant to be a Feature-Rich Starter application containing all of the lat
 
 This utilizes all the latest standards, no gulp, no bower, no typings, no manually "building" anything. NPM, Webpack and .NET handle everything for you!
 
-[1/23] Fully operational, some improvements & new functionality to come, keep an eye out for the latest updates!
+[2/25] Fully operational, some improvements & new functionality to come, keep an eye out for the latest updates!
 
 > NOTE: Angular Universal is currently moving to Angular Core (https://github.com/angular/angular/issues/13822), we will need to wait for that and angular v4 to finish certain aspects (aot for example)
 
@@ -103,6 +103,8 @@ If you're **not** using VSCode (which sets it to Development mode when you push 
 --- 
 
 **Production Mode**
+
+> Note: **The project is now within `/src/Angular2Spa`** so make sure you go to that directory in command line, then:
 
 Run `dotnet publish`, when it finishes, `cd` into the directory where it put everything, typically it's within `/bin/Debug/netcoreapp1.1/publish/`.
 

@@ -15,6 +15,11 @@ running with a lot of the eco-system of .NET Core & Angular (v2+).
 Don't hesitate to create an Issue with anything you run into, and Pull-Requests are always welcome for basic implementations of new features & fixes 
 you think others would benefit from as well!
 
+## 1.0.0-rc.1 - 2/25/2017
+- Directory structure changed to move Project into `/src/Angular2Spa` to maintain ASP.NET common structure.
+> Note: For the most part, everything is still within that `/src/Angular2Spa` folder, so you can take your current `/Client/` `/Server/` 
+and other important files from your working project into the new structure to take advantage of it & upgrade. 
+
 ## 1.0.0-rc.0 - 2/9/2017 - RC Release!!
 
 > We're getting closer! I feel the repo is getting much more consistent with all the features we've included in here.
