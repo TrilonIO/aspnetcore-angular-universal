@@ -22,7 +22,7 @@ module.exports = (env) => {
             loaders: [
                 {
                     test: /\.css/,
-                    loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader' })
+                    use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' })
                 },
                 { test: /\.(png|woff|woff2|eot|ttf|svg)(\?|$)/, use: 'url-loader?limit=100000' }
             
@@ -80,7 +80,7 @@ module.exports = (env) => {
         output: { path: path.join(__dirname, 'wwwroot', 'dist') },
         module: {
             rules: [
-                { test: /\.css(\?|$)/, use: extractCSS.extract({ loader: 'css-loader' }) }
+                { test: /\.css(\?|$)/, use: extractCSS.extract({ use: 'css-loader' }) }
             ]
         },
         plugins: [

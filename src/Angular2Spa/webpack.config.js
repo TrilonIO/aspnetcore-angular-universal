@@ -78,16 +78,16 @@ module.exports = (env) => {
                 },
 
                 // Html files
-                { test: /\.html$/, loader: 'raw-loader' },
+                { test: /\.html$/, use: 'raw-loader' },
 
                 // CSS files
-                { test: /\.css/, loader: 'raw-loader' },
+                { test: /\.css/, use: 'raw-loader' },
 
                 // SASS files
                 //{ test: /\.scss$/, loaders: ['raw-loader', 'sass-loader?sourceMap'] },
 
                 // JSON files
-                { test: /\.json$/, loader: 'json-loader' },
+                { test: /\.json$/, use: 'json-loader' },
 
                 // Image files
                 { test: /\.(png|jpg|jpeg|gif)$/, use: 'url-loader?limit=25000' },
@@ -95,21 +95,21 @@ module.exports = (env) => {
                 // Font files of all types
                 {
                     test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
-                    loader: "url?limit=10000&mimetype=application/font-woff"
+                    use: "url?limit=10000&mimetype=application/font-woff"
                 }, {
                     test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
-                    loader: "url?limit=10000&mimetype=application/font-woff"
+                    use: "url?limit=10000&mimetype=application/font-woff"
                 }, {
                     test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-                    loader: "url?limit=10000&mimetype=application/octet-stream"
+                    use: "url?limit=10000&mimetype=application/octet-stream"
                 }, {
                     test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-                    loader: "file"
+                    use: "file"
                 }, 
                 // SVG files
                 {
                     test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-                    loader: "url?limit=25000&mimetype=image/svg+xml"
+                    use: "url?limit=25000&mimetype=image/svg+xml"
                 }]
         },
 
