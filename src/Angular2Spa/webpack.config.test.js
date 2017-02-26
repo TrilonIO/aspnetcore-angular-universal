@@ -67,33 +67,33 @@ module.exports = setTypeScriptAlias(require('./tsconfig.json'), {
             },
 
             // Html files
-            { test: /\.html$/, loader: 'raw-loader' },
+            { test: /\.html$/, use: 'raw-loader' },
 
             // CSS files
-            { test: /\.css/, loader: 'raw-loader' },
+            { test: /\.css/, use: 'raw-loader' },
 
             // SASS files
             //{ test: /\.scss$/, loaders: ['raw-loader', 'sass-loader?sourceMap'] },
 
             // JSON files
-            { test: /\.json$/, loader: 'json-loader' },
+            { test: /\.json$/, use: 'json-loader' },
 
             // Font files of all types
             {
                 test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
-                loader: "url?limit=10000&mimetype=application/font-woff"
+                use: "url?limit=10000&mimetype=application/font-woff"
             }, {
                 test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
-                loader: "url?limit=10000&mimetype=application/font-woff"
+                use: "url?limit=10000&mimetype=application/font-woff"
             }, {
                 test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-                loader: "url?limit=10000&mimetype=application/octet-stream"
+                use: "url?limit=10000&mimetype=application/octet-stream"
             }, {
                 test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-                loader: "file"
+                use: "file"
             }, {
                 test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-                loader: "url?limit=10000&mimetype=image/svg+xml"
+                use: "url?limit=10000&mimetype=image/svg+xml"
             }]
     },
 
@@ -253,7 +253,7 @@ function root(args) {
 //               {
 //                   enforce: 'pre',
 //                   test: /\.ts$/,
-//                   loader: 'tslint-loader',
+//                   use: 'tslint-loader',
 //                   exclude: [helpers.root('node_modules')]
 //               },
 
@@ -266,7 +266,7 @@ function root(args) {
 //               {
 //                   enforce: 'pre',
 //                   test: /\.js$/,
-//                   loader: 'source-map-loader',
+//                   use: 'source-map-loader',
 //                   exclude: [
 //                     // these packages have problems with their sourcemaps
 //                     helpers.root('node_modules/rxjs'),
@@ -281,7 +281,7 @@ function root(args) {
 //                */
 //               {
 //                   test: /\.ts$/,
-//                   loader: 'awesome-typescript-loader',
+//                   use: 'awesome-typescript-loader',
 //                   query: {
 //                       // use inline sourcemaps for "karma-remap-coverage" reporter
 //                       sourceMap: false,
@@ -304,7 +304,7 @@ function root(args) {
 //                */
 //               {
 //                   test: /\.json$/,
-//                   loader: 'json-loader',
+//                   use: 'json-loader',
 //                   exclude: [helpers.root('Client/index.html')]
 //               },
 
@@ -328,7 +328,7 @@ function root(args) {
 //                */
 //               {
 //                   test: /\.html$/,
-//                   loader: 'raw-loader',
+//                   use: 'raw-loader',
 //                   exclude: [helpers.root('Client/index.html')]
 //               },
 
@@ -341,7 +341,7 @@ function root(args) {
 //               {
 //                   enforce: 'post',
 //                   test: /\.(js|ts)$/,
-//                   loader: 'istanbul-instrumenter-loader',
+//                   use: 'istanbul-instrumenter-loader',
 //                   include: helpers.root('Client'),
 //                   exclude: [
 //                     /\.(e2e|spec)\.ts$/,
