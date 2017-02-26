@@ -1,14 +1,4 @@
 {
-  "name": "aspnetcore-angular2-universal",
-  "description": "Deploy Angular 2+ Universal & ASP.NET Core SPA Advanced Starter on Heroku",
-  "logo": "https://raw.githubusercontent.com/herokumx/herokumxnet/master/NETChatterGroup.png",
-  "keywords": ["heroku", "asp.net-core", "angular2", "spa"],
-  "env": {
-    "NPM_CONFIG_PRODUCTION": {
-      "description": "False as we need to install devDependencies on heroku instance (webpack, ...)",
-      "value" : "true"
-    }
-  },
   "buildpacks": [
     {
       "url": "heroku/nodejs"
@@ -16,5 +6,20 @@
     {
       "url": "https://github.com/ORuban/dotnet-core-buildpack.git"
     }
-  ]
+  ],
+  "description": "Deploy Angular 2+ Universal & ASP.NET Core SPA Advanced Starter on Heroku",
+  "env": {
+    "NPM_CONFIG_PRODUCTION": {
+      "description": "False as we need to install devDependencies on heroku instance (webpack, ...)",
+      "value": "true"
+    }
+  },
+  "keywords": [
+    "heroku",
+    "asp.net-core",
+    "angular2",
+    "spa"
+  ],
+  "logo": "https://raw.githubusercontent.com/herokumx/herokumxnet/master/NETChatterGroup.png",
+  "name": "aspnetcore-angular2-universal"
 }
