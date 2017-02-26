@@ -1,15 +1,29 @@
 {
+  "atom": { "rewriteTsconfig": false },
+  "awesomeTypescriptLoaderOptions": {
+    "forkChecker": true,
+    "useCache": true,
+    "useWebpackText": true
+  },
+  "buildOnSave": false,
+  "compileOnSave": false,
   "compilerOptions": {
-    "moduleResolution": "node",
-    "target": "es5",
-    "sourceMap": true,
-    "rootDir": ".",
     "baseUrl": ".",
-    "outDir": "wwwroot/dist",
-    "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "skipDefaultLibCheck": true,
+    "experimentalDecorators": true,
     "lib": [ "es6", "dom" ],
+    "moduleResolution": "node",
+    "outDir": "wwwroot/dist",
+    "paths": {
+      "app": [ "./Client/app" ],
+      "app-shared": [ "./Client/shared" ],
+      "app-containers": [ "./Client/containers" ],
+      "app-components": [ "./Client/components" ]
+    },
+    "rootDir": ".",
+    "skipDefaultLibCheck": true,
+    "sourceMap": true,
+    "target": "es5",
     "types": [
       "hammerjs",
       "jasmine",
@@ -18,21 +32,7 @@
       "selenium-webdriver",
       "uglify-js",
       "webpack"
-    ],
-    "paths": {
-      "app" : ["./Client/app" ],
-      "app-shared": [ "./Client/shared" ],
-      "app-containers": [ "./Client/containers" ],
-      "app-components": [ "./Client/components" ]
-    }
+    ]
   },
-  "exclude": [ "bin", "wwwroot", "node_modules" ],
-  "compileOnSave": false,
-  "awesomeTypescriptLoaderOptions": {
-    "forkChecker": true,
-    "useWebpackText": true,
-    "useCache": true
-  },
-  "buildOnSave": false,
-  "atom": { "rewriteTsconfig": false }
+  "exclude": [ "bin", "wwwroot", "node_modules" ]
 }

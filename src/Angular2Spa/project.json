@@ -1,5 +1,4 @@
 {
-  "version": "1.0.0-rc.0",
   "buildOptions": {
     "compile": {
       "exclude": [
@@ -12,15 +11,15 @@
   "dependencies": {
     "Gray.Microsoft.AspNetCore.SignalR.Server": "0.2.0-alpha1",
     "Microsoft.ApplicationInsights.AspNetCore": "1.0.0",
+    "Microsoft.AspNetCore.Antiforgery": "1.1.0",
+    "Microsoft.AspNetCore.Authentication.Cookies": "1.1.0",
+    "Microsoft.AspNetCore.Cors": "1.1.0",
     "Microsoft.AspNetCore.Diagnostics": "1.1.0",
     "Microsoft.AspNetCore.Mvc": "1.1.1",
     "Microsoft.AspNetCore.Razor.Tools": {
       "type": "build",
       "version": "1.0.0-preview2-final"
     },
-    "Microsoft.AspNetCore.Cors": "1.1.0",
-    "Microsoft.AspNetCore.Antiforgery": "1.1.0",
-    "Microsoft.AspNetCore.Authentication.Cookies": "1.1.0",
     "Microsoft.AspNetCore.Server.IISIntegration": "1.1.0",
     "Microsoft.AspNetCore.Server.Kestrel": "1.1.0",
     "Microsoft.AspNetCore.SpaServices": "1.1.0-*",
@@ -51,6 +50,9 @@
     }
   },
   "publishOptions": {
+    "exclude": [
+      "wwwroot/dist/*.map"
+    ],
     "include": [
       "appsettings.json",
       "Client",
@@ -58,9 +60,6 @@
       "web.config",
       "webpack.*.js",
       "wwwroot"
-    ],
-    "exclude": [
-      "wwwroot/dist/*.map"
     ]
   },
   "runtimeOptions": {
@@ -69,12 +68,12 @@
     }
   },
   "scripts": {
+    "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ],
     "prepublish": [
       "npm install",
       "node node_modules/webpack/bin/webpack.js --config webpack.config.vendor.js --env.prod",
       "node node_modules/webpack/bin/webpack.js --env.prod"
-    ],
-    "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
+    ]
   },
   "tooling": {
     "defaultNamespace": "Angular2Spa"
@@ -86,5 +85,6 @@
     "Microsoft.EntityFrameworkCore.Relational.Design": "1.1.0",
     "Microsoft.EntityFrameworkCore.Relational.Design.Specification.Tests": "1.1.0",
     "Microsoft.EntityFrameworkCore.Tools": "1.1.0-preview4-final"
-  }
+  },
+  "version": "1.0.0-rc.0"
 }
