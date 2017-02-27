@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Antiforgery;
@@ -85,7 +86,8 @@ namespace AspCoreServer
 
                 // Webpack middleware setup
                 app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions {
-                    HotModuleReplacement = true
+                    HotModuleReplacement = true, 
+                    ProjectPath = Path.Combine(env.ContentRootPath, @"..\Angular2Spa")
                 });
 
                 //Adding Seeder/Test Data
