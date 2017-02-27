@@ -9,12 +9,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
-using Angular2Spa.Models;
+using AspCoreServer.Models;
 using Microsoft.AspNetCore.Http;
 
 using Microsoft.AspNetCore.NodeServices;
 
-namespace Angular2Spa
+namespace AspCoreServer
 {
     public class Startup
     {

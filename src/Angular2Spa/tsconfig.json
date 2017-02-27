@@ -13,7 +13,7 @@
     "experimentalDecorators": true,
     "lib": [ "es6", "dom" ],
     "moduleResolution": "node",
-    "outDir": "wwwroot/dist",
+    "outDir": "../AspCoreServer/wwwroot/dist",
     "paths": {
       "app": [ "./Client/app" ],
       "app-shared": [ "./Client/shared" ],

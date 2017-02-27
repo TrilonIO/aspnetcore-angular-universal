@@ -39,7 +39,7 @@ module.exports = setTypeScriptAlias(require('./tsconfig.json'), {
     // Where should webpack put files after they're processed
     output: {
         // Path location
-        path: path.join(__dirname, 'wwwroot', 'dist'),
+        path: path.join(__dirname, '../AspCoreServer/wwwroot', 'dist'),
         // This is a dynamic way to handle multiple entry[] files [name] in our case would be the Key for each one
         // ex: main.js | vendor.js | etc
         filename: '[name].js',
@@ -122,7 +122,7 @@ module.exports = setTypeScriptAlias(require('./tsconfig.json'), {
 
         new webpack.DllReferencePlugin({
             context: '.',
-            manifest: require('./wwwroot/dist/vendor-manifest.json')
+            manifest: require('./../AspCoreServer/wwwroot/dist/vendor-manifest.json')
         })
 
     ].concat(isDevBuild ? [] : [

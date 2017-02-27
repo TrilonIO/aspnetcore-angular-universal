@@ -116,8 +116,8 @@
   },
   "scripts": {
     "ci": "npm test && npm run e2e",
-    "clean": "npm cache clean && npm run rimraf -- node_modules doc typings coverage wwwroot/dist",
-    "clean:dist": "npm run rimraf -- wwwroot/dist",
+    "clean": "npm cache clean && npm run rimraf -- node_modules doc typings coverage ../AspCoreServer/wwwroot/dist",
+    "clean:dist": "npm run rimraf -- ../AspCoreServer/wwwroot/dist",
     "docs": "npm run typedoc -- --options typedoc.json --exclude '**/*.spec.ts' ./Client/",
     "e2e": "npm run protractor",
     "e2e:live": "npm run e2e -- --elementExplorer",

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.SignalR.Hubs;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 
-namespace Angular2Spa.Hubs
+namespace AspCoreServer.Hubs
 {
     [HubName("chat")]
     public class ChatHub : Hub

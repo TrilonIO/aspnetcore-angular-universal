@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Angular2Spa.Models
+namespace AspCoreServer.Models
 {
     public class Users
     {
