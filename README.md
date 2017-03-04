@@ -4,7 +4,7 @@
     <img src="./docs/architecture.png" alt="ASP.NET Core Angular 2+ Starter" title="ASP.NET Core Angular 2+ Starter">
 </p>
 
-### What is this repo? Live Demo here: [http://aspnetcore-angular2-universal.azurewebsites.net](http://aspnetcore-angular2-universal.azurewebsites.net)**
+### What is this repo? Live Demo here: [http://aspnetcore-angular2-universal.azurewebsites.net](http://aspnetcore-angular2-universal.azurewebsites.net)
 
 This repository is maintained by [Angular Universal](https://github.com/angular/universal) and is meant to be an advanced starter for both ASP.NET Core using 
 Angular 2.x(+), not only for the client-side, but to be rendered on the *server* for instant application paints 
@@ -184,10 +184,10 @@ Here we have the *usual suspects* found at the root level.
 
 > Let's take a look at how this is structured so we can make some sense of it all!
 
-With Angular Universal, we need to split things **per platform** so [if we look inside this folder](https://github.com/MarkPieszak/aspnetcore-angular2-universal/tree/master/Client), 
+With Angular Universal, we need to split things **per platform** so [if we look inside this folder](./src/Angular2Spa/Client), 
 you'll see the 2 most important files (also, these are how the entire application starts up):
 
-- [**Bootstrap-Client.ts**](https://github.com/MarkPieszak/aspnetcore-angular2-universal/blob/master/Client/bootstrap-client.ts) - 
+- [**Bootstrap-Client.ts**](./src/Angular2Spa/Client/bootstrap-client.ts) - 
 This file starts up the entire Angular application for the Client/browser platform. 
 
 Here we setup a few things, client Angular bootstrapping, and also a little hack to handle 
@@ -198,7 +198,7 @@ You'll barely need to touch this file, but this is where you would import librar
 being used in the Browser.
 
 
-- [**Bootstrap-Server.ts**](https://github.com/MarkPieszak/aspnetcore-angular2-universal/blob/master/Client/bootstrap-server.ts) - 
+- [**Bootstrap-Server.ts**](./src/Angular2Spa/Client/bootstrap-server.ts) - 
 This file is where Angular Universal *serializes* the Angular application itself on the .NET server 
 within a very quick Node process, and renders it a string. This is what causes that initial fast paint 
 of the entire application to the Browser.
@@ -276,8 +276,8 @@ below we'll list out a few common problems developers trying to make isomorphic 
     - If you need to use them, consider limiting them to only your main.client and wrapping them situationally with the imported *isBrowser / isNode* features from Universal.  `import { isBrowser, isNode } from 'angular2-universal'`;
     - Another option is using `DOM` from ["@angular/platform-browser"](https://github.com/angular/angular/blob/e3687706c71beb7c9dbdae1bbb5fbbcea588c476/modules/%40angular/platform-browser/src/dom/dom_adapter.ts#L34)
  - To use `templateUrl` or `styleUrls` you must use **`angular2-template-loader`** in your TypeScript loaders.
-    - This is already setup within this starter repo. Look at the webpack.config file 
-    [here](https://github.com/MarkPieszak/aspnetcore-angular2-universal/blob/master/webpack.config.js#L59-L67) for details & implementation.
+    - This is already setup within this starter repo. Look at the `webpack.config` file 
+    [here](./src/Angular2Spa/webpack.config.js#L59-L67) for details & implementation.
  - Try to *limit or* **avoid** using **`setTimeout`**. It will slow down the server-side rendering process. Make sure to remove them [`ondestroy`](https://angular.io/docs/ts/latest/api/core/index/OnDestroy-class.html) in Components.
    - Also for RxJs timeouts, make sure to _cancel_ their stream on success, for they can slow down rendering as well.
  - **Don't manipulate the nativeElement directly**. Use the _Renderer_. We do this to ensure that in any environment we're able to change our view.
@@ -287,7 +287,7 @@ constructor(element: ElementRef, renderer: Renderer) {
 }
 ```
  - The application runs XHR requests on the server & once again on the Client-side (when the application bootstraps)
-    - Use a Universal [HttpCacheService](https://github.com/MarkPieszak/aspnetcore-angular2-universal/blob/master/Client/shared/cache/api.ts#L14-L47) instead of making regular Http requests, to save certain requests so they aren't re-ran again on the Client. [demo'd here](https://github.com/MarkPieszak/aspnetcore-angular2-universal/blob/master/Client/containers/rest-test/rest-test.component.ts#L32-L40)
+    - Use a Universal [HttpCacheService](./src/Angular2Spa/Client/shared/cache/api.ts#L14-L47) instead of making regular Http requests, to save certain requests so they aren't re-ran again on the Client. [demo'd here](./src/Angular2Spa/Client/containers/rest-test/rest-test.component.ts#L32-L40)
  - Know the difference between attributes and properties in relation to the DOM.
  - Keep your directives stateless as much as possible. For stateful directives, you may need to provide an attribute that reflects the corresponding property with an initial string value such as url in img tag. For our native `<img src="">` element the src attribute is reflected as the _src_ property of the element type `HTMLImageElement`.
 
@@ -313,7 +313,7 @@ To disable SSR, go to `Views/Home/Index.cshtml` and remove `asp-prerender-module
 
 ### How do I prevent XHR calls from running again on the Client?
 
-Using the provided GET from [HttpCacheService](https://github.com/MarkPieszak/aspnetcore-angular2-universal/blob/master/Client/shared/cache/api.ts#L14-L47) as opposed 
+Using the provided GET from [HttpCacheService](./src/Angular2Spa/Client/shared/cache/api.ts#L14-L47) as opposed 
 to regular `Http`, it will automatically Cache the response on the server, and pass it down through the html *for you*, and when the 
 Client tries to run it again, it will instantly grab the result from there.
 
