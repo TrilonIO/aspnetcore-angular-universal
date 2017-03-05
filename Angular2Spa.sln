@@ -5,10 +5,6 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1A168A42-702E-492C-B212-1E8B30A1A841}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AspCoreServer", "AspCoreServer", "{BD425674-7824-4C09-A35A-05CD276B79DF}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AspCoreServer", "src\AspCoreServer\AspCoreServer.xproj", "{8F5CB8A9-3086-4B49-A1C2-32A9F89BCA11}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6DEAA758-EE4A-40D7-80D2-D35FAAC84682}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
@@ -22,28 +18,58 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AspCoreServer.Test", "AspCo
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AspCoreServer.Test", "test\AspCoreServer.Test\AspCoreServer.Test.xproj", "{D7677314-5B09-4C9A-A695-F046ACE5A97F}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AspCoreServer", "src\AspCoreServer\AspCoreServer.xproj", "{8F5CB8A9-3086-4B49-A1C2-32A9F89BCA11}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Angular2Spa", "Angular2Spa", "{085C390A-4FC2-4539-BF6B-DFF8CB02A2D5}"
+	ProjectSection(SolutionItems) = preProject
+		src\Angular2Spa\empty.js = src\Angular2Spa\empty.js
+		src\Angular2Spa\helpers.js = src\Angular2Spa\helpers.js
+		src\Angular2Spa\karma.conf.js = src\Angular2Spa\karma.conf.js
+		src\Angular2Spa\LICENSE.md = src\Angular2Spa\LICENSE.md
+		src\Angular2Spa\package.json = src\Angular2Spa\package.json
+		src\Angular2Spa\protractor.conf.js = src\Angular2Spa\protractor.conf.js
+		src\Angular2Spa\spec-bundle.js = src\Angular2Spa\spec-bundle.js
+		src\Angular2Spa\tsconfig.json = src\Angular2Spa\tsconfig.json
+		src\Angular2Spa\tslint.json = src\Angular2Spa\tslint.json
+		src\Angular2Spa\typedoc.json = src\Angular2Spa\typedoc.json
+		src\Angular2Spa\webpack.config.js = src\Angular2Spa\webpack.config.js
+		src\Angular2Spa\webpack.config.test.js = src\Angular2Spa\webpack.config.test.js
+		src\Angular2Spa\webpack.config.test.vendor.js = src\Angular2Spa\webpack.config.test.vendor.js
+		src\Angular2Spa\webpack.config.vendor.js = src\Angular2Spa\webpack.config.vendor.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{5E8B9049-A325-4675-B4A2-412C83111A1B}"
+	ProjectSection(SolutionItems) = preProject
+		src\Angular2Spa\Client\__2.1.1.workaround.ts = src\Angular2Spa\Client\__2.1.1.workaround.ts
+		src\Angular2Spa\Client\bootstrap-client.ts = src\Angular2Spa\Client\bootstrap-client.ts
+		src\Angular2Spa\Client\bootstrap-server.ts = src\Angular2Spa\Client\bootstrap-server.ts
+		src\Angular2Spa\Client\karma-tests.ts = src\Angular2Spa\Client\karma-tests.ts
+		src\Angular2Spa\Client\typings.d.ts = src\Angular2Spa\Client\typings.d.ts
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8F5CB8A9-3086-4B49-A1C2-32A9F89BCA11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8F5CB8A9-3086-4B49-A1C2-32A9F89BCA11}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8F5CB8A9-3086-4B49-A1C2-32A9F89BCA11}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8F5CB8A9-3086-4B49-A1C2-32A9F89BCA11}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D7677314-5B09-4C9A-A695-F046ACE5A97F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D7677314-5B09-4C9A-A695-F046ACE5A97F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7677314-5B09-4C9A-A695-F046ACE5A97F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7677314-5B09-4C9A-A695-F046ACE5A97F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F5CB8A9-3086-4B49-A1C2-32A9F89BCA11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F5CB8A9-3086-4B49-A1C2-32A9F89BCA11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F5CB8A9-3086-4B49-A1C2-32A9F89BCA11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F5CB8A9-3086-4B49-A1C2-32A9F89BCA11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{BD425674-7824-4C09-A35A-05CD276B79DF} = {1A168A42-702E-492C-B212-1E8B30A1A841}
-		{8F5CB8A9-3086-4B49-A1C2-32A9F89BCA11} = {BD425674-7824-4C09-A35A-05CD276B79DF}
 		{9932296F-B75E-4A09-B2B3-0F8EE6EE1623} = {5316E4AC-13F1-4A7C-852B-421B15280C6C}
 		{D7677314-5B09-4C9A-A695-F046ACE5A97F} = {9932296F-B75E-4A09-B2B3-0F8EE6EE1623}
+		{8F5CB8A9-3086-4B49-A1C2-32A9F89BCA11} = {1A168A42-702E-492C-B212-1E8B30A1A841}
+		{085C390A-4FC2-4539-BF6B-DFF8CB02A2D5} = {1A168A42-702E-492C-B212-1E8B30A1A841}
+		{5E8B9049-A325-4675-B4A2-412C83111A1B} = {085C390A-4FC2-4539-BF6B-DFF8CB02A2D5}
 	EndGlobalSection
 EndGlobal
