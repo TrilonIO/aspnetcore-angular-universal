@@ -6,26 +6,33 @@ const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = (env) => {
-    
+
     const extractCSS = new ExtractTextPlugin('vendor.css');
     const isDevBuild = !(env && env.prod);
 
     console.log(isDevBuild);
 
     const sharedConfig = {
-        stats: { modules: false },
+        stats: {
+            modules: false
+        },
 
         resolve: {
             extensions: ['.js']
         },
         module: {
-            loaders: [
+            rules: [
                 {
-                    test: /\.css/,
-                    use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' })
+                    test: /\.css$/,
+                    use: ExtractTextPlugin.extract({
+                        fallback: "style-loader",
+                        use: "css-loader"
+                    })
                 },
-                { test: /\.(png|woff|woff2|eot|ttf|svg)(\?|$)/, use: 'url-loader?limit=100000' }
-            
+                {
+                    test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                    loader: 'url-loader?limit=10000',
+                }
             ]
         },
         entry: {
@@ -38,17 +45,18 @@ module.exports = (env) => {
                 '@angular/platform-browser-dynamic',
                 '@angular/router',
                 '@angular/platform-server',
-                'angular2-universal',           
+                'angular2-universal',
                 'angular2-universal-polyfills',
                 'core-js',
                 'es6-promise',
                 'zone.js',
+
                 //Added JS Libraries here
-                'jquery',
-                'signalr',
+                // 'jquery',
+
                 //Added CSS Libraries here
-                // './node_modules/bootstrap/dist/css/bootstrap.css',
-                // './node_modules/font-awesome/css/font-awesome.css'
+                './node_modules/bootstrap/dist/css/bootstrap.css',
+                './node_modules/font-awesome/css/font-awesome.css'
             ]
         },
         output: {
@@ -58,11 +66,11 @@ module.exports = (env) => {
             publicPath: '/dist/'
         },
         plugins: [
-            // Uncomment if you want to use jQuery
+            // **** Uncomment if you want to use jQuery **** (make sure it's uncommented out above as well)
             // new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery' }), // Maps these identifiers to the jQuery package (because Bootstrap expects it to be a global variable)
-            
+
             new webpack.ContextReplacementPlugin(/\@angular\b.*\b(bundles|linker)/, path.join(__dirname, './Client')), // Workaround for https://github.com/angular/angular/issues/11580
-            // extractCSS,
+            extractCSS,
             //new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery' }), // Maps these identifiers to the jQuery package (because Bootstrap expects it to be a global variable)
             // new webpack.DllPlugin({
             //     path: path.join(__dirname, '../AspCoreServer/wwwroot', 'dist', '[name]-manifest.json'),
@@ -77,12 +85,17 @@ module.exports = (env) => {
     };
 
     const clientConfig = merge(sharedConfig, {
-        output: { path: path.join(__dirname, '../AspCoreServer/wwwroot', 'dist') },
-        module: {
-            rules: [
-                { test: /\.css(\?|$)/, use: extractCSS.extract({ use: 'css-loader' }) }
-            ]
+        output: {
+            path: path.join(__dirname, '../AspCoreServer/wwwroot', 'dist')
         },
+        // module: {
+        //     // rules: [{
+        //     //     test: /\.css(\?|$)/,
+        //     //     use: extractCSS.extract({
+        //     //         use: 'css-loader'
+        //     //     })
+        //     // }]
+        // },
         plugins: [
             extractCSS,
             new webpack.DllPlugin({
@@ -96,15 +109,22 @@ module.exports = (env) => {
 
     const serverConfig = merge(sharedConfig, {
         target: 'node',
-        resolve: { mainFields: ['main'] },
+        resolve: {
+            mainFields: ['main']
+        },
         output: {
             path: path.join(__dirname, '../AspCoreServer/Client', 'dist'),
             libraryTarget: 'commonjs2',
         },
-        module: {
-            rules: [ { test: /\.css(\?|$)/, use: ['to-string-loader', 'css-loader'] } ]
+        // module: {
+        //     // rules: [{
+        //     //     test: /\.css(\?|$)/,
+        //     //     use: ['to-string-loader', 'css-loader']
+        //     // }]
+        // },
+        entry: {
+            vendor: ['aspnet-prerendering']
         },
-        entry: { vendor: ['aspnet-prerendering'] },
         plugins: [
             new webpack.DllPlugin({
                 path: path.join(__dirname, '../AspCoreServer/Client', 'dist', '[name]-manifest.json'),
@@ -114,7 +134,7 @@ module.exports = (env) => {
     });
 
     return [
-        clientConfig, 
+        clientConfig,
         serverConfig
     ];
 
