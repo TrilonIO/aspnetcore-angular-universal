@@ -1,6 +1,6 @@
 ﻿using Xunit;
 
-namespace Angular2Spa.Test
+namespace AspCoreServer.Test
 {
     public class Tests
     {

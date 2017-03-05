@@ -5,9 +5,9 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1A168A42-702E-492C-B212-1E8B30A1A841}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Angular2Spa", "Angular2Spa", "{BD425674-7824-4C09-A35A-05CD276B79DF}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AspCoreServer", "AspCoreServer", "{BD425674-7824-4C09-A35A-05CD276B79DF}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Angular2Spa", "src\Angular2Spa\Angular2Spa.xproj", "{8F5CB8A9-3086-4B49-A1C2-32A9F89BCA11}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AspCoreServer", "src\AspCoreServer\AspCoreServer.xproj", "{8F5CB8A9-3086-4B49-A1C2-32A9F89BCA11}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6DEAA758-EE4A-40D7-80D2-D35FAAC84682}"
 	ProjectSection(SolutionItems) = preProject
@@ -18,9 +18,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{5316E4AC-13F1-4A7C-852B-421B15280C6C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Angular2Spa.Test", "Angular2Spa.Test", "{9932296F-B75E-4A09-B2B3-0F8EE6EE1623}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AspCoreServer.Test", "AspCoreServer.Test", "{9932296F-B75E-4A09-B2B3-0F8EE6EE1623}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Angular2Spa.Test", "test\Angular2Spa.Test\Angular2Spa.Test.xproj", "{D7677314-5B09-4C9A-A695-F046ACE5A97F}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AspCoreServer.Test", "test\AspCoreServer.Test\AspCoreServer.Test.xproj", "{D7677314-5B09-4C9A-A695-F046ACE5A97F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

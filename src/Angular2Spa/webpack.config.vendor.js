@@ -52,7 +52,7 @@ module.exports = (env) => {
             ]
         },
         output: {
-            // path: path.join(__dirname, 'wwwroot', 'dist'),
+            // path: path.join(__dirname, '../AspCoreServer/wwwroot', 'dist'),
             filename: '[name].js',
             library: '[name]_[hash]',
             publicPath: '/dist/'
@@ -65,7 +65,7 @@ module.exports = (env) => {
             // extractCSS,
             //new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery' }), // Maps these identifiers to the jQuery package (because Bootstrap expects it to be a global variable)
             // new webpack.DllPlugin({
-            //     path: path.join(__dirname, 'wwwroot', 'dist', '[name]-manifest.json'),
+            //     path: path.join(__dirname, '../AspCoreServer/wwwroot', 'dist', '[name]-manifest.json'),
             //     name: '[name]_[hash]'
             // }),
             new webpack.IgnorePlugin(/^vertx$/) // Workaround for https://github.com/stefanpenner/es6-promise/issues/100
@@ -77,7 +77,7 @@ module.exports = (env) => {
     };
 
     const clientConfig = merge(sharedConfig, {
-        output: { path: path.join(__dirname, 'wwwroot', 'dist') },
+        output: { path: path.join(__dirname, '../AspCoreServer/wwwroot', 'dist') },
         module: {
             rules: [
                 { test: /\.css(\?|$)/, use: extractCSS.extract({ use: 'css-loader' }) }
@@ -86,7 +86,7 @@ module.exports = (env) => {
         plugins: [
             extractCSS,
             new webpack.DllPlugin({
-                path: path.join(__dirname, 'wwwroot', 'dist', '[name]-manifest.json'),
+                path: path.join(__dirname, '../AspCoreServer/wwwroot', 'dist', '[name]-manifest.json'),
                 name: '[name]_[hash]'
             })
         ].concat(isDevBuild ? [] : [
@@ -98,7 +98,7 @@ module.exports = (env) => {
         target: 'node',
         resolve: { mainFields: ['main'] },
         output: {
-            path: path.join(__dirname, 'Client', 'dist'),
+            path: path.join(__dirname, '../AspCoreServer/Client', 'dist'),
             libraryTarget: 'commonjs2',
         },
         module: {
@@ -107,7 +107,7 @@ module.exports = (env) => {
         entry: { vendor: ['aspnet-prerendering'] },
         plugins: [
             new webpack.DllPlugin({
-                path: path.join(__dirname, 'Client', 'dist', '[name]-manifest.json'),
+                path: path.join(__dirname, '../AspCoreServer/Client', 'dist', '[name]-manifest.json'),
                 name: '[name]_[hash]'
             })
         ]

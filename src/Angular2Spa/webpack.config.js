@@ -37,7 +37,7 @@ module.exports = (env) => {
     console.log('isDevBuild? ' + isDevBuild);
 
     // Where our "Dist" (distribution) directory is
-    const distDirectory = './wwwroot/dist';
+    const distDirectory = './../AspCoreServer/wwwroot/dist';
     
     /* 
      * - Shared webpack configuration -
@@ -166,7 +166,7 @@ module.exports = (env) => {
 
             new webpack.DllReferencePlugin({
                 context: __dirname,
-                manifest: require('./wwwroot/dist/vendor-manifest.json')
+                manifest: require('./../AspCoreServer/wwwroot/dist/vendor-manifest.json')
             })
 
         ].concat(isDevBuild ? [
@@ -204,14 +204,14 @@ module.exports = (env) => {
         plugins: [
             new webpack.DllReferencePlugin({
                 context: __dirname,
-                manifest: require('./Client/dist/vendor-manifest.json'),
+                manifest: require('./../AspCoreServer/Client/dist/vendor-manifest.json'),
                 sourceType: 'commonjs2',
                 name: './vendor'
             })
         ],
         output: {
             libraryTarget: 'commonjs',
-            path: path.join(__dirname, './Client/dist')
+            path: path.join(__dirname, './../AspCoreServer/Client/dist')
         },
         target: 'node',
         devtool: 'inline-source-map',

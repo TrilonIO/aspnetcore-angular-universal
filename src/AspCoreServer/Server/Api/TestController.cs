@@ -1,4 +1,4 @@
-﻿using Angular2Spa.Hubs;
+﻿using AspCoreServer.Hubs;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR.Infrastructure;
@@ -9,7 +9,7 @@ using System.Linq;
 using Microsoft.AspNetCore.SignalR;
 using System.IO;
 
-namespace Angular2Spa.Controllers
+namespace AspCoreServer.Controllers
 {
     [Route("api/[controller]")]
     public class TestController : Controller

@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Antiforgery;
@@ -9,12 +10,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
-using Angular2Spa.Models;
+using AspCoreServer.Models;
 using Microsoft.AspNetCore.Http;
 
 using Microsoft.AspNetCore.NodeServices;
 
-namespace Angular2Spa
+namespace AspCoreServer
 {
     public class Startup
     {
@@ -85,7 +86,8 @@ namespace Angular2Spa
 
                 // Webpack middleware setup
                 app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions {
-                    HotModuleReplacement = true
+                    HotModuleReplacement = true, 
+                    ProjectPath = Path.Combine(env.ContentRootPath, @"..\Angular2Spa")
                 });
 
                 //Adding Seeder/Test Data

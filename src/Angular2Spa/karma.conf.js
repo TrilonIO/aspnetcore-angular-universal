@@ -6,7 +6,7 @@ module.exports = function (config) {
         basePath: '.',
         frameworks: ['jasmine'],
         files: [
-            './wwwroot/dist/vendor.js',
+            './../AspCoreServer/wwwroot/dist/vendor.js',
             './Client/karma-tests.ts'
         ],
         preprocessors: {

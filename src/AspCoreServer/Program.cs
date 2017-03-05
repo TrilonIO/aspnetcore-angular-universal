@@ -2,7 +2,7 @@ using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 
-namespace Angular2Spa
+namespace AspCoreServer
 {
     public class Program
     {

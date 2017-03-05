@@ -104,7 +104,7 @@ If you're **not** using VSCode (which sets it to Development mode when you push 
 
 **Production Mode**
 
-> Note: **The project is now within `/src/Angular2Spa`** so make sure you go to that directory in command line, then:
+> Note: **The project is now within `/src/AspCoreServer`** so make sure you go to that directory in command line, then:
 
 Run `dotnet publish`, when it finishes, `cd` into the directory where it put everything, typically it's within `/bin/Debug/netcoreapp1.1/publish/`.
 

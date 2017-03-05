@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.NodeServices;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Hosting;
 
-namespace Angular2Spa.Controllers
+namespace AspCoreServer.Controllers
 { 
     public class HomeController : Controller
     {

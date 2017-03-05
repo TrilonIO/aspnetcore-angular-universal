@@ -1,7 +1,7 @@
-﻿using Angular2Spa.Models;
+﻿using AspCoreServer.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Angular2Spa
+namespace AspCoreServer
 {
     public class SpaDbContext : DbContext
     {
