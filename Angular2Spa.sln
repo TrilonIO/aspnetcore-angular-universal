@@ -47,6 +47,134 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{5E8B90
 		src\Angular2Spa\Client\typings.d.ts = src\Angular2Spa\Client\typings.d.ts
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "app", "{19451559-60E3-482D-9434-97BC331EEBF2}"
+	ProjectSection(SolutionItems) = preProject
+		src\Angular2Spa\Client\app\app.component.css = src\Angular2Spa\Client\app\app.component.css
+		src\Angular2Spa\Client\app\app.component.ts = src\Angular2Spa\Client\app\app.component.ts
+		src\Angular2Spa\Client\app\app.e2e.ts = src\Angular2Spa\Client\app\app.e2e.ts
+		src\Angular2Spa\Client\app\app.module.ts = src\Angular2Spa\Client\app\app.module.ts
+		src\Angular2Spa\Client\app\index.ts = src\Angular2Spa\Client\app\index.ts
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared-module", "shared-module", "{DDBFE0E9-32C2-403A-9C3D-D77DE71AEF0B}"
+	ProjectSection(SolutionItems) = preProject
+		src\Angular2Spa\Client\app\shared-module\base.shared.module.ts = src\Angular2Spa\Client\app\shared-module\base.shared.module.ts
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "state", "state", "{3FC6B296-A16A-4904-842E-F62E3E5A74CA}"
+	ProjectSection(SolutionItems) = preProject
+		src\Angular2Spa\Client\app\state\app-state.ts = src\Angular2Spa\Client\app\state\app-state.ts
+		src\Angular2Spa\Client\app\state\app.reducer.ts = src\Angular2Spa\Client\app\state\app.reducer.ts
+		src\Angular2Spa\Client\app\state\hmr.ts = src\Angular2Spa\Client\app\state\hmr.ts
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "platform-modules", "platform-modules", "{175001F4-B1C4-4401-B0CA-6BCF57EB462F}"
+	ProjectSection(SolutionItems) = preProject
+		src\Angular2Spa\Client\app\platform-modules\app.browser.module.ts = src\Angular2Spa\Client\app\platform-modules\app.browser.module.ts
+		src\Angular2Spa\Client\app\platform-modules\app.server.module.ts = src\Angular2Spa\Client\app\platform-modules\app.server.module.ts
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components", "components", "{A36CE37E-C5C7-415C-BD31-0C450B037A87}"
+	ProjectSection(SolutionItems) = preProject
+		src\Angular2Spa\Client\components\index.ts = src\Angular2Spa\Client\components\index.ts
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "navmenu", "navmenu", "{3BE5307C-05C4-43D6-B1A2-F934036B9856}"
+	ProjectSection(SolutionItems) = preProject
+		src\Angular2Spa\Client\components\navmenu\navmenu.component.css = src\Angular2Spa\Client\components\navmenu\navmenu.component.css
+		src\Angular2Spa\Client\components\navmenu\navmenu.component.html = src\Angular2Spa\Client\components\navmenu\navmenu.component.html
+		src\Angular2Spa\Client\components\navmenu\navmenu.component.ts = src\Angular2Spa\Client\components\navmenu\navmenu.component.ts
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "containers", "containers", "{EABEC004-1AFD-481E-A7F8-8F7AF240F43F}"
+	ProjectSection(SolutionItems) = preProject
+		src\Angular2Spa\Client\containers\index.ts = src\Angular2Spa\Client\containers\index.ts
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "+faq", "+faq", "{9DF520D7-C95B-43BB-AF78-D8EAEAF01B22}"
+	ProjectSection(SolutionItems) = preProject
+		src\Angular2Spa\Client\containers\+faq\faq.component.html = src\Angular2Spa\Client\containers\+faq\faq.component.html
+		src\Angular2Spa\Client\containers\+faq\faq.component.ts = src\Angular2Spa\Client\containers\+faq\faq.component.ts
+		src\Angular2Spa\Client\containers\+faq\faq.module.ts = src\Angular2Spa\Client\containers\+faq\faq.module.ts
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "bootstrap", "bootstrap", "{DD4BC51E-831C-4619-8420-A5350D95DF02}"
+	ProjectSection(SolutionItems) = preProject
+		src\Angular2Spa\Client\containers\bootstrap\bootstrap.component.html = src\Angular2Spa\Client\containers\bootstrap\bootstrap.component.html
+		src\Angular2Spa\Client\containers\bootstrap\bootstrap.component.ts = src\Angular2Spa\Client\containers\bootstrap\bootstrap.component.ts
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "chat", "chat", "{DEC98306-CA97-4673-8C2E-7FB69B67CD63}"
+	ProjectSection(SolutionItems) = preProject
+		src\Angular2Spa\Client\containers\chat\chat.component.html = src\Angular2Spa\Client\containers\chat\chat.component.html
+		src\Angular2Spa\Client\containers\chat\chat.component.ts = src\Angular2Spa\Client\containers\chat\chat.component.ts
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "home", "home", "{03B1D641-44C8-448E-8D93-2F92A383E1DE}"
+	ProjectSection(SolutionItems) = preProject
+		src\Angular2Spa\Client\containers\home\home.component.html = src\Angular2Spa\Client\containers\home\home.component.html
+		src\Angular2Spa\Client\containers\home\home.component.spec.ts = src\Angular2Spa\Client\containers\home\home.component.spec.ts
+		src\Angular2Spa\Client\containers\home\home.component.ts = src\Angular2Spa\Client\containers\home\home.component.ts
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "login", "login", "{50EFC1B4-2E73-4ED0-A593-145124BA604E}"
+	ProjectSection(SolutionItems) = preProject
+		src\Angular2Spa\Client\containers\login\login.component.ts = src\Angular2Spa\Client\containers\login\login.component.ts
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "not-found", "not-found", "{C71A1BE0-F57B-487B-902A-618CF577BD24}"
+	ProjectSection(SolutionItems) = preProject
+		src\Angular2Spa\Client\containers\not-found\not-found.component.css = src\Angular2Spa\Client\containers\not-found\not-found.component.css
+		src\Angular2Spa\Client\containers\not-found\not-found.component.html = src\Angular2Spa\Client\containers\not-found\not-found.component.html
+		src\Angular2Spa\Client\containers\not-found\not-found.component.ts = src\Angular2Spa\Client\containers\not-found\not-found.component.ts
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "platform-examples", "platform-examples", "{7694FF17-125F-45D5-B9B0-50A7C4475525}"
+	ProjectSection(SolutionItems) = preProject
+		src\Angular2Spa\Client\containers\platform-examples\examples.component.ts = src\Angular2Spa\Client\containers\platform-examples\examples.component.ts
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "rest-test", "rest-test", "{39F43A25-E3BB-4BE3-B90D-91F33E17F2B6}"
+	ProjectSection(SolutionItems) = preProject
+		src\Angular2Spa\Client\containers\rest-test\rest-test.component.html = src\Angular2Spa\Client\containers\rest-test\rest-test.component.html
+		src\Angular2Spa\Client\containers\rest-test\rest-test.component.ts = src\Angular2Spa\Client\containers\rest-test\rest-test.component.ts
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{9BFA0F96-C2A1-49F7-9E6F-12238EFC2D28}"
+	ProjectSection(SolutionItems) = preProject
+		src\Angular2Spa\Client\shared\index.ts = src\Angular2Spa\Client\shared\index.ts
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cache", "cache", "{EF73A8BB-88FC-4F55-817B-6A7F1928BCFE}"
+	ProjectSection(SolutionItems) = preProject
+		src\Angular2Spa\Client\shared\cache\api.ts = src\Angular2Spa\Client\shared\cache\api.ts
+		src\Angular2Spa\Client\shared\cache\universal-cache.ts = src\Angular2Spa\Client\shared\cache\universal-cache.ts
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "http", "http", "{C7EE8263-18B2-4923-BCA2-29C8C0492FC8}"
+	ProjectSection(SolutionItems) = preProject
+		src\Angular2Spa\Client\shared\http\http-gateway.service.ts = src\Angular2Spa\Client\shared\http\http-gateway.service.ts
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "meta", "meta", "{44E365CD-D914-440C-BD5D-B2D30C59289C}"
+	ProjectSection(SolutionItems) = preProject
+		src\Angular2Spa\Client\shared\meta\meta.service.ts = src\Angular2Spa\Client\shared\meta\meta.service.ts
+		src\Angular2Spa\Client\shared\meta\meta.store.ts = src\Angular2Spa\Client\shared\meta\meta.store.ts
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "rx", "rx", "{D10D1745-3BAB-41AF-918B-921EFD9C32F0}"
+	ProjectSection(SolutionItems) = preProject
+		src\Angular2Spa\Client\shared\rx\rx-context.directive.ts = src\Angular2Spa\Client\shared\rx\rx-context.directive.ts
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "storage", "storage", "{0F575432-D219-4580-A0CB-500AC141B27D}"
+	ProjectSection(SolutionItems) = preProject
+		src\Angular2Spa\Client\shared\cache\storage\index.ts = src\Angular2Spa\Client\shared\cache\storage\index.ts
+		src\Angular2Spa\Client\shared\cache\storage\storage.browser.ts = src\Angular2Spa\Client\shared\cache\storage\storage.browser.ts
+		src\Angular2Spa\Client\shared\cache\storage\storage.node.ts = src\Angular2Spa\Client\shared\cache\storage\storage.node.ts
+		src\Angular2Spa\Client\shared\cache\storage\storage.service.ts = src\Angular2Spa\Client\shared\cache\storage\storage.service.ts
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,5 +199,26 @@ Global
 		{8F5CB8A9-3086-4B49-A1C2-32A9F89BCA11} = {1A168A42-702E-492C-B212-1E8B30A1A841}
 		{085C390A-4FC2-4539-BF6B-DFF8CB02A2D5} = {1A168A42-702E-492C-B212-1E8B30A1A841}
 		{5E8B9049-A325-4675-B4A2-412C83111A1B} = {085C390A-4FC2-4539-BF6B-DFF8CB02A2D5}
+		{19451559-60E3-482D-9434-97BC331EEBF2} = {5E8B9049-A325-4675-B4A2-412C83111A1B}
+		{DDBFE0E9-32C2-403A-9C3D-D77DE71AEF0B} = {19451559-60E3-482D-9434-97BC331EEBF2}
+		{3FC6B296-A16A-4904-842E-F62E3E5A74CA} = {19451559-60E3-482D-9434-97BC331EEBF2}
+		{175001F4-B1C4-4401-B0CA-6BCF57EB462F} = {19451559-60E3-482D-9434-97BC331EEBF2}
+		{A36CE37E-C5C7-415C-BD31-0C450B037A87} = {5E8B9049-A325-4675-B4A2-412C83111A1B}
+		{3BE5307C-05C4-43D6-B1A2-F934036B9856} = {A36CE37E-C5C7-415C-BD31-0C450B037A87}
+		{EABEC004-1AFD-481E-A7F8-8F7AF240F43F} = {5E8B9049-A325-4675-B4A2-412C83111A1B}
+		{9DF520D7-C95B-43BB-AF78-D8EAEAF01B22} = {EABEC004-1AFD-481E-A7F8-8F7AF240F43F}
+		{DD4BC51E-831C-4619-8420-A5350D95DF02} = {EABEC004-1AFD-481E-A7F8-8F7AF240F43F}
+		{DEC98306-CA97-4673-8C2E-7FB69B67CD63} = {EABEC004-1AFD-481E-A7F8-8F7AF240F43F}
+		{03B1D641-44C8-448E-8D93-2F92A383E1DE} = {EABEC004-1AFD-481E-A7F8-8F7AF240F43F}
+		{50EFC1B4-2E73-4ED0-A593-145124BA604E} = {EABEC004-1AFD-481E-A7F8-8F7AF240F43F}
+		{C71A1BE0-F57B-487B-902A-618CF577BD24} = {EABEC004-1AFD-481E-A7F8-8F7AF240F43F}
+		{7694FF17-125F-45D5-B9B0-50A7C4475525} = {EABEC004-1AFD-481E-A7F8-8F7AF240F43F}
+		{39F43A25-E3BB-4BE3-B90D-91F33E17F2B6} = {EABEC004-1AFD-481E-A7F8-8F7AF240F43F}
+		{9BFA0F96-C2A1-49F7-9E6F-12238EFC2D28} = {5E8B9049-A325-4675-B4A2-412C83111A1B}
+		{EF73A8BB-88FC-4F55-817B-6A7F1928BCFE} = {9BFA0F96-C2A1-49F7-9E6F-12238EFC2D28}
+		{C7EE8263-18B2-4923-BCA2-29C8C0492FC8} = {9BFA0F96-C2A1-49F7-9E6F-12238EFC2D28}
+		{44E365CD-D914-440C-BD5D-B2D30C59289C} = {9BFA0F96-C2A1-49F7-9E6F-12238EFC2D28}
+		{D10D1745-3BAB-41AF-918B-921EFD9C32F0} = {9BFA0F96-C2A1-49F7-9E6F-12238EFC2D28}
+		{0F575432-D219-4580-A0CB-500AC141B27D} = {EF73A8BB-88FC-4F55-817B-6A7F1928BCFE}
 	EndGlobalSection
 EndGlobal
