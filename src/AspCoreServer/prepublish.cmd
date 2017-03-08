@@ -1,4 +1,3 @@
-@echo off
 pushd
 cd %~dp0..\Angular2Spa
 npm install
