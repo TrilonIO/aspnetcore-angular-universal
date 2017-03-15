@@ -14,7 +14,7 @@
 
 // Put Shared SERVICES here in /shared
 
-export * from './cache/api';
+export * from './cache/http-cache.service';
 export * from './cache/universal-cache';
 export * from './cache/storage';
 
