@@ -46,6 +46,7 @@ export function ngAspnetCoreEngine(
                     const LINKS = [];
                     let TITLE = '';
 
+                    // console.log(AST_DOCUMENT);
 
                     // const HEAD = AST_DOCUMENT.head;
 
