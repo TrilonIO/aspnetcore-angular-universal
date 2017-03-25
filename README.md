@@ -1,4 +1,5 @@
-# aspnetcore-angular2-universal
+# ASP.NET Core & Angular 4.0.0+ with Server-side rendering
+
 *NEW* Angular 4.0 (+) Universal &amp; ASP.NET Core Advanced Starter - Cross-platform
 
 > Work in progress !
