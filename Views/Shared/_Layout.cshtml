@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <base href="/" />
+        <title>@ViewData["Title"] - AspNET.Core Angular 2+ Universal starter</title>
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        @Html.Raw(ViewData["Meta"])
+        @Html.Raw(ViewData["Links"])
+        
+        <link rel="stylesheet" href="~/dist/vendor.css" asp-append-version="true" />
+
+        @Html.Raw(ViewData["Styles"])
+
+    </head>
+    <body>
+        @RenderBody()
+
+        @RenderSection("scripts", required: false)
+    </body>
+</html>
