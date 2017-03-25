@@ -10,7 +10,7 @@ import { platformDynamicServer, PlatformState } from '@angular/platform-server';
 export function ngAspnetCoreEngine(
     providers: Provider[],
     ngModule: Type<{}>
-): Promise<{ html: string, globals: { styles: string, title: string, meta: string, [key:string]: any } }> {
+): Promise<{ html: string, globals: { styles: string, title: string, meta: string, [key: string]: any } }> {
 
     return new Promise((resolve, reject) => {
 
@@ -35,6 +35,7 @@ export function ngAspnetCoreEngine(
 
                     // Strip out the Angular application
                     const htmlDoc = state.renderToString();
+                    console.log(htmlDoc);
                     const APP_HTML = htmlDoc.substring(
                         htmlDoc.indexOf('<body>') + 6,
                         htmlDoc.indexOf('</body>')
@@ -46,54 +47,62 @@ export function ngAspnetCoreEngine(
                     const LINKS = [];
                     let TITLE = '';
 
+                    const STYLES_STRING = htmlDoc.substring(
+                        htmlDoc.indexOf('<style ng-transition'),
+                        htmlDoc.lastIndexOf('</style>') + 8
+                    );
+
                     // console.log(AST_DOCUMENT);
 
-                    // const HEAD = AST_DOCUMENT.head;
+                    const HEAD = AST_DOCUMENT.head;
 
-                    // let count = 0;
+                    let count = 0;
 
-                    // for (let i = 0; i < HEAD.children.length; i++) {
-                    //     let element = HEAD.children[i];
+                    for (let i = 0; i < HEAD.children.length; i++) {
+                        let element = HEAD.children[i];
 
-                    //     console.log(element.children);
+                        console.log(element.name);
+                        console.log(element.children);
 
-                    //     if (element.name === 'title') {
-                    //         TITLE = element.children[0].data;
-                    //     }
 
-                    //     if (element.name === 'style') {
-                    //         let styleTag = '<style ';
-                    //         for (let key in element.attribs) {
-                    //             styleTag += `${key}="${element.attribs[key]}">`;
-                    //         }
+                        if (element.name === 'title') {
+                            TITLE = element.children[0].data;
+                        }
 
-                    //         styleTag += `${element.children[0].data}</style>`;
-                    //         STYLES.push(styleTag);
-                    //     }
+                        // Broken after 4.0 (worked in rc)
+                        // if (element.name === 'style') {
+                        //     let styleTag = '<style ';
+                        //     for (let key in element.attribs) {
+                        //         styleTag += `${key}="${element.attribs[key]}">`;
+                        //     }
 
-                    //     if (element.name === 'meta') {
-                    //         count = count + 1;
-                    //         console.log(`\n\n\n ******* Meta count = ${count}`);
-                    //         let metaString = '<meta';
-                    //         for (let key in element.attribs) {
-                    //             metaString += ` ${key}="${element.attribs[key]}"`;
-                    //         }
-                    //         META.push(`${metaString} />\n`);
-                    //     }
+                        //     styleTag += `${element.children[0].data}</style>`;
+                        //     STYLES.push(styleTag);
+                        // }
 
-                    //     if (element.name === 'link') {
-                    //         let linkString = '<link';
-                    //         for (let key in element.attribs) {
-                    //             linkString += ` ${key}="${element.attribs[key]}"`;
-                    //         }
-                    //         LINKS.push(`${linkString} />\n`);
-                    //     }
-                    // }
+                        if (element.name === 'meta') {
+                            count = count + 1;
+                            console.log(`\n\n\n ******* Meta count = ${count}`);
+                            let metaString = '<meta';
+                            for (let key in element.attribs) {
+                                metaString += ` ${key}="${element.attribs[key]}"`;
+                            }
+                            META.push(`${metaString} />\n`);
+                        }
+
+                        if (element.name === 'link') {
+                            let linkString = '<link';
+                            for (let key in element.attribs) {
+                                linkString += ` ${key}="${element.attribs[key]}"`;
+                            }
+                            LINKS.push(`${linkString} />\n`);
+                        }
+                    }
 
                     resolve({
                         html: APP_HTML,
                         globals: {
-                            styles: STYLES.join(' '),
+                            styles: STYLES_STRING,
                             title: TITLE,
                             meta: META.join(' '),
                             links: LINKS.join(' ')

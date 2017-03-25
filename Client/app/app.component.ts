@@ -42,18 +42,18 @@ export class AppComponent implements OnInit, OnDestroy {
 
     private _changeTitleOnNavigation() {
 
-        // this.sub = this.router.events
-        //     .filter(event => event instanceof NavigationEnd)
-        //     .map(() => this.activatedRoute)
-        //     .map(route => {
-        //         while (route.firstChild) route = route.firstChild;
-        //         return route;
-        //     })
-        //     .filter(route => route.outlet === 'primary')
-        //     .mergeMap(route => route.data)
-        //     .subscribe((event) => {
-        //         this._setMetaAndLinks(event);
-        //     });
+        this.sub = this.router.events
+            .filter(event => event instanceof NavigationEnd)
+            .map(() => this.activatedRoute)
+            .map(route => {
+                while (route.firstChild) route = route.firstChild;
+                return route;
+            })
+            .filter(route => route.outlet === 'primary')
+            .mergeMap(route => route.data)
+            .subscribe((event) => {
+                this._setMetaAndLinks(event);
+            });
     }
 
     private _setMetaAndLinks(event) {
