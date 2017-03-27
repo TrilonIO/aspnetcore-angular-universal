@@ -1,5 +1,7 @@
 # ASP.NET Core & Angular 2+ Universal starter
 
+### **Angular 4.0.0 w/ platform-server coming soon - [Working prototype w SEO in this branch](https://github.com/MarkPieszak/aspnetcore-angular2-universal/tree/angular4.0-NEW-wip)
+
 <p align="center">
     <img src="./docs/architecture.png" alt="ASP.NET Core Angular 2+ Starter" title="ASP.NET Core Angular 2+ Starter">
 </p>
