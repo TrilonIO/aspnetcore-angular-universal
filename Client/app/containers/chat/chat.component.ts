@@ -9,7 +9,8 @@ export class ChatMessage {
 
 @Component({
     selector: 'chat',
-    templateUrl: './chat.component.html'
+    templateUrl: './chat.component.html',
+    styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
 
