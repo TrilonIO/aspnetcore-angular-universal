@@ -63,7 +63,8 @@ export class LinkService {
     // }
 
     private _parseSelector(tag: LinkDefinition): string {
-        const attr: string = tag.name ? 'name' : 'property';
+        // Possibly re-work this
+        const attr: string = tag.rel ? 'rel' : 'hreflang';
         return `${attr}="${tag[attr]}"`;
     }
 

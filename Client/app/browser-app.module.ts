@@ -8,12 +8,14 @@ import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
 
 export function createConfig(): SignalRConfiguration {
-    const c = new SignalRConfiguration();
-    c.hubName = 'Ng2SignalRHub';
-    c.qs = { user: 'donald' };
-    c.url = 'http://ng2-signalr-backend.azurewebsites.net/';
-    c.logging = true;
-    return c;
+    const signalRConfig = new SignalRConfiguration();
+
+    signalRConfig.hubName = 'Ng2SignalRHub';
+    signalRConfig.qs = { user: 'donald' };
+    signalRConfig.url = 'http://ng2-signalr-backend.azurewebsites.net/';
+    signalRConfig.logging = true;
+
+    return signalRConfig;
 }
 
 @NgModule({
