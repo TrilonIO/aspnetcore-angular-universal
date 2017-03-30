@@ -1,9 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { SignalRModule, SignalRConfiguration } from 'ng2-signalr';
 
 import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+let signalrConfiguration = new SignalRConfiguration();
+signalrConfiguration.hubName = 'Ng2SignalRHub';
+signalrConfiguration.logging = true;
+signalrConfiguration.url = 'http://ng2-signalr-backend.azurewebsites.net/';
+signalrConfiguration.qs = { user: 'donald' };
 
 @NgModule({
     bootstrap: [AppComponent],
@@ -12,7 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         BrowserModule.withServerTransition({
             appId: 'my-app-id'
         }),
-        AppModule
+        AppModule,
+        SignalRModule.forRoot(() => signalrConfiguration)
     ]
 })
 export class AppBrowserModule {
