@@ -1,6 +1,6 @@
 # ASP.NET Core & Angular 4 (+) advanced starter - with Server-side prerendering!
 
-## Fully functional - 4.0 merged 3/30/2017 - tweaking Master to add in previous features
+## Fully functional - Angular4 branch merged to master 3/30/2017 - still a few tweaks needed to add in previous features
 
 > There may be issues here and there so please create an Issue or PR if you'd like!
 
@@ -14,6 +14,7 @@
 
 > PRs always welcome!
 
+- Update to use npm [ngAspnetCoreEngine](https://github.com/angular/universal/pull/682) (still need to tweak a few things there)
 - Fix old README to match new project
 - Add Redux back in
 - Add Bootstrap with SCSS
