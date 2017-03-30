@@ -11,6 +11,7 @@ import { CounterComponent } from './containers/counter/counter.component';
 import { ChatComponent } from './containers/chat/chat.component';
 
 import { LinkService } from './shared/link.service';
+import { ConnectionResolver } from './shared/route.resolver';
 
 @NgModule({
     declarations: [
@@ -65,7 +66,7 @@ import { LinkService } from './shared/link.service';
                 }
             },
             {
-                path: 'chat', component: ChatComponent,
+                path: 'chat', component: ChatComponent, resolve: { connection: ConnectionResolver },
                 data: {
                     title: 'SignalR chat example',
                     meta: [{ name: 'description', content: 'This is an Chat page Description!' }],
@@ -80,7 +81,7 @@ import { LinkService } from './shared/link.service';
         ])
     ],
     providers: [
-        LinkService
+        LinkService, ConnectionResolver
     ]
 })
 export class AppModule {

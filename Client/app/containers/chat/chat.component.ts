@@ -1,7 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { SignalR, BroadcastEventListener, SignalRConnection } from 'ng2-signalr';
-import { Subscription } from "rxjs/Subscription";
+import { Subscription } from 'rxjs/Subscription';
 
 export class ChatMessage {
     constructor(public user: string, public content: string) { }
@@ -19,17 +20,15 @@ export class ChatComponent implements OnInit {
     private _connection: SignalRConnection;
     private _subscription: Subscription;
 
-    constructor(private _signalR: SignalR) { }
+    constructor(route: ActivatedRoute) {
+        this._connection = route.snapshot.data['connection'];
+    }
 
     ngOnInit() {
 
         let onMessageSent$ = new BroadcastEventListener<ChatMessage>('OnMessageSent');
 
-        this._signalR.connect().then((c) => {
-            console.log(c);
-            // register the listener
-            c.listen(onMessageSent$);
-        });
+        this._connection.listen(onMessageSent$);
 
         this._subscription = onMessageSent$.subscribe((chatMessage: ChatMessage) => {
             this.chatMessages.push(chatMessage);
