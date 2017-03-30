@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <base href="/" />
+        <title>@ViewData["Title"] - AspNET.Core Angular 4.0.0 (+) Universal starter</title>
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        @Html.Raw(ViewData["Meta"])
+        @Html.Raw(ViewData["Links"])
+        
+        <link rel="stylesheet" href="~/dist/vendor.css" asp-append-version="true" />
+
+        @Html.Raw(ViewData["Styles"])
+
+    </head>
+    <body>
+        @RenderBody()
+
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+                integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+                crossorigin="anonymous"></script>
+
+        <script src="http://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-2.2.0.min.js"></script>
+
+
+        @RenderSection("scripts", required: false)
+    </body>
+</html>
