@@ -1,29 +1,69 @@
 {
-    "name": "angular2-universal-aspnetcore-advanced-starter",
-    "version": "1.0.0-rc.1",
-    "author": {
-        "name": "Mark Pieszak",
-        "email": "mpieszak84@gmail.com",
-        "url": "https://github.com/MarkPieszak"
-    },
-    "repository": {
-        "url": "https://github.com/MarkPieszak/aspnetcore-angular2-universal"
-    },
-    "keywords": [
-        "Angular", "Angular2", "Angular4",
-        "ASP.NET Core", "Angular Universal"
-    ],
-    "contributors": [
-        "MarkPieszak",
-        "AbrarJahin",
-        "Ketrex",
-        "dave01001",
-        "ORuban",
-        "nalex095",
-        "paonath"
-    ],
-    "scripts": {
-        "postinstall": "npm run install:angular2spa",
-        "install:angular2spa": "cd ./src/angular2spa/ && npm install"
-    }
+  "name": "angular4-aspnetcore-universal",
+  "version": "1.0.0-rc2",
+  "scripts": {
+    "test": "karma start Client/test/karma.conf.js",
+    "postinstall": "npm run build:webpack",
+    "build:webpack": "npm run webpack-vendor && npm run webpack",
+    "webpack": "webpack --progress",
+    "webpack-vendor": "webpack --config webpack.config.vendor.js --progress"
+  },
+  "dependencies": {
+    "@angular/animations": "^4.0.0",
+    "@angular/common": "^4.0.0",
+    "@angular/compiler": "^4.0.0",
+    "@angular/compiler-cli": "^4.0.0",
+    "@angular/core": "^4.0.0",
+    "@angular/forms": "^4.0.0",
+    "@angular/http": "^4.0.0",
+    "@angular/platform-browser": "^4.0.0",
+    "@angular/platform-browser-dynamic": "^4.0.0",
+    "@angular/platform-server": "^4.0.0",
+    "@angular/router": "^4.0.0",
+    "@angular/tsc-wrapped": "^0.5.0",
+    "@types/node": "^6.0.42",
+    "angular2-template-loader": "0.6.0",
+    "aspnet-prerendering": "^2.0.0",
+    "aspnet-webpack": "^1.0.17",
+    "awesome-typescript-loader": "^3.0.0",
+    "bootstrap": "^3.3.7",
+    "css": "^2.2.1",
+    "css-loader": "^0.25.0",
+    "es6-shim": "^0.35.1",
+    "event-source-polyfill": "^0.0.7",
+    "expose-loader": "^0.7.1",
+    "extract-text-webpack-plugin": "^2.0.0-rc",
+    "file-loader": "^0.9.0",
+    "html-loader": "^0.4.4",
+    "isomorphic-fetch": "^2.2.1",
+    "jquery": "^2.2.1",
+    "json-loader": "^0.5.4",
+    "ng2-signalr": "^2.0.2",
+    "preboot": "^4.5.2",
+    "raw-loader": "^0.5.1",
+    "rxjs": "^5.0.1",
+    "signalr": "^2.2.1",
+    "style-loader": "^0.13.1",
+    "to-string-loader": "^1.1.5",
+    "typescript": "^2.2.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^2.2.0",
+    "webpack-hot-middleware": "^2.12.2",
+    "webpack-merge": "^0.14.1",
+    "zone.js": "^0.7.6"
+  },
+  "devDependencies": {
+    "@types/chai": "^3.4.34",
+    "@types/jasmine": "^2.5.37",
+    "chai": "^3.5.0",
+    "codelyzer": "^3.0.0-beta.4",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.3.0",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-cli": "^1.0.1",
+    "karma-jasmine": "^1.0.2",
+    "karma-webpack": "^1.8.0",
+    "tslint": "^4.5.1"
+  }
 }
