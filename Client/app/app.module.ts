@@ -3,11 +3,12 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 
-import { AppComponent } from './app.component'
+import { AppComponent } from './app.component';
 import { NavMenuComponent } from './containers/navmenu/navmenu.component';
 import { HomeComponent } from './containers/home/home.component';
 import { FetchDataComponent } from './containers/fetchdata/fetchdata.component';
 import { CounterComponent } from './containers/counter/counter.component';
+import { ChatComponent } from './containers/chat/chat.component';
 
 import { LinkService } from './shared/link.service';
 
@@ -17,7 +18,8 @@ import { LinkService } from './shared/link.service';
         NavMenuComponent,
         CounterComponent,
         FetchDataComponent,
-        HomeComponent
+        HomeComponent,
+        ChatComponent
     ],
     imports: [
         CommonModule,
@@ -51,7 +53,7 @@ import { LinkService } from './shared/link.service';
                     ]
                 }
             },
-            { 
+            {
                 path: 'fetch-data', component: FetchDataComponent,
                 data: {
                     title: 'REST demo',
@@ -59,6 +61,17 @@ import { LinkService } from './shared/link.service';
                     links: [
                         { rel: 'canonical', href: 'http://blogs.example.com/fetch-data/canonicaldemo' },
                         { rel: 'alternate', hreflang: 'es', href: 'http://es.example.com/fetchstuff' }
+                    ]
+                }
+            },
+            {
+                path: 'chat', component: ChatComponent,
+                data: {
+                    title: 'SignalR chat example',
+                    meta: [{ name: 'description', content: 'This is an Chat page Description!' }],
+                    links: [
+                        { rel: 'canonical', href: 'http://blogs.example.com/chat/something' },
+                        { rel: 'alternate', hreflang: 'es', href: 'http://es.example.com/chat' }
                     ]
                 }
             },
