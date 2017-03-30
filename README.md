@@ -172,10 +172,10 @@ constructor(element: ElementRef, renderer: Renderer) {
 Many thanks go out to Steve Sanderson ([@SteveSandersonMS](https://github.com/SteveSandersonMS)) from Microsoft and his amazing work on JavaScriptServices and integrating the world of Node with ASP.NET Core.
 
 Also thank you to the many Contributors !
-- [@AbrarJahin](AbrarJahin)
-- [@hakonamatata](hakonamatata)
-- [@markwhitfeld](markwhitfeld)
-- [@Ketrex](Ketrex)
+- [@AbrarJahin](https://github.com/AbrarJahin)
+- [@hakonamatata](https://github.com/hakonamatata)
+- [@markwhitfeld](https://github.com/markwhitfeld)
+- [@Ketrex](https://github.com/Ketrex)
 
 ----
  
