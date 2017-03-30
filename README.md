@@ -24,13 +24,13 @@
 
 * [Features](#features)
 * [Getting Started](#getting-started)
-* ~~[Deployment](#deployment)~~
+* [Deployment](#deployment)
 * ~~[Upcoming Features](#upcoming-features)~~
-* ~~[Application Structure](#application-structure)~~
-* ~~[Universal Gotchas](#universal-gotchas)~~
+* [Application Structure](#application-structure)
+* [Universal Gotchas](#universal-gotchas)
 * ~~[FAQ](#faq)~~
-* ~~[Special Thanks](#special-thanks)~~
-* ~~[License](#license)~~
+* [Special Thanks](#special-thanks)
+* [License](#license)
 
 ---
 
@@ -91,4 +91,103 @@ Make sure you have .NET Core 1.0+ installed and/or VS2017.
 VS2017 will automatically install all the neccessary npm & .NET dependencies when you open the project.
 
 Simply push F5 to start debugging !
+
+----
+
+----
+
+# Deployment
+
+### Dotnet publish
+Using `dotnet publish`, when it's finished place the generated folder onto your server and use IIS to fire everything up.
+
+### Heroku 
+<a href="https://dashboard.heroku.com/new?template=https://github.com/MarkPieszak/aspnetcore-angular2-universal.git">
+<img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy on Heroku">
+</a>
+
+### Azure
+
+```bash
+git remote add azure https://your-user-name@my-angular2-site.scm.azurewebsites.net:443/my-angular2-site.git
+                     // ^ get this from Azure (Web App Overview section - Git clone url)
+
+git push --set-upstream azure master 
+```
+
+# Application Structure:
+
+> Needs to be updated for 4.0 structure - Coming soon!
+
+----
+
+----
+
+# Universal "Gotchas"
+
+> When building Universal components in Angular 2 there are a few things to keep in mind.
+
+ - **`window`**, **`document`**, **`navigator`**, and other browser types - _do not exist on the server_ - so using them, or any library that uses them (jQuery for example) will not work. You do have some options, if you truly need some of this functionality:
+    - If you need to use them, consider limiting them to only your client and wrapping them situationally. You can use the Object injected using the PLATFORM_ID token to check whether the current platform is browser or server. 
+    
+    ```
+     import { PLATFORM_ID } from '@angular/core';
+     import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+     
+     constructor(@Inject(PLATFORM_ID) private platformId: Object) { ... }
+     
+     ngOnInit() {
+       if (isPlatformBrowser(this.platformId)) {
+          // Client only code.
+          ...
+       }
+       if (isPlatformServer(this.platformId)) {
+         // Server only code.
+         ...
+       }
+     }
+    ```
+    
+     - Try to *limit or* **avoid** using **`setTimeout`**. It will slow down the server-side rendering process. Make sure to remove them [`ngOnDestroy`](https://angular.io/docs/ts/latest/api/core/index/OnDestroy-class.html) in Components.
+   - Also for RxJs timeouts, make sure to _cancel_ their stream on success, for they can slow down rendering as well.
+ - **Don't manipulate the nativeElement directly**. Use the _Renderer2_. We do this to ensure that in any environment we're able to change our view.
+```
+constructor(element: ElementRef, renderer: Renderer) {
+  renderer.setElementStyle(element.nativeElement, 'font-size', 'x-large');
+}
+```
+ - The application runs XHR requests on the server & once again on the Client-side (when the application bootstraps)
+    - Use a cache that's transferred from server to client (TODO: Point to the example)
+ - Know the difference between attributes and properties in relation to the DOM.
+ - Keep your directives stateless as much as possible. For stateful directives, you may need to provide an attribute that reflects the corresponding property with an initial string value such as url in img tag. For our native element the src attribute is reflected as the src property of the element type HTMLImageElement.
+
+----
+
+----
+
+# Special Thanks
+
+Many thanks go out to Steve Sanderson ([@SteveSandersonMS](https://github.com/SteveSandersonMS)) from Microsoft and his amazing work on JavaScriptServices and integrating the world of Node with ASP.NET Core.
+
+Also thank you to the many Contributors !
+- [@AbrarJahin](AbrarJahin)
+- [@hakonamatata](hakonamatata)
+- [@markwhitfeld](markwhitfeld)
+- [@Ketrex](Ketrex)
+
+----
+ 
+# Found a Bug? Want to Contribute?
+
+Nothing's ever perfect, but please let me know by creating an issue (make sure there isn't an existing one about it already), and we'll try and work out a fix for it! If you have any good ideas, or want to contribute, feel free to either make an Issue with the Proposal, or just make a PR from your Fork.
+
+----
+
+# License
+
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](/LICENSE) 
+
+Copyright (c) 2016-2017 [Mark Pieszak](https://github.com/MarkPieszak)
+
+Twitter: [@MarkPieszak](http://twitter.com/MarkPieszak) | Medium: [@MarkPieszak](https://medium.com/@MarkPieszak)
 
