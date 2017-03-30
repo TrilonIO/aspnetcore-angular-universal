@@ -2,11 +2,13 @@
 
 ## Fully functional - 4.0 merged 3/30/2017 - tweaking Master to add in previous features
 
-> Looking for the older 2.x branch? Go [here](https://github.com/MarkPieszak/aspnetcore-angular2-universal/tree/old-2.x-universal-branch)
+> There may be issues here and there so please create an Issue or PR if you'd like!
 
 <p align="center">
     <img src="./docs/architecture.png" alt="ASP.NET Core Angular 2+ Starter" title="ASP.NET Core Angular 2+ Starter">
 </p>
+
+> Looking for the older 2.x branch? Go [here](https://github.com/MarkPieszak/aspnetcore-angular2-universal/tree/old-2.x-universal-branch)
 
 ### Merged 3/30/2017 - TO-DO List:
 
