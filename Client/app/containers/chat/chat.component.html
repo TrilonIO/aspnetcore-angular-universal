@@ -29,11 +29,11 @@
             <div class="panel-footer">
                 <div class="input-group">
                     <span class="input-group-btn" style="padding-right: 10px; min-width: 150px;">
-                        <input id="btn-input" type="text" class="form-control input-sm" placeholder="username" />
+                        <input #username id="btn-input" type="text" class="form-control input-sm" value="Neo" />
                     </span>
-                    <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                    <input #message id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
                     <span class="input-group-btn ">
-                            <button class="btn btn-warning btn-sm" id="btn-chat"> Send</button> 
+                            <button class="btn btn-warning btn-sm" id="btn-chat" (click)="sendMessage(username.value, message.value)"> Send</button> 
                     </span>
                 </div>
             </div>

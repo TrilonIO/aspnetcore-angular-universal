@@ -25,16 +25,19 @@ export class ChatComponent implements OnInit {
     }
 
     ngOnInit() {
-
-        let onMessageSent$ = new BroadcastEventListener<ChatMessage>('OnMessageSent');
-
+        const onMessageSent$ = new BroadcastEventListener<ChatMessage>('OnMessageSent');
         this._connection.listen(onMessageSent$);
-
         this._subscription = onMessageSent$.subscribe((chatMessage: ChatMessage) => {
             this.chatMessages.push(chatMessage);
             console.log('chat messages', this.chatMessages);
         });
+    }
 
+    // send chat message to server
+    sendMessage(user, message) {
+        console.log('send message', user, message);
+        this._connection.invoke('Chat', new ChatMessage(user, message))
+            .catch((err: any) => console.log('Failed to invoke', err));
     }
 
 }
