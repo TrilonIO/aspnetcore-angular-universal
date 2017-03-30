@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 
+import { SignalR } from 'ng2-signalr';
 
 @Component({
     selector: 'chat',
@@ -7,8 +8,14 @@ import { Component, OnInit, Inject } from '@angular/core';
 })
 export class ChatComponent implements OnInit {
 
-    constructor() { }
+    constructor(private _signalR: SignalR) { }
 
-    ngOnInit() { }
+    ngOnInit() {
+
+        this._signalR.connect().then((c) => {
+            console.log(c);
+        });
+
+    }
 
 }

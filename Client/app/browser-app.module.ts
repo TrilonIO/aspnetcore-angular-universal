@@ -7,11 +7,14 @@ import { SignalRModule, SignalRConfiguration } from 'ng2-signalr';
 import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
 
-let signalrConfiguration = new SignalRConfiguration();
-signalrConfiguration.hubName = 'Ng2SignalRHub';
-signalrConfiguration.logging = true;
-signalrConfiguration.url = 'http://ng2-signalr-backend.azurewebsites.net/';
-signalrConfiguration.qs = { user: 'donald' };
+export function createConfig(): SignalRConfiguration {
+    const c = new SignalRConfiguration();
+    c.hubName = 'Ng2SignalRHub';
+    c.qs = { user: 'donald' };
+    c.url = 'http://ng2-signalr-backend.azurewebsites.net/';
+    c.logging = true;
+    return c;
+}
 
 @NgModule({
     bootstrap: [AppComponent],
@@ -21,7 +24,7 @@ signalrConfiguration.qs = { user: 'donald' };
             appId: 'my-app-id'
         }),
         AppModule,
-        SignalRModule.forRoot(() => signalrConfiguration)
+        SignalRModule.forRoot(() => createConfig())
     ]
 })
 export class AppBrowserModule {
