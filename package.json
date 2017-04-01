@@ -5,8 +5,8 @@
     "test": "karma start Client/test/karma.conf.js",
     "postinstall": "npm run build:webpack",
     "build:webpack": "npm run webpack-vendor && npm run webpack",
-    "webpack": "webpack --progress",
-    "webpack-vendor": "webpack --config webpack.config.vendor.js --progress"
+    "webpack": "webpack --progress --color",
+    "webpack-vendor": "webpack --config webpack.config.vendor.js --progress --color"
   },
   "dependencies": {
     "@angular/animations": "^4.0.0",
