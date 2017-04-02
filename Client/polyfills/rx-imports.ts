@@ -6,11 +6,11 @@
  */
 
 // Observable
-import 'rxjs/Observable';
-import 'rxjs/Observable/throw';
+import 'rxjs/observable';
+import 'rxjs/observable/throw';
 
 // Subject
-import 'rxjs/Subject';
+import 'rxjs/subject';
 
 // Operators
 import 'rxjs/add/operator/filter';
