@@ -6,6 +6,8 @@
     <img src="./docs/architecture.png" alt="ASP.NET Core Angular 2+ Starter" title="ASP.NET Core Angular 2+ Starter">
 </p>
 
+> Looking for the older 2.x branch? Go [here](https://github.com/MarkPieszak/aspnetcore-angular2-universal/tree/old-2.x-universal-branch)
+
 ### Harness the power of Angular 2+, ASP.NET Core, now with SEO !
 
 Angular SEO in action:
@@ -15,27 +17,12 @@ Angular SEO in action:
 </p>
 
 
-> Looking for the older 2.x branch? Go [here](https://github.com/MarkPieszak/aspnetcore-angular2-universal/tree/old-2.x-universal-branch)
-
-### Merged 3/30/2017 - TO-DO List:
-
-> PRs always welcome!
-
-- Update to use npm [ngAspnetCoreEngine](https://github.com/angular/universal/pull/682) (still need to tweak a few things there)
-- Fix old README to match new project
-- Add Redux back in
-- Add Bootstrap with SCSS
-- Add REST API CRUD Demo
-- Potractor e2e testing
-- Add Azure application insights module (or at least demo how to use it)
-
-
 # Table of Contents
 
 * [Features](#features)
 * [Getting Started](#getting-started)
 * [Deployment](#deployment)
-* ~~[Upcoming Features](#upcoming-features)~~
+* [Upcoming Features](#upcoming-features)
 * [Application Structure](#application-structure)
 * [Universal Gotchas](#universal-gotchas)
 * ~~[FAQ](#faq)~~
@@ -124,6 +111,16 @@ set ASPNETCORE_ENVIRONMENT=Development
 # on Mac/Linux
 export ASPNETCORE_ENVIRONMENT=Development 
 ```
+
+# Upcoming Features:
+
+- Update to use npm [ngAspnetCoreEngine](https://github.com/angular/universal/pull/682) (still need to tweak a few things there)
+- ~~DONE - Fix old README to match new project~~
+- Add Redux back in
+- Add Bootstrap with SCSS
+- Add REST API CRUD Demo
+- Potractor e2e testing
+- Add Azure application insights module (or at least demo how to use it)
 
 ----
 

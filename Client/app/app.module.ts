@@ -72,7 +72,9 @@ import { ConnectionResolver } from './shared/route.resolver';
                 }
             },
             {
-                path: 'chat', component: ChatComponent, resolve: { connection: ConnectionResolver },
+                path: 'chat', component: ChatComponent, 
+                // Wait until the resolve is finished before loading the Route
+                resolve: { connection: ConnectionResolver },
                 data: {
                     title: 'SignalR chat example',
                     meta: [{ name: 'description', content: 'This is an Chat page Description!' }],
@@ -87,7 +89,8 @@ import { ConnectionResolver } from './shared/route.resolver';
         ])
     ],
     providers: [
-        LinkService, ConnectionResolver
+        LinkService, 
+        ConnectionResolver
     ]
 })
 export class AppModule {
