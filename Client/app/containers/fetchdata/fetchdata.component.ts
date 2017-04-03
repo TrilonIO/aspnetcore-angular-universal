@@ -33,11 +33,11 @@ export class FetchDataComponent implements OnInit {
     // Here you want to handle anything with @Input()'s @Output()'s
     // Data retrieval / etc - this is when the Component is "ready" and wired up
     ngOnInit() {
-        this.http.get('http://localhost:5000/api/test/users').map(res => res.json()).subscribe(result => {
+        this.http.get('/api/test/users').map(res => res.json()).subscribe(result => {
             console.log(result);
             this.users = result as IUser[];
         });
-    }
+    };
 }
 
 interface IUser {
