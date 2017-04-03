@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './containers/navmenu/navmenu.component';
+import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './containers/home/home.component';
 import { FetchDataComponent } from './containers/fetchdata/fetchdata.component';
 import { CounterComponent } from './containers/counter/counter.component';

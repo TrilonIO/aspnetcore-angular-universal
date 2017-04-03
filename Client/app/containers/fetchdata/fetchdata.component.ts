@@ -1,9 +1,11 @@
 import { 
     Component, OnInit, 
     // animation imports
-    trigger, state, style, transition, animate } from '@angular/core';
+    trigger, state, style, transition, animate, Inject
+} from '@angular/core';
 
 import { Http } from '@angular/http';
+import { APP_BASE_HREF } from '@angular/common';
 
 @Component({
     selector: 'fetchdata',
@@ -28,12 +30,15 @@ export class FetchDataComponent implements OnInit {
     public users: IUser[];
 
     // Use "constructor"s only for dependency injection
-    constructor(private http: Http) { }
+    constructor(
+        private http: Http,
+        @Inject(APP_BASE_HREF) private baseHref: string
+    ) { }
 
     // Here you want to handle anything with @Input()'s @Output()'s
     // Data retrieval / etc - this is when the Component is "ready" and wired up
     ngOnInit() {
-        this.http.get('http://localhost:5000/api/test/users').map(res => res.json()).subscribe(result => {
+        this.http.get(`${this.baseHref}/api/test/users`).map(res => res.json()).subscribe(result => {
             console.log(result);
             this.users = result as IUser[];
         });

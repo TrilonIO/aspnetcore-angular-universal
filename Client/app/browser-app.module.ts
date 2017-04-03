@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { APP_BASE_HREF } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SignalRModule, SignalRConfiguration } from 'ng2-signalr';
@@ -29,6 +30,13 @@ export function createConfig(): SignalRConfiguration {
         AppModule,
 
         SignalRModule.forRoot(() => createConfig())
+    ],
+    providers: [
+        {
+            // We need this for our 
+            provide: APP_BASE_HREF,
+            useValue: window.location.origin
+        }
     ]
 })
 export class AppBrowserModule {
