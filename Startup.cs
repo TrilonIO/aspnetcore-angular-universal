@@ -9,6 +9,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Http;
+using AspCoreServer.Models;
+using Microsoft.EntityFrameworkCore;
 
 using Microsoft.AspNetCore.NodeServices;
 
@@ -35,6 +37,11 @@ namespace AspCoreServer
             services.AddMvc();
 
             services.AddNodeServices();
+
+            var connectionStringBuilder = new Microsoft.Data.Sqlite.SqliteConnectionStringBuilder { DataSource = "spa.db" };
+            var connectionString = connectionStringBuilder.ToString();
+            services.AddDbContext<SpaDbContext>(options =>
+                options.UseSqlite(connectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +56,9 @@ namespace AspCoreServer
                 app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions {
                     HotModuleReplacement = true
                 });
+
+                //Adding Seeder/Test Data
+                AddTestData(app.ApplicationServices.GetService<SpaDbContext>());
             }
             else
             {
@@ -67,6 +77,17 @@ namespace AspCoreServer
                     name: "spa-fallback",
                     defaults: new { controller = "Home", action = "Index" });
             });
+        }
+
+        private static void AddTestData(SpaDbContext context)
+        {
+            Users testUser = new Users
+            {
+                Name = "Abrar Jahin"
+            };
+            context.User.Add(testUser);
+
+            context.SaveChanges();
         }
     }
 }
