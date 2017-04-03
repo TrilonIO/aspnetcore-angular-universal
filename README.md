@@ -1,12 +1,19 @@
-# ASP.NET Core & Angular 4 (+) advanced starter - with Server-side prerendering!
+# ASP.NET Core & Angular 4 (+) advanced starter - with Server-side prerendering (for Angular SEO)!
 
-## Fully functional - Angular4 branch merged to master 3/30/2017 - still a few tweaks needed to add in previous features
-
-> There may be issues here and there so please create an Issue or PR if you'd like!
+> Fully functional - Angular4 branch merged to master 3/30/2017 - still a few tweaks needed to add in previous features
 
 <p align="center">
     <img src="./docs/architecture.png" alt="ASP.NET Core Angular 2+ Starter" title="ASP.NET Core Angular 2+ Starter">
 </p>
+
+### Harness the power of Angular 2+, ASP.NET Core, now with SEO !
+
+Angular SEO in action:
+
+<p align="center">
+  <img src="./docs/angular2-seo.png" alt="ASP.NET Core Angular2 SEO" title="ASP.NET Core Angular2 SEO">
+</p>
+
 
 > Looking for the older 2.x branch? Go [here](https://github.com/MarkPieszak/aspnetcore-angular2-universal/tree/old-2.x-universal-branch)
 
