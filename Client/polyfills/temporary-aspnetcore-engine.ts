@@ -1,7 +1,7 @@
 
 /*  ********* TEMPORARILY HERE **************
  * - will be on npm soon -
- *   import { ngAspnetCoreEngine } from `@universal/ng-aspnetcore-engine`;
+ *   import { ngAspnetCoreEngine } from `@ng-universal/ng-aspnetcore-engine`;
  */
 
 import { Type, NgModuleRef, ApplicationRef, Provider } from '@angular/core';

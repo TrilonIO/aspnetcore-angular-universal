@@ -21,11 +21,13 @@ export function createConfig(): SignalRConfiguration {
 @NgModule({
     bootstrap: [AppComponent],
     imports: [
-        BrowserAnimationsModule,
         BrowserModule.withServerTransition({
-            appId: 'my-app-id'
+            appId: 'my-app-id' // make sure this matches with your Server NgModule
         }),
+        BrowserAnimationsModule,
+        // Our Common AppModule
         AppModule,
+
         SignalRModule.forRoot(() => createConfig())
     ]
 })

@@ -88,12 +88,35 @@
   
 # Getting Started?
 
-**Make sure you have at least Node 4.x or higher installed!**
+**Make sure you have at least Node 6.x or higher (w/ npm 3+) installed!**
+
+### Visual Studio 2017
 
 Make sure you have .NET Core 1.0+ installed and/or VS2017.
 VS2017 will automatically install all the neccessary npm & .NET dependencies when you open the project.
 
 Simply push F5 to start debugging !
+
+### Visual Studio Code
+
+> Note: Make sure you have the C# extension & .NET Core Debugger installed.
+
+The project comes with the configured Launch.json files to let you just push F5 to start the project.
+
+```bash
+# cd into the directory you cloned the project into
+npm install && dotnet restore
+# or yarn install
+```
+
+If you're running the project from command line with `dotnet run` make sure you set your environment variables to Development (otherwise things like HMR won't work).
+
+```bash
+# on Windows:
+set ASPNETCORE_ENVIRONMENT=Development
+# on Mac/Linux
+export ASPNETCORE_ENVIRONMENT=Development 
+```
 
 ----
 
@@ -120,7 +143,163 @@ git push --set-upstream azure master
 
 # Application Structure:
 
-> Needs to be updated for 4.0 structure - Coming soon!
+> Note: This application has WebAPI (our REST API) setup inside the same project, but of course all of this 
+could be abstracted out into a completely separate project('s) ideally. .NET Core things are all done in the same project 
+for simplicity's sake.
+
+**Root level files** 
+
+Here we have the *usual suspects* found at the root level.
+
+*Front-end oriented files:*
+
+- `package.json` - NPM project dependencies & scripts
+- `.tsconfig` - TypeScript configuration (here we setup PATHs as well)
+- `webpack` - configuration files (modular bundling + so much more)
+- `karma` - configuration files (unit testing)
+- `protractor` - config files (e2e testing)
+- `tslint` - TypeScript code linting rules
+
+### /Client/ - Everything Angular 
+
+> Let's take a look at how this is structured so we can make some sense of it all!
+
+With Angular Universal, we need to split our applicatoin logic **per platform** so [if we look inside this folder](./Client), 
+you'll see the 2 root files, that branch the entire logic for browser & server respectively.
+
+- [**Boot-Client.ts**](./Client/boot-client.ts) - 
+This file starts up the entire Angular application for the Client/browser platform. 
+
+Here we setup a few things, client Angular bootstrapping.
+
+You'll barely need to touch this file, but something to note, this is the file where you would import libraries that you **only** want 
+being used in the Browser. (Just know that you'd have to provide a mock implementation for the Server when doing that).
+
+- [**Boot-Server.ts**](./Client/boot-server.ts) - 
+This file is where Angular _platform-server_ *serializes* the Angular application itself on the .NET server 
+within a very quick Node process, and renders it a string. This is what causes that initial fast paint 
+of the entire application to the Browser, and helps us get all our _SEO_ goodness :sparkles:
+
+---
+
+Notice the folder structure here in `./Client/` :
+
+```diff
++ /Client/
+
++   /app/
+    App NgModule - our Root NgModule (you'll insert Components/etc here most often)
+    AppComponent / App Routes / global css styles
+
+    * Notice that we have 2 dividing NgModules:
+        browser-app.module & server-app.module
+    You'll almost always be using the common app.module, but these 2 are used to split up platform logic
+    for situations where you need to use Dependency Injection / etc, between platforms.
+
+Note: You could use whatever folder conventions you'd like, I prefer to split up things in terms of whether they are re-usable 
+     "components" or routeable / page-like components that group together and organize entire sections.
+++ > ++ > /components/ 
+          Here are all the regular Components that aren't "Pages" or container Components
+
+++ > ++ > /containers/
+          These are the routeable or "Page / Container" Components, sometimes known as "Dumb" Components
+
+++ > ++ > /shared/
+          Here we put all shared Services / Directives / Pipes etc
+```
+
+When adding new features/components/etc to your application you'll be commonly adding things to the Root **NgModule** (located 
+in `/Client/app/app.module.ts`), but why are there **two** other NgModules in this folder?
+
+This is because we want to split our logic **per Platform**, but notice they both share the Common NgModule 
+named `app.module.ts`. When adding most things to your application, this is the only 
+place you'll have to add in your new Component / Directive / Pipe / etc.  You'll only occassional need to manually 
+add in the Platform specific things to either `browser-app.module || server-app.module`.
+
+To illustrate this point with an example, you can see how we're using Dependency Injection to inject a `StorageService` that is different 
+for the Browser & Server.
+
+```typescript
+// For the Browser (browser-app.module)
+{ provide: StorageService, useClass: BrowserStorage }
+
+// For the Server (server-app.module)
+{ provide: StorageService, useClass: ServerStorage }
+```
+
+> Just remember, you'll usually only need to worry about `app.module.ts`, as that's where you'll be adding most 
+of your applications new aspects!
+
+
+### /Server/ - Our REST API (WebApi) - MVC Controller
+
+> As we pointed out, these are here for simplicities sake, and realistically you may want separate projects 
+for all your microservices / REST API projects / etc.
+
+We're utilizing MVC within this application, but we only need & have ONE Controller, named `HomeController`. This is where our entire 
+Angular application gets serialized into a String, sent to the Browser, along with all the assets it needs to then bootstrap on the client-side, and become a full-blown SPA afterwards.
+
+---
+
+The short-version is that we invoke that Node process, passing in our Request object & invoke the `boot-server` file, and we get back a nice object that we pass into .NETs `ViewData` object, and sprinkle through out our `Views/Shared/_Layout.cshtml` and `/Views/Home/index.cshtml` files!
+
+A more detailed explanation can be found here: [TODO-add-link * You can read a more detailed explanation here](#)
+
+```csharp
+// Prerender / Serialize application (with Universal)
+var prerenderResult = await Prerenderer.RenderToString(
+    /* all of our parameters / options / boot-server file / customData object goes here */
+);
+
+ViewData["SpaHtml"] = prerenderResult.Html;
+ViewData["Title"] = prerenderResult.Globals["title"];
+ViewData["Styles"] = prerenderResult.Globals["styles"];
+ViewData["Meta"] = prerenderResult.Globals["meta"];
+ViewData["Links"] = prerenderResult.Globals["links"];
+
+return View(); // let's render the MVC View
+```
+
+Take a look at the `_Layout.cshtml` file for example, notice how we let .NET handle and inject all our SEO magic (that we extracted from Angular itself) !
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <base href="/" />
+        <!-- Title will be the one you set in your Angular application -->
+        <title>@ViewData["Title"] - AspNET.Core Angular 4.0.0 (+) Universal starter</title>
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        @Html.Raw(ViewData["Meta"]) <!-- <meta /> tags -->
+        @Html.Raw(ViewData["Links"]) <!-- <link /> tags -->
+        
+        <link rel="stylesheet" href="~/dist/vendor.css" asp-append-version="true" />
+
+        @Html.Raw(ViewData["Styles"]) <!-- <style /> tags -->
+
+    </head>
+    ... etc ...
+```
+
+Our `Views/Home/index.cshtml` simply renders the application and serves the bundled webpack files in it.
+
+```html
+@Html.Raw(ViewData["SpaHtml"])
+
+<script src="~/dist/vendor.js" asp-append-version="true"></script>
+@section scripts {
+    <script src="~/dist/main-client.js" asp-append-version="true"></script>
+}
+```
+
+### What happens after the App gets server rendered?
+
+Well now, your Client-side Angular will take over, and you'll have a fully functioning SPA. (But we gained all these great SEO benefits of being server-rendered) !
+
+:sparkles:
+
 
 ----
 
@@ -167,6 +346,42 @@ constructor(element: ElementRef, renderer: Renderer) {
 ----
 
 ----
+ 
+# FAQ
+
+### How can I disable Universal / SSR (Server-side rendering)?
+
+Simply comment out the logic within HomeController, and replace `@Html.Raw(ViewData["SpaHtml"])` with just your applications root 
+AppComponent tag ("app" in our case): `<app></app>`.
+
+> You could also remove any `ifPlatformBrowser/etc` logic, and delete the boot-server, browser-app.module & server-app.module files, just make sure your `boot-client` file points to `app.module`.
+
+### How do I have code run only in the Browser?
+
+Check the [Universal Gotchas](#universal-gotchas) on how to use `isPlatformBrowser()`.
+
+### How do I Material2 with this repo?
+
+You'll either want to remove SSR for now, or wait as support should be coming to handle Universal/platform-server rendering.
+
+### How can I use jQuery and/or some jQuery plugins with Angular Universal?
+
+> Note: If at all possible, try to avoid using jQuery or libraries dependent on it, as there are 
+better, more abstract ways of dealing with the DOM in Angular (2+) such as using the Renderer, etc.
+
+Yes, of course but there are a few things you need to setup before doing this. First, make sure jQuery 
+is included in webpack vendor file, and that you have a webpack Plugin setup for it. `new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery' })`
+
+Now, make sure any "plugins" etc that you have, are only included in your `boot-client.ts` file. (ie: `import 'slick-carousel';`) 
+In a Component you want to use jQuery, make sure to import it near the top like so:
+
+```typescript
+import * as $ from 'jquery';
+```
+
+**Always make sure to wrap anything jQuery oriented in Angular's `isPlatformBrowser()` conditional!**
+
+----
 
 # Special Thanks
 
@@ -174,6 +389,7 @@ Many thanks go out to Steve Sanderson ([@SteveSandersonMS](https://github.com/St
 
 Also thank you to the many Contributors !
 - [@AbrarJahin](https://github.com/AbrarJahin)
+- [@LiverpoolOwen](https://github.com/LiverpoolOwen)
 - [@hakonamatata](https://github.com/hakonamatata)
 - [@markwhitfeld](https://github.com/markwhitfeld)
 - [@Ketrex](https://github.com/Ketrex)
@@ -193,4 +409,8 @@ Nothing's ever perfect, but please let me know by creating an issue (make sure t
 Copyright (c) 2016-2017 [Mark Pieszak](https://github.com/MarkPieszak)
 
 Twitter: [@MarkPieszak](http://twitter.com/MarkPieszak) | Medium: [@MarkPieszak](https://medium.com/@MarkPieszak)
+
+# Looking for Angular Consulting / Training / support?
+
+[Contact me](mpieszak84@gmail.com), and let's talk about your projects needs!
 

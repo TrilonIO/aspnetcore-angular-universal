@@ -1,3 +1,11 @@
+/* 
+ * -- LinkService --        [Temporary]
+ * @MarkPieszak
+ * 
+ * Similar to Meta service but made to handle <link> creation for SEO purposes
+ * Soon there will be an overall HeadService within Angular that handles Meta/Link everything
+ */
+
 import { Injectable, PLATFORM_ID, Optional, RendererFactory2, ViewEncapsulation, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 import { isPlatformServer } from '@angular/common';

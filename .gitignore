@@ -11,6 +11,9 @@
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
+
+# yarn
+.yarn.lock
  
 # Build results
 [Dd]ebug/
