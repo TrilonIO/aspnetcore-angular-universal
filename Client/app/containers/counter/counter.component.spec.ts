@@ -1,4 +1,4 @@
-/// <reference path="../../../../node_modules/@types/jasmine/index.d.ts" />
+﻿/// <reference path="../../../../node_modules/@types/jasmine/index.d.ts" />
 import { assert } from 'chai';
 import { CounterComponent } from './counter.component';
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';

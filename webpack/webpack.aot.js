@@ -19,7 +19,6 @@ const aotTsconfigs = {
  * @returns
  */
 function getAotPlugin(platform, aot) {
-  console.log(platform, aot);
   return new AotPlugin({
     tsConfigPath: aot ? aotTsconfigs[platform] : tsconfigs[platform],
     skipCodeGeneration: !aot

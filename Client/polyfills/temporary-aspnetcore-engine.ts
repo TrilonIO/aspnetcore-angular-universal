@@ -1,4 +1,4 @@
-
+﻿
 /*  ********* TEMPORARILY HERE **************
  * - will be on npm soon -
  *   import { ngAspnetCoreEngine } from `@ng-universal/ng-aspnetcore-engine`;
@@ -35,7 +35,7 @@ export function ngAspnetCoreEngine(
 
                     // Strip out the Angular application
                     const htmlDoc = state.renderToString();
-                    console.log(htmlDoc);
+
                     const APP_HTML = htmlDoc.substring(
                         htmlDoc.indexOf('<body>') + 6,
                         htmlDoc.indexOf('</body>')
@@ -52,18 +52,12 @@ export function ngAspnetCoreEngine(
                         htmlDoc.lastIndexOf('</style>') + 8
                     );
 
-                    // console.log(AST_DOCUMENT);
-
                     const HEAD = AST_DOCUMENT.head;
 
                     let count = 0;
 
                     for (let i = 0; i < HEAD.children.length; i++) {
                         let element = HEAD.children[i];
-
-                        console.log(element.name);
-                        console.log(element.children);
-
 
                         if (element.name === 'title') {
                             TITLE = element.children[0].data;
@@ -82,7 +76,6 @@ export function ngAspnetCoreEngine(
 
                         if (element.name === 'meta') {
                             count = count + 1;
-                            console.log(`\n\n\n ******* Meta count = ${count}`);
                             let metaString = '<meta';
                             for (let key in element.attribs) {
                                 metaString += ` ${key}="${element.attribs[key]}"`;

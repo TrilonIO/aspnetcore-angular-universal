@@ -1,8 +1,10 @@
-import { NgModule } from '@angular/core';
+﻿import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+
+import { Ng2BootstrapModule } from 'ng2-bootstrap';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
@@ -10,6 +12,7 @@ import { HomeComponent } from './containers/home/home.component';
 import { UsersComponent } from './containers/users/users.component';
 import { CounterComponent } from './containers/counter/counter.component';
 import { ChatComponent } from './containers/chat/chat.component';
+import { Ng2BootstrapComponent } from './containers/ng2-bootstrap-demo/ng2bootstrap.component';
 
 import { LinkService } from './shared/link.service';
 import { ConnectionResolver } from './shared/route.resolver';
@@ -21,12 +24,15 @@ import { ConnectionResolver } from './shared/route.resolver';
         CounterComponent,
         UsersComponent,
         HomeComponent,
-        ChatComponent
+        ChatComponent,
+        Ng2BootstrapComponent
     ],
     imports: [
         CommonModule,
         HttpModule,
         FormsModule,
+        Ng2BootstrapModule.forRoot(), // You could also split this up if you don't want the Entire Module imported
+
         // App Routing
         RouterModule.forRoot([
             {
@@ -86,6 +92,18 @@ import { ConnectionResolver } from './shared/route.resolver';
                     ]
                 }
             },
+            {
+                path: 'ng2-bootstrap', component: Ng2BootstrapComponent,
+                data: {
+                    title: 'Ng2-bootstrap demo!!',
+                    meta: [{ name: 'description', content: 'This is an Demo Bootstrap page Description!' }],
+                    links: [
+                        { rel: 'canonical', href: 'http://blogs.example.com/bootstrap/something' },
+                        { rel: 'alternate', hreflang: 'es', href: 'http://es.example.com/bootstrap-demo' }
+                    ]
+                }
+            },
+
             // All else fails - go home!
             { path: '**', redirectTo: 'home' }
         ])

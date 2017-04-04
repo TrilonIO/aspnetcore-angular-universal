@@ -1,4 +1,4 @@
-<div class='main-nav'>
+﻿<div class='main-nav'>
     <div class='navbar'>
         <div class='navbar-header'>
             <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
@@ -24,9 +24,14 @@
                 </li>
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/users']">
-                        <span class='glyphicon glyphicon-user'></span> Users
+                        <span class='glyphicon glyphicon-user'></span> REST API Demo
                     </a>
                 </li>
+              <li [routerLinkActive]="['link-active']">
+                <a [routerLink]="['/ng2-bootstrap']">
+                  <span class='glyphicon glyphicon-user'></span> ng2-Bootstrap demo
+                </a>
+              </li>
                 <!--<li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/chat']">
                         <span class='glyphicon glyphicon-comment'></span> Chat

@@ -3,12 +3,9 @@
   "version": "1.0.0-rc3",
   "scripts": {
     "test": "karma start Client/test/karma.conf.js",
-    "postinstall": "npm run build:webpack",
-    "build:webpack": "npm run webpack-vendor && npm run webpack",
-    "build:aot": "webpack --env.aot --env.client & webpack --env.aot --env.server",
-    "build:prod": "webpack --env.aot --env.client -p & webpack --env.aot --env.server",
-    "webpack": "webpack --progress --color",
-    "webpack-vendor": "webpack --config webpack.config.vendor.js --progress --color"
+    "postinstall": "npm run build:dev",
+    "build:dev": "webpack --progress --color",
+    "build:aot": "webpack --env.aot --env.client & webpack --env.aot --env.server"
   },
   "dependencies": {
     "@angular/animations": "^4.0.0",
@@ -22,11 +19,13 @@
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/platform-server": "^4.0.0",
     "@angular/router": "^4.0.0",
+    "@types/node": "^7.0.12",
     "angular2-template-loader": "0.6.0",
     "aspnet-prerendering": "^2.0.0",
     "aspnet-webpack": "^1.0.17",
     "awesome-typescript-loader": "^3.0.0",
     "bootstrap": "^3.3.7",
+    "bootstrap-sass": "^3.3.7",
     "core-js": "^2.4.1",
     "css": "^2.2.1",
     "css-loader": "^0.25.0",
@@ -38,6 +37,7 @@
     "isomorphic-fetch": "^2.2.1",
     "jquery": "^2.2.1",
     "json-loader": "^0.5.4",
+    "ng2-bootstrap": "^1.6.1",
     "ng2-signalr": "^2.0.2",
     "preboot": "^4.5.2",
     "raw-loader": "^0.5.1",

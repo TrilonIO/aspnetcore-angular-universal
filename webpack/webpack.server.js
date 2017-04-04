@@ -1,25 +1,22 @@
-const { root } = require('./helpers');
-const webpack = require('webpack');
+﻿const { root } = require('./helpers');
+const { AotPlugin } = require('@ngtools/webpack');
 
 /**
  * This is a server config which should be merged on top of common config
  */
 module.exports = {
-  resolve: { mainFields: ['main'] },
-  entry: { 'main-server': root('./Client/boot-server.ts') },
-  plugins: [
-    new webpack.DllReferencePlugin({
-      context: __dirname,
-      manifest: require('../Client/dist/vendor-manifest.json'),
-      sourceType: 'commonjs2',
-      name: './vendor'
-    })
-  ],
-  output: {
-    libraryTarget: 'commonjs',
-    path: root('./Client/dist')
-  },
-  target: 'node',
-  devtool: 'inline-source-map'
+    devtool: 'inline-source-map',
+    resolve: {
+        extensions: ['.ts', '.js', '.json'],
+        // An array of directory names to be resolved to the current directory
+        modules: [root('client'), root('node_modules')],
+    },
+    entry: {
+        'main-server': root('./client/main.server.ts')
+    },
+    output: {
+        libraryTarget: 'commonjs',
+        path: root('./Client/dist')
+    },
+    target: 'node'
 };
-

@@ -1,4 +1,4 @@
-import './polyfills/server.polyfills';
+﻿import './polyfills/server.polyfills';
 import { enableProdMode } from '@angular/core';
 import { INITIAL_CONFIG } from '@angular/platform-server';
 import { APP_BASE_HREF } from '@angular/common';
@@ -26,12 +26,12 @@ export default createServerRenderer(params => {
         }
     ];
 
-    return new Promise(() => {});
-
-    // return ngAspnetCoreEngine(providers, ServerAppModuleNgFactory).then(response => {
-    //     return ({
-    //         html: response.html,
-    //         globals: response.globals
-    //     });
-    // });
+    return ngAspnetCoreEngine(providers, ServerAppModuleNgFactory).then(response => {
+        return ({
+            html: response.html,
+            globals: response.globals
+        });
+    });
 });
+
+/* -------- THIS FILE IS TEMPORARY and will be gone when @ngtools/webpack can handle dual files (w server) ---------- */
