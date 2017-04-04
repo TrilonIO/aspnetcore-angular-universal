@@ -6,7 +6,7 @@
     <img src="./all.jpeg" alt="Get all Data Api" title="Get all Data Api">
 </p>
 
-If you need to use pagination, please crete your requesr URL like this-
+If you need to use pagination, please create your request URL like this-
 
 - Method - `GET`
 - URL-

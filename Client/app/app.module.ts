@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './containers/navmenu/navmenu.component';
 import { HomeComponent } from './containers/home/home.component';
-import { FetchDataComponent } from './containers/fetchdata/fetchdata.component';
+import { UsersComponent } from './containers/users/users.component';
 import { CounterComponent } from './containers/counter/counter.component';
 import { ChatComponent } from './containers/chat/chat.component';
 
@@ -18,13 +19,14 @@ import { ConnectionResolver } from './shared/route.resolver';
         AppComponent,
         NavMenuComponent,
         CounterComponent,
-        FetchDataComponent,
+        UsersComponent,
         HomeComponent,
         ChatComponent
     ],
     imports: [
         CommonModule,
         HttpModule,
+        FormsModule,
         // App Routing
         RouterModule.forRoot([
             {
@@ -61,13 +63,13 @@ import { ConnectionResolver } from './shared/route.resolver';
                 }
             },
             {
-                path: 'fetch-data', component: FetchDataComponent,
+                path: 'users', component: UsersComponent,
                 data: {
-                    title: 'REST demo',
-                    meta: [{ name: 'description', content: `We're hitting REST in this Demo!` }],
+                    title: 'Users REST example',
+                    meta: [{ name: 'description', content: 'This is User REST API example page Description!' }],
                     links: [
-                        { rel: 'canonical', href: 'http://blogs.example.com/fetch-data/canonicaldemo' },
-                        { rel: 'alternate', hreflang: 'es', href: 'http://es.example.com/fetchstuff' }
+                        { rel: 'canonical', href: 'http://blogs.example.com/chat/something' },
+                        { rel: 'alternate', hreflang: 'es', href: 'http://es.example.com/users' }
                     ]
                 }
             },
