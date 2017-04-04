@@ -4,7 +4,7 @@ import { INITIAL_CONFIG } from '@angular/platform-server';
 import { APP_BASE_HREF } from '@angular/common';
 import { createServerRenderer, RenderResult } from 'aspnet-prerendering';
 // Grab the (Node) server-specific NgModule
-import { ServerAppModule } from './app/server-app.module';
+import { ServerAppModuleNgFactory } from './ngfactory/app/server-app.module.ngfactory';
 // Temporary * the engine will be on npm soon (`@universal/ng-aspnetcore-engine`)
 import { ngAspnetCoreEngine } from './polyfills/temporary-aspnetcore-engine';
 
@@ -26,10 +26,12 @@ export default createServerRenderer(params => {
         }
     ];
 
-    return ngAspnetCoreEngine(providers, ServerAppModule).then(response => {
-        return ({
-            html: response.html,
-            globals: response.globals
-        });
-    });
+    return new Promise(() => {});
+
+    // return ngAspnetCoreEngine(providers, ServerAppModuleNgFactory).then(response => {
+    //     return ({
+    //         html: response.html,
+    //         globals: response.globals
+    //     });
+    // });
 });

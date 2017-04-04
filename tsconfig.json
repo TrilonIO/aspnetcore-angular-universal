@@ -10,8 +10,7 @@
     "types": [ "node" ]
   },
   "include": [
-    "Client"
+    "Client/**/*.ts"
   ],
-  "exclude": [ "bin", "node_modules" ],
   "atom": { "rewriteTsconfig": false }
 }
