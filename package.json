@@ -1,12 +1,13 @@
 {
   "name": "angular4-aspnetcore-universal",
-  "version": "1.0.0-rc2",
+  "version": "1.0.0-rc3",
   "scripts": {
     "test": "karma start Client/test/karma.conf.js",
     "postinstall": "npm run build:webpack",
     "build:webpack": "npm run webpack-vendor && npm run webpack",
     "webpack": "webpack --progress --color",
-    "webpack-vendor": "webpack --config webpack.config.vendor.js --progress --color"
+    "webpack-vendor": "webpack --config webpack.config.vendor.js --progress --color",
+    "build:prod": "webpack --config webpack.config.vendor.js --env.prod --progress --color && webpack --env.prod --progress --color"
   },
   "dependencies": {
     "@angular/animations": "^4.0.0",
@@ -20,7 +21,6 @@
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/platform-server": "^4.0.0",
     "@angular/router": "^4.0.0",
-    "@angular/tsc-wrapped": "^0.5.0",
     "@types/node": "^6.0.42",
     "angular2-template-loader": "0.6.0",
     "aspnet-prerendering": "^2.0.0",

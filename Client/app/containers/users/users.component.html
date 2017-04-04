@@ -1,0 +1,43 @@
+<h1>This is a RestAPI Example (hitting WebAPI in our case)</h1>
+
+<blockquote>
+    Let's get some fake users from Rest:<br>
+    You can find the Web API Routes in <code>{{ "/Server/RestAPI/ ... "}}</code>
+</blockquote>
+
+<p *ngIf="!users"><em>Loading...</em></p>
+
+<table class="table" *ngIf="users">
+    <thead>
+        <tr>
+            <th>User ID</th>
+            <th>Name</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users" [@flyInOut]>
+            <td>{{ user.id }}</td>
+            <td>
+                <input class="form-control" [(ngModel)]="user.name" #name="ngModel" />
+            </td>
+            <td>
+                <button *ngIf="name.dirty" class="btn btn-success" (click)="editUser(user)">Save</button>
+            </td>
+            <td>
+                <button class="btn btn-danger" (click)="deleteUser(user)">Delete</button>
+            </td>
+        </tr>
+        <tr>
+            <td><b>Add new user</b></td>
+            <td>
+                <input class="form-control" [(ngModel)]="newUserName" #newUser="ngModel" />
+            </td>
+            <td></td>
+            <td>
+                <button *ngIf="newUser.dirty" class="btn glyphicon-plus" (click)="addUser(newUserName)"></button>
+            </td>
+        </tr>
+    </tbody>
+</table>

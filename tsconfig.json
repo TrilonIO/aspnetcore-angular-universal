@@ -9,6 +9,9 @@
     "lib": [ "es2017", "dom" ],
     "types": [ "node" ]
   },
+  "include": [
+    "Client"
+  ],
   "exclude": [ "bin", "node_modules" ],
   "atom": { "rewriteTsconfig": false }
 }

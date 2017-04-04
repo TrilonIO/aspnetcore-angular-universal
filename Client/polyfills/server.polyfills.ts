@@ -1,7 +1,4 @@
-import 'es6-promise';
-import 'es6-shim';
+import './polyfills.ts';
+
 import 'reflect-metadata';
-
 import 'zone.js';
-
-import './rx-imports';

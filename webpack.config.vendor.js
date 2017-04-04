@@ -26,8 +26,6 @@ module.exports = (env) => {
                 '@angular/platform-server',
                 'bootstrap/dist/css/bootstrap.css',
                 // 'jquery/dist/jquery.min.js',
-                'es6-shim',
-                'es6-promise',
                 'event-source-polyfill',
                 'zone.js',
             ]
