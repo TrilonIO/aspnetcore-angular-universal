@@ -12,7 +12,7 @@ Angular SEO in action:
   <img src="./docs/angular2-seo.png" alt="ASP.NET Core Angular2 SEO" title="ASP.NET Core Angular2 SEO">
 </p>
 
-What is this repo? Live Demo here: http://aspnetcore-angular2-universal.azurewebsites.net
+### What is this repo? Live Demo here: http://aspnetcore-angular2-universal.azurewebsites.net
 
 This repository is maintained by [Angular Universal](https://github.com/angular/universal) and is meant to be an advanced starter 
 for both ASP.NET Core using Angular 2.x(+), not only for the client-side, but to be rendered on the server for instant 
@@ -122,12 +122,13 @@ export ASPNETCORE_ENVIRONMENT=Development
 # Upcoming Features:
 
 - Update to use npm [ngAspnetCoreEngine](https://github.com/angular/universal/pull/682) (still need to tweak a few things there)
-- ~~DONE - Fix old README to match new project~~
-- Add Redux back in
-- Add Bootstrap with SCSS
-- Add REST API CRUD Demo
 - Potractor e2e testing
 - Add Azure application insights module (or at least demo how to use it)
+- Add Redux back in
+- ~~DONE - Fix old README to match new project~~
+- ~~Add AoT compilation~~
+- ~~Add Bootstrap with SCSS~~
+- ~~Add REST API CRUD Demo~~
 
 ----
 
