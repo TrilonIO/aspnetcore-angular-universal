@@ -1,10 +1,10 @@
-import './polyfills/server.polyfills';
+﻿import './polyfills/server.polyfills';
 import { enableProdMode } from '@angular/core';
 import { INITIAL_CONFIG } from '@angular/platform-server';
 import { APP_BASE_HREF } from '@angular/common';
 import { createServerRenderer, RenderResult } from 'aspnet-prerendering';
 // Grab the (Node) server-specific NgModule
-import { AppServerModule } from './app/server-app.module';
+import { ServerAppModuleNgFactory } from './ngfactory/app/server-app.module.ngfactory';
 // Temporary * the engine will be on npm soon (`@universal/ng-aspnetcore-engine`)
 import { ngAspnetCoreEngine } from './polyfills/temporary-aspnetcore-engine';
 
@@ -26,10 +26,12 @@ export default createServerRenderer(params => {
         }
     ];
 
-    return ngAspnetCoreEngine(providers, AppServerModule).then(response => {
+    return ngAspnetCoreEngine(providers, ServerAppModuleNgFactory).then(response => {
         return ({
             html: response.html,
             globals: response.globals
         });
     });
 });
+
+/* -------- THIS FILE IS TEMPORARY and will be gone when @ngtools/webpack can handle dual files (w server) ---------- */

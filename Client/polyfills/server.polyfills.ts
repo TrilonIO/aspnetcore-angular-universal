@@ -1,4 +1,4 @@
-import './polyfills.ts';
+﻿import './polyfills.ts';
 
 import 'reflect-metadata';
-import 'zone.js';
+//import 'zone.js';

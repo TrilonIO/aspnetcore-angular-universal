@@ -28,8 +28,8 @@ export function createConfig(): SignalRConfiguration {
         BrowserAnimationsModule,
         // Our Common AppModule
         AppModule,
-
-        SignalRModule.forRoot(() => createConfig())
+        
+        SignalRModule.forRoot(createConfig)
     ],
     providers: [
         {
@@ -39,5 +39,5 @@ export function createConfig(): SignalRConfiguration {
         }
     ]
 })
-export class AppBrowserModule {
+export class BrowserAppModule {
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Inject, ViewEncapsulation, RendererFactory2, PLATFORM_ID } from '@angular/core';
+﻿import { Component, OnInit, OnDestroy, Inject, ViewEncapsulation, RendererFactory2, PLATFORM_ID } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute, PRIMARY_OUTLET } from '@angular/router';
 import { Meta, Title, DOCUMENT, MetaDefinition } from '@angular/platform-browser';
 import { Subscription } from 'rxjs/Subscription';
@@ -8,7 +8,8 @@ import { LinkService } from './shared/link.service';
 @Component({
     selector: 'app',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+    styleUrls: ['./app.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit, OnDestroy {
 
@@ -17,16 +18,14 @@ export class AppComponent implements OnInit, OnDestroy {
     // If no Title is provided, we'll use a default one before the dash(-)
     private defaultPageTitle: string = 'My App';
 
-    private sub: Subscription;
-    private isServer: boolean = isPlatformServer(this.platform_id);
+    private routerSub$: Subscription;
 
     constructor(
-        public router: Router,
-        public activatedRoute: ActivatedRoute,
+        private router: Router,
+        private activatedRoute: ActivatedRoute,
         private title: Title,
         private meta: Meta,
-        private linkService: LinkService,
-        @Inject(PLATFORM_ID) private platform_id
+        private linkService: LinkService
     ) { }
 
     ngOnInit() {
@@ -37,12 +36,12 @@ export class AppComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
         // Subscription clean-up
-        this.sub.unsubscribe();
+        this.routerSub$.unsubscribe();
     }
 
     private _changeTitleOnNavigation() {
 
-        this.sub = this.router.events
+        this.routerSub$ = this.router.events
             .filter(event => event instanceof NavigationEnd)
             .map(() => this.activatedRoute)
             .map(route => {

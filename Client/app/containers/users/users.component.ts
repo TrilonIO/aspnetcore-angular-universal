@@ -1,8 +1,9 @@
-import {
+﻿import {
     Component, OnInit,
     // animation imports
-    trigger, state, style, transition, animate
+    trigger, state, style, transition, animate, Inject
 } from '@angular/core';
+import { APP_BASE_HREF } from '@angular/common';
 
 import { Http, URLSearchParams } from '@angular/http';
 
@@ -30,20 +31,23 @@ export class UsersComponent implements OnInit {
     public users: IUser[];
 
     // Use "constructor"s only for dependency injection
-    constructor(private http: Http) { }
+    constructor(
+        private http: Http,
+        @Inject(APP_BASE_HREF) private baseHref: string
+    ) { }
 
     // Here you want to handle anything with @Input()'s @Output()'s
     // Data retrieval / etc - this is when the Component is "ready" and wired up
     ngOnInit() {
         this.newUserName = "";
-        this.http.get('http://localhost:5000/api/user/all').map(res => res.json()).subscribe(result => {
+        this.http.get(`${this.baseHref}/api/user/all`).map(res => res.json()).subscribe(result => {
             console.log(result);
             this.users = result as IUser[];
         });
     }
 
     deleteUser(user) {
-        this.http.delete("http://localhost:5000/api/user/delete/" + user.id).subscribe(result => {
+        this.http.delete(`${this.baseHref}/api/user/delete/` + user.id).subscribe(result => {
             if (result.ok) {
                 let position = this.users.indexOf(user);
                 this.users.splice(position, 1);
@@ -58,7 +62,8 @@ export class UsersComponent implements OnInit {
         let urlSearchParams = new URLSearchParams();
         urlSearchParams.append('id', user.id);
         urlSearchParams.append('name', user.name);
-        this.http.put('http://localhost:5000/api/user/update', urlSearchParams).subscribe(result => {
+
+        this.http.put(`${this.baseHref}/api/user/update`, urlSearchParams).subscribe(result => {
             if (!result.ok) {
                 alert("There was an issue, Could not edit user");
             }
@@ -68,7 +73,8 @@ export class UsersComponent implements OnInit {
     addUser(newUserName) {
         let urlSearchParams = new URLSearchParams();
         urlSearchParams.append('name', newUserName);
-        this.http.post('http://localhost:5000/api/user/insert', urlSearchParams).subscribe(result => {
+
+        this.http.post(`${this.baseHref}/api/user/insert`, urlSearchParams).subscribe(result => {
             if (result.ok) {
                 this.users.push(result.json());
                 this.newUserName = "";

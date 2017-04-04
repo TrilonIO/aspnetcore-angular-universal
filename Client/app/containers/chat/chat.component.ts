@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+﻿import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { SignalR, BroadcastEventListener, SignalRConnection } from 'ng2-signalr';

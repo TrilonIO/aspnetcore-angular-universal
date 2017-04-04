@@ -13,7 +13,9 @@
 *.userprefs
 
 # yarn
-.yarn.lock
+yarn.lock
+
+npm-debug.log.*
  
 # Build results
 [Dd]ebug/

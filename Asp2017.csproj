@@ -20,6 +20,11 @@
     <!-- Files not to publish (note that the 'dist' subfolders are re-added below) -->
     <Content Remove="Client\**" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Client\tsconfig.browser.json" />
+    <Content Include="Client\tsconfig.server.aot.json" />
+    <Content Include="Client\tsconfig.server.json" />
+  </ItemGroup>
   <Target Name="RunWebpack" AfterTargets="ComputeFilesToPublish">
     <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
     <Exec Command="npm install" />

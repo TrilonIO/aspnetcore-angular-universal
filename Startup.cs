@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -18,6 +18,18 @@ namespace AspCoreServer
 {
     public class Startup
     {
+
+        public static void Main(string[] args)
+        {
+            var host = new WebHostBuilder()
+                .UseKestrel()
+                .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseIISIntegration()
+                .UseStartup<Startup>()
+                .Build();
+
+            host.Run();
+        }
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -35,11 +47,11 @@ namespace AspCoreServer
         {
             // Add framework services.
             services.AddMvc();
-
             services.AddNodeServices();
 
             var connectionStringBuilder = new Microsoft.Data.Sqlite.SqliteConnectionStringBuilder { DataSource = "spa.db" };
             var connectionString = connectionStringBuilder.ToString();
+
             services.AddDbContext<SpaDbContext>(options =>
                 options.UseSqlite(connectionString));
         }
@@ -56,6 +68,7 @@ namespace AspCoreServer
                 app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions {
                     HotModuleReplacement = true
                 });
+
                 DbInitializer.Initialize(context);
             }
             else

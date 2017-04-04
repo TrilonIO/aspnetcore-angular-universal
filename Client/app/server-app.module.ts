@@ -20,7 +20,7 @@ import { AppComponent } from './app.component';
         AppModule 
     ]
 })
-export class AppServerModule {
+export class ServerAppModule {
 
     // constructor(private transferState: TransferState) { }
 
