@@ -1,12 +1,8 @@
-# ASP.NET Core & Angular 4 (+) advanced starter - with Server-side prerendering (for Angular SEO)!
-
-> Fully functional - Angular4 branch merged to master 3/30/2017 - still a few tweaks needed to add in previous features
+﻿# ASP.NET Core & Angular 4 (+) advanced starter - with Server-side prerendering (for Angular SEO)!
 
 <p align="center">
     <img src="./docs/architecture.png" alt="ASP.NET Core Angular 2+ Starter" title="ASP.NET Core Angular 2+ Starter">
 </p>
-
-> Looking for the older 2.x branch? Go [here](https://github.com/MarkPieszak/aspnetcore-angular2-universal/tree/old-2.x-universal-branch)
 
 ### Harness the power of Angular 2+, ASP.NET Core, now with SEO !
 
@@ -16,6 +12,15 @@ Angular SEO in action:
   <img src="./docs/angular2-seo.png" alt="ASP.NET Core Angular2 SEO" title="ASP.NET Core Angular2 SEO">
 </p>
 
+What is this repo? Live Demo here: http://aspnetcore-angular2-universal.azurewebsites.net
+
+This repository is maintained by [Angular Universal](https://github.com/angular/universal) and is meant to be an advanced starter 
+for both ASP.NET Core using Angular 2.x(+), not only for the client-side, but to be rendered on the server for instant 
+application paints (Note: If you don't need Universal (SSR) [read here](#faq) on how to disable it).
+
+This is meant to be a Feature-Rich Starter application containing all of the latest technologies, best build systems available, and include many real-world examples and libraries needed in todays Single Page Applications (SPAs).
+
+This utilizes all the latest standards, no gulp, no bower, no typings, no manually "building" anything. NPM, Webpack and .NET handle everything for you!
 
 # Table of Contents
 
@@ -25,7 +30,7 @@ Angular SEO in action:
 * [Upcoming Features](#upcoming-features)
 * [Application Structure](#application-structure)
 * [Universal Gotchas](#universal-gotchas)
-* ~~[FAQ](#faq)~~
+* [FAQ](#faq)
 * [Special Thanks](#special-thanks)
 * [License](#license)
 
@@ -75,6 +80,8 @@ Angular SEO in action:
   - Client-side Angular2 Application Insights integration coming soon
     - https://github.com/MarkPieszak/angular-application-insights
 
+
+> Looking for the older 2.x branch? Go [here](https://github.com/MarkPieszak/aspnetcore-angular2-universal/tree/old-2.x-universal-branch)
 
 ----
 
@@ -351,7 +358,7 @@ constructor(element: ElementRef, renderer: Renderer) {
 
 ----
  
-# FAQ
+# FAQ - Also check out the [FAQ Issues label](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues?utf8=%E2%9C%93&q=is%3Aissue%20label%3Afaq)
 
 ### How can I disable Universal / SSR (Server-side rendering)?
 
@@ -401,6 +408,8 @@ Also thank you to the many Contributors !
 ----
  
 # Found a Bug? Want to Contribute?
+
+[Check out our easier issues here](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3A%22PRs%20welcome!%22%20)
 
 Nothing's ever perfect, but please let me know by creating an issue (make sure there isn't an existing one about it already), and we'll try and work out a fix for it! If you have any good ideas, or want to contribute, feel free to either make an Issue with the Proposal, or just make a PR from your Fork.
 
