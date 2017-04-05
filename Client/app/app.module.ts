@@ -21,9 +21,9 @@ import { Ng2BootstrapComponent } from './containers/ng2-bootstrap-demo/ng2bootst
 import { LinkService } from './shared/link.service';
 import { ConnectionResolver } from './shared/route.resolver';
 
-export function createTranslateLoader(http: Http, APP_BASE_HREF) {
+export function createTranslateLoader(http: Http, baseHref) {
     // i18n files are in `wwwroot/assets/`
-    return new TranslateHttpLoader(http, `${APP_BASE_HREF}/assets/i18n/`, '.json');
+    return new TranslateHttpLoader(http, `${baseHref}/assets/i18n/`, '.json');
 }
 
 @NgModule({
@@ -47,7 +47,7 @@ export function createTranslateLoader(http: Http, APP_BASE_HREF) {
             loader: {
                 provide: TranslateLoader,
                 useFactory: (createTranslateLoader),
-                deps: [Http, [new Inject(), APP_BASE_HREF]]
+                deps: [Http, [new Inject(APP_BASE_HREF)]]
             }
         }),
 
