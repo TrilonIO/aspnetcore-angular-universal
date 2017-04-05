@@ -24,6 +24,7 @@ import { ConnectionResolver } from './shared/route.resolver';
 export function createTranslateLoader(http: Http) {
 
     // BUG: URLs requested via Http on the server must be absolute
+    // TODO: Should not hardcode localhost://5000, should use APP_BASE_HREF!!
     return new TranslateHttpLoader(http, 'http://localhost:5000/assets/i18n/', '.json');
 }
 
