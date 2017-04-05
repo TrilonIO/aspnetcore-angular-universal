@@ -43,6 +43,8 @@
     "raw-loader": "^0.5.1",
     "rimraf": "^2.6.1",
     "rxjs": "^5.0.1",
+    "node-sass": "^4.5.2",
+    "sass-loader": "^6.0.3",
     "signalr": "^2.2.1",
     "style-loader": "^0.13.1",
     "to-string-loader": "^1.1.5",
