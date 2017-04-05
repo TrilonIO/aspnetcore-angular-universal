@@ -4,6 +4,8 @@ import { enableProdMode } from '@angular/core';
 import { INITIAL_CONFIG } from '@angular/platform-server';
 import { APP_BASE_HREF } from '@angular/common';
 import { createServerRenderer, RenderResult } from 'aspnet-prerendering';
+
+import { ORIGIN_URL } from './app/shared/constants/baseurl.constants';
 // Grab the (Node) server-specific NgModule
 import { ServerAppModule } from './app/server-app.module';
 // Temporary * the engine will be on npm soon (`@universal/ng-aspnetcore-engine`)
@@ -22,7 +24,7 @@ export default createServerRenderer(params => {
                 url: params.url
             }
         }, {
-            provide: APP_BASE_HREF,
+            provide: ORIGIN_URL,
             useValue: params.origin
         }
     ];

@@ -20,8 +20,14 @@ import { Ng2BootstrapComponent } from './containers/ng2-bootstrap-demo/ng2bootst
 
 import { LinkService } from './shared/link.service';
 import { ConnectionResolver } from './shared/route.resolver';
+import { ORIGIN_URL } from './shared/constants/baseurl.constants';
 
 export function createTranslateLoader(http: Http, baseHref) {
+    console.log('\n\n\n New method? ' + baseHref);
+    // Temporary Azure hack
+    if (baseHref === null && typeof window !== 'undefined') {
+        baseHref = window.location.origin;
+    }
     // i18n files are in `wwwroot/assets/`
     return new TranslateHttpLoader(http, `${baseHref}/assets/i18n/`, '.json');
 }
@@ -47,7 +53,7 @@ export function createTranslateLoader(http: Http, baseHref) {
             loader: {
                 provide: TranslateLoader,
                 useFactory: (createTranslateLoader),
-                deps: [Http, [new Inject(APP_BASE_HREF)]]
+                deps: [Http, [ORIGIN_URL]]
             }
         }),
 

@@ -3,7 +3,6 @@
   "version": "1.0.0-rc3",
   "scripts": {
     "test": "karma start Client/test/karma.conf.js",
-    "postinstall": "npm run build:dev",
     "build:dev": "webpack --progress --color",
     "build:aot": "webpack --env.aot --env.client & webpack --env.aot --env.server"
   },

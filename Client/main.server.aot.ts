@@ -3,10 +3,12 @@ import { enableProdMode } from '@angular/core';
 import { INITIAL_CONFIG } from '@angular/platform-server';
 import { APP_BASE_HREF } from '@angular/common';
 import { createServerRenderer, RenderResult } from 'aspnet-prerendering';
+
+import { ORIGIN_URL } from './app/shared/constants/baseurl.constants';
 // Grab the (Node) server-specific NgModule
 import { ServerAppModuleNgFactory } from './ngfactory/app/server-app.module.ngfactory';
 // Temporary * the engine will be on npm soon (`@universal/ng-aspnetcore-engine`)
-import { ngAspnetCoreEngine } from './polyfills/temporary-aspnetcore-engine';
+import { ngAspnetCoreEngineAoT } from './polyfills/temporary-aspnetcore-engine';
 
 enableProdMode();
 
@@ -21,12 +23,12 @@ export default createServerRenderer(params => {
                 url: params.url
             }
         }, {
-            provide: APP_BASE_HREF,
+            provide: ORIGIN_URL,
             useValue: params.origin
         }
     ];
 
-    return ngAspnetCoreEngine(providers, ServerAppModuleNgFactory).then(response => {
+    return ngAspnetCoreEngineAoT(providers, ServerAppModuleNgFactory).then(response => {
         return ({
             html: response.html,
             globals: response.globals
