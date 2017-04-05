@@ -1,10 +1,14 @@
 ﻿import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { HttpModule } from '@angular/http';
+import { HttpModule, Http } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
 import { Ng2BootstrapModule } from 'ng2-bootstrap';
+
+// i18n support
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
@@ -16,6 +20,10 @@ import { Ng2BootstrapComponent } from './containers/ng2-bootstrap-demo/ng2bootst
 
 import { LinkService } from './shared/link.service';
 import { ConnectionResolver } from './shared/route.resolver';
+
+export function createTranslateLoader(http: Http) {
+    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
     declarations: [
@@ -32,6 +40,15 @@ import { ConnectionResolver } from './shared/route.resolver';
         HttpModule,
         FormsModule,
         Ng2BootstrapModule.forRoot(), // You could also split this up if you don't want the Entire Module imported
+
+        // i18n support
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: (createTranslateLoader),
+                deps: [Http]
+            }
+        }),
 
         // App Routing
         RouterModule.forRoot([
@@ -80,7 +97,7 @@ import { ConnectionResolver } from './shared/route.resolver';
                 }
             },
             {
-                path: 'chat', component: ChatComponent, 
+                path: 'chat', component: ChatComponent,
                 // Wait until the resolve is finished before loading the Route
                 resolve: { connection: ConnectionResolver },
                 data: {
@@ -109,8 +126,9 @@ import { ConnectionResolver } from './shared/route.resolver';
         ])
     ],
     providers: [
-        LinkService, 
-        ConnectionResolver
+        LinkService,
+        ConnectionResolver,
+        TranslateModule
     ]
 })
 export class AppModule {
