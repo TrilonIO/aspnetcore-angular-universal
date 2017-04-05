@@ -1,6 +1,6 @@
 ﻿import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, APP_BASE_HREF } from '@angular/common';
 import { HttpModule, Http } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
@@ -22,7 +22,9 @@ import { LinkService } from './shared/link.service';
 import { ConnectionResolver } from './shared/route.resolver';
 
 export function createTranslateLoader(http: Http) {
-    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+
+    // BUG: URLs requested via Http on the server must be absolute
+    return new TranslateHttpLoader(http, 'http://localhost:5000/assets/i18n/', '.json');
 }
 
 @NgModule({
