@@ -50,9 +50,10 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
 - **Angular 4.0.0** :
   - Featuring Server-side rendering (Platform-Server (basically Angular Universal, but moved into Angular Core)
 	  - Faster initial paints, SEO (Search-engine optimization w Title/Meta/Link tags), social media link-previews, etc
-  - i18n - internationalization support (via/ ngx-translate)
+  - i18n internationalization support (via/ ngx-translate)
   - Baked in best-practices (follows Angular style guide)
-  - Bootstrap4 (with ng2-bootstrap) - (can be rendered on the server!)
+  - Bootstrap3 (with ngx-bootstrap) - (can be rendered on the server!)
+    - Can be easily replaced with bootstrap4 (3 is provided for browser support)
     - Bootstrap using SCSS / SASS for easy theming / styling!
 
 - **Webpack build system (Webpack 2)**
@@ -74,9 +75,16 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
 
 - **Azure**
   - Microsoft Application Insights setup (for MVC & Web API routing)
-  - Client-side Angular2 Application Insights integration [ coming soon ]
-    - https://github.com/MarkPieszak/angular-application-insights
-
+  - Client-side Angular2 Application Insights integration
+    - If you're using Azure simply install `npm i -S @markpieszak/ng-application-insights` as a dependencies.
+    - More information here: - https://github.com/MarkPieszak/angular-application-insights
+```typescript
+    // Add the Module to your imports 
+    ApplicationInsightsModule.forRoot({
+      instrumentationKey: 'Your-Application-Insights-instrumentationKey'
+    })
+```
+  
 
 > Looking for the older 2.x branch? Go [here](https://github.com/MarkPieszak/aspnetcore-angular2-universal/tree/old-2.x-universal-branch)
 
@@ -120,8 +128,8 @@ export ASPNETCORE_ENVIRONMENT=Development
 
 - Update to use npm [ngAspnetCoreEngine](https://github.com/angular/universal/pull/682) (still need to tweak a few things there)
 - Potractor e2e testing
-- Add Azure application insights module (or at least demo how to use it)
-- Add Redux back in
+- Add Redux back in (maybe?)
+- ~~Add Azure application insights module (or at least demo how to use it)~~
 - ~~Add i18n support~~
 - ~~DONE - Fix old README to match new project~~
 - ~~Add AoT compilation~~
@@ -177,7 +185,7 @@ Here we have the *usual suspects* found at the root level.
 With Angular Universal, we need to split our applicatoin logic **per platform** so [if we look inside this folder](./Client), 
 you'll see the 2 root files, that branch the entire logic for browser & server respectively.
 
-- [**Boot-Client.ts**](./Client/boot-client.ts) - 
+- [**Main.Browser.ts**](./Client/main.browser.ts) - 
 This file starts up the entire Angular application for the Client/browser platform. 
 
 Here we setup a few things, client Angular bootstrapping.
@@ -185,7 +193,7 @@ Here we setup a few things, client Angular bootstrapping.
 You'll barely need to touch this file, but something to note, this is the file where you would import libraries that you **only** want 
 being used in the Browser. (Just know that you'd have to provide a mock implementation for the Server when doing that).
 
-- [**Boot-Server.ts**](./Client/boot-server.ts) - 
+- [**Main-Server.ts**](./Client/main.server.ts) - 
 This file is where Angular _platform-server_ *serializes* the Angular application itself on the .NET server 
 within a very quick Node process, and renders it a string. This is what causes that initial fast paint 
 of the entire application to the Browser, and helps us get all our _SEO_ goodness :sparkles:
@@ -364,7 +372,7 @@ constructor(element: ElementRef, renderer: Renderer) {
 Simply comment out the logic within HomeController, and replace `@Html.Raw(ViewData["SpaHtml"])` with just your applications root 
 AppComponent tag ("app" in our case): `<app></app>`.
 
-> You could also remove any `ifPlatformBrowser/etc` logic, and delete the boot-server, browser-app.module & server-app.module files, just make sure your `boot-client` file points to `app.module`.
+> You could also remove any `isPlatformBrowser/etc` logic, and delete the boot-server, browser-app.module & server-app.module files, just make sure your `boot-client` file points to `app.module`.
 
 ### How do I have code run only in the Browser?
 
@@ -382,7 +390,7 @@ better, more abstract ways of dealing with the DOM in Angular (2+) such as using
 Yes, of course but there are a few things you need to setup before doing this. First, make sure jQuery 
 is included in webpack vendor file, and that you have a webpack Plugin setup for it. `new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery' })`
 
-Now, make sure any "plugins" etc that you have, are only included in your `boot-client.ts` file. (ie: `import 'slick-carousel';`) 
+Now, make sure any "plugins" etc that you have, are only included in your `main.browser.ts` file. (ie: `import 'slick-carousel';`) 
 In a Component you want to use jQuery, make sure to import it near the top like so:
 
 ```typescript
