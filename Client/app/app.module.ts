@@ -1,4 +1,4 @@
-﻿import { NgModule } from '@angular/core';
+﻿import { NgModule, Inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule, APP_BASE_HREF } from '@angular/common';
 import { HttpModule, Http } from '@angular/http';
@@ -21,11 +21,9 @@ import { Ng2BootstrapComponent } from './containers/ng2-bootstrap-demo/ng2bootst
 import { LinkService } from './shared/link.service';
 import { ConnectionResolver } from './shared/route.resolver';
 
-export function createTranslateLoader(http: Http) {
-
-    // BUG: URLs requested via Http on the server must be absolute
-    // TODO: Should not hardcode localhost://5000, should use APP_BASE_HREF!!
-    return new TranslateHttpLoader(http, 'http://localhost:5000/assets/i18n/', '.json');
+export function createTranslateLoader(http: Http, APP_BASE_HREF) {
+    // i18n files are in `wwwroot/assets/`
+    return new TranslateHttpLoader(http, `${APP_BASE_HREF}/assets/i18n/`, '.json');
 }
 
 @NgModule({
@@ -49,7 +47,7 @@ export function createTranslateLoader(http: Http) {
             loader: {
                 provide: TranslateLoader,
                 useFactory: (createTranslateLoader),
-                deps: [Http]
+                deps: [Http, [new Inject(), APP_BASE_HREF]]
             }
         }),
 
@@ -67,7 +65,7 @@ export function createTranslateLoader(http: Http) {
                 // We're using "data" in our Routes to pass in our <title> <meta> <link> tag information
                 // Note: This is only happening for ROOT level Routes, you'd have to add some additional logic if you wanted this for Child level routing
                 // When you change Routes it will automatically append these to your document for you on the Server-side
-                //  - check out app.component.ts to see how it's doing this 
+                //  - check out app.component.ts to see how it's doing this
                 data: {
                     title: 'Homepage',
                     meta: [{ name: 'description', content: 'This is an example Description Meta tag!' }],
