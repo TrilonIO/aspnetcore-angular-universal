@@ -15,7 +15,7 @@ Angular SEO in action:
 ### What is this repo? Live Demo here: http://aspnetcore-angular2-universal.azurewebsites.net
 
 This repository is maintained by [Angular Universal](https://github.com/angular/universal) and is meant to be an advanced starter 
-for both ASP.NET Core using Angular 2.x(+), not only for the client-side, but to be rendered on the server for instant 
+for both ASP.NET Core using Angular 4.0+, not only for the client-side, but to be rendered on the server for instant 
 application paints (Note: If you don't need Universal (SSR) [read here](#faq) on how to disable it).
 
 This is meant to be a Feature-Rich Starter application containing all of the latest technologies, best build systems available, and include many real-world examples and libraries needed in todays Single Page Applications (SPAs).
@@ -43,27 +43,24 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
 - ASP.NET 1.0 - VS2017 support now!
   - Azure delpoyment straight from VS2017
   - Built in docker support through VS2017
-  - RestAPI integration
+  - RestAPI (WebAPI) integration
+  - SQL Database CRUD demo
   - SignalR Chat demo! (Thanks to [@hakonamatata](https://github.com/hakonamatata)
 
 - **Angular 4.0.0** :
   - Featuring Server-side rendering (Platform-Server (basically Angular Universal, but moved into Angular Core)
-	  - Faster paints, SEO (Search-engine optimization w Title/Meta/Link tags), link-previews, etc
-  - ~~NgRx - Reactive Redux state management architecture~~
-    - ~~Built to work with the real-time Redux Devtools. [Get the Chrome extension here](https://github.com/zalmoxisus/redux-devtools-extension) ~
+	  - Faster initial paints, SEO (Search-engine optimization w Title/Meta/Link tags), social media link-previews, etc
+  - i18n - internationalization support (via/ ngx-translate)
   - Baked in best-practices (follows Angular style guide)
-  - Bootstrap4 (with ng2-bootstrap) - can be rendered on the server
-    - ~~Bootstrap using SCSS/SASS for easy theming / styling!~~
+  - Bootstrap4 (with ng2-bootstrap) - (can be rendered on the server!)
+    - Bootstrap using SCSS / SASS for easy theming / styling!
 
 - **Webpack build system (Webpack 2)**
   - HMR : Hot Module Reloading/Replacement 
-    - ~~NgRx utilized and setup to **hold app State between HMR builds**~~
   - Production builds
-  - ~~Webpack Dashboard~~
 
 - **Testing frameworks**
   - Unit testing with Karma/Jasmine
-  - ~~E2E testing with Protractor~~
 
 - **Productivity**
   - Typescript 2
@@ -77,7 +74,7 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
 
 - **Azure**
   - Microsoft Application Insights setup (for MVC & Web API routing)
-  - Client-side Angular2 Application Insights integration coming soon
+  - Client-side Angular2 Application Insights integration [ coming soon ]
     - https://github.com/MarkPieszak/angular-application-insights
 
 
@@ -125,6 +122,7 @@ export ASPNETCORE_ENVIRONMENT=Development
 - Potractor e2e testing
 - Add Azure application insights module (or at least demo how to use it)
 - Add Redux back in
+- ~~Add i18n support~~
 - ~~DONE - Fix old README to match new project~~
 - ~~Add AoT compilation~~
 - ~~Add Bootstrap with SCSS~~
@@ -423,6 +421,8 @@ Nothing's ever perfect, but please let me know by creating an issue (make sure t
 Copyright (c) 2016-2017 [Mark Pieszak](https://github.com/MarkPieszak)
 
 Twitter: [@MarkPieszak](http://twitter.com/MarkPieszak) | Medium: [@MarkPieszak](https://medium.com/@MarkPieszak)
+
+----
 
 # Looking for Angular Consulting / Training / support?
 
