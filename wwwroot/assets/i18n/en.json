@@ -1,3 +1,7 @@
 {
-  "HOME": "home test"
+  "HOME": "Home",
+  "COUNTER": "Counter",
+  "SWITCH_LANGUAGE": "Switch language",
+  "ENGLISH": "English",
+  "NORWEGIAN": "Norwegian"
 }
