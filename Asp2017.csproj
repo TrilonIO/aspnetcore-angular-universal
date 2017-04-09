@@ -27,22 +27,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Client\dist\" />
-    <Folder Include="Client\dist\" />
-    <Folder Include="Client\dist\" />
-    <Folder Include="Client\dist\" />
-    <Folder Include="Client\dist\" />
-    <Folder Include="Client\dist\" />
-    <Folder Include="Client\dist\" />
-    <Folder Include="Client\dist\" />
-    <Folder Include="Client\dist\" />
-    <Folder Include="wwwroot\dist\" />
-    <Folder Include="wwwroot\dist\" />
-    <Folder Include="wwwroot\dist\" />
-    <Folder Include="wwwroot\dist\" />
-    <Folder Include="wwwroot\dist\" />
-    <Folder Include="wwwroot\dist\" />
-    <Folder Include="wwwroot\dist\" />
-    <Folder Include="wwwroot\dist\" />
     <Folder Include="wwwroot\dist\" />
   </ItemGroup>
   <Target Name="RunWebpack" AfterTargets="ComputeFilesToPublish">
