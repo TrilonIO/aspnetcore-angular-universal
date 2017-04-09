@@ -5,6 +5,9 @@ import { Subscription } from 'rxjs/Subscription';
 import { isPlatformServer } from '@angular/common';
 import { LinkService } from './shared/link.service';
 
+// i18n support
+import { TranslateService } from '@ngx-translate/core';
+
 @Component({
     selector: 'app',
     templateUrl: './app.component.html',
@@ -25,8 +28,15 @@ export class AppComponent implements OnInit, OnDestroy {
         private activatedRoute: ActivatedRoute,
         private title: Title,
         private meta: Meta,
-        private linkService: LinkService
-    ) { }
+        private linkService: LinkService,
+        public translate: TranslateService
+    ) {
+        // this language will be used as a fallback when a translation isn't found in the current language
+        translate.setDefaultLang('en');
+
+        // the lang to use, if the lang isn't available, it will use the current loader to get them
+        translate.use('en');
+    }
 
     ngOnInit() {
         // Change "Title" on every navigationEnd event

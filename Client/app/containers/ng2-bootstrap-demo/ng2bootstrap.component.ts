@@ -7,14 +7,15 @@
 export class Ng2BootstrapComponent {
 
     public oneAtATime: boolean = true;
-    public items: Array<string> = ['Item 1', 'Item 2', 'Item 3'];
+    public items = ['Item 1', 'Item 2', 'Item 3'];
 
-    public status: Object = {
+    public status = {
         isFirstOpen: true,
-        isFirstDisabled: false
+        isFirstDisabled: false,
+        open: false
     };
 
-    public groups: Array<any> = [
+    public groups = [
         {
             title: 'Angular is neato gang!',
             content: 'ASP.NET Core is too :)'
