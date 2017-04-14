@@ -21,9 +21,9 @@ import { Ng2BootstrapComponent } from './containers/ng2-bootstrap-demo/ng2bootst
 import { LinkService } from './shared/link.service';
 import { ConnectionResolver } from './shared/route.resolver';
 import { ORIGIN_URL } from './shared/constants/baseurl.constants';
+import { TransferHttpModule } from '../modules/transfer-http/transfer-http.module';
 
 export function createTranslateLoader(http: Http, baseHref) {
-    console.log('\n\n\n New method? ' + baseHref);
     // Temporary Azure hack
     if (baseHref === null && typeof window !== 'undefined') {
         baseHref = window.location.origin;
@@ -41,12 +41,14 @@ export function createTranslateLoader(http: Http, baseHref) {
         HomeComponent,
         ChatComponent,
         Ng2BootstrapComponent
-    ],
+    ], 
     imports: [
         CommonModule,
         HttpModule,
         FormsModule,
         Ng2BootstrapModule.forRoot(), // You could also split this up if you don't want the Entire Module imported
+
+        TransferHttpModule, // Our Http TransferData method
 
         // i18n support
         TranslateModule.forRoot({

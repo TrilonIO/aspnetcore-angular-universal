@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         @Html.Raw(ViewData["Meta"])
         @Html.Raw(ViewData["Links"])
-        
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/0.8.2/css/flag-icon.min.css" />
 
         @Html.Raw(ViewData["Styles"])
@@ -23,6 +23,9 @@
                 crossorigin="anonymous"></script>
 
         <script src="http://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-2.2.0.min.js"></script>
+
+        <!-- Here we're passing down any data to be used by grabbed and parsed by Angular -->
+        @Html.Raw(ViewData["TransferData"])
 
         @RenderSection("scripts", required: false)
     </body>

@@ -9,30 +9,32 @@ import { ORIGIN_URL } from './app/shared/constants/baseurl.constants';
 // Grab the (Node) server-specific NgModule
 import { ServerAppModule } from './app/server-app.module';
 // Temporary * the engine will be on npm soon (`@universal/ng-aspnetcore-engine`)
-import { ngAspnetCoreEngine } from './polyfills/temporary-aspnetcore-engine';
+import { ngAspnetCoreEngine, IEngineOptions, createTransferScript } from './polyfills/temporary-aspnetcore-engine';
 
 enableProdMode();
 
-export default createServerRenderer(params => {
+export default createServerRenderer((params: BootFuncParams) => {
 
-    // Platform-server provider configuration
-    const providers = [
-        {
-            provide: INITIAL_CONFIG,
-            useValue: {
-                document: '<app></app>', // Our Root application document
-                url: params.url
-            }
-        }, {
-            provide: ORIGIN_URL,
-            useValue: params.origin
-        }
-    ];
+  // Platform-server provider configuration
+  const setupOptions: IEngineOptions = {
+    appSelector: '<app></app>',
+    ngModule: ServerAppModule,
+    request: params,
+    providers: [
+      // Optional - Any other Server providers you want to pass (remember you'll have to provide them for the Browser as well)
+    ]
+  };
 
-    return ngAspnetCoreEngine(providers, ServerAppModule).then(response => {
-        return ({
-            html: response.html,
-            globals: response.globals
-        });
+  return ngAspnetCoreEngine(setupOptions).then(response => {
+    // Apply your transferData to response.globals
+    response.globals.transferData = createTransferScript({
+      someData: 'Transfer this to the client on the window.TRANSFER_CACHE {} object',
+      fromDotnet: params.data.thisCameFromDotNET // example of data coming from dotnet, in HomeController
     });
+
+    return ({
+      html: response.html,
+      globals: response.globals
+    });
+  });
 });
