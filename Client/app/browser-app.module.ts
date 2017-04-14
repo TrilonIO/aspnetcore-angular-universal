@@ -8,6 +8,8 @@ import { SignalRModule, SignalRConfiguration } from 'ng2-signalr';
 import { ORIGIN_URL } from './shared/constants/baseurl.constants';
 import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
+import { REQUEST } from './shared/constants/request';
+import { BrowserTransferStateModule } from '../modules/transfer-state/browser-transfer-state.module';
 
 export function createConfig(): SignalRConfiguration {
     const signalRConfig = new SignalRConfiguration();
@@ -24,6 +26,11 @@ export function getOriginUrl() {
   return window.location.origin;
 }
 
+export function getRequest() {
+  // the Request object only lives on the server
+  return { cookie: document.cookie };
+}
+
 @NgModule({
     bootstrap: [AppComponent],
     imports: [
@@ -31,6 +38,8 @@ export function getOriginUrl() {
             appId: 'my-app-id' // make sure this matches with your Server NgModule
         }),
         BrowserAnimationsModule,
+        BrowserTransferStateModule,
+
         // Our Common AppModule
         AppModule,
 
@@ -38,9 +47,14 @@ export function getOriginUrl() {
     ],
     providers: [
         {
-            // We need this for our Http calls since they'll be using APP_BASE_HREF (since the Server requires Absolute URLs)
+            // We need this for our Http calls since they'll be using an ORIGIN_URL provided in main.server
+            // (Also remember the Server requires Absolute URLs)
             provide: ORIGIN_URL,
             useFactory: (getOriginUrl)
+        }, {
+            // The server provides these in main.server
+            provide: REQUEST,
+            useFactory: (getRequest)
         }
     ]
 })
