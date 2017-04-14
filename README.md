@@ -30,7 +30,7 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
 * [Upcoming Features](#upcoming-features)
 * [Application Structure](#application-structure)
 * [Universal Gotchas](#universal-gotchas)
-* [FAQ](#faq)
+* [FAQ](#faq---also-check-out-the-faq-issues-label)
 * [Special Thanks](#special-thanks)
 * [License](#license)
 
@@ -111,7 +111,7 @@ The project comes with the configured Launch.json files to let you just push F5 
 
 ```bash
 # cd into the directory you cloned the project into
-npm install && dotnet restore
+npm install && npm run build:dev && dotnet restore
 # or yarn install
 ```
 
