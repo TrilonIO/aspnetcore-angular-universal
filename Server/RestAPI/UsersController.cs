@@ -27,7 +27,14 @@ namespace AspCoreServer.Controllers
           .Take(pageSize)
           .ToArrayAsync();
 
-      return Ok(users);
+      if (!users.Any())
+      {
+        return NotFound("Users not Found");
+      }
+      else
+      {
+        return Ok(users);
+      }
     }
 
     [HttpGet("{id}")]
@@ -51,15 +58,15 @@ namespace AspCoreServer.Controllers
     [HttpPost]
     public async Task<IActionResult> Post([FromBody]User user)
     {
-      if (user.Name != null)
+      if (!string.IsNullOrEmpty(user.Name))
       {
         _context.Add(user);
         await _context.SaveChangesAsync();
-        return Ok(user);
+        return CreatedAtAction("Post", user);
       }
       else
       {
-        return NotFound("Name not given");
+        return BadRequest("User's name was not given");
       }
     }
 
@@ -69,9 +76,21 @@ namespace AspCoreServer.Controllers
       try
       {
         userUpdateValue.EntryTime = DateTime.Now;
-        _context.Update(userUpdateValue);
-        await _context.SaveChangesAsync();
-        return Ok(userUpdateValue);
+
+        var userToEdit = await _context.User
+          .AsNoTracking()
+          .SingleOrDefaultAsync(m => m.ID == id);
+
+        if (userToEdit == null)
+        {
+          return NotFound("Could not update user as it was not Found");
+        }
+        else
+        {
+          _context.Update(userUpdateValue);
+          await _context.SaveChangesAsync();
+          return Ok("Updated user - " + userUpdateValue.Name);
+        }
       }
       catch (DbUpdateException)
       {
@@ -91,7 +110,7 @@ namespace AspCoreServer.Controllers
       .SingleOrDefaultAsync(m => m.ID == id);
       if (userToRemove == null)
       {
-        return NotFound("User not Found");
+        return NotFound("Could not delete user as it was not Found");
       }
       else
       {
