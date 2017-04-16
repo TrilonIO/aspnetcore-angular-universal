@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace AspCoreServer.Models
 {
-    public class Users
+    public class User
     {
         public int ID { get; set; }
         public string Name { get; set; }
@@ -13,7 +13,7 @@ namespace AspCoreServer.Models
         public DateTime EntryTime { get; set; }
 
         //Setting Default value
-        public Users()
+        public User()
         {
             EntryTime = DateTime.Now;
         }

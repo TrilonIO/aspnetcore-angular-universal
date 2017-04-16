@@ -12,6 +12,6 @@ namespace AspCoreServer.Data
         }
 
         //List of DB Models - Add your DB models here
-        public DbSet<Users> User { get; set; }
+        public DbSet<User> User { get; set; }
     }
 }

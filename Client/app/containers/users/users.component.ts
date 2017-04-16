@@ -50,14 +50,16 @@ export class UsersComponent implements OnInit {
         //      The Client then re-uses this Http result instead of hitting the server again!
 
         //  NOTE : transferHttp also automatically does .map(res => res.json()) for you, so no need for these calls
-        this.transferHttp.get(`${this.baseUrl}/api/user/all`).subscribe(result => {
-            console.log('TransferHttp [GET] /api/user/allresult', result);
+        this.transferHttp.get(`${this.baseUrl}/api/users`).subscribe(result => {
+            console.log('Get user result: ', result);
+            console.log('TransferHttp [GET] /api/users/allresult', result);
             this.users = result as IUser[];
         });
     }
 
     deleteUser(user) {
-        this.http.delete(`${this.baseUrl}/api/user/delete/` + user.id).subscribe(result => {
+        this.http.delete(`${this.baseUrl}/api/users/` + user.id).subscribe(result => {
+            console.log('Delete user result: ', result);
             if (result.ok) {
                 let position = this.users.indexOf(user);
                 this.users.splice(position, 1);
@@ -68,12 +70,8 @@ export class UsersComponent implements OnInit {
     }
 
     editUser(user) {
-        let urlSearchParams = new URLSearchParams();
-        urlSearchParams.append('id', user.id);
-        urlSearchParams.append('name', user.name);
-
-        this.http.put(`${this.baseUrl}/api/user/update`, urlSearchParams).subscribe(result => {
-          console.log('result: ', result);
+        this.http.put(`${this.baseUrl}/api/users/` + user.id, user).subscribe(result => {
+          console.log('Put user result: ', result);
             if (!result) {
                 alert('There was an issue, Could not edit user');
             }
@@ -81,10 +79,8 @@ export class UsersComponent implements OnInit {
     }
 
     addUser(newUserName) {
-        let urlSearchParams = new URLSearchParams();
-        urlSearchParams.append('name', newUserName);
-
-        this.http.post(`${this.baseUrl}/api/user/insert`, urlSearchParams).subscribe(result => {
+        this.http.post(`${this.baseUrl}/api/users`, { name: newUserName }).subscribe(result => {
+            console.log('Post user result: ', result);
             if (result) {
                 this.users.push(result.json());
                 this.newUserName = '';
