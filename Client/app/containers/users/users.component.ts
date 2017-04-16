@@ -3,11 +3,8 @@
     // animation imports
     trigger, state, style, transition, animate, Inject
 } from '@angular/core';
-import { APP_BASE_HREF } from '@angular/common';
-
-import { Http, URLSearchParams } from '@angular/http';
-import { ORIGIN_URL } from '../../shared/constants/baseurl.constants';
-import { TransferHttp } from '../../../modules/transfer-http/transfer-http';
+import { IUser } from '../../models/User';
+import { UserService } from '../../shared/users.service';
 
 @Component({
     selector: 'fetchdata',
@@ -33,24 +30,13 @@ export class UsersComponent implements OnInit {
     public users: IUser[];
 
     // Use "constructor"s only for dependency injection
-    constructor(
-        private transferHttp: TransferHttp, // Use only for GETS that you want re-used between Server render -> Client render
-        private http: Http, // Use for everything else
-        @Inject(ORIGIN_URL) private baseUrl: string
-    ) { }
+    constructor(private userService: UserService) { }
 
     // Here you want to handle anything with @Input()'s @Output()'s
     // Data retrieval / etc - this is when the Component is "ready" and wired up
     ngOnInit() {
-
         this.newUserName = '';
-
-        // ** TransferHttp example / concept **
-        //    - Here we make an Http call on the server, save the result on the window object and pass it down with the SSR,
-        //      The Client then re-uses this Http result instead of hitting the server again!
-
-        //  NOTE : transferHttp also automatically does .map(res => res.json()) for you, so no need for these calls
-        this.transferHttp.get(`${this.baseUrl}/api/users`).subscribe(result => {
+        this.userService.getUsers().subscribe(result => {
             console.log('Get user result: ', result);
             console.log('TransferHttp [GET] /api/users/allresult', result);
             this.users = result as IUser[];
@@ -58,7 +44,7 @@ export class UsersComponent implements OnInit {
     }
 
     deleteUser(user) {
-        this.http.delete(`${this.baseUrl}/api/users/` + user.id).subscribe(result => {
+        this.userService.deleteUser(user).subscribe(result => {
             console.log('Delete user result: ', result);
             if (result.ok) {
                 let position = this.users.indexOf(user);
@@ -69,19 +55,19 @@ export class UsersComponent implements OnInit {
         });
     }
 
-    editUser(user) {
-        this.http.put(`${this.baseUrl}/api/users/` + user.id, user).subscribe(result => {
-          console.log('Put user result: ', result);
-            if (!result) {
+    updateUser(user) {
+        this.userService.updateUser(user).subscribe(result => {
+            console.log('Put user result: ', result);
+            if (!result.ok) {
                 alert('There was an issue, Could not edit user');
             }
         });
     }
 
     addUser(newUserName) {
-        this.http.post(`${this.baseUrl}/api/users`, { name: newUserName }).subscribe(result => {
+        this.userService.addUser(newUserName).subscribe(result => {
             console.log('Post user result: ', result);
-            if (result) {
+            if (result.ok) {
                 this.users.push(result.json());
                 this.newUserName = '';
             } else {
@@ -89,9 +75,4 @@ export class UsersComponent implements OnInit {
             }
         });
     }
-}
-
-interface IUser {
-    id: number;
-    name: string;
 }
