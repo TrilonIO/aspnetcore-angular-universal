@@ -17,22 +17,22 @@ namespace AspCoreServer.Data
             {
                 return;   // DB has been seeded
             }
-            var users = new Users[]
+            var users = new User[]
             {
-               new Users(){Name = "Mark Pieszak"},
-               new Users(){Name = "Abrar Jahin"},
-               new Users(){Name = "hakonamatata"},
-               new Users(){Name = "LiverpoolOwen"},
-               new Users(){Name = "Ketrex"},
-               new Users(){Name = "markwhitfeld"},
-               new Users(){Name = "daveo1001"},
-               new Users(){Name = "paonath"},
-               new Users(){Name = "nalex095"},
-               new Users(){Name = "ORuban"},
-               new Users(){Name = "Gaulomatic"}
+               new User(){Name = "Mark Pieszak"},
+               new User(){Name = "Abrar Jahin"},
+               new User(){Name = "hakonamatata"},
+               new User(){Name = "LiverpoolOwen"},
+               new User(){Name = "Ketrex"},
+               new User(){Name = "markwhitfeld"},
+               new User(){Name = "daveo1001"},
+               new User(){Name = "paonath"},
+               new User(){Name = "nalex095"},
+               new User(){Name = "ORuban"},
+               new User(){Name = "Gaulomatic"}
             };
 
-            foreach (Users s in users)
+            foreach (User s in users)
             {
                 context.User.Add(s);
             }
