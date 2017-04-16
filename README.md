@@ -65,7 +65,7 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
 
 - **Productivity**
   - Typescript 2
-  - Codelyzer (for Real-Sime static code analysis) 
+  - Codelyzer (for Real-time static code analysis) 
     - VSCode & Atom provide real-time analysis out of the box.
     - **NOTE**: Does not fully work with Visual Studio yet. (Even with VS2017 and .NET core 1.0)
 
