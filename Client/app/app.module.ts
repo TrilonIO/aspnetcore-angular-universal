@@ -19,6 +19,7 @@ import { ChatComponent } from './containers/chat/chat.component';
 import { Ng2BootstrapComponent } from './containers/ng2-bootstrap-demo/ng2bootstrap.component';
 
 import { LinkService } from './shared/link.service';
+import { UserService } from './shared/user.service';
 import { ConnectionResolver } from './shared/route.resolver';
 import { ORIGIN_URL } from './shared/constants/baseurl.constants';
 import { TransferHttpModule } from '../modules/transfer-http/transfer-http.module';
@@ -136,6 +137,7 @@ export function createTranslateLoader(http: Http, baseHref) {
     ],
     providers: [
         LinkService,
+        UserService,
         ConnectionResolver,
         TranslateModule
     ]

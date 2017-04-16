@@ -23,7 +23,7 @@
         <input class="form-control" [(ngModel)]="user.name" #name="ngModel" />
       </td>
       <td>
-        <button *ngIf="name.dirty" class="btn btn-success" (click)="editUser(user)">Save</button>
+        <button *ngIf="name.dirty" class="btn btn-success" (click)="updateUser(user)">Save</button>
       </td>
       <td>
         <button class="btn btn-danger" (click)="deleteUser(user)">Delete</button>
