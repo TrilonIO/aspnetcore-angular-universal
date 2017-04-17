@@ -69,6 +69,8 @@ namespace AspCoreServer
       loggerFactory.AddConsole(Configuration.GetSection("Logging"));
       loggerFactory.AddDebug();
 
+        app.UseStaticFiles();
+
       if (env.IsDevelopment())
       {
         app.UseDeveloperExceptionPage();
@@ -91,8 +93,8 @@ namespace AspCoreServer
           builder.UseMvc(routes =>
           {
             routes.MapSpaFallbackRoute(
-                      name: "spa-fallback",
-                      defaults: new { controller = "Home", action = "Index" });
+                name: "spa-fallback",
+                defaults: new { controller = "Home", action = "Index" });
           });
         });
       }
@@ -110,8 +112,6 @@ namespace AspCoreServer
         });
         app.UseExceptionHandler("/Home/Error");
       }
-
-      app.UseStaticFiles();
     }
   }
 }
