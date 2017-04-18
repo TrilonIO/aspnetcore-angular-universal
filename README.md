@@ -399,6 +399,10 @@ import * as $ from 'jquery';
 
 **Always make sure to wrap anything jQuery oriented in Angular's `isPlatformBrowser()` conditional!**
 
+### How can I support IE9 through IE11?
+
+To support IE9 through IE11 open the `polyfills.ts` file in the `polyfills` folder and uncomment out the 'import polyfills' as needed.
+
 ----
 
 # Special Thanks
