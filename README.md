@@ -45,6 +45,7 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
   - Built in docker support through VS2017
   - RestAPI (WebAPI) integration
   - SQL Database CRUD demo
+  - Swagger WebAPI documentation when running in development mode 
   - SignalR Chat demo! (Thanks to [@hakonamatata](https://github.com/hakonamatata)
 
 - **Angular 4.0.0** :
