@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './containers/home/home.component';
 import { UsersComponent } from './containers/users/users.component';
+import { UserDetailComponent } from './components/user-detail/user-detail.component';
 import { CounterComponent } from './containers/counter/counter.component';
 import { ChatComponent } from './containers/chat/chat.component';
 import { NgxBootstrapComponent } from './containers/ngx-bootstrap-demo/ngx-bootstrap.component';
@@ -39,6 +40,7 @@ export function createTranslateLoader(http: Http, baseHref) {
         NavMenuComponent,
         CounterComponent,
         UsersComponent,
+        UserDetailComponent,
         HomeComponent,
         ChatComponent,
         NgxBootstrapComponent

@@ -7,8 +7,9 @@ import { IUser } from '../../models/User';
 import { UserService } from '../../shared/user.service';
 
 @Component({
-    selector: 'fetchdata',
+    selector: 'users',
     templateUrl: './users.component.html',
+    styleUrls: ['./users.component.css'],
     animations: [
         // Animation example
         // Triggered in the ngFor with [@flyInOut]
@@ -26,8 +27,8 @@ import { UserService } from '../../shared/user.service';
 })
 export class UsersComponent implements OnInit {
 
-    public newUserName: string;
-    public users: IUser[];
+    private users: IUser[];
+    private selectedUser: IUser;
 
     // Use "constructor"s only for dependency injection
     constructor(private userService: UserService) { }
@@ -35,12 +36,15 @@ export class UsersComponent implements OnInit {
     // Here you want to handle anything with @Input()'s @Output()'s
     // Data retrieval / etc - this is when the Component is "ready" and wired up
     ngOnInit() {
-        this.newUserName = '';
         this.userService.getUsers().subscribe(result => {
             console.log('Get user result: ', result);
             console.log('TransferHttp [GET] /api/users/allresult', result);
             this.users = result as IUser[];
         });
+    }
+
+    onSelect(user: IUser): void {
+        this.selectedUser = user;
     }
 
     deleteUser(user) {
@@ -55,21 +59,11 @@ export class UsersComponent implements OnInit {
         });
     }
 
-    updateUser(user) {
-        this.userService.updateUser(user).subscribe(result => {
-            console.log('Put user result: ', result);
-            if (!result.ok) {
-                alert('There was an issue, Could not edit user');
-            }
-        });
-    }
-
     addUser(newUserName) {
         this.userService.addUser(newUserName).subscribe(result => {
             console.log('Post user result: ', result);
             if (result.ok) {
                 this.users.push(result.json());
-                this.newUserName = '';
             } else {
                 alert('There was an issue, Could not edit user');
             }
