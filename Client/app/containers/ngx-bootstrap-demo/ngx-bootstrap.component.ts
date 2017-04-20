@@ -2,9 +2,9 @@
 
 @Component({
     selector: 'app-bootstrap',
-    templateUrl: './ng2bootstrap.component.html'
+    templateUrl: './ngx-bootstrap.component.html'
 })
-export class Ng2BootstrapComponent {
+export class NgxBootstrapComponent {
 
     public oneAtATime: boolean = true;
     public items = ['Item 1', 'Item 2', 'Item 3'];
