@@ -16,7 +16,7 @@ import { HomeComponent } from './containers/home/home.component';
 import { UsersComponent } from './containers/users/users.component';
 import { CounterComponent } from './containers/counter/counter.component';
 import { ChatComponent } from './containers/chat/chat.component';
-import { Ng2BootstrapComponent } from './containers/ng2-bootstrap-demo/ng2bootstrap.component';
+import { NgxBootstrapComponent } from './containers/ngx-bootstrap-demo/ngx-bootstrap.component';
 
 import { LinkService } from './shared/link.service';
 import { UserService } from './shared/user.service';
@@ -41,7 +41,7 @@ export function createTranslateLoader(http: Http, baseHref) {
         UsersComponent,
         HomeComponent,
         ChatComponent,
-        Ng2BootstrapComponent
+        NgxBootstrapComponent
     ],
     imports: [
         CommonModule,
@@ -120,9 +120,9 @@ export function createTranslateLoader(http: Http, baseHref) {
                 }
             },
             {
-                path: 'ng2-bootstrap', component: Ng2BootstrapComponent,
+                path: 'ngx-bootstrap', component: NgxBootstrapComponent,
                 data: {
-                    title: 'Ng2-bootstrap demo!!',
+                    title: 'Ngx-bootstrap demo!!',
                     meta: [{ name: 'description', content: 'This is an Demo Bootstrap page Description!' }],
                     links: [
                         { rel: 'canonical', href: 'http://blogs.example.com/bootstrap/something' },
