@@ -9,7 +9,7 @@ module.exports = {
     resolve: {
         extensions: ['.ts', '.js', '.json'],
         // An array of directory names to be resolved to the current directory
-        modules: [root('client'), root('node_modules')],
+        modules: [root('Client'), root('node_modules')],
     },
     entry: {
         'main-server': root('./Client/main.server.ts')
