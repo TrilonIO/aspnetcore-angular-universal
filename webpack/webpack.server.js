@@ -12,7 +12,7 @@ module.exports = {
         modules: [root('client'), root('node_modules')],
     },
     entry: {
-        'main-server': root('./client/main.server.ts')
+        'main-server': root('./Client/main.server.ts')
     },
     output: {
         libraryTarget: 'commonjs',
