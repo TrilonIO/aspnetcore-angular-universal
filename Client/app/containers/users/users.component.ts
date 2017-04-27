@@ -27,8 +27,8 @@ import { UserService } from '../../shared/user.service';
 })
 export class UsersComponent implements OnInit {
 
-    private users: IUser[];
-    private selectedUser: IUser;
+    users: IUser[];
+    selectedUser: IUser;
 
     // Use "constructor"s only for dependency injection
     constructor(private userService: UserService) { }
