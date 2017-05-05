@@ -53,9 +53,9 @@ export class UsersComponent implements OnInit {
             if (result.ok) {
                 let position = this.users.indexOf(user);
                 this.users.splice(position, 1);
-            } else {
-                alert('There was an issue, Could not delete user');
             }
+        }, error => {
+            console.log(`There was an issue. ${error._body}.`);
         });
     }
 
@@ -64,9 +64,9 @@ export class UsersComponent implements OnInit {
             console.log('Post user result: ', result);
             if (result.ok) {
                 this.users.push(result.json());
-            } else {
-                alert('There was an issue, Could not edit user');
             }
+        }, error => {
+            console.log(`There was an issue. ${error._body}.`);
         });
     }
 }
