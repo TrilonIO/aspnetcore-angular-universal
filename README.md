@@ -127,9 +127,10 @@ export ASPNETCORE_ENVIRONMENT=Development
 
 # Upcoming Features:
 
+- **Fix and update Webpack build / Vendor chunking and overall compilation speed.** ( important )
 - Update to use npm [ngAspnetCoreEngine](https://github.com/angular/universal/pull/682) (still need to tweak a few things there)
 - Potractor e2e testing
-- Add Redux back in (maybe?)
+- Add basic Redux State store (Will also hold state durijg HMR builds)
 - ~~Add Azure application insights module (or at least demo how to use it)~~
 - ~~Add i18n support~~
 - ~~DONE - Fix old README to match new project~~
