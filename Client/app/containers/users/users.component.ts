@@ -55,7 +55,7 @@ export class UsersComponent implements OnInit {
                 this.users.splice(position, 1);
             }
         }, error => {
-            alert(`There was an issue. ${error._body}.`);
+            console.log(`There was an issue. ${error._body}.`);
         });
     }
 
@@ -66,7 +66,7 @@ export class UsersComponent implements OnInit {
                 this.users.push(result.json());
             }
         }, error => {
-            alert(`There was an issue. ${error._body}.`);
+            console.log(`There was an issue. ${error._body}.`);
         });
     }
 }
