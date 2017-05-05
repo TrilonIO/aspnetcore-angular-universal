@@ -15,9 +15,8 @@ export class UserDetailComponent {
     updateUser(user) {
         this.userService.updateUser(user).subscribe(result => {
             console.log('Put user result: ', result);
-            if (!result.ok) {
-                alert('There was an issue, Could not edit user');
-            }
+        }, error => {
+            console.log(`There was an issue. ${error._body}.`);
         });
     }
 }
