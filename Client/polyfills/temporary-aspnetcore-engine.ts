@@ -126,10 +126,15 @@ export function ngAspnetCoreEngine(
                 const LINKS = [];
                 let TITLE = '';
 
-                let STYLES_STRING = htmlDoc.substring(
-                  htmlDoc.indexOf('<style ng-transition'),
-                  htmlDoc.lastIndexOf('</style>') + 8
-                );
+                //let STYLES_STRING = htmlDoc.substring(
+                  //htmlDoc.indexOf('<style ng-transition'),
+                  //htmlDoc.lastIndexOf('</style>') + 8
+                //);
+              let STYLES_STRING: string = htmlDoc.indexOf('<style ng-transition') > 0
+                                    ? htmlDoc.substring(
+                                        htmlDoc.indexOf('<style ng-transition'),
+                                        htmlDoc.lastIndexOf('</style>') + 8)
+                                    : null;
                 // STYLES_STRING = STYLES_STRING.replace(/\s/g, '').replace('<styleng-transition', '<style ng-transition');
 
                 const HEAD = AST_DOCUMENT.head;
