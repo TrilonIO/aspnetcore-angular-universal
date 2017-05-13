@@ -7,8 +7,8 @@ import { platformServer, platformDynamicServer, PlatformState, INITIAL_CONFIG, r
 import { ResourceLoader } from '@angular/compiler';
 import * as fs from 'fs';
 
-import { REQUEST } from '../app/shared/constants/request';
-import { ORIGIN_URL } from '../app/shared/constants/baseurl.constants';
+//import { REQUEST } from '../app/shared/constants/request';
+//import { ORIGIN_URL } from '../app/shared/constants/baseurl.constants';
 
 // import { FileLoader } from './file-loader';
 
@@ -80,13 +80,13 @@ export function ngAspnetCoreEngine(
               url: options.request.url
             }
           },
-          {
-            provide: ORIGIN_URL,
-            useValue: options.request.origin
-          }, {
-            provide: REQUEST,
-            useValue: options.request.data.request
-          }
+          //{
+          //  provide: ORIGIN_URL,
+          //  useValue: options.request.origin
+          //}, {
+          //  provide: REQUEST,
+          //  useValue: options.request.data.request
+          //}
         ]
       );
 

@@ -6,6 +6,7 @@ import { APP_BASE_HREF } from '@angular/common';
 import { createServerRenderer, RenderResult } from 'aspnet-prerendering';
 
 import { ORIGIN_URL } from './app/shared/constants/baseurl.constants';
+import { REQUEST } from './app/shared/constants/request';
 // Grab the (Node) server-specific NgModule
 import { ServerAppModuleNgFactory } from './ngfactory/app/server-app.module.ngfactory';
 // Temporary * the engine will be on npm soon (`@universal/ng-aspnetcore-engine`)
@@ -21,6 +22,13 @@ export default createServerRenderer(params => {
     ngModule: ServerAppModuleNgFactory,
     request: params,
     providers: [
+        {
+            provide: ORIGIN_URL,
+            useValue: params.origin
+        }, {
+            provide: REQUEST,
+            useValue: params.data.request
+        }
       // Optional - Any other Server providers you want to pass (remember you'll have to provide them for the Browser as well)
     ]
   };
