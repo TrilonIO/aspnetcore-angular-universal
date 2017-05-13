@@ -60,6 +60,7 @@
     "json-loader": "^0.5.4",
     "ng2-bootstrap": "^1.6.1",
     "ng2-signalr": "^2.0.2",
+    "ngrx-store-freeze": "^0.1.9",
     "node-sass": "^4.5.2",
     "preboot": "^4.5.2",
     "raw-loader": "^0.5.1",
