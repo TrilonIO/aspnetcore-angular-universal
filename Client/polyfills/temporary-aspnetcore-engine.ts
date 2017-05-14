@@ -130,7 +130,7 @@ export function ngAspnetCoreEngine(
                   //htmlDoc.indexOf('<style ng-transition'),
                   //htmlDoc.lastIndexOf('</style>') + 8
                 //);
-              let STYLES_STRING: string = htmlDoc.indexOf('<style ng-transition') > 0
+              let STYLES_STRING: string = htmlDoc.indexOf('<style ng-transition') > -1
                                     ? htmlDoc.substring(
                                         htmlDoc.indexOf('<style ng-transition'),
                                         htmlDoc.lastIndexOf('</style>') + 8)
