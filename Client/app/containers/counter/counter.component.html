@@ -2,6 +2,9 @@
 
 <p>This is a simple example of an Angular 2 component.</p>
 
-<p>Current count: <strong>{{ currentCount }}</strong></p>
+<!--<p>Current count: <strong>{{ counter.value | async }}</strong></p>-->
 
+<button (click)="decreaseCounter()">Decrease</button>
 <button (click)="incrementCounter()">Increment</button>
+
+<pre style="margin-top:10px">{{ counter | async | json }}</pre>
