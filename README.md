@@ -12,6 +12,14 @@ Angular SEO in action:
   <img src="./docs/angular2-seo.png" alt="ASP.NET Core Angular2 SEO" title="ASP.NET Core Angular2 SEO">
 </p>
 
+NgRx Store with Redux DevTools:
+
+<p align="center">
+  <img src="./docs/ngrx-store.png" alt="NgRx store" title="NgRx Store">
+</p>
+
+https://github.com/zalmoxisus/redux-devtools-extension
+
 ### What is this repo? Live Demo here: http://aspnetcore-angular2-universal.azurewebsites.net
 
 This repository is maintained by [Angular Universal](https://github.com/angular/universal) and is meant to be an advanced starter 
