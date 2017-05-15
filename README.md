@@ -15,7 +15,7 @@ Angular SEO in action:
 NgRx Store with Redux DevTools:
 
 <p align="center">
-  <img src="./docs/ngrx-store.png" alt="NgRx store" title="NgRx Store">
+  <img src="./docs/ngrx-store.PNG" alt="NgRx store" title="NgRx Store">
 </p>
 
 https://github.com/zalmoxisus/redux-devtools-extension
