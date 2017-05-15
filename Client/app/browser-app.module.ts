@@ -5,17 +5,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SignalRModule, SignalRConfiguration } from 'ng2-signalr';
 
-// ngrx store
-import { RouterStoreModule } from '@ngrx/router-store';
-import { StoreModule, Store } from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-
 import { ORIGIN_URL } from './shared/constants/baseurl.constants';
 import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
 import { REQUEST } from './shared/constants/request';
 import { BrowserTransferStateModule } from '../modules/transfer-state/browser-transfer-state.module';
-import { reducer } from './reducers';
 
 export function createConfig(): SignalRConfiguration {
     const signalRConfig = new SignalRConfiguration();
@@ -48,10 +42,6 @@ export function getRequest() {
 
         // Our Common AppModule
         AppModule,
-
-        StoreModule.provideStore(reducer),
-        RouterStoreModule.connectRouter(),
-        StoreDevtoolsModule.instrumentOnlyWithExtension(),
 
         SignalRModule.forRoot(createConfig)
     ],

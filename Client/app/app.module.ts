@@ -10,6 +10,11 @@ import { Ng2BootstrapModule } from 'ng2-bootstrap';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+// ngrx store
+import { RouterStoreModule } from '@ngrx/router-store';
+import { StoreModule, Store } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './containers/home/home.component';
@@ -24,6 +29,7 @@ import { UserService } from './shared/user.service';
 import { ConnectionResolver } from './shared/route.resolver';
 import { ORIGIN_URL } from './shared/constants/baseurl.constants';
 import { TransferHttpModule } from '../modules/transfer-http/transfer-http.module';
+import { reducer } from './reducers';
 
 export function createTranslateLoader(http: Http, baseHref) {
     // Temporary Azure hack
@@ -61,6 +67,11 @@ export function createTranslateLoader(http: Http, baseHref) {
                 deps: [Http, [ORIGIN_URL]]
             }
         }),
+
+        StoreModule.provideStore(reducer),
+        RouterStoreModule.connectRouter(),
+        StoreDevtoolsModule.instrumentOnlyWithExtension(),
+
 
         // App Routing
         RouterModule.forRoot([
