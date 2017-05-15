@@ -4,9 +4,7 @@ import { storeFreeze } from 'ngrx-store-freeze';
 
 
 import * as fromRouter from '@ngrx/router-store';
-// import * as fromUser from "app/_reducers/user.reducer";
-// import * as fromNotifications from "app/_reducers/notification.reducer";
-// import * as fromStatistics from "app/_reducers/statistics.reducer";
+import * as fromCounter from '../reducers/counter.reducer';
 
 
 // reducers
@@ -20,7 +18,7 @@ export interface State {
   // collection: fromCollection.State;
   // layout: fromLayout.State;
   router: fromRouter.RouterState;
-  // user: fromUser.UserPayload;
+  counter: fromCounter.CounterState;
   // notifications: NotificationList;
   // statistics: CompanyStatistics;
 }
@@ -36,7 +34,8 @@ const reducers = {
   // books: fromBooks.reducer,
   // collection: fromCollection.reducer,
   // layout: fromLayout.reducer,
-  router: fromRouter.routerReducer
+  router: fromRouter.routerReducer,
+  counter: fromCounter.reducer
 };
 
 const developmentReducer: ActionReducer<State> = compose(storeFreeze, combineReducers)(reducers);
