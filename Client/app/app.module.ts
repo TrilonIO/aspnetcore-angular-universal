@@ -17,6 +17,7 @@ import { UsersComponent } from './containers/users/users.component';
 import { CounterComponent } from './containers/counter/counter.component';
 import { ChatComponent } from './containers/chat/chat.component';
 import { Ng2BootstrapComponent } from './containers/ng2-bootstrap-demo/ng2bootstrap.component';
+import { NotFoundComponent } from './containers/not-found/not-found.component';
 
 import { LinkService } from './shared/link.service';
 import { ConnectionResolver } from './shared/route.resolver';
@@ -40,7 +41,8 @@ export function createTranslateLoader(http: Http, baseHref) {
         UsersComponent,
         HomeComponent,
         ChatComponent,
-        Ng2BootstrapComponent
+        Ng2BootstrapComponent,
+        NotFoundComponent
     ],
     imports: [
         CommonModule,
@@ -127,9 +129,17 @@ export function createTranslateLoader(http: Http, baseHref) {
                     ]
                 }
             },
-
-            // All else fails - go home!
-            { path: '**', redirectTo: 'home' }
+            {
+                path: '**', component: NotFoundComponent,
+                data: {
+                    title: '404 - Not found',
+                    meta: [{ name: 'description', content: '404 - Error' }],
+                    links: [
+                        { rel: 'canonical', href: 'http://blogs.example.com/bootstrap/something' },
+                        { rel: 'alternate', hreflang: 'es', href: 'http://es.example.com/bootstrap-demo' }
+                    ]
+                }
+            }
         ])
     ],
     providers: [
