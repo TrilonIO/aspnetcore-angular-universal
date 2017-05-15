@@ -18,12 +18,22 @@ export function reducer(state = initialState, action: Action): CounterState {
 
     switch (action.type) {
         case COUNTER_INCREASE: {
-            state.value++
-            return state
+
+            let newState = {
+                value: state.value + 1
+            }
+
+            return newState
+
         }
         case COUNTER_DECREASE:
-            state.value--
-            return state
+
+            let newState = {
+                value: state.value - 1
+            }
+
+            return newState
+
         default:
             return state
     }
