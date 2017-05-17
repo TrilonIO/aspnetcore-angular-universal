@@ -23,12 +23,12 @@ export function createConfig(): SignalRConfiguration {
 }
 
 export function getOriginUrl() {
-  return window.location.origin;
+    return window.location.origin;
 }
 
 export function getRequest() {
-  // the Request object only lives on the server
-  return { cookie: document.cookie };
+    // the Request object only lives on the server
+    return { cookie: document.cookie };
 }
 
 @NgModule({
