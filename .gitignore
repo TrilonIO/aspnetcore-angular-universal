@@ -16,7 +16,7 @@
 yarn.lock
 
 npm-debug.log.*
- 
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
@@ -256,3 +256,6 @@ _Pvt_Extensions
 
 # VSCode files
 .vscode/chrome
+
+# Jest Code Coverage report
+coverage/

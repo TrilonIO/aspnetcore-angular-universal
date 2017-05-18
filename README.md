@@ -30,7 +30,7 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
 * [Upcoming Features](#upcoming-features)
 * [Application Structure](#application-structure)
 * [Universal Gotchas](#universal-gotchas)
-* [FAQ](#faq)
+* [FAQ](#faq---also-check-out-the-faq-issues-label)
 * [Special Thanks](#special-thanks)
 * [License](#license)
 
@@ -45,6 +45,7 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
   - Built in docker support through VS2017
   - RestAPI (WebAPI) integration
   - SQL Database CRUD demo
+  - Swagger WebAPI documentation when running in development mode 
   - SignalR Chat demo! (Thanks to [@hakonamatata](https://github.com/hakonamatata)
 
 - **Angular 4.0.0** :
@@ -65,7 +66,7 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
 
 - **Productivity**
   - Typescript 2
-  - Codelyzer (for Real-Sime static code analysis) 
+  - Codelyzer (for Real-time static code analysis) 
     - VSCode & Atom provide real-time analysis out of the box.
     - **NOTE**: Does not fully work with Visual Studio yet. (Even with VS2017 and .NET core 1.0)
 
@@ -111,7 +112,7 @@ The project comes with the configured Launch.json files to let you just push F5 
 
 ```bash
 # cd into the directory you cloned the project into
-npm install && dotnet restore
+npm install && npm run build:dev && dotnet restore
 # or yarn install
 ```
 
@@ -126,9 +127,10 @@ export ASPNETCORE_ENVIRONMENT=Development
 
 # Upcoming Features:
 
+- **Fix and update Webpack build / Vendor chunking and overall compilation speed.** ( important )
 - Update to use npm [ngAspnetCoreEngine](https://github.com/angular/universal/pull/682) (still need to tweak a few things there)
 - Potractor e2e testing
-- Add Redux back in (maybe?)
+- Add basic Redux State store (Will also hold state durijg HMR builds)
 - ~~Add Azure application insights module (or at least demo how to use it)~~
 - ~~Add i18n support~~
 - ~~DONE - Fix old README to match new project~~
@@ -398,6 +400,10 @@ import * as $ from 'jquery';
 ```
 
 **Always make sure to wrap anything jQuery oriented in Angular's `isPlatformBrowser()` conditional!**
+
+### How can I support IE9 through IE11?
+
+To support IE9 through IE11 open the `polyfills.ts` file in the `polyfills` folder and uncomment out the 'import polyfills' as needed.
 
 ----
 

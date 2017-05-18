@@ -3,14 +3,13 @@
     // animation imports
     trigger, state, style, transition, animate, Inject
 } from '@angular/core';
-import { APP_BASE_HREF } from '@angular/common';
-
-import { Http, URLSearchParams } from '@angular/http';
-import { ORIGIN_URL } from '../../shared/constants/baseurl.constants';
+import { IUser } from '../../models/User';
+import { UserService } from '../../shared/user.service';
 
 @Component({
-    selector: 'fetchdata',
+    selector: 'users',
     templateUrl: './users.component.html',
+    styleUrls: ['./users.component.css'],
     animations: [
         // Animation example
         // Triggered in the ngFor with [@flyInOut]
@@ -28,66 +27,46 @@ import { ORIGIN_URL } from '../../shared/constants/baseurl.constants';
 })
 export class UsersComponent implements OnInit {
 
-    public newUserName: string;
-    public users: IUser[];
+    users: IUser[];
+    selectedUser: IUser;
 
     // Use "constructor"s only for dependency injection
-    constructor(
-        private http: Http,
-        @Inject(ORIGIN_URL) private baseUrl: string
-    ) { }
+    constructor(private userService: UserService) { }
 
     // Here you want to handle anything with @Input()'s @Output()'s
     // Data retrieval / etc - this is when the Component is "ready" and wired up
     ngOnInit() {
-        this.newUserName = "";
-        this.http.get(`${this.baseUrl}/api/user/all`).map(res => res.json()).subscribe(result => {
-            console.log(result);
+        this.userService.getUsers().subscribe(result => {
+            console.log('Get user result: ', result);
+            console.log('TransferHttp [GET] /api/users/allresult', result);
             this.users = result as IUser[];
         });
     }
 
+    onSelect(user: IUser): void {
+        this.selectedUser = user;
+    }
+
     deleteUser(user) {
-        this.http.delete(`${this.baseUrl}/api/user/delete/` + user.id).subscribe(result => {
+        this.userService.deleteUser(user).subscribe(result => {
+            console.log('Delete user result: ', result);
             if (result.ok) {
                 let position = this.users.indexOf(user);
                 this.users.splice(position, 1);
             }
-            else {
-                alert("There was an issue, Could not delete user");
-            }
-        });
-    }
-
-    editUser(user) {
-        let urlSearchParams = new URLSearchParams();
-        urlSearchParams.append('id', user.id);
-        urlSearchParams.append('name', user.name);
-
-        this.http.put(`${this.baseUrl}/api/user/update`, urlSearchParams).subscribe(result => {
-            if (!result.ok) {
-                alert("There was an issue, Could not edit user");
-            }
+        }, error => {
+            console.log(`There was an issue. ${error._body}.`);
         });
     }
 
     addUser(newUserName) {
-        let urlSearchParams = new URLSearchParams();
-        urlSearchParams.append('name', newUserName);
-
-        this.http.post(`${this.baseUrl}/api/user/insert`, urlSearchParams).subscribe(result => {
+        this.userService.addUser(newUserName).subscribe(result => {
+            console.log('Post user result: ', result);
             if (result.ok) {
                 this.users.push(result.json());
-                this.newUserName = "";
             }
-            else {
-                alert("There was an issue, Could not edit user");
-            }
+        }, error => {
+            console.log(`There was an issue. ${error._body}.`);
         });
     }
-}
-
-interface IUser {
-    id: number;
-    name: string;
 }
