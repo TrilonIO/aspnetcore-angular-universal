@@ -17,6 +17,7 @@ import { UsersComponent } from './containers/users/users.component';
 import { UserDetailComponent } from './components/user-detail/user-detail.component';
 import { CounterComponent } from './containers/counter/counter.component';
 import { ChatComponent } from './containers/chat/chat.component';
+import { NotFoundComponent } from './containers/not-found/not-found.component';
 import { NgxBootstrapComponent } from './containers/ngx-bootstrap-demo/ngx-bootstrap.component';
 
 import { LinkService } from './shared/link.service';
@@ -43,6 +44,7 @@ export function createTranslateLoader(http: Http, baseHref) {
         UserDetailComponent,
         HomeComponent,
         ChatComponent,
+        NotFoundComponent,
         NgxBootstrapComponent
     ],
     imports: [
@@ -132,11 +134,20 @@ export function createTranslateLoader(http: Http, baseHref) {
                     ]
                 }
             },
-
+          
             { path: 'lazy', loadChildren: './containers/+lazy/lazy.module#LazyModule'},
-
-            // All else fails - go home!
-            { path: '**', redirectTo: 'home' }
+          
+            {
+                path: '**', component: NotFoundComponent,
+                data: {
+                    title: '404 - Not found',
+                    meta: [{ name: 'description', content: '404 - Error' }],
+                    links: [
+                        { rel: 'canonical', href: 'http://blogs.example.com/bootstrap/something' },
+                        { rel: 'alternate', hreflang: 'es', href: 'http://es.example.com/bootstrap-demo' }
+                    ]
+                }
+            }
         ])
     ],
     providers: [
