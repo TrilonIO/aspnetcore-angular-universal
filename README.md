@@ -265,7 +265,7 @@ Angular application gets serialized into a String, sent to the Browser, along wi
 
 The short-version is that we invoke that Node process, passing in our Request object & invoke the `boot-server` file, and we get back a nice object that we pass into .NETs `ViewData` object, and sprinkle through out our `Views/Shared/_Layout.cshtml` and `/Views/Home/index.cshtml` files!
 
-A more detailed explanation can be found here: [TODO-add-link * You can read a more detailed explanation here](#)
+A more detailed explanation can be found here: [ng-AspnetCore-Engine Readme](https://github.com/angular/universal/tree/master/modules/ng-aspnetcore-engine)
 
 ```csharp
 // Prerender / Serialize application (with Universal)
