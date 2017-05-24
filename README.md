@@ -104,6 +104,8 @@ VS2017 will automatically install all the neccessary npm & .NET dependencies whe
 
 Simply push F5 to start debugging !
 
+**Note**: If you get any errors after this such as `module not found: main.server` (or similar), open up command line and run `npm run build:dev` to make sure all the assets have been properly built by Webpack.
+
 ### Visual Studio Code
 
 > Note: Make sure you have the C# extension & .NET Core Debugger installed.
