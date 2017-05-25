@@ -196,17 +196,27 @@ export function ngAspnetCoreEngine(
                 moduleRef.destroy();
 
               }, (err) => {
+                // isStable subscription error (Template / code error)
                 reject(err);
               });
 
+          }, err => {
+            // bootstrapModuleFactory error
+            reject(err);
           });
+
+        }, err => {
+          // getFactory error
+          reject(err);
         });
 
     } catch (ex) {
+      // try/catch error
       reject(ex);
     }
 
   });
+
 }
 
 /* ********************** Private / Internal ****************** */
