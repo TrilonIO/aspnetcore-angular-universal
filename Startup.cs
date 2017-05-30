@@ -101,14 +101,20 @@ namespace AspCoreServer
       else
       {
         app.UseMvc(routes =>
-        {
-          routes.MapRoute(
-              name: "default",
-              template: "{controller=Home}/{action=Index}/{id?}");
+        {        
+           routes.MapRoute(
+            name: "default",
+            template: "{controller=Home}/{action=Index}/{id?}");
 
-          routes.MapSpaFallbackRoute(
+           routes.MapRoute(
+            "Sitemap",
+            "sitemap.xml",
+            new { controller = "Home", action = "SitemapXml" });
+
+            routes.MapSpaFallbackRoute(
               name: "spa-fallback",
               defaults: new { controller = "Home", action = "Index" });
+
         });
         app.UseExceptionHandler("/Home/Error");
       }
