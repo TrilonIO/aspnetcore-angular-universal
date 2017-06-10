@@ -54,8 +54,9 @@
     "isomorphic-fetch": "^2.2.1",
     "jquery": "^2.2.1",
     "json-loader": "^0.5.4",
-    "ng2-bootstrap": "^1.6.1",
+
     "ng2-signalr": "^2.0.2",
+    "ngx-bootstrap": "^1.7.1",
     "node-sass": "^4.5.2",
     "preboot": "^4.5.2",
     "raw-loader": "^0.5.1",
