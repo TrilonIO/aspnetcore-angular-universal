@@ -14,6 +14,7 @@ namespace AspCoreServer.Controllers
 {
     public class HomeController : Controller
     {
+        [HttpGet] 
         public async Task<IActionResult> Index()
         {
             var nodeServices = Request.HttpContext.RequestServices.GetRequiredService<INodeServices>();
@@ -55,6 +56,7 @@ namespace AspCoreServer.Controllers
             return View();
         }
 
+        [HttpGet] 
         [Route("sitemap.xml")]
         public async Task<IActionResult> SitemapXml()
         {
