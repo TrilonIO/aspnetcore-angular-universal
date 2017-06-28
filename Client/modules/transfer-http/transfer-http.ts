@@ -37,7 +37,7 @@ export class TransferHttp {
    * Performs a request with `post` http method.
    */
   post(url: string, body: any, options?: RequestOptionsArgs): Observable<any> {
-    return this.getPostData(url, body, options, (url: string, options: RequestOptionsArgs) => {
+    return this.getPostData(url, body, options, (url: string, body: any, options: RequestOptionsArgs) => {
       return this.http.post(url, body, options);
     });
   }
@@ -46,7 +46,7 @@ export class TransferHttp {
    */
   put(url: string, body: any, options?: RequestOptionsArgs): Observable<any> {
 
-    return this.getPostData(url, body, options, (url: string, options: RequestOptionsArgs) => {
+    return this.getPostData(url, body, options, (url: string, body: any, options: RequestOptionsArgs) => {
       return this.http.put(url, body, options);
     });
   }
@@ -62,7 +62,7 @@ export class TransferHttp {
    * Performs a request with `patch` http method.
    */
   patch(url: string, body: any, options?: RequestOptionsArgs): Observable<any> {
-    return this.getPostData(url, body, options, (url: string, options: RequestOptionsArgs) => {
+    return this.getPostData(url, body, options, (url: string, body: any, options: RequestOptionsArgs) => {
       return this.http.patch(url, body.options);
     });
   }
