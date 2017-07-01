@@ -7,6 +7,7 @@
     "sourceMap": false,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
+    "noStrictGenericChecks": true,
     "lib": [
       "es2016",
       "dom"
