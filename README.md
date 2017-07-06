@@ -78,13 +78,14 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
   - Microsoft Application Insights setup (for MVC & Web API routing)
   - Client-side Angular2 Application Insights integration
     - If you're using Azure simply install `npm i -S @markpieszak/ng-application-insights` as a dependencies.
+    - Note: Make sure only the Browser makes these calls ([usage info here](https://github.com/MarkPieszak/angular-application-insights/blob/master/README.md#usage))
     - More information here: - https://github.com/MarkPieszak/angular-application-insights
-```typescript
-    // Add the Module to your imports 
-    ApplicationInsightsModule.forRoot({
-      instrumentationKey: 'Your-Application-Insights-instrumentationKey'
-    })
-```
+    ```typescript
+      // Add the Module to your imports 
+      ApplicationInsightsModule.forRoot({
+        instrumentationKey: 'Your-Application-Insights-instrumentationKey'
+      })
+    ```
   
 
 > Looking for the older 2.x branch? Go [here](https://github.com/MarkPieszak/aspnetcore-angular2-universal/tree/old-2.x-universal-branch)
