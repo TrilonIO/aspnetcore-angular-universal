@@ -10,6 +10,7 @@ import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
 import { REQUEST } from './shared/constants/request';
 import { BrowserTransferStateModule } from '../modules/transfer-state/browser-transfer-state.module';
+import { ApplicationInsightsModule, AppInsightsService } from '@markpieszak/ng-application-insights';
 
 export function createConfig(): SignalRConfiguration {
     const signalRConfig = new SignalRConfiguration();
@@ -39,6 +40,9 @@ export function getRequest() {
         }),
         BrowserAnimationsModule,
         BrowserTransferStateModule,
+        ApplicationInsightsModule.forRoot({
+          instrumentationKey: 'Your-Application-Insights-instrumentationKey'
+        }),
 
         // Our Common AppModule
         AppModule,
@@ -46,6 +50,7 @@ export function getRequest() {
         SignalRModule.forRoot(createConfig)
     ],
     providers: [
+        AppInsightsService,
         {
             // We need this for our Http calls since they'll be using an ORIGIN_URL provided in main.server
             // (Also remember the Server requires Absolute URLs)

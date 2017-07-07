@@ -34,6 +34,7 @@
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/platform-server": "^4.0.0",
     "@angular/router": "^4.0.0",
+    "@markpieszak/ng-application-insights": "^2.3.0",
     "@ngx-translate/core": "^6.0.1",
     "@ngx-translate/http-loader": "0.0.3",
     "@types/node": "^7.0.12",
@@ -54,7 +55,6 @@
     "isomorphic-fetch": "^2.2.1",
     "jquery": "^2.2.1",
     "json-loader": "^0.5.4",
-
     "ng2-signalr": "2.0.4",
     "ngx-bootstrap": "^1.7.1",
     "node-sass": "^4.5.2",
