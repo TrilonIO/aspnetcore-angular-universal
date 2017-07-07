@@ -71,14 +71,14 @@ namespace AspCoreServer
 
         app.UseStaticFiles();
 
+        DbInitializer.Initialize(context);
+
       if (env.IsDevelopment())
       {
         app.UseDeveloperExceptionPage();
         app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions {
           HotModuleReplacement = true
         });
-
-        DbInitializer.Initialize(context);
 
         app.UseSwagger();
 

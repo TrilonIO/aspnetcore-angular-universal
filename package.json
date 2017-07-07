@@ -54,7 +54,6 @@
     "isomorphic-fetch": "^2.2.1",
     "jquery": "^2.2.1",
     "json-loader": "^0.5.4",
-
     "ng2-signalr": "2.0.4",
     "ngx-bootstrap": "^1.7.1",
     "node-sass": "^4.5.2",
@@ -82,7 +81,6 @@
     "codelyzer": "^3.0.0-beta.4",
     "jasmine-core": "^2.5.2",
     "jest": "^20.0.0",
-    "jest-preset-angular": "^2.0.1",
-    "tslint": "^4.5.1"
+    "jest-preset-angular": "^2.0.1"
   }
 }
