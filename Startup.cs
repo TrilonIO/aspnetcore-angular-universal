@@ -1,17 +1,12 @@
-﻿using System;
+using System;
 using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Antiforgery;
-
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-
-using Microsoft.AspNetCore.NodeServices;
 using AspCoreServer.Data;
 using Swashbuckle.AspNetCore.Swagger;
 
@@ -69,26 +64,27 @@ namespace AspCoreServer
       loggerFactory.AddConsole(Configuration.GetSection("Logging"));
       loggerFactory.AddDebug();
 
-        app.UseStaticFiles();
+      app.UseStaticFiles();
 
-        DbInitializer.Initialize(context);
+      DbInitializer.Initialize(context);
 
       if (env.IsDevelopment())
       {
         app.UseDeveloperExceptionPage();
-        app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions {
+        app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
+        {
           HotModuleReplacement = true
         });
-
         app.UseSwagger();
-
-        // Enable middleware to serve swagger-ui (HTML, JS, CSS etc.), specifying the Swagger JSON endpoint.
         app.UseSwaggerUI(c =>
         {
           c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
         });
 
-        app.MapWhen(x => !x.Request.Path.Value.StartsWith("/swagger"), builder =>
+        // Enable middleware to serve swagger-ui (HTML, JS, CSS etc.), specifying the Swagger JSON endpoint.
+
+
+        app.MapWhen(x => !x.Request.Path.Value.StartsWith("/swagger", StringComparison.OrdinalIgnoreCase), builder =>
         {
           builder.UseMvc(routes =>
           {
@@ -101,19 +97,19 @@ namespace AspCoreServer
       else
       {
         app.UseMvc(routes =>
-        {        
-           routes.MapRoute(
-            name: "default",
-            template: "{controller=Home}/{action=Index}/{id?}");
+        {
+          routes.MapRoute(
+           name: "default",
+           template: "{controller=Home}/{action=Index}/{id?}");
 
-           routes.MapRoute(
-            "Sitemap",
-            "sitemap.xml",
-            new { controller = "Home", action = "SitemapXml" });
+          routes.MapRoute(
+           "Sitemap",
+           "sitemap.xml",
+           new { controller = "Home", action = "SitemapXml" });
 
-            routes.MapSpaFallbackRoute(
-              name: "spa-fallback",
-              defaults: new { controller = "Home", action = "Index" });
+          routes.MapSpaFallbackRoute(
+            name: "spa-fallback",
+            defaults: new { controller = "Home", action = "Index" });
 
         });
         app.UseExceptionHandler("/Home/Error");
