@@ -408,6 +408,7 @@ To support IE9 through IE11 open the `polyfills.ts` file in the `polyfills` fold
 Many thanks go out to Steve Sanderson ([@SteveSandersonMS](https://github.com/SteveSandersonMS)) from Microsoft and his amazing work on JavaScriptServices and integrating the world of Node with ASP.NET Core.
 
 Also thank you to the many Contributors !
+- [@Isaac2004](https://github.com/Isaac2004)
 - [@AbrarJahin](https://github.com/AbrarJahin)
 - [@LiverpoolOwen](https://github.com/LiverpoolOwen)
 - [@hakonamatata](https://github.com/hakonamatata)
