@@ -1,4 +1,4 @@
-﻿import { NgModule, Inject } from '@angular/core';
+import { NgModule, Inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule, APP_BASE_HREF } from '@angular/common';
 import { HttpModule, Http } from '@angular/http';
@@ -135,7 +135,7 @@ export function createTranslateLoader(http: Http, baseHref) {
                 }
             },
           
-            { path: 'lazy', loadChildren: './containers/+lazy/lazy.module#LazyModule'},
+            { path: 'lazy', loadChildren: './containers/lazy/lazy.module#LazyModule'},
           
             {
                 path: '**', component: NotFoundComponent,
