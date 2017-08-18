@@ -1,10 +1,10 @@
-﻿# ASP.NET Core & Angular 4 (+) advanced starter - with Server-side prerendering (for Angular SEO)!
+﻿# ASP.NET Core 2.0 & Angular 4 (+) advanced starter - with Server-side prerendering (for Angular SEO)!
 
 <p align="center">
-    <img src="./docs/architecture.png" alt="ASP.NET Core Angular 2+ Starter" title="ASP.NET Core Angular 2+ Starter">
+    <img src="./docs/architecture.png" alt="ASP.NET Core 2.0 Angular 2+ Starter" title="ASP.NET Core 2.0 Angular 2+ Starter">
 </p>
 
-### Harness the power of Angular 2+, ASP.NET Core, now with SEO !
+### Harness the power of Angular 2+, ASP.NET Core 2.0, now with SEO !
 
 Angular SEO in action:
 
@@ -15,7 +15,7 @@ Angular SEO in action:
 ### What is this repo? Live Demo here: http://aspnetcore-angular2-universal.azurewebsites.net
 
 This repository is maintained by [Angular Universal](https://github.com/angular/universal) and is meant to be an advanced starter 
-for both ASP.NET Core using Angular 4.0+, not only for the client-side, but to be rendered on the server for instant 
+for both ASP.NET Core 2.0 using Angular 4.0+, not only for the client-side, but to be rendered on the server for instant 
 application paints (Note: If you don't need Universal (SSR) [read here](#faq) on how to disable it).
 
 This is meant to be a Feature-Rich Starter application containing all of the latest technologies, best build systems available, and include many real-world examples and libraries needed in todays Single Page Applications (SPAs).
@@ -40,7 +40,7 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
 
 > These are just some of the features found in this starter!
 
-- ASP.NET 1.0 - VS2017 support now!
+- ASP.NET 2.0 - VS2017 15.3 support now!
   - Azure delpoyment straight from VS2017
   - Built in docker support through VS2017
   - RestAPI (WebAPI) integration
@@ -68,9 +68,8 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
   - Typescript 2
   - Codelyzer (for Real-time static code analysis) 
     - VSCode & Atom provide real-time analysis out of the box.
-    - **NOTE**: Does not fully work with Visual Studio yet. (Even with VS2017 and .NET core 1.0)
 
-- **ASP.NET Core 1.1**
+- **ASP.NET Core 2.0**
   
   - Integration with NodeJS to provide pre-rendering, as well as any other Node module asset you want to use.
 
@@ -100,7 +99,7 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
 
 ### Visual Studio 2017
 
-Make sure you have .NET Core 1.0+ installed and/or VS2017.
+Make sure you have .NET Core 2.0 installed and/or VS2017 15.3.
 VS2017 will automatically install all the neccessary npm & .NET dependencies when you open the project.
 
 Simply push F5 to start debugging !
@@ -134,12 +133,6 @@ export ASPNETCORE_ENVIRONMENT=Development
 - Update to use npm [ngAspnetCoreEngine](https://github.com/angular/universal/pull/682) (still need to tweak a few things there)
 - Potractor e2e testing
 - Add basic Redux State store (Will also hold state durijg HMR builds)
-- ~~Add Azure application insights module (or at least demo how to use it)~~
-- ~~Add i18n support~~
-- ~~DONE - Fix old README to match new project~~
-- ~~Add AoT compilation~~
-- ~~Add Bootstrap with SCSS~~
-- ~~Add REST API CRUD Demo~~
 
 ----
 
