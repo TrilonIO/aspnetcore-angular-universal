@@ -35,7 +35,7 @@ Obj/
 .vs/
 
 /wwwroot/dist/
-/Client/dist/
+/ClientApp/dist/
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
@@ -187,6 +187,7 @@ BundleArtifacts/
 !*.[Cc]ache/
 
 # Others
+*.db
 ClientBin/
 ~$*
 *~
