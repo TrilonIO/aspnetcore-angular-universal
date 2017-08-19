@@ -7,18 +7,19 @@
     "test:ci": "npm run test -- --runInBand",
     "test:coverage": "npm run test -- --coverage",
     "build:dev": "webpack --progress --color",
-    "build:aot": "webpack --env.aot --env.client & webpack --env.aot --env.server"
+    "build:prod": "npm run build:vendor -- --env.prod && npm run build:dev -- --env.prod",
+    "build:vendor": "webpack --config webpack.config.vendor.js --progress --color"
   },
   "jest": {
     "preset": "jest-preset-angular",
-    "setupTestFrameworkScriptFile": "./Client/test/setupJest.ts",
+    "setupTestFrameworkScriptFile": "./ClientApp/test/setupJest.ts",
     "globals": {
-      "__TS_CONFIG__": "Client/tsconfig.spec.json",
+      "__TS_CONFIG__": "ClientApp/tsconfig.spec.json",
       "__TRANSFORM_HTML__": true
     },
     "coveragePathIgnorePatterns": [
       "/node_modules/",
-      "<rootDir>/Client/test/.*.ts"
+      "<rootDir>/ClientApp/test/.*.ts"
     ],
     "coverageDirectory": "coverage"
   },
@@ -38,6 +39,7 @@
     "@ngx-translate/http-loader": "0.0.3",
     "@types/node": "^7.0.12",
     "angular2-template-loader": "0.6.0",
+    "angular2-router-loader": "^0.3.4",
     "aspnet-prerendering": "2.0.3",
     "aspnet-webpack": "^1.0.17",
     "awesome-typescript-loader": "^3.0.0",
@@ -55,7 +57,7 @@
     "jquery": "^2.2.1",
     "json-loader": "^0.5.4",
     "ng2-signalr": "2.0.4",
-    "ngx-bootstrap": "^1.7.1",
+    "ngx-bootstrap": "^2.0.0-beta.2",
     "node-sass": "^4.5.2",
     "preboot": "^4.5.2",
     "raw-loader": "^0.5.1",

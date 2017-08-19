@@ -1,5 +1,5 @@
 import { NgModule, Inject } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, PreloadAllModules } from '@angular/router';
 import { CommonModule, APP_BASE_HREF } from '@angular/common';
 import { HttpModule, Http } from '@angular/http';
 import { FormsModule } from '@angular/forms';
@@ -134,9 +134,9 @@ export function createTranslateLoader(http: Http, baseHref) {
                     ]
                 }
             },
-          
+
             { path: 'lazy', loadChildren: './containers/lazy/lazy.module#LazyModule'},
-          
+
             {
                 path: '**', component: NotFoundComponent,
                 data: {
@@ -148,7 +148,12 @@ export function createTranslateLoader(http: Http, baseHref) {
                     ]
                 }
             }
-        ])
+        ], {
+          // Router options
+          useHash: false,
+          preloadingStrategy: PreloadAllModules,
+          initialNavigation: 'enabled'
+        })
     ],
     providers: [
         LinkService,
@@ -157,5 +162,5 @@ export function createTranslateLoader(http: Http, baseHref) {
         TranslateModule
     ]
 })
-export class AppModule {
+export class AppModuleShared {
 }

@@ -1,7 +1,7 @@
 import './polyfills/browser.polyfills';
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { BrowserAppModule } from './app/browser-app.module';
+import { AppModule } from './app/app.module.browser';
 
 const rootElemTagName = 'app'; // Update this if you change your root component selector
 
@@ -15,4 +15,4 @@ if (module['hot']) {
     enableProdMode();
 }
 
-const modulePromise = platformBrowserDynamic().bootstrapModule(BrowserAppModule);
+const modulePromise = platformBrowserDynamic().bootstrapModule(AppModule);
