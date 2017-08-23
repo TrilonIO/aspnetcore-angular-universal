@@ -1,22 +1,22 @@
-﻿# ASP.NET Core 2.0 & Angular 4 (+) advanced starter - with Server-side prerendering (for Angular SEO)!
+# ASP.NET Core 2.0 & Angular 4 (+) advanced starter - with Server-side prerendering (for Angular SEO)!
 
 <p align="center">
-    <img src="./docs/architecture.png" alt="ASP.NET Core 2.0 Angular 2+ Starter" title="ASP.NET Core 2.0 Angular 2+ Starter">
+    <img src="./docs/architecture.png" alt="ASP.NET Core 2.0 Angular 4+ Starter" title="ASP.NET Core 2.0 Angular 4+ Starter">
 </p>
 
-### Harness the power of Angular 2+, ASP.NET Core 2.0, now with SEO !
+### Harness the power of Angular 4+, ASP.NET Core 2.0, now with SEO !
 
 Angular SEO in action:
 
 <p align="center">
-  <img src="./docs/angular2-seo.png" alt="ASP.NET Core Angular2 SEO" title="ASP.NET Core Angular2 SEO">
+  <img src="./docs/angular2-seo.png" alt="ASP.NET Core Angular4 SEO" title="ASP.NET Core Angular4 SEO">
 </p>
 
 ### What is this repo? Live Demo here: http://aspnetcore-angular2-universal.azurewebsites.net
 
-This repository is maintained by [Angular Universal](https://github.com/angular/universal) and is meant to be an advanced starter 
+This repository is maintained by [Angular](https://github.com/angular/angular) and is meant to be an advanced starter 
 for both ASP.NET Core 2.0 using Angular 4.0+, not only for the client-side, but to be rendered on the server for instant 
-application paints (Note: If you don't need Universal (SSR) [read here](#faq) on how to disable it).
+application paints (Note: If you don't need SSR [read here](#faq) on how to disable it).
 
 This is meant to be a Feature-Rich Starter application containing all of the latest technologies, best build systems available, and include many real-world examples and libraries needed in todays Single Page Applications (SPAs).
 
@@ -29,7 +29,7 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
 * [Deployment](#deployment)
 * [Upcoming Features](#upcoming-features)
 * [Application Structure](#application-structure)
-* [Universal Gotchas](#universal-gotchas)
+* [Gotchas](#gotchas)
 * [FAQ](#faq---also-check-out-the-faq-issues-label)
 * [Special Thanks](#special-thanks)
 * [License](#license)
@@ -46,10 +46,10 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
   - RestAPI (WebAPI) integration
   - SQL Database CRUD demo
   - Swagger WebAPI documentation when running in development mode 
-  - SignalR Chat demo! (Thanks to [@hakonamatata](https://github.com/hakonamatata)
+  - SignalR Chat demo! (Thanks to [@hakonamatata](https://github.com/hakonamatata))
 
 - **Angular 4.0.0** :
-  - Featuring Server-side rendering (Platform-Server (basically Angular Universal, but moved into Angular Core)
+  - Featuring Server-side rendering (Platform-Server)
 	  - Faster initial paints, SEO (Search-engine optimization w Title/Meta/Link tags), social media link-previews, etc
   - i18n internationalization support (via/ ngx-translate)
   - Baked in best-practices (follows Angular style guide)
@@ -95,7 +95,9 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
   
 # Getting Started?
 
-**Make sure you have at least Node 6.x or higher (w/ npm 3+) installed!**
+- **Make sure you have at least Node 6.x or higher (w/ npm 3+) installed!**  
+- **This repository uses ASP.Net Core 2.0, which has a hard requirement on .NET Core Runtime 2.0.0 and .NET Core SDK 2.0.0. Please install these items from [here](https://github.com/dotnet/core/blob/master/release-notes/download-archives/2.0.0-download.md)**
+
 
 ### Visual Studio 2017
 
@@ -262,7 +264,7 @@ The short-version is that we invoke that Node process, passing in our Request ob
 A more detailed explanation can be found here: [ng-AspnetCore-Engine Readme](https://github.com/angular/universal/tree/master/modules/ng-aspnetcore-engine)
 
 ```csharp
-// Prerender / Serialize application (with Universal)
+// Prerender / Serialize application
 var prerenderResult = await Prerenderer.RenderToString(
     /* all of our parameters / options / boot-server file / customData object goes here */
 );
@@ -284,7 +286,7 @@ Take a look at the `_Layout.cshtml` file for example, notice how we let .NET han
     <head>
         <base href="/" />
         <!-- Title will be the one you set in your Angular application -->
-        <title>@ViewData["Title"] - AspNET.Core Angular 4.0.0 (+) Universal starter</title>
+        <title>@ViewData["Title"] - AspNET.Core Angular 4.0.0 (+) starter</title>
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -321,9 +323,10 @@ Well now, your Client-side Angular will take over, and you'll have a fully funct
 
 ----
 
-# Universal "Gotchas"
+# "Gotchas"
+- This repository uses ASP.Net Core 2.0, which has a hard requirement on .NET Core Runtime 2.0.0 and .NET Core SDK 2.0.0. Please install these items from [here](https://github.com/dotnet/core/blob/master/release-notes/download-archives/2.0.0-download.md)
 
-> When building Universal components in Angular 2 there are a few things to keep in mind.
+> When building components in Angular 4 there are a few things to keep in mind.
 
  - **`window`**, **`document`**, **`navigator`**, and other browser types - _do not exist on the server_ - so using them, or any library that uses them (jQuery for example) will not work. You do have some options, if you truly need some of this functionality:
     - If you need to use them, consider limiting them to only your client and wrapping them situationally. You can use the Object injected using the PLATFORM_ID token to check whether the current platform is browser or server. 
@@ -365,7 +368,7 @@ constructor(element: ElementRef, renderer: Renderer) {
  
 # FAQ - Also check out the [FAQ Issues label](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues?utf8=%E2%9C%93&q=is%3Aissue%20label%3Afaq)
 
-### How can I disable Universal / SSR (Server-side rendering)?
+### How can I disable SSR (Server-side rendering)?
 
 Simply comment out the logic within HomeController, and replace `@Html.Raw(ViewData["SpaHtml"])` with just your applications root 
 AppComponent tag ("app" in our case): `<app></app>`.
@@ -374,16 +377,16 @@ AppComponent tag ("app" in our case): `<app></app>`.
 
 ### How do I have code run only in the Browser?
 
-Check the [Universal Gotchas](#universal-gotchas) on how to use `isPlatformBrowser()`.
+Check the [Gotchas](#gotchas) on how to use `isPlatformBrowser()`.
 
 ### How do I Material2 with this repo?
 
-You'll either want to remove SSR for now, or wait as support should be coming to handle Universal/platform-server rendering.
+You'll either want to remove SSR for now, or wait as support should be coming to handle platform-server rendering.
 
-### How can I use jQuery and/or some jQuery plugins with Angular Universal?
+### How can I use jQuery and/or some jQuery plugins with this repo?
 
 > Note: If at all possible, try to avoid using jQuery or libraries dependent on it, as there are 
-better, more abstract ways of dealing with the DOM in Angular (2+) such as using the Renderer, etc.
+better, more abstract ways of dealing with the DOM in Angular (4+) such as using the Renderer, etc.
 
 Yes, of course but there are a few things you need to setup before doing this. First, make sure jQuery 
 is included in webpack vendor file, and that you have a webpack Plugin setup for it. `new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery' })`
