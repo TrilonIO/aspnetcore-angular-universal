@@ -49,7 +49,12 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
   - SignalR Chat demo! (Thanks to [@hakonamatata](https://github.com/hakonamatata))
 
 - **Angular 4.0.0** :
-  - Featuring Server-side rendering (Platform-Server)
+  - (Minimal) Angular-CLI integration 
+    - This is to be used mainly for Generating Components/Services/etc.
+    - Usage examples: 
+      - `ng g c components/example-component`
+      - `ng g s shared/some-service`
+  - Featuring Server-side rendering (Platform-Server, aka: "Universal")
 	  - Faster initial paints, SEO (Search-engine optimization w Title/Meta/Link tags), social media link-previews, etc
   - i18n internationalization support (via/ ngx-translate)
   - Baked in best-practices (follows Angular style guide)
@@ -62,7 +67,7 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
   - Production builds w/ AoT Compilation
 
 - **Testing frameworks**
-  - Unit testing with Karma/Jasmine
+  - Unit testing with Jest (Going back to Karma soon)
 
 - **Productivity**
   - Typescript 2
