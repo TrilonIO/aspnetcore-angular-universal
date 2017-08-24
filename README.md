@@ -184,7 +184,7 @@ Here we have the *usual suspects* found at the root level.
 With Angular Universal, we need to split our applicatoin logic **per platform** so [if we look inside this folder](./ClientApp), 
 you'll see the 2 root files, that branch the entire logic for browser & server respectively.
 
-- [**Boot.Browser.ts**](./ClientApp/main.browser.ts) - 
+- [**Boot.Browser.ts**](./ClientApp/boot.browser.ts) - 
 This file starts up the entire Angular application for the Client/browser platform. 
 
 Here we setup a few things, client Angular bootstrapping.
@@ -391,7 +391,7 @@ better, more abstract ways of dealing with the DOM in Angular (4+) such as using
 Yes, of course but there are a few things you need to setup before doing this. First, make sure jQuery 
 is included in webpack vendor file, and that you have a webpack Plugin setup for it. `new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery' })`
 
-Now, make sure any "plugins" etc that you have, are only included in your `main.browser.ts` file. (ie: `import 'slick-carousel';`) 
+Now, make sure any "plugins" etc that you have, are only included in your `boot.browser.ts` file. (ie: `import 'slick-carousel';`) 
 In a Component you want to use jQuery, make sure to import it near the top like so:
 
 ```typescript
