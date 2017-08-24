@@ -260,3 +260,5 @@ _Pvt_Extensions
 
 # Jest Code Coverage report
 coverage/
+
+.DS_Store

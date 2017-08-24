@@ -73,7 +73,8 @@ namespace AspCoreServer
         app.UseDeveloperExceptionPage();
         app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
         {
-          HotModuleReplacement = true
+          HotModuleReplacement = true,
+          HotModuleReplacementEndpoint = "/dist/__webpack_hmr"
         });
         app.UseSwagger();
         app.UseSwaggerUI(c =>

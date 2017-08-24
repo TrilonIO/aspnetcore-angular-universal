@@ -1,23 +1,20 @@
-﻿<h1>
-  {{ title }}</h1>
+﻿<h1>{{ title }}</h1>
 
 <blockquote>
   <strong>Enjoy the latest features from .NET Core & Angular 4.0!</strong>
   <br> For more info check the repo here: <a href="https://github.com/MarkPieszak/aspnetcore-angular2-universal">AspNetCore-Angular2-Universal repo</a>
-
   <br><br>
 </blockquote>
-
 
 <div class="row">
   <div class="col-lg-6">
     <h2>{{ 'HOME_FEATURE_LIST_TITLE' | translate }} </h2>
     <ul>
-      <li>ASP.NET Core 1.1 :: ( Visual Studio 2017 )</li>
+      <li>ASP.NET Core 2.0 :: ( Visual Studio 2017 )</li>
       <li>
         Angular 4.* front-end UI framework
         <ul>
-          <li>Angular **platform-server** (Universal moved into Core here) - server-side rendering for SEO, deep-linking, and
+          <li>Angular **platform-server** (aka: Universal) - server-side rendering for SEO, deep-linking, and
             incredible performance.</li>
           <!--<li>HMR State Management - Don't lose your applications state during HMR!</li>-->
           <li>AoT (Ahead-of-time) production compilation for even faster Prod builds.</li>
@@ -33,7 +30,7 @@
                 </ul>-->
       </li>
       <li>
-        Webpack 2
+        Webpack
         <ul>
           <!--<li>TS2 aware path support</li>-->
           <li>Hot Module Reloading/Replacement for an amazing development experience.</li>
@@ -65,11 +62,11 @@
     <h2> {{ 'SWITCH_LANGUAGE' | translate }}</h2>
 
     <button class="btn btn-default" (click)="setLanguage('en')">
-        <span class="flag-icon flag-icon-us"></span>  {{ 'ENGLISH' | translate }} 
+        <span class="flag-icon flag-icon-us"></span>  {{ 'ENGLISH' | translate }}
     </button>
 
     <button class="btn btn-default" (click)="setLanguage('no')">
-        <span class="flag-icon flag-icon-no"></span> {{ 'NORWEGIAN' | translate }} 
+        <span class="flag-icon flag-icon-no"></span> {{ 'NORWEGIAN' | translate }}
     </button>
 
   </div>
