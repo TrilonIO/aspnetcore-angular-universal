@@ -59,7 +59,7 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
 
 - **Webpack build system (Webpack 2)**
   - HMR : Hot Module Reloading/Replacement 
-  - Production builds
+  - Production builds w/ AoT Compilation
 
 - **Testing frameworks**
   - Unit testing with Karma/Jasmine
@@ -106,7 +106,7 @@ VS2017 will automatically install all the neccessary npm & .NET dependencies whe
 
 Simply push F5 to start debugging !
 
-**Note**: If you get any errors after this such as `module not found: main.server` (or similar), open up command line and run `npm run build:dev` to make sure all the assets have been properly built by Webpack.
+**Note**: If you get any errors after this such as `module not found: boot.server` (or similar), open up command line and run `npm run build:dev` to make sure all the assets have been properly built by Webpack.
 
 ### Visual Studio Code
 
@@ -177,14 +177,14 @@ Here we have the *usual suspects* found at the root level.
 - `protractor` - config files (e2e testing)
 - `tslint` - TypeScript code linting rules
 
-### /Client/ - Everything Angular 
+### /ClientApp/ - Everything Angular 
 
 > Let's take a look at how this is structured so we can make some sense of it all!
 
-With Angular Universal, we need to split our applicatoin logic **per platform** so [if we look inside this folder](./Client), 
+With Angular Universal, we need to split our applicatoin logic **per platform** so [if we look inside this folder](./ClientApp), 
 you'll see the 2 root files, that branch the entire logic for browser & server respectively.
 
-- [**Main.Browser.ts**](./Client/main.browser.ts) - 
+- [**Boot.Browser.ts**](./ClientApp/main.browser.ts) - 
 This file starts up the entire Angular application for the Client/browser platform. 
 
 Here we setup a few things, client Angular bootstrapping.
@@ -192,24 +192,24 @@ Here we setup a few things, client Angular bootstrapping.
 You'll barely need to touch this file, but something to note, this is the file where you would import libraries that you **only** want 
 being used in the Browser. (Just know that you'd have to provide a mock implementation for the Server when doing that).
 
-- [**Main-Server.ts**](./Client/main.server.ts) - 
+- [**Boot.Server.ts**](./ClientApp/boot.server.ts) - 
 This file is where Angular _platform-server_ *serializes* the Angular application itself on the .NET server 
 within a very quick Node process, and renders it a string. This is what causes that initial fast paint 
 of the entire application to the Browser, and helps us get all our _SEO_ goodness :sparkles:
 
 ---
 
-Notice the folder structure here in `./Client/` :
+Notice the folder structure here in `./ClientApp/` :
 
 ```diff
-+ /Client/
++ /ClientApp/
 
 +   /app/
     App NgModule - our Root NgModule (you'll insert Components/etc here most often)
     AppComponent / App Routes / global css styles
 
     * Notice that we have 2 dividing NgModules:
-        browser-app.module & server-app.module
+        app.module.browser & app.module.server
     You'll almost always be using the common app.module, but these 2 are used to split up platform logic
     for situations where you need to use Dependency Injection / etc, between platforms.
 
@@ -226,21 +226,21 @@ Note: You could use whatever folder conventions you'd like, I prefer to split up
 ```
 
 When adding new features/components/etc to your application you'll be commonly adding things to the Root **NgModule** (located 
-in `/Client/app/app.module.ts`), but why are there **two** other NgModules in this folder?
+in `/ClientApp/app/app.module.ts`), but why are there **two** other NgModules in this folder?
 
 This is because we want to split our logic **per Platform**, but notice they both share the Common NgModule 
 named `app.module.ts`. When adding most things to your application, this is the only 
 place you'll have to add in your new Component / Directive / Pipe / etc.  You'll only occassional need to manually 
-add in the Platform specific things to either `browser-app.module || server-app.module`.
+add in the Platform specific things to either `app.module.browser || app.module.server`.
 
 To illustrate this point with an example, you can see how we're using Dependency Injection to inject a `StorageService` that is different 
 for the Browser & Server.
 
 ```typescript
-// For the Browser (browser-app.module)
+// For the Browser (app.module.browser)
 { provide: StorageService, useClass: BrowserStorage }
 
-// For the Server (server-app.module)
+// For the Server (app.module.server)
 { provide: StorageService, useClass: ServerStorage }
 ```
 
@@ -258,14 +258,14 @@ Angular application gets serialized into a String, sent to the Browser, along wi
 
 ---
 
-The short-version is that we invoke that Node process, passing in our Request object & invoke the `boot-server` file, and we get back a nice object that we pass into .NETs `ViewData` object, and sprinkle through out our `Views/Shared/_Layout.cshtml` and `/Views/Home/index.cshtml` files!
+The short-version is that we invoke that Node process, passing in our Request object & invoke the `boot.server` file, and we get back a nice object that we pass into .NETs `ViewData` object, and sprinkle through out our `Views/Shared/_Layout.cshtml` and `/Views/Home/index.cshtml` files!
 
 A more detailed explanation can be found here: [ng-AspnetCore-Engine Readme](https://github.com/angular/universal/tree/master/modules/ng-aspnetcore-engine)
 
 ```csharp
 // Prerender / Serialize application
 var prerenderResult = await Prerenderer.RenderToString(
-    /* all of our parameters / options / boot-server file / customData object goes here */
+    /* all of our parameters / options / boot.server file / customData object goes here */
 );
 
 ViewData["SpaHtml"] = prerenderResult.Html;
@@ -323,6 +323,7 @@ Well now, your Client-side Angular will take over, and you'll have a fully funct
 ----
 
 # "Gotchas"
+
 - This repository uses ASP.Net Core 2.0, which has a hard requirement on .NET Core Runtime 2.0.0 and .NET Core SDK 2.0.0. Please install these items from [here](https://github.com/dotnet/core/blob/master/release-notes/download-archives/2.0.0-download.md)
 
 > When building components in Angular 4 there are a few things to keep in mind.
@@ -372,7 +373,7 @@ constructor(element: ElementRef, renderer: Renderer) {
 Simply comment out the logic within HomeController, and replace `@Html.Raw(ViewData["SpaHtml"])` with just your applications root 
 AppComponent tag ("app" in our case): `<app></app>`.
 
-> You could also remove any `isPlatformBrowser/etc` logic, and delete the boot-server, browser-app.module & server-app.module files, just make sure your `boot-client` file points to `app.module`.
+> You could also remove any `isPlatformBrowser/etc` logic, and delete the boot.server, app.module.browser & app.module.server files, just make sure your `boot.browser` file points to `app.module`.
 
 ### How do I have code run only in the Browser?
 
@@ -432,6 +433,8 @@ Nothing's ever perfect, but please let me know by creating an issue (make sure t
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](/LICENSE) 
 
 Copyright (c) 2016-2017 [Mark Pieszak](https://github.com/MarkPieszak)
+
+### Follow me online:
 
 Twitter: [@MarkPieszak](http://twitter.com/MarkPieszak) | Medium: [@MarkPieszak](https://medium.com/@MarkPieszak)
 
