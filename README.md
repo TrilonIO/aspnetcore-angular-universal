@@ -118,7 +118,7 @@ npm install && npm run build:dev && dotnet restore
 # or yarn install
 ```
 
-If you're running the project from command line with `dotnet run` make sure you set your environment variables to Development (otherwise things like HMR won't work).
+If you're running the project from command line with `dotnet run` make sure you set your environment variables to Development (otherwise things like HMR might not work).
 
 ```bash
 # on Windows:
@@ -129,7 +129,6 @@ export ASPNETCORE_ENVIRONMENT=Development
 
 # Upcoming Features:
 
-- **Fix and update Webpack build / Vendor chunking and overall compilation speed.** ( important )
 - Update to use npm [ngAspnetCoreEngine](https://github.com/angular/universal/pull/682) (still need to tweak a few things there)
 - Potractor e2e testing
 - Add basic Redux State store (Will also hold state durijg HMR builds)

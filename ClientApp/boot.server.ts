@@ -7,7 +7,7 @@ import { createServerRenderer, RenderResult } from 'aspnet-prerendering';
 
 import { ORIGIN_URL } from './app/shared/constants/baseurl.constants';
 // Grab the (Node) server-specific NgModule
-import { ServerAppModule } from './app/server-app.module';
+import { AppModule } from './app/app.module.server';
 // Temporary * the engine will be on npm soon (`@universal/ng-aspnetcore-engine`)
 import { ngAspnetCoreEngine, IEngineOptions, createTransferScript } from './polyfills/temporary-aspnetcore-engine';
 
@@ -18,7 +18,7 @@ export default createServerRenderer((params: BootFuncParams) => {
   // Platform-server provider configuration
   const setupOptions: IEngineOptions = {
     appSelector: '<app></app>',
-    ngModule: ServerAppModule,
+    ngModule: AppModule,
     request: params,
     providers: [
       // Optional - Any other Server providers you want to pass (remember you'll have to provide them for the Browser as well)

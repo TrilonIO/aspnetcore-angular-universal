@@ -4,10 +4,11 @@
     "module": "es2015",
     "target": "es5",
     "noImplicitAny": false,
-    "sourceMap": false,
+    "sourceMap": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "noStrictGenericChecks": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
     "lib": [
       "es2016",
       "dom"
@@ -15,6 +16,6 @@
     "types": [ "node" ]
   },
   "include": [
-    "Client"
+    "ClientApp"
   ]
 }
