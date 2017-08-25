@@ -5,7 +5,7 @@ import { SignalR, BroadcastEventListener, SignalRConnection } from 'ng2-signalr'
 import { Subscription } from 'rxjs/Subscription';
 
 export class ChatMessage {
-    constructor(public user: string, public content: string) { }
+    constructor(public content: string, public user: string) { }
 }
 
 @Component({
@@ -21,23 +21,25 @@ export class ChatComponent implements OnInit {
     private _subscription: Subscription;
 
     constructor(route: ActivatedRoute) {
-        this._connection = route.snapshot.data['connection'];
+      this._connection = route.snapshot.data['connection'];
     }
 
     ngOnInit() {
-        const onMessageSent$ = new BroadcastEventListener<ChatMessage>('OnMessageSent');
-        this._connection.listen(onMessageSent$);
-        this._subscription = onMessageSent$.subscribe((chatMessage: ChatMessage) => {
-            this.chatMessages.push(chatMessage);
-            console.log('chat messages', this.chatMessages);
-        });
+      const onMessageSent$ = new BroadcastEventListener<ChatMessage>('OnMessageSent');
+      this._connection.listen(onMessageSent$);
+      this._subscription = onMessageSent$.subscribe((chatMessage: ChatMessage) => {
+          this.chatMessages.push(chatMessage);
+          console.log('chat messages', this.chatMessages);
+      });
     }
 
     // send chat message to server
-    sendMessage(user, message) {
-        console.log('send message', user, message);
-        this._connection.invoke('Chat', new ChatMessage(user, message))
-            .catch((err: any) => console.log('Failed to invoke', err));
+    sendMessage(user, messageInput) {
+      console.log('send message', user, messageInput.value);
+      this._connection.invoke('Chat', new ChatMessage(messageInput.value, user))
+          .catch((err: any) => console.log('Failed to invoke', err));
+
+      messageInput.value = '';
     }
 
 }
