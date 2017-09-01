@@ -8,7 +8,7 @@
     "test:coverage": "npm run test -- --coverage",
     "build:dev": "npm run build:vendor && npm run build:webpack",
     "build:webpack": "webpack --progress --color",
-    "build:prod": "npm run build:vendor -- --env.prod && npm run build:dev -- --env.prod",
+    "build:prod": "npm run build:vendor -- --env.prod && npm run build:webpack -- --env.prod",
     "build:vendor": "webpack --config webpack.config.vendor.js --progress --color"
   },
   "jest": {
