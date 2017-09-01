@@ -35,7 +35,7 @@ Obj/
 .vs/
 
 /wwwroot/dist/
-/Client/dist/
+/ClientApp/dist/
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
@@ -187,6 +187,7 @@ BundleArtifacts/
 !*.[Cc]ache/
 
 # Others
+*.db
 ClientBin/
 ~$*
 *~
@@ -259,3 +260,6 @@ _Pvt_Extensions
 
 # Jest Code Coverage report
 coverage/
+
+.DS_Store
+package-lock.json

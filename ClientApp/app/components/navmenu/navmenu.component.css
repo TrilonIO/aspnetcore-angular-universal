@@ -1,0 +1,106 @@
+﻿li .glyphicon {
+    margin-right: 10px;
+}
+
+/* Highlighting rules for nav menu items */
+li.link-active a,
+li.link-active a:hover,
+li.link-active a:focus {
+    background-color: #4189C7;
+    color: white;
+}
+
+/* Keep the nav menu independent of scrolling and on top of other items */
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.icon-bar {
+  background-color: #4189C7;
+}
+
+
+@media (max-width: 767px) {
+  /* Apply for small displays */
+  .main-nav {
+    width: 100%;
+  }
+
+  .navbar-brand {
+    font-size: 14px;
+    background-color: #f1f1f1;
+  }
+  .navbar-toggle {
+    padding: 0px 5px;
+    margin-top: 0px;
+    height: 26px;
+  }
+
+  .navbar-link {
+    margin-top: 4px;
+    margin-left: 45px;
+    position: fixed;
+  }
+
+  .navbar-collapse {
+    background-color: white;
+  }
+
+  .navbar a {
+    /* If a menu item's text is too long, truncate it */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 5px;
+  }
+}
+
+@media (min-width: 768px) {
+    /* On small screens, convert the nav menu to a vertical sidebar */
+    .main-nav {
+        height: 100%;
+        max-width: 330px;
+        width: calc(25% - 20px);
+    }
+    .navbar {
+        border-radius: 0px;
+        border-width: 0px;
+        height: 100%;
+    }
+    .navbar-brand{
+      width: 100%;
+    }
+  .navbar-link {
+    display: block;
+    width: 100%
+  }
+    .navbar-header {
+        float: none;
+    }
+    .navbar-collapse {
+        border-top: 1px solid #444;
+        padding: 0px;
+    }
+    .navbar ul {
+        float: none;
+    }
+    .navbar li {
+        float: none;
+        font-size: 15px;
+        margin: 6px;
+    }
+    .navbar li a {
+        padding: 10px 16px;
+        border-radius: 4px;
+    }
+    .navbar a {
+        /* If a menu item's text is too long, truncate it */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}

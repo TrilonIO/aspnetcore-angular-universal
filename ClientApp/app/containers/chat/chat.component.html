@@ -1,0 +1,51 @@
+<h2>WebSockets (SignalR) Chatroom Example</h2>
+
+<blockquote>
+  Data is stored in Azure here - so even in localhost you might be chatting with other people!
+</blockquote>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <span class="glyphicon glyphicon-comment"></span> Angular Chat
+      </div>
+      <div class="panel-body">
+        <ul class="chat">
+
+          <li class="left clearfix" *ngFor="let message of chatMessages">
+            <span chatMessage="chat-img pull-left">
+              <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
+            </span>
+
+            <div class="chat-body clearfix">
+              <div class="header">
+                <strong class="primary-font">{{message.user}}</strong>
+                <small class="pull-right text-muted"><span class="glyphicon glyphicon-time"></span>x mins ago</small>
+              </div>
+              <p>
+                {{ message.content }}
+              </p>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+      <div class="panel-footer">
+        <form>
+          <div class="input-group">
+            <span class="input-group-btn" style="padding-right: 10px; min-width: 150px;">
+              <input #username id="btn-input" type="text" class="form-control input-sm" value="Neo" />
+            </span>
+            <input #messageInput id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+            <span class="input-group-btn ">
+              <button class="btn btn-warning btn-sm" id="btn-chat" (click)="sendMessage(username.value, messageInput)"> Send</button>
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<pre>{{ chatMessages | json }}</pre>
