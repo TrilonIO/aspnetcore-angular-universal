@@ -54,7 +54,7 @@
   </Target>
   <Target Name="CleanDist" AfterTargets="Clean">
     <ItemGroup>
-      <FilesToDelete Include="Client\dist\**; wwwroot\dist\**" />
+      <FilesToDelete Include="ClientApp\dist\**; wwwroot\dist\**" />
     </ItemGroup>
     <Delete Files="@(FilesToDelete)" />
     <RemoveDir Directories="Client\dist; wwwroot\dist" />
