@@ -1,4 +1,4 @@
-﻿import { Component } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'nav-menu',
@@ -15,5 +15,9 @@ export class NavMenuComponent {
         } else {
             this.collapse = "collapse";
         }
+    }
+
+    collapseMenu() {
+        this.collapse = "collapse"
     }
 }
