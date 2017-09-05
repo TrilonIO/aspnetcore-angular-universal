@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { ServerTransferStateModule } from '../modules/transfer-state/server-transfer-state.module';
 import { TransferState } from '../modules/transfer-state/transfer-state';
 
+import { ServerPrebootModule } from 'preboot/server';
+
 @NgModule({
   bootstrap: [AppComponent],
   imports: [
@@ -15,6 +17,7 @@ import { TransferState } from '../modules/transfer-state/transfer-state';
       appId: 'my-app-id' // make sure this matches with your Browser NgModule
     }),
     ServerModule,
+    ServerPrebootModule.recordEvents({ appRoot: 'app' }),
     NoopAnimationsModule,
 
     ServerTransferStateModule,

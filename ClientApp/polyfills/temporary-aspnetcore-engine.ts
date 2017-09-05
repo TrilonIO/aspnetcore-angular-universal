@@ -122,6 +122,7 @@ export function ngAspnetCoreEngine(
 
                 // Strip out Styles / Meta-tags / Title
                 const STYLES = [];
+                const SCRIPTS = [];
                 const META = [];
                 const LINKS = [];
                 let TITLE = '';
@@ -146,6 +147,12 @@ export function ngAspnetCoreEngine(
 
                   if (element.name === 'title') {
                     TITLE = element.children[0].data;
+                  }
+
+                  if (element.name === 'script') {
+                    SCRIPTS.push(
+                      `<script>${element.children[0].data}</script>`
+                    );
                   }
 
                   // Broken after 4.0 (worked in rc)
@@ -188,6 +195,7 @@ export function ngAspnetCoreEngine(
                   globals: {
                     styles: STYLES_STRING,
                     title: TITLE,
+                    scripts: SCRIPTS.join(' '),
                     meta: META.join(' '),
                     links: LINKS.join(' ')
                   }
