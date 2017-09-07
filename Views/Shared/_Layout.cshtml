@@ -28,6 +28,7 @@
 
     <!-- Here we're passing down any data to be used by grabbed and parsed by Angular -->
     @Html.Raw(ViewData["TransferData"])
+    @Html.Raw(ViewData["Scripts"])
 
     @RenderSection("scripts", required: false)
 
