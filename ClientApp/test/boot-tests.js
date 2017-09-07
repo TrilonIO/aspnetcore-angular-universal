@@ -1,6 +1,6 @@
 Error.stackTraceLimit = Infinity;
 // Load required polyfills and testing libraries
-require('reflect-metadata');
+require('core-js'); // Added for Phantomjs
 require('zone.js');
 require('zone.js/dist/long-stack-trace-zone');
 require('zone.js/dist/proxy.js');

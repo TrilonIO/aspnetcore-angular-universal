@@ -1,6 +1,7 @@
 const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 
+const webpack = require('webpack');
 var path = require('path');
 var rootPath = path.join.bind(path, path.resolve(__dirname, '../../'));
 
@@ -67,6 +68,10 @@ module.exports = function (options) {
       ]
     },
     plugins: [
+      new webpack.DllReferencePlugin({
+        context: __dirname,
+        manifest: require(rootPath('wwwroot', 'dist', 'vendor-manifest.json'))
+      }),
       new ContextReplacementPlugin(
         /**
          * The (\\|\/) piece accounts for path separators in *nix and Windows
