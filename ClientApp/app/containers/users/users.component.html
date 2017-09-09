@@ -1,11 +1,11 @@
-﻿<h1>This is a RestAPI Example (hitting WebAPI in our case)</h1>
+<h1>This is a RestAPI Example (hitting WebAPI in our case)</h1>
 
 <blockquote>
   Let's get some fake users from Rest:<br>
   You can find the Web API Routes in <code>{{ "/Server/RestAPI/ ... "}}</code>
 </blockquote>
 
-<div>
+<div *ngIf="isAuthenticated === true">
   <label>User name:</label> <input #userName />
   <button class="btn btn-default" (click)="addUser(userName.value); userName.value=''">
     Add
@@ -20,10 +20,10 @@
       (click)="onSelect(user)"
       [@flyInOut]>
     <span class="badge">{{user.id}}</span> {{user.name}}
-    <button class="delete"
+    <button class="delete" *ngIf="isAuthenticated"
             (click)="deleteUser(user); $event.stopPropagation()">
       x
     </button>
   </li>
 </ul>
-<user-detail [user]="selectedUser"></user-detail>
+<user-detail [isAuthenticated]="isAuthenticated" [user]="selectedUser"></user-detail>

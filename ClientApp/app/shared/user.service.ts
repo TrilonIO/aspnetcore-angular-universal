@@ -1,5 +1,5 @@
-﻿import { Injectable, Inject } from '@angular/core';
-import { Http, URLSearchParams } from '@angular/http';
+import { Injectable, Inject } from '@angular/core';
+import { Http, URLSearchParams, RequestOptions, Headers } from '@angular/http';
 import { APP_BASE_HREF } from '@angular/common';
 import { ORIGIN_URL } from './constants/baseurl.constants';
 import { IUser } from '../models/User';
@@ -29,14 +29,21 @@ export class UserService {
     }
 
     deleteUser(user: IUser): Observable<any> {
-        return this.http.delete(`${this.baseUrl}/api/users/` + user.id);
+      return this.http.delete(`${this.baseUrl}/api/users/` + user.id, this.jwt());
     }
 
     updateUser(user: IUser): Observable<any> {
-        return this.http.put(`${this.baseUrl}/api/users/` + user.id, user);
+      return this.http.put(`${this.baseUrl}/api/users/` + user.id, user, this.jwt());
     }
 
     addUser(newUserName: string): Observable<any> {
-        return this.http.post(`${this.baseUrl}/api/users`, { name: newUserName })
+        return this.http.post(`${this.baseUrl}/api/users`, { name: newUserName }, this.jwt())
+    }
+    private jwt() {
+      let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      if (currentUser && currentUser.token) {
+        let headers = new Headers({ 'Authorization': 'Bearer ' + currentUser.token });
+        return new RequestOptions({ headers: headers });
+      }
     }
 }

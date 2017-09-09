@@ -44,6 +44,21 @@
             <span class='glyphicon glyphicon-comment'></span> Chat
           </a>
         </li>
+        <li [routerLinkActive]="['link-active']" (click)="collapseMenu()">
+          <a [routerLink]="['/login']">
+            <span class='glyphicon glyphicon-log-in'></span> Login
+          </a>
+        </li>
+        <li [routerLinkActive]="['link-active']" *ngIf="authenticationService.checkAccess()" (click)="collapseMenu()">
+          <a [routerLink]="['/admin']">
+            <span class='glyphicon glyphicon-lock'></span> Admin
+          </a>
+        </li>
+        <li *ngIf="authenticationService.checkAccess()" (click)="logout()">
+          <a [routerLink]="">
+            <span class='glyphicon glyphicon-log-out'></span> Logout
+          </a>
+        </li>
       </ul>
     </div>
   </div>

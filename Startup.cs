@@ -1,3 +1,4 @@
+using Asp2017.Server.Models;
 using System;
 using System.IO;
 using Microsoft.AspNetCore.Builder;
@@ -9,6 +10,10 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using AspCoreServer.Data;
 using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Text;
+using Microsoft.AspNetCore.Http;
 
 namespace AspCoreServer
 {
@@ -51,10 +56,38 @@ namespace AspCoreServer
       services.AddDbContext<SpaDbContext>(options =>
           options.UseSqlite(connectionString));
 
+      services.Configure<AppConfiguration>(Configuration.GetSection("AppConfiguration"));
+
       // Register the Swagger generator, defining one or more Swagger documents
       services.AddSwaggerGen(c =>
       {
         c.SwaggerDoc("v1", new Info { Title = "Angular 4.0 Universal & ASP.NET Core advanced starter-kit web API", Version = "v1" });
+      });
+
+      services.AddAuthentication(options =>
+      {
+        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+      }).AddJwtBearer(o =>
+      {
+        o.TokenValidationParameters = new TokenValidationParameters
+        {
+          ValidateIssuerSigningKey = true,
+          ValidateIssuer = false,
+          ValidateAudience = false,
+          IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration["AppConfiguration:Key"])),
+        };
+        o.Events = new JwtBearerEvents()
+        {
+          OnAuthenticationFailed = c =>
+          {
+            c.NoResult();
+
+            c.Response.StatusCode = 500;
+            c.Response.ContentType = "text/plain";
+            return c.Response.WriteAsync("An error occurred processing your authentication.");
+          }
+        };
       });
     }
 
@@ -67,7 +100,7 @@ namespace AspCoreServer
       app.UseStaticFiles();
 
       DbInitializer.Initialize(context);
-
+      app.UseAuthentication();
       if (env.IsDevelopment())
       {
         app.UseDeveloperExceptionPage();

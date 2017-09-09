@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -7,18 +7,18 @@ using AspCoreServer;
 
 namespace AspCoreServer.Data
 {
-    public static class DbInitializer
+  public static class DbInitializer
+  {
+    public static void Initialize(SpaDbContext context)
     {
-        public static void Initialize(SpaDbContext context)
-        {
-            context.Database.EnsureCreated();
+      context.Database.EnsureCreated();
 
-            if (context.User.Any())
-            {
-                return;   // DB has been seeded
-            }
-            var users = new User[]
-            {
+      if (context.User.Any())
+      {
+        return;   // DB has been seeded
+      }
+      var users = new User[]
+      {
                new User(){Name = "Mark Pieszak"},
                new User(){Name = "Abrar Jahin"},
                new User(){Name = "hakonamatata"},
@@ -30,13 +30,14 @@ namespace AspCoreServer.Data
                new User(){Name = "nalex095"},
                new User(){Name = "ORuban"},
                new User(){Name = "Gaulomatic"}
-            };
+      };
 
-            foreach (User s in users)
-            {
-                context.User.Add(s);
-            }
-            context.SaveChanges();
-        }
+      foreach (User s in users)
+      {
+        s.Password = "password";
+        context.User.Add(s);
+      }
+      context.SaveChanges();
     }
+  }
 }
