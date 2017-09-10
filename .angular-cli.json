@@ -13,5 +13,13 @@
     "component": {
       "spec": false
     }
-  }
+  },
+  "lint":[
+    {
+      "project": "ClientApp/tsconfig.app.json"
+    },
+    {
+      "project": "ClientApp/tsconfig.spec.json"
+    }
+  ]
 }
