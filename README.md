@@ -33,7 +33,7 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
 * [FAQ](#faq---also-check-out-the-faq-issues-label)
 * [Special Thanks](#special-thanks)
 * [License](#license)
-* [Consulting / Training & Support](#looking-for-angular--aspnet-consulting--training--support)
+* [Consulting & Training](#looking-for-angular--aspnet-consulting--training--support)
 
 ---
 
