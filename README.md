@@ -33,6 +33,7 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
 * [FAQ](#faq---also-check-out-the-faq-issues-label)
 * [Special Thanks](#special-thanks)
 * [License](#license)
+* [Consulting / Training & Support](#looking-for-angular--aspnet-consulting--training--support)
 
 ---
 
@@ -439,13 +440,14 @@ Nothing's ever perfect, but please let me know by creating an issue (make sure t
 
 Copyright (c) 2016-2017 [Mark Pieszak](https://github.com/MarkPieszak)
 
-### Follow me online:
-
-Twitter: [@MarkPieszak](http://twitter.com/MarkPieszak) | Medium: [@MarkPieszak](https://medium.com/@MarkPieszak)
-
 ----
 
 # Looking for Angular & ASP.NET Consulting / Training / support?
 
-[Contact me](mpieszak84@gmail.com), and let's talk about your projects needs!
+Contact me at <mpieszak84@gmail.com>, and let's talk about your projects needs!
 
+----
+
+## Follow me online:
+
+Twitter: [@MarkPieszak](http://twitter.com/MarkPieszak) | Medium: [@MarkPieszak](https://medium.com/@MarkPieszak)
