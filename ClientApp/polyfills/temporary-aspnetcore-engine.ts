@@ -1,6 +1,6 @@
 ﻿/*  ********* TEMPORARILY HERE **************
  * - will be on npm soon -
- *   import { ngAspnetCoreEngine } from `@ng-universal/ng-aspnetcore-engine`;
+ *   import { ngAspnetCoreEngine } from `@nguniversal/aspnetcore-engine`;
  */
 import { Type, NgModuleFactory, NgModuleRef, ApplicationRef, Provider, CompilerFactory, Compiler } from '@angular/core';
 import { platformServer, platformDynamicServer, PlatformState, INITIAL_CONFIG, renderModuleFactory } from '@angular/platform-server';
@@ -9,8 +9,6 @@ import * as fs from 'fs';
 
 import { REQUEST } from '../app/shared/constants/request';
 import { ORIGIN_URL } from '../app/shared/constants/baseurl.constants';
-
-// import { FileLoader } from './file-loader';
 
 export function createTransferScript(transferData: Object): string {
   return `<script>window['TRANSFER_CACHE'] = ${JSON.stringify(transferData)};</script>`;
@@ -127,17 +125,12 @@ export function ngAspnetCoreEngine(
                 const LINKS = [];
                 let TITLE = '';
 
-                //let STYLES_STRING = htmlDoc.substring(
-                  //htmlDoc.indexOf('<style ng-transition'),
-                  //htmlDoc.lastIndexOf('</style>') + 8
-                //);
-              let STYLES_STRING: string = htmlDoc.indexOf('<style ng-transition') > -1
+                let STYLES_STRING: string = htmlDoc.indexOf('<style ng-transition') > -1
                                     ? htmlDoc.substring(
                                         htmlDoc.indexOf('<style ng-transition'),
                                         htmlDoc.lastIndexOf('</style>') + 8)
                                     : null;
-                // STYLES_STRING = STYLES_STRING.replace(/\s/g, '').replace('<styleng-transition', '<style ng-transition');
-
+              
                 const HEAD = AST_DOCUMENT.head;
 
                 let count = 0;
@@ -233,10 +226,10 @@ const factoryCacheMap = new Map<Type<{}>, NgModuleFactory<{}>>();
 function getFactory(
   moduleOrFactory: Type<{}> | NgModuleFactory<{}>, compiler: Compiler
 ): Promise<NgModuleFactory<{}>> {
+    
   return new Promise<NgModuleFactory<{}>>((resolve, reject) => {
     // If module has been compiled AoT
     if (moduleOrFactory instanceof NgModuleFactory) {
-      console.log('Already AoT?');
       resolve(moduleOrFactory);
       return;
     } else {
@@ -244,7 +237,6 @@ function getFactory(
 
       // If module factory is cached
       if (moduleFactory) {
-        console.log('\n\n\n WE FOUND ONE!! USE IT!!\n\n\n');
         resolve(moduleFactory);
         return;
       }
@@ -252,7 +244,6 @@ function getFactory(
       // Compile the module and cache it
       compiler.compileModuleAsync(moduleOrFactory)
         .then((factory) => {
-          console.log('\n\n\n\n MAP THIS THING!!!!\n\n\n ');
           factoryCacheMap.set(moduleOrFactory, factory);
           resolve(factory);
         }, (err => {
