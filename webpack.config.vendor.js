@@ -90,7 +90,9 @@ module.exports = (env) => {
                 path: path.join(__dirname, 'ClientApp', 'dist', '[name]-manifest.json'),
                 name: '[name]_[hash]'
             })
-        ]
+        ].concat(isDevBuild ? [] : [
+          new webpack.optimize.UglifyJsPlugin()
+      ])
     });
 
     return [clientBundleConfig, serverBundleConfig];

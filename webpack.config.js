@@ -80,6 +80,7 @@ module.exports = (env) => {
                 name: './vendor'
             })
         ].concat(isDevBuild ? [] : [
+            new webpack.optimize.UglifyJsPlugin(),
             // Plugins that apply in production builds only
             new AotPlugin({
                 tsConfigPath: './tsconfig.json',
