@@ -13,6 +13,7 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const AotPlugin = require('@ngtools/webpack').AotPlugin;
 const CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const { sharedModuleRules } = require('./webpack.additions');
 
@@ -56,6 +57,7 @@ module.exports = (env) => {
                 moduleFilenameTemplate: path.relative(clientBundleOutputDir, '[resourcePath]') // Point sourcemap entries to the original file locations on disk
             })
         ] : [
+            // new BundleAnalyzerPlugin(),
             // Plugins that apply in production builds only
             new webpack.optimize.UglifyJsPlugin(),
             new AotPlugin({
@@ -68,7 +70,7 @@ module.exports = (env) => {
 
     // Configuration for server-side (prerendering) bundle suitable for running in Node
     const serverBundleConfig = merge(sharedConfig, {
-        resolve: { mainFields: ['main'] },
+        // resolve: { mainFields: ['main'] },
         entry: { 'main-server': './ClientApp/boot.server.ts' },
         plugins: [
             new webpack.DllReferencePlugin({
@@ -78,6 +80,10 @@ module.exports = (env) => {
                 name: './vendor'
             })
         ].concat(isDevBuild ? [] : [
+            new webpack.optimize.UglifyJsPlugin({
+              compress: false,
+              mangle: false
+            }),
             // Plugins that apply in production builds only
             new AotPlugin({
                 tsConfigPath: './tsconfig.json',
@@ -90,7 +96,7 @@ module.exports = (env) => {
             path: path.join(__dirname, './ClientApp/dist')
         },
         target: 'node',
-        devtool: 'inline-source-map'
+        devtool: isDevBuild ? 'inline-source-map': false
     });
 
     return [clientBundleConfig, serverBundleConfig];
