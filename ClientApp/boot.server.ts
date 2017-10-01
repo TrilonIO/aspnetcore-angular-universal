@@ -13,7 +13,7 @@ import { ngAspnetCoreEngine, IEngineOptions, createTransferScript } from './poly
 
 enableProdMode();
 
-export default createServerRenderer((params: BootFuncParams) => {
+export default createServerRenderer((params) => {
 
   // Platform-server provider configuration
   const setupOptions: IEngineOptions = {

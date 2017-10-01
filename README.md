@@ -33,6 +33,7 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
 * [FAQ](#faq---also-check-out-the-faq-issues-label)
 * [Special Thanks](#special-thanks)
 * [License](#license)
+* [Consulting & Training](#looking-for-angular--aspnet-consulting--training--support)
 
 ---
 
@@ -336,7 +337,7 @@ Well now, your Client-side Angular will take over, and you'll have a fully funct
  - **`window`**, **`document`**, **`navigator`**, and other browser types - _do not exist on the server_ - so using them, or any library that uses them (jQuery for example) will not work. You do have some options, if you truly need some of this functionality:
     - If you need to use them, consider limiting them to only your client and wrapping them situationally. You can use the Object injected using the PLATFORM_ID token to check whether the current platform is browser or server. 
     
-    ```
+    ```typescript
      import { PLATFORM_ID } from '@angular/core';
      import { isPlatformBrowser, isPlatformServer } from '@angular/common';
      
@@ -357,9 +358,9 @@ Well now, your Client-side Angular will take over, and you'll have a fully funct
      - Try to *limit or* **avoid** using **`setTimeout`**. It will slow down the server-side rendering process. Make sure to remove them [`ngOnDestroy`](https://angular.io/docs/ts/latest/api/core/index/OnDestroy-class.html) in Components.
    - Also for RxJs timeouts, make sure to _cancel_ their stream on success, for they can slow down rendering as well.
  - **Don't manipulate the nativeElement directly**. Use the _Renderer2_. We do this to ensure that in any environment we're able to change our view.
-```
-constructor(element: ElementRef, renderer: Renderer) {
-  renderer.setElementStyle(element.nativeElement, 'font-size', 'x-large');
+```typescript
+constructor(element: ElementRef, renderer: Renderer2) {
+  this.renderer.setStyle(element.nativeElement, 'font-size', 'x-large');
 }
 ```
  - The application runs XHR requests on the server & once again on the Client-side (when the application bootstraps)
@@ -439,13 +440,14 @@ Nothing's ever perfect, but please let me know by creating an issue (make sure t
 
 Copyright (c) 2016-2017 [Mark Pieszak](https://github.com/MarkPieszak)
 
-### Follow me online:
-
-Twitter: [@MarkPieszak](http://twitter.com/MarkPieszak) | Medium: [@MarkPieszak](https://medium.com/@MarkPieszak)
-
 ----
 
 # Looking for Angular & ASP.NET Consulting / Training / support?
 
-[Contact me](mpieszak84@gmail.com), and let's talk about your projects needs!
+Contact me at <mpieszak84@gmail.com>, and let's talk about your projects needs!
 
+----
+
+## Follow me online:
+
+Twitter: [@MarkPieszak](http://twitter.com/MarkPieszak) | Medium: [@MarkPieszak](https://medium.com/@MarkPieszak)

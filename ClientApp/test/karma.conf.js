@@ -7,6 +7,7 @@ module.exports = function (config) {
     frameworks: ['jasmine'],
     exclude: [],
     files: [
+      '../../wwwroot/dist/vendor.js',
       './boot-tests.js'
     ],
     preprocessors: {
@@ -41,6 +42,24 @@ module.exports = function (config) {
       stats: {
         chunks: false
       }
+    },
+    // you can define custom flags
+    customLaunchers: {
+      'PhantomJS_custom': {
+        base: 'PhantomJS',
+        options: {
+          windowName: 'test-window',
+          settings: {
+            webSecurityEnabled: false
+          }
+        },
+        flags: ['--load-images=true'],
+        // debug: true
+      }
+    },
+    phantomjsLauncher: {
+      // Have phantomjs exit if a ResourceError is encountered (useful if karma exits without killing phantom)
+      exitOnResourceError: true
     }
   });
 };
