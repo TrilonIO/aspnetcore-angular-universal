@@ -1,23 +1,30 @@
-﻿using AspCoreServer.Data;
+using System.Security.Cryptography;
+using Asp2017.Server.Models;
+using AspCoreServer.Data;
 using AspCoreServer.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace AspCoreServer.Controllers
 {
+  [Authorize]
   [Route("api/[controller]")]
   public class UsersController : Controller
   {
     private readonly SpaDbContext _context;
+    private readonly AppConfiguration _appSettings;
 
-    public UsersController(SpaDbContext context)
+    public UsersController(SpaDbContext context, IOptions<AppConfiguration> appSettings)
     {
       _context = context;
+      _appSettings = appSettings.Value;
     }
-
+    [AllowAnonymous]
     [HttpGet]
     public async Task<IActionResult> Get(int currentPageNo = 1, int pageSize = 20)
     {
@@ -36,7 +43,7 @@ namespace AspCoreServer.Controllers
         return Ok(users);
       }
     }
-
+    [AllowAnonymous]
     [HttpGet("{id}")]
     public async Task<IActionResult> Get(int id)
     {
@@ -55,11 +62,13 @@ namespace AspCoreServer.Controllers
       }
     }
 
+    
     [HttpPost]
     public async Task<IActionResult> Post([FromBody]User user)
     {
       if (!string.IsNullOrEmpty(user.Name))
       {
+        user.Password = "password";
         _context.Add(user);
         await _context.SaveChangesAsync();
         return CreatedAtAction("Post", user);
@@ -83,6 +92,7 @@ namespace AspCoreServer.Controllers
 
         if (userToEdit == null)
         {
+          userToEdit.Password = "password";
           return NotFound("Could not update user as it was not Found");
         }
         else

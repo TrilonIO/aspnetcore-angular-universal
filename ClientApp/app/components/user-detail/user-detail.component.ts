@@ -1,4 +1,4 @@
-﻿import { Component, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IUser } from '../../models/User';
 import { UserService } from '../../shared/user.service';
 
@@ -8,6 +8,7 @@ import { UserService } from '../../shared/user.service';
 })
 export class UserDetailComponent {
     @Input() user: IUser;
+    @Input() isAuthenticated: boolean;
 
     constructor(private userService: UserService) { }
 
