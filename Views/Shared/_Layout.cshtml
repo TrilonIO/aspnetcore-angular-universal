@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <base href="/" />
@@ -17,14 +17,6 @@
   </head>
   <body>
     @RenderBody()
-
-    <!-- *** NOTE *** Remove this and the signalr script include below
-             - if you're NOT going to use SignalR -->
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
-            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-            crossorigin="anonymous"></script>
-
-    <script src="http://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-2.2.1.min.js"></script>
 
     <!-- Here we're passing down any data to be used by grabbed and parsed by Angular -->
     @Html.Raw(ViewData["TransferData"])

@@ -111,19 +111,6 @@ export function createTranslateLoader(http: Http, baseHref) {
                 }
             },
             {
-                path: 'chat', component: ChatComponent,
-                // Wait until the resolve is finished before loading the Route
-                resolve: { connection: ConnectionResolver },
-                data: {
-                    title: 'SignalR chat example',
-                    meta: [{ name: 'description', content: 'This is an Chat page Description!' }],
-                    links: [
-                        { rel: 'canonical', href: 'http://blogs.example.com/chat/something' },
-                        { rel: 'alternate', hreflang: 'es', href: 'http://es.example.com/chat' }
-                    ]
-                }
-            },
-            {
                 path: 'ngx-bootstrap', component: NgxBootstrapComponent,
                 data: {
                     title: 'Ngx-bootstrap demo!!',
