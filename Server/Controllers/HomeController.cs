@@ -19,7 +19,7 @@ namespace AspCoreServer.Controllers
     [HttpGet]
     public async Task<IActionResult> Index()
     {
-      var prerenderResult = await Prerender.BuildPrerender(Request);
+      var prerenderResult = await Request.BuildPrerender();
 
       ViewData["SpaHtml"] = prerenderResult.Html; // our <app> from Angular
       ViewData["Title"] = prerenderResult.Globals["title"]; // set our <title> from Angular
