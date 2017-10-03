@@ -7,7 +7,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
-using AspCoreServer.Data;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace AspCoreServer
@@ -48,9 +47,6 @@ namespace AspCoreServer
       var connectionStringBuilder = new Microsoft.Data.Sqlite.SqliteConnectionStringBuilder { DataSource = "spa.db" };
       var connectionString = connectionStringBuilder.ToString();
 
-      services.AddDbContext<SpaDbContext>(options =>
-          options.UseSqlite(connectionString));
-
       // Register the Swagger generator, defining one or more Swagger documents
       services.AddSwaggerGen(c =>
       {
@@ -59,14 +55,12 @@ namespace AspCoreServer
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, SpaDbContext context)
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
     {
       loggerFactory.AddConsole(Configuration.GetSection("Logging"));
       loggerFactory.AddDebug();
 
       app.UseStaticFiles();
-
-      DbInitializer.Initialize(context);
 
       if (env.IsDevelopment())
       {
