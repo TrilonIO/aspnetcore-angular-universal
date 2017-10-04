@@ -16,13 +16,13 @@ import { HomeComponent } from './containers/home/home.component';
 import { UsersComponent } from './containers/users/users.component';
 import { UserDetailComponent } from './components/user-detail/user-detail.component';
 import { CounterComponent } from './containers/counter/counter.component';
-import { ChatComponent } from './containers/chat/chat.component';
+// import { ChatComponent } from './containers/chat/chat.component';
 import { NotFoundComponent } from './containers/not-found/not-found.component';
 import { NgxBootstrapComponent } from './containers/ngx-bootstrap-demo/ngx-bootstrap.component';
 
 import { LinkService } from './shared/link.service';
 import { UserService } from './shared/user.service';
-import { ConnectionResolver } from './shared/route.resolver';
+// import { ConnectionResolver } from './shared/route.resolver';
 import { ORIGIN_URL } from './shared/constants/baseurl.constants';
 import { TransferHttpModule } from '../modules/transfer-http/transfer-http.module';
 
@@ -43,7 +43,7 @@ export function createTranslateLoader(http: Http, baseHref) {
         UsersComponent,
         UserDetailComponent,
         HomeComponent,
-        ChatComponent,
+        // ChatComponent,
         NotFoundComponent,
         NgxBootstrapComponent
     ],
@@ -145,7 +145,7 @@ export function createTranslateLoader(http: Http, baseHref) {
     providers: [
         LinkService,
         UserService,
-        ConnectionResolver,
+        // ConnectionResolver,
         TranslateModule
     ]
 })
