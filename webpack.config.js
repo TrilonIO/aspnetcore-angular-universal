@@ -65,7 +65,8 @@ module.exports = (env) => {
                 entryModule: path.join(__dirname, 'ClientApp/app/app.module.browser#AppModule'),
                 exclude: ['./**/*.server.ts']
             })
-        ])
+        ]),
+        devtool: isDevBuild ? 'cheap-eval-source-map' : false
     });
 
     // Configuration for server-side (prerendering) bundle suitable for running in Node
@@ -108,7 +109,8 @@ module.exports = (env) => {
             path: path.join(__dirname, './ClientApp/dist')
         },
         target: 'node',
-        devtool: isDevBuild ? 'inline-source-map': false
+        // switch to "inline-source-map" if you want to debug the TS during SSR
+        devtool: isDevBuild ? 'cheap-eval-source-map' : false
     });
 
     return [clientBundleConfig, serverBundleConfig];
