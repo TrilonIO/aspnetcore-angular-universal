@@ -26,6 +26,7 @@ export default createServerRenderer((params) => {
   };
 
   return ngAspnetCoreEngine(setupOptions).then(response => {
+
     // Apply your transferData to response.globals
     response.globals.transferData = createTransferScript({
       someData: 'Transfer this to the client on the window.TRANSFER_CACHE {} object',

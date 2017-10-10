@@ -2,6 +2,7 @@ import { NgModule, Inject } from '@angular/core';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { CommonModule, APP_BASE_HREF } from '@angular/common';
 import { HttpModule, Http } from '@angular/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { Ng2BootstrapModule } from 'ngx-bootstrap';
@@ -26,7 +27,7 @@ import { UserService } from './shared/user.service';
 import { ORIGIN_URL } from './shared/constants/baseurl.constants';
 import { TransferHttpModule } from '../modules/transfer-http/transfer-http.module';
 
-export function createTranslateLoader(http: Http, baseHref) {
+export function createTranslateLoader(http: HttpClient, baseHref) {
     // Temporary Azure hack
     if (baseHref === null && typeof window !== 'undefined') {
         baseHref = window.location.origin;
@@ -50,6 +51,7 @@ export function createTranslateLoader(http: Http, baseHref) {
     imports: [
         CommonModule,
         HttpModule,
+        HttpClientModule,
         FormsModule,
         Ng2BootstrapModule.forRoot(), // You could also split this up if you don't want the Entire Module imported
 
@@ -60,7 +62,7 @@ export function createTranslateLoader(http: Http, baseHref) {
             loader: {
                 provide: TranslateLoader,
                 useFactory: (createTranslateLoader),
-                deps: [Http, [ORIGIN_URL]]
+                deps: [HttpClient, [ORIGIN_URL]]
             }
         }),
 
