@@ -17,7 +17,7 @@ import { ServerPrebootModule } from 'preboot/server';
       appId: 'my-app-id' // make sure this matches with your Browser NgModule
     }),
     ServerModule,
-    ServerPrebootModule.recordEvents({ appRoot: 'app' }),
+    ServerPrebootModule.recordEvents({ appRoot: 'app-root' }),
     NoopAnimationsModule,
 
     ServerTransferStateModule,

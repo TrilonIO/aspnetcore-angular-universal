@@ -7,7 +7,7 @@ import { IUser } from '../../models/User';
 import { UserService } from '../../shared/user.service';
 
 @Component({
-    selector: 'users',
+    selector: 'app-users',
     templateUrl: './users.component.html',
     styleUrls: ['./users.component.css'],
     animations: [

@@ -24,7 +24,7 @@ import { NgxBootstrapComponent } from './containers/ngx-bootstrap-demo/ngx-boots
 import { LinkService } from './shared/link.service';
 import { UserService } from './shared/user.service';
 // import { ConnectionResolver } from './shared/route.resolver';
-import { ORIGIN_URL } from './shared/constants/baseurl.constants';
+import { ORIGIN_URL } from '@nguniversal/aspnetcore-engine';
 import { TransferHttpModule } from '../modules/transfer-http/transfer-http.module';
 
 export function createTranslateLoader(http: HttpClient, baseHref) {

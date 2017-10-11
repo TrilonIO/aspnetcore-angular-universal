@@ -66,7 +66,10 @@ module.exports = (env) => {
                 exclude: ['./**/*.server.ts']
             })
         ]),
-        devtool: isDevBuild ? 'cheap-eval-source-map' : false
+        devtool: isDevBuild ? 'cheap-eval-source-map' : false,
+        node: {
+          fs: "empty"
+        }
     });
 
     // Configuration for server-side (prerendering) bundle suitable for running in Node
