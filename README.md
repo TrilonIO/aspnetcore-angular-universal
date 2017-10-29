@@ -444,9 +444,11 @@ Copyright (c) 2016-2017 [Mark Pieszak](https://github.com/MarkPieszak)
 
 ----
 
-# Looking for Angular & ASP.NET Consulting / Training / support?
+# DevHelp.Online - Angular & ASP.NET - Consulting | Training | Development
 
-Contact me at <mpieszak84@gmail.com>, and let's talk about your projects needs!
+Check out **[www.DevHelp.Online](http://DevHelp.Online)** for more info!
+
+Contact us at <hello@devhelp.online>, and let's talk about your projects needs.
 
 ----
 
