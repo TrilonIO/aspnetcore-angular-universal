@@ -57,6 +57,6 @@
       <FilesToDelete Include="ClientApp\dist\**; wwwroot\dist\**" />
     </ItemGroup>
     <Delete Files="@(FilesToDelete)" />
-    <RemoveDir Directories="Client\dist; wwwroot\dist" />
+    <RemoveDir Directories="ClientApp\dist; wwwroot\dist" />
   </Target>
 </Project>
