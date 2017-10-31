@@ -1,26 +1,28 @@
-# ASP.NET Core & Angular 2+ Universal starter
+# ASP.NET Core 2.0 & Angular 4 (+) advanced starter - with Server-side prerendering (for Angular SEO)!
+
+> [(upcoming) Angular 5.0 demo Branch Here](https://github.com/MarkPieszak/aspnetcore-angular2-universal/tree/angular-5.0-updates)
 
 <p align="center">
-    <img src="./docs/architecture.png" alt="ASP.NET Core Angular 2+ Starter" title="ASP.NET Core Angular 2+ Starter">
+    <img src="./docs/architecture.png" alt="ASP.NET Core 2.0 Angular 4+ Starter" title="ASP.NET Core 2.0 Angular 4+ Starter">
 </p>
 
-### What is this repo?
+### Harness the power of Angular 4+, ASP.NET Core 2.0, now with SEO !
 
-This repository is maintained by [Angular Universal](https://github.com/angular/universal) and is meant to be an advanced starter for both ASP.NET Core using 
-Angular 2.x(+), not only for the client-side, but to be rendered on the *server* for instant application paints 
-(*Note*: If you don't need Universal (SSR) [read here](https://github.com/MarkPieszak/aspnetcore-angular2-universal#faq) on how to disable it). 
+Angular SEO in action:
 
-**How do I stay up-to-date with the latest updates & changes of the repo?** [Check out the CHANGELOG here](https://github.com/MarkPieszak/aspnetcore-angular2-universal/blob/master/CHANGELOG.md)
+<p align="center">
+  <img src="./docs/angular2-seo.png" alt="ASP.NET Core Angular4 SEO" title="ASP.NET Core Angular4 SEO">
+</p>
+
+### What is this repo? Live Demo here: http://aspnetcore-angular2-universal.azurewebsites.net
+
+This repository is maintained by [Angular](https://github.com/angular/angular) and is meant to be an advanced starter 
+for both ASP.NET Core 2.0 using Angular 4.0+, not only for the client-side, but to be rendered on the server for instant 
+application paints (Note: If you don't need SSR [read here](#faq) on how to disable it).
 
 This is meant to be a Feature-Rich Starter application containing all of the latest technologies, best build systems available, and include many real-world examples and libraries needed in todays Single Page Applications (SPAs).
 
 This utilizes all the latest standards, no gulp, no bower, no typings, no manually "building" anything. NPM, Webpack and .NET handle everything for you!
-
-[1/23] Fully operational, some improvements & new functionality to come, keep an eye out for the latest updates!
-
-> NOTE: Angular Universal is currently moving to Angular Core (https://github.com/angular/angular/issues/13822), we will need to wait for that and angular v4 to finish certain aspects (aot for example)
-
----
 
 # Table of Contents
 
@@ -29,10 +31,11 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
 * [Deployment](#deployment)
 * [Upcoming Features](#upcoming-features)
 * [Application Structure](#application-structure)
-* [Universal Gotchas](#universal-gotchas)
-* [FAQ](#faq)
+* [Gotchas](#gotchas)
+* [FAQ](#faq---also-check-out-the-faq-issues-label)
 * [Special Thanks](#special-thanks)
 * [License](#license)
+* [Consulting & Training](#looking-for-angular--aspnet-consulting--training--support)
 
 ---
 
@@ -40,43 +43,59 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
 
 > These are just some of the features found in this starter!
 
-- **Angular 2.x+** : (Currently working with latest Angular `2.4.5`)
-  - Featuring Server-side rendering (Angular Universal)
-	  - Faster paints, better SEO, deep-linking, etc
-  - NgRx - Reactive Redux state management architecture
-    - Built to work with the real-time Redux Devtools. [Get the Chrome extension here](https://github.com/zalmoxisus/redux-devtools-extension) 
+- ASP.NET 2.0 - VS2017 15.3 support now!
+  - Azure delpoyment straight from VS2017
+  - Built in docker support through VS2017
+  - RestAPI (WebAPI) integration
+  - SQL Database CRUD demo
+  - Swagger WebAPI documentation when running in development mode 
+  - SignalR Chat demo! (Thanks to [@hakonamatata](https://github.com/hakonamatata))
+
+- **Angular 4.0.0** :
+  - (Minimal) Angular-CLI integration 
+    - This is to be used mainly for Generating Components/Services/etc.
+    - Usage examples: 
+      - `ng g c components/example-component`
+      - `ng g s shared/some-service`
+  - Featuring Server-side rendering (Platform-Server, aka: "Universal")
+	  - Faster initial paints, SEO (Search-engine optimization w Title/Meta/Link tags), social media link-previews, etc
+  - i18n internationalization support (via/ ngx-translate)
   - Baked in best-practices (follows Angular style guide)
-  - Bootstrap4 (with ng2-bootstrap) - can be rendered on the server
+  - Bootstrap3 (with ngx-bootstrap) - (can be rendered on the server!)
+    - Can be easily replaced with bootstrap4 (3 is provided for browser support)
+    - Bootstrap using SCSS / SASS for easy theming / styling!
 
 - **Webpack build system (Webpack 2)**
   - HMR : Hot Module Reloading/Replacement 
-    - NgRx utilized and setup to **hold app State between HMR builds**
-  - Production builds
-  - Webpack Dashboard
-
-- **Docker support**
+  - Production builds w/ AoT Compilation
 
 - **Testing frameworks**
-  - Unit testing with Karma/Jasmine
-  - E2E testing with Protractor
+  - Unit testing with Jest (Going back to Karma soon)
 
 - **Productivity**
   - Typescript 2
-  - Codelyzer (for Real-Sime static code analysis) 
+  - Codelyzer (for Real-time static code analysis) 
     - VSCode & Atom provide real-time analysis out of the box.
-    - **NOTE**: Does not fully work with Visual Studio yet. (Even with 1.1.0-preview)
 
-- **ASP.NET Core 1.1**
-  - RestAPI integration
+- **ASP.NET Core 2.0**
+  
   - Integration with NodeJS to provide pre-rendering, as well as any other Node module asset you want to use.
 
 - **Azure**
   - Microsoft Application Insights setup (for MVC & Web API routing)
-  - (Client-side Angular2 Application Insights integration coming soon)
+  - Client-side Angular2 Application Insights integration
+    - If you're using Azure simply install `npm i -S @markpieszak/ng-application-insights` as a dependencies.
+    - Note: Make sure only the Browser makes these calls ([usage info here](https://github.com/MarkPieszak/angular-application-insights/blob/master/README.md#usage))
+    - More information here: - https://github.com/MarkPieszak/angular-application-insights
+    ```typescript
+      // Add the Module to your imports 
+      ApplicationInsightsModule.forRoot({
+        instrumentationKey: 'Your-Application-Insights-instrumentationKey'
+      })
+    ```
+  
 
-- **REST API CRUD demo with Entity Framework Core**
-  - **[Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) is used for testing the API**
-  - [View examples here](./docs/RESTAPI-ENTITY.MD)
+> Looking for the older 2.x branch? Go [here](https://github.com/MarkPieszak/aspnetcore-angular2-universal/tree/old-2.x-universal-branch)
 
 ----
 
@@ -84,20 +103,45 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
   
 # Getting Started?
 
-**Make sure you have at least Node 4.x or higher installed!**
+- **Make sure you have at least Node 6.x or higher (w/ npm 3+) installed!**  
+- **This repository uses ASP.Net Core 2.0, which has a hard requirement on .NET Core Runtime 2.0.0 and .NET Core SDK 2.0.0. Please install these items from [here](https://github.com/dotnet/core/blob/master/release-notes/download-archives/2.0.0-download.md)**
 
-> You'll need ASP.NET Core installed (1.0.1 or 1.1). 
-> Make sure you have VStudio 2015 update 3 installed as well.
 
- - Fork & Clone repo
- - `npm install && dotnet restore` (if using Visual Studio it will do both of these automatically when the project is opened)
- 
- > Both Visual Studio & VSCode have the neccessary (Dev & Prod) Launch files to be able to run & debug immidiately.
+### Visual Studio 2017
 
-(Temporarily) But for VSCode, in order to see the full Production version you must go to Command Line and set the environment variable 
-to: `ASPNETCORE_ENVIRONMENT=Production`, then run `webpack` manually. Then you can launch the [Production] Launch Web option from VSCode.
+Make sure you have .NET Core 2.0 installed and/or VS2017 15.3.
+VS2017 will automatically install all the neccessary npm & .NET dependencies when you open the project.
 
-> Note: `set ASPNETCORE_ENVIRONMENT=Production` on Windows. `export ASPNETCORE_ENVIRONMENT=Production` on Mac/Linux.
+Simply push F5 to start debugging !
+
+**Note**: If you get any errors after this such as `module not found: boot.server` (or similar), open up command line and run `npm run build:dev` to make sure all the assets have been properly built by Webpack.
+
+### Visual Studio Code
+
+> Note: Make sure you have the C# extension & .NET Core Debugger installed.
+
+The project comes with the configured Launch.json files to let you just push F5 to start the project.
+
+```bash
+# cd into the directory you cloned the project into
+npm install && npm run build:dev && dotnet restore
+# or yarn install
+```
+
+If you're running the project from command line with `dotnet run` make sure you set your environment variables to Development (otherwise things like HMR might not work).
+
+```bash
+# on Windows:
+set ASPNETCORE_ENVIRONMENT=Development
+# on Mac/Linux
+export ASPNETCORE_ENVIRONMENT=Development 
+```
+
+# Upcoming Features:
+
+- Update to use npm [ngAspnetCoreEngine](https://github.com/angular/universal/pull/682) (still need to tweak a few things there)
+- Potractor e2e testing
+- Add basic Redux State store (Will also hold state durijg HMR builds)
 
 ----
 
@@ -105,32 +149,22 @@ to: `ASPNETCORE_ENVIRONMENT=Production`, then run `webpack` manually. Then you c
 
 # Deployment
 
+### Dotnet publish
+Using `dotnet publish`, when it's finished place the generated folder onto your server and use IIS to fire everything up.
+
+### Heroku 
 <a href="https://dashboard.heroku.com/new?template=https://github.com/MarkPieszak/aspnetcore-angular2-universal.git">
 <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy on Heroku">
 </a>
 
-----
+### Azure
 
-----
+```bash
+git remote add azure https://your-user-name@my-angular2-site.scm.azurewebsites.net:443/my-angular2-site.git
+                     // ^ get this from Azure (Web App Overview section - Git clone url)
 
-# UPCOMING Features:
-
-  - [ ] (On-hold) Example of NgRx (redux) transfering App State from server to client - track [#29](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/29)
-  - [ ] (On-hold) AoT (Ahead-of-time compilation) production builds - track [#10](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/10)
-  - [x] ~~SignalR (Websockets) example - track [#39](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/39)~~
-  - [x] ~~Automatically update Browser Title on Route change [#32](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/32)~~
-  - [x] ~~Update components real unit & e2e tests - track [#45](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/45)~~
-  - [x] ~~Storage Service (localStorage) showcasing Dependency Injection per-platform - [#35](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues/35)~~
-  - [x] ~~NgRx (reactive Redux application state management)~~
-  - [x] ~~HMR State management (hold state when hot reload occurs)~~
-  - [x] ~~Unit testing with Karma/Jasmine~~
-  - [x] ~~Add e2e protractor tests~~
-  - [x] ~~Add codelyzer for static code analysis (VSCode / Atom only so far)~~
-  - [x] ~~Angular 2.1.1+ fixes (for Universal)~~
-
-----
-
-----
+git push --set-upstream azure master 
+```
 
 # Application Structure:
 
@@ -151,182 +185,232 @@ Here we have the *usual suspects* found at the root level.
 - `protractor` - config files (e2e testing)
 - `tslint` - TypeScript code linting rules
 
-### **`/Client/**` - The entire Angular project is in here**
+### /ClientApp/ - Everything Angular 
 
 > Let's take a look at how this is structured so we can make some sense of it all!
 
-With Angular Universal, we need to split things **per platform** so [if we look inside this folder](https://github.com/MarkPieszak/aspnetcore-angular2-universal/tree/master/Client), 
-you'll see the 2 most important files (also, these are how the entire application starts up):
+With Angular Universal, we need to split our applicatoin logic **per platform** so [if we look inside this folder](./ClientApp), 
+you'll see the 2 root files, that branch the entire logic for browser & server respectively.
 
-- [**Bootstrap-Client.ts**](https://github.com/MarkPieszak/aspnetcore-angular2-universal/blob/master/Client/bootstrap-client.ts) - 
+- [**Boot.Browser.ts**](./ClientApp/boot.browser.ts) - 
 This file starts up the entire Angular application for the Client/browser platform. 
 
-Here we setup a few things, client Angular bootstrapping, and also a little hack to handle 
-Hot Module Replacement (HMR), and make sure we *hold* our NgRx (RxJs redux application Store) state 
-between HMR cycles, ie: when you make a change to any Client file.
+Here we setup a few things, client Angular bootstrapping.
 
-You'll barely need to touch this file, but this is where you would import libraries that you only want 
-being used in the Browser.
+You'll barely need to touch this file, but something to note, this is the file where you would import libraries that you **only** want 
+being used in the Browser. (Just know that you'd have to provide a mock implementation for the Server when doing that).
 
-
-- [**Bootstrap-Server.ts**](https://github.com/MarkPieszak/aspnetcore-angular2-universal/blob/master/Client/bootstrap-server.ts) - 
-This file is where Angular Universal *serializes* the Angular application itself on the .NET server 
+- [**Boot.Server.ts**](./ClientApp/boot.server.ts) - 
+This file is where Angular _platform-server_ *serializes* the Angular application itself on the .NET server 
 within a very quick Node process, and renders it a string. This is what causes that initial fast paint 
-of the entire application to the Browser.
+of the entire application to the Browser, and helps us get all our _SEO_ goodness :sparkles:
 
-Notice the folder structure here in `./Client/` :
+---
+
+Notice the folder structure here in `./ClientApp/` :
 
 ```diff
-+ /Client/
++ /ClientApp/
 
 +   /app/
-    ROOT App Component / Routes / global css styles
+    App NgModule - our Root NgModule (you'll insert Components/etc here most often)
+    AppComponent / App Routes / global css styles
 
-++ > ++ > /platform-modules/
-            Platform specific NgModules (browser & server separated)
-++ > ++ > /shared-module/
-            BaseSharedModule (the lowest delimiter NgModule)
-++ > ++ > /state/
-            Here you will find our NgRx "State", Reducers, and magic HMR handler
+    * Notice that we have 2 dividing NgModules:
+        app.module.browser & app.module.server
+    You'll almost always be using the common app.module, but these 2 are used to split up platform logic
+    for situations where you need to use Dependency Injection / etc, between platforms.
 
+Note: You could use whatever folder conventions you'd like, I prefer to split up things in terms of whether they are re-usable 
+     "components" or routeable / page-like components that group together and organize entire sections.
 ++ > ++ > /components/ 
-      	    Here are all the regular Components that aren't "Pages" or container Components
+          Here are all the regular Components that aren't "Pages" or container Components
 
-++ > /containers/
-       These are the routeable or "Page / Container" Components, sometimes known as "Dumb" Components
+++ > ++ > /containers/
+          These are the routeable or "Page / Container" Components, sometimes known as "Dumb" Components
 
-++ > /shared/
-       Here we put all shared Services / Directives / Pipes etc
+++ > ++ > /shared/
+          Here we put all shared Services / Directives / Pipes etc
 ```
 
-When adding new features/components/etc to your application you'll be commonly adding things to the Root **NgModule**, 
-but why are there **two**?
+When adding new features/components/etc to your application you'll be commonly adding things to the Root **NgModule** (located 
+in `/ClientApp/app/app.module.ts`), but why are there **two** other NgModules in this folder?
 
-This is because we want to split our logic **per Platform**, but notice they both share a Common NgModule 
-named `app.common.module.ts` (in the same folder). When adding most things to your application, this is the only 
+This is because we want to split our logic **per Platform**, but notice they both share the Common NgModule 
+named `app.module.ts`. When adding most things to your application, this is the only 
 place you'll have to add in your new Component / Directive / Pipe / etc.  You'll only occassional need to manually 
-add in the Platform specific things to either `app.browser.module || app.server.module`.
+add in the Platform specific things to either `app.module.browser || app.module.server`.
 
-For example you can see how we're using Dependency Injection to inject a `StorageService` that is different 
+To illustrate this point with an example, you can see how we're using Dependency Injection to inject a `StorageService` that is different 
 for the Browser & Server.
 
 ```typescript
-// For the Browser (app.browser.module)
+// For the Browser (app.module.browser)
 { provide: StorageService, useClass: BrowserStorage }
 
-// For the Server (app.server.module)
+// For the Server (app.module.server)
 { provide: StorageService, useClass: ServerStorage }
 ```
 
-Besides that you can see how each platform NgModule has the neccessary Universal lifecycle hooks to setup HttpCacheService, etc.
-
-> Just remember, you'll usually only need to worry about `app.common.module`, as that's where you'll be adding most 
-of your applications new aspects.
+> Just remember, you'll usually only need to worry about `app.module.ts`, as that's where you'll be adding most 
+of your applications new aspects!
 
 
-### **`/Server/**` - MVC & WebAPI Controllers**
+### /Server/ - Our REST API (WebApi) - MVC Controller
 
 > As we pointed out, these are here for simplicities sake, and realistically you may want separate projects 
 for all your microservices / REST API projects / etc.
 
-----
+We're utilizing MVC within this application, but we only need & have ONE Controller, named `HomeController`. This is where our entire 
+Angular application gets serialized into a String, sent to the Browser, along with all the assets it needs to then bootstrap on the client-side, and become a full-blown SPA afterwards.
+
+---
+
+The short-version is that we invoke that Node process, passing in our Request object & invoke the `boot.server` file, and we get back a nice object that we pass into .NETs `ViewData` object, and sprinkle through out our `Views/Shared/_Layout.cshtml` and `/Views/Home/index.cshtml` files!
+
+A more detailed explanation can be found here: [ng-AspnetCore-Engine Readme](https://github.com/angular/universal/tree/master/modules/ng-aspnetcore-engine)
+
+```csharp
+// Prerender / Serialize application
+var prerenderResult = await Prerenderer.RenderToString(
+    /* all of our parameters / options / boot.server file / customData object goes here */
+);
+
+ViewData["SpaHtml"] = prerenderResult.Html;
+ViewData["Title"] = prerenderResult.Globals["title"];
+ViewData["Styles"] = prerenderResult.Globals["styles"];
+ViewData["Meta"] = prerenderResult.Globals["meta"];
+ViewData["Links"] = prerenderResult.Globals["links"];
+
+return View(); // let's render the MVC View
+```
+
+Take a look at the `_Layout.cshtml` file for example, notice how we let .NET handle and inject all our SEO magic (that we extracted from Angular itself) !
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <base href="/" />
+        <!-- Title will be the one you set in your Angular application -->
+        <title>@ViewData["Title"] - AspNET.Core Angular 4.0.0 (+) starter</title>
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        @Html.Raw(ViewData["Meta"]) <!-- <meta /> tags -->
+        @Html.Raw(ViewData["Links"]) <!-- <link /> tags -->
+        
+        <link rel="stylesheet" href="~/dist/vendor.css" asp-append-version="true" />
+
+        @Html.Raw(ViewData["Styles"]) <!-- <style /> tags -->
+
+    </head>
+    ... etc ...
+```
+
+Our `Views/Home/index.cshtml` simply renders the application and serves the bundled webpack files in it.
+
+```html
+@Html.Raw(ViewData["SpaHtml"])
+
+<script src="~/dist/vendor.js" asp-append-version="true"></script>
+@section scripts {
+    <script src="~/dist/main-client.js" asp-append-version="true"></script>
+}
+```
+
+### What happens after the App gets server rendered?
+
+Well now, your Client-side Angular will take over, and you'll have a fully functioning SPA. (But we gained all these great SEO benefits of being server-rendered) !
+
+:sparkles:
+
 
 ----
 
-# Universal "Gotchas"
+----
 
-> When building "Universal" components in Angular 2 there are a few things to keep in mind. 
+# "Gotchas"
 
-**What does it mean to be Universal?**
+- This repository uses ASP.Net Core 2.0, which has a hard requirement on .NET Core Runtime 2.0.0 and .NET Core SDK 2.0.0. Please install these items from [here](https://github.com/dotnet/core/blob/master/release-notes/download-archives/2.0.0-download.md)
 
-It means that every Component in your application is going to be ran on the Server, *as well* as the Client (browser)!
-There are some important things to consider when creating an application like this, 
-below we'll list out a few common problems developers trying to make isomorphic javascript applications run into:
+> When building components in Angular 4 there are a few things to keep in mind.
 
  - **`window`**, **`document`**, **`navigator`**, and other browser types - _do not exist on the server_ - so using them, or any library that uses them (jQuery for example) will not work. You do have some options, if you truly need some of this functionality:
-    - If you need to use them, consider limiting them to only your main.client and wrapping them situationally with the imported *isBrowser / isNode* features from Universal.  `import { isBrowser, isNode } from 'angular2-universal'`;
-    - Another option is using `DOM` from ["@angular/platform-browser"](https://github.com/angular/angular/blob/e3687706c71beb7c9dbdae1bbb5fbbcea588c476/modules/%40angular/platform-browser/src/dom/dom_adapter.ts#L34)
- - To use `templateUrl` or `styleUrls` you must use **`angular2-template-loader`** in your TypeScript loaders.
-    - This is already setup within this starter repo. Look at the webpack.config file 
-    [here](https://github.com/MarkPieszak/aspnetcore-angular2-universal/blob/master/webpack.config.js#L59-L67) for details & implementation.
- - Try to *limit or* **avoid** using **`setTimeout`**. It will slow down the server-side rendering process. Make sure to remove them [`ondestroy`](https://angular.io/docs/ts/latest/api/core/index/OnDestroy-class.html) in Components.
+    - If you need to use them, consider limiting them to only your client and wrapping them situationally. You can use the Object injected using the PLATFORM_ID token to check whether the current platform is browser or server. 
+    
+    ```typescript
+     import { PLATFORM_ID } from '@angular/core';
+     import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+     
+     constructor(@Inject(PLATFORM_ID) private platformId: Object) { ... }
+     
+     ngOnInit() {
+       if (isPlatformBrowser(this.platformId)) {
+          // Client only code.
+          ...
+       }
+       if (isPlatformServer(this.platformId)) {
+         // Server only code.
+         ...
+       }
+     }
+    ```
+    
+     - Try to *limit or* **avoid** using **`setTimeout`**. It will slow down the server-side rendering process. Make sure to remove them [`ngOnDestroy`](https://angular.io/docs/ts/latest/api/core/index/OnDestroy-class.html) in Components.
    - Also for RxJs timeouts, make sure to _cancel_ their stream on success, for they can slow down rendering as well.
- - **Don't manipulate the nativeElement directly**. Use the _Renderer_. We do this to ensure that in any environment we're able to change our view.
+ - **Don't manipulate the nativeElement directly**. Use the _Renderer2_. We do this to ensure that in any environment we're able to change our view.
 ```typescript
-constructor(element: ElementRef, renderer: Renderer) {
-  renderer.setElementStyle(element.nativeElement, 'font-size', 'x-large');
+constructor(element: ElementRef, renderer: Renderer2) {
+  this.renderer.setStyle(element.nativeElement, 'font-size', 'x-large');
 }
 ```
  - The application runs XHR requests on the server & once again on the Client-side (when the application bootstraps)
-    - Use a Universal [HttpCacheService](https://github.com/MarkPieszak/aspnetcore-angular2-universal/blob/master/Client/shared/cache/api.ts#L14-L47) instead of making regular Http requests, to save certain requests so they aren't re-ran again on the Client. [demo'd here](https://github.com/MarkPieszak/aspnetcore-angular2-universal/blob/master/Client/containers/rest-test/rest-test.component.ts#L32-L40)
+    - Use a cache that's transferred from server to client (TODO: Point to the example)
  - Know the difference between attributes and properties in relation to the DOM.
- - Keep your directives stateless as much as possible. For stateful directives, you may need to provide an attribute that reflects the corresponding property with an initial string value such as url in img tag. For our native `<img src="">` element the src attribute is reflected as the _src_ property of the element type `HTMLImageElement`.
+ - Keep your directives stateless as much as possible. For stateful directives, you may need to provide an attribute that reflects the corresponding property with an initial string value such as url in img tag. For our native element the src attribute is reflected as the src property of the element type HTMLImageElement.
+
+----
 
 ----
  
-# Found a Bug? Want to Contribute?
+# FAQ - Also check out the [FAQ Issues label](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues?utf8=%E2%9C%93&q=is%3Aissue%20label%3Afaq)
 
-Nothing's ever perfect, but please let me know by creating an issue (make sure there isn't an existing one about it already), and we'll try and work out a fix for it! If you have any good ideas, or want to contribute, feel free to either make an Issue with the Proposal, or just make a PR from your Fork.
+### How can I disable SSR (Server-side rendering)?
 
-----
- 
-# FAQ
- 
-**How to add a route in the app**
+Simply comment out the logic within HomeController, and replace `@Html.Raw(ViewData["SpaHtml"])` with just your applications root 
+AppComponent tag ("app" in our case): `<app></app>`.
 
-1. Create a folder in `Client\Containers\`
-2. Create a component in the folder
-3. Add the container in the `Client\Containers\index.ts` (this is the "barrels" file for all containers)
-4. Add the container in the `\Client\app\platform-modules\app.common.module.ts`
-5. Add the container in the `\Client\app\app.routes.ts`
-
-### How can I disable Universal / SSR (Server-side rendering)?
-
-To disable SSR, go to `Views/Home/Index.cshtml` and remove `asp-prerender-module="Client/bootstrap-server"` from the `<app>` component there in the cshtml file.  
-
-### How do I prevent XHR calls from running again on the Client?
-
-Using the provided GET from [HttpCacheService](https://github.com/MarkPieszak/aspnetcore-angular2-universal/blob/master/Client/shared/cache/api.ts#L14-L47) as opposed 
-to regular `Http`, it will automatically Cache the response on the server, and pass it down through the html *for you*, and when the 
-Client tries to run it again, it will instantly grab the result from there.
-
-**This is essential for important XHR calls on a page that happen on page load**
+> You could also remove any `isPlatformBrowser/etc` logic, and delete the boot.server, app.module.browser & app.module.server files, just make sure your `boot.browser` file points to `app.module`.
 
 ### How do I have code run only in the Browser?
 
-Angular Universal has `isBrowser` & `isNode` you can import from `angular2-universal` to 
-conditionally run code. This is perfect for situations where code could *error* on the server. 
-Also, always remember that things like setTimeout / setInterval / etc should always be wrapped in this, 
-as you want to completely *avoid* doing them on the Server.
+Check the [Gotchas](#gotchas) on how to use `isPlatformBrowser()`.
 
-```typescript
-import { isBrowser } from 'angular2-universal';
+### How do I Material2 with this repo?
 
-if (isBrowser) {
-   // do something only in the Browser
-}
-```
+You'll either want to remove SSR for now, or wait as support should be coming to handle platform-server rendering.
 
-### How can I use Material2 with this Repo?
-
-For now, Material2 is still in beta, and isn't fully functioning with Universal (it will sometime soon though!), so temporarily disable SSR (server-side rendering) so you can use it within your application until updates come from Material, and you can have it rendered on the server as well. Read the Material docs to see how to add Material to your Angular application, with SSR disabled everything should work without any problems.
-
-### How can I use jQuery and/or some jQuery plugins with Angular Universal?
+### How can I use jQuery and/or some jQuery plugins with this repo?
 
 > Note: If at all possible, try to avoid using jQuery or libraries dependent on it, as there are 
-better, more abstract ways of dealing with the DOM in Angular (2+) such as using the Renderer, etc.
+better, more abstract ways of dealing with the DOM in Angular (4+) such as using the Renderer, etc.
 
 Yes, of course but there are a few things you need to setup before doing this. First, make sure jQuery 
 is included in webpack vendor file, and that you have a webpack Plugin setup for it. `new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery' })`
 
-Now, make sure any "plugins" etc that you have, are only included in your `bootstrap-client.ts` file. (ie: `import 'slick-carousel';`) 
+Now, make sure any "plugins" etc that you have, are only included in your `boot.browser.ts` file. (ie: `import 'slick-carousel';`) 
 In a Component you want to use jQuery, make sure to import it near the top like so:
 
 ```typescript
 import * as $ from 'jquery';
 ```
 
-**Always make sure to wrap anything jQuery oriented in Universal's `isBrowser` conditional!**
+**Always make sure to wrap anything jQuery oriented in Angular's `isPlatformBrowser()` conditional!**
+
+### How can I support IE9 through IE11?
+
+To support IE9 through IE11 open the `polyfills.ts` file in the `polyfills` folder and uncomment out the 'import polyfills' as needed.
 
 ----
 
@@ -334,6 +418,21 @@ import * as $ from 'jquery';
 
 Many thanks go out to Steve Sanderson ([@SteveSandersonMS](https://github.com/SteveSandersonMS)) from Microsoft and his amazing work on JavaScriptServices and integrating the world of Node with ASP.NET Core.
 
+Also thank you to the many Contributors !
+- [@Isaac2004](https://github.com/Isaac2004)
+- [@AbrarJahin](https://github.com/AbrarJahin)
+- [@LiverpoolOwen](https://github.com/LiverpoolOwen)
+- [@hakonamatata](https://github.com/hakonamatata)
+- [@markwhitfeld](https://github.com/markwhitfeld)
+- [@Ketrex](https://github.com/Ketrex)
+
+----
+ 
+# Found a Bug? Want to Contribute?
+
+[Check out our easier issues here](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3A%22PRs%20welcome!%22%20)
+
+Nothing's ever perfect, but please let me know by creating an issue (make sure there isn't an existing one about it already), and we'll try and work out a fix for it! If you have any good ideas, or want to contribute, feel free to either make an Issue with the Proposal, or just make a PR from your Fork.
 
 ----
 
@@ -342,5 +441,17 @@ Many thanks go out to Steve Sanderson ([@SteveSandersonMS](https://github.com/St
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](/LICENSE) 
 
 Copyright (c) 2016-2017 [Mark Pieszak](https://github.com/MarkPieszak)
+
+----
+
+# DevHelp.Online - Angular & ASP.NET - Consulting | Training | Development
+
+Check out **[www.DevHelp.Online](http://DevHelp.Online)** for more info!
+
+Contact us at <hello@devhelp.online>, and let's talk about your projects needs.
+
+----
+
+## Follow me online:
 
 Twitter: [@MarkPieszak](http://twitter.com/MarkPieszak) | Medium: [@MarkPieszak](https://medium.com/@MarkPieszak)

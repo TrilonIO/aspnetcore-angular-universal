@@ -1,0 +1,29 @@
+﻿<h1>This is a RestAPI Example (hitting WebAPI in our case)</h1>
+
+<blockquote>
+  Let's get some fake users from Rest:<br>
+  You can find the Web API Routes in <code>{{ "/Server/RestAPI/ ... "}}</code>
+</blockquote>
+
+<div>
+  <label>User name:</label> <input #userName />
+  <button class="btn btn-default" (click)="addUser(userName.value); userName.value=''">
+    Add
+  </button>
+</div>
+
+<p *ngIf="!users"><em>Loading...</em></p>
+<h2>Users</h2>
+<ul class="users">
+  <li *ngFor="let user of users"
+      [class.selected]="user === selectedUser"
+      (click)="onSelect(user)"
+      [@flyInOut]>
+    <span class="badge">{{user.id}}</span> {{user.name}}
+    <button class="delete"
+            (click)="deleteUser(user); $event.stopPropagation()">
+      x
+    </button>
+  </li>
+</ul>
+<user-detail [user]="selectedUser"></user-detail>

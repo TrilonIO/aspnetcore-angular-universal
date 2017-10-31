@@ -1,0 +1,25 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "name": "AspnetCore-Angular-Universal"
+  },
+  "apps": [
+    {
+      "root": "ClientApp"
+    }
+  ],
+  "defaults": {
+    "styleExt": "scss",
+    "component": {
+      "spec": false
+    }
+  },
+  "lint":[
+    {
+      "project": "ClientApp/tsconfig.app.json"
+    },
+    {
+      "project": "ClientApp/tsconfig.spec.json"
+    }
+  ]
+}

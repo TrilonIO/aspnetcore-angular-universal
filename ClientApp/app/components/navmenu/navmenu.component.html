@@ -1,0 +1,50 @@
+<div class='main-nav'>
+  <div class='navbar'>
+    <div class='navbar-header'>
+      <div class='navbar-brand'>
+        <button type='button' class='navbar-toggle' (click)="collapseNavbar()">
+          <span class='sr-only'>Toggle navigation</span>
+          <span class='icon-bar'></span>
+          <span class='icon-bar'></span>
+          <span class='icon-bar'></span>
+        </button>
+        <a [routerLink]="['/home']" class='navbar-link'>Angular 4 Universal & ASP.NET Core</a>
+      </div>
+    </div>
+    <div class='clearfix'></div>
+    <div class='navbar-collapse {{collapse}}'>
+      <ul class='nav navbar-nav'>
+        <li [routerLinkActive]="['link-active']" (click)="collapseMenu()">
+          <a [routerLink]="['/home']">
+            <span class='glyphicon glyphicon-home'></span> {{ 'HOME' | translate }}
+          </a>
+        </li>
+        <li [routerLinkActive]="['link-active']" (click)="collapseMenu()">
+          <a [routerLink]="['/counter']">
+            <span class='glyphicon glyphicon-education'></span> {{ 'COUNTER' | translate }}
+          </a>
+        </li>
+        <li [routerLinkActive]="['link-active']" (click)="collapseMenu()">
+          <a [routerLink]="['/users']">
+            <span class='glyphicon glyphicon-user'></span> Rest API Demo
+          </a>
+        </li>
+        <li [routerLinkActive]="['link-active']" (click)="collapseMenu()">
+          <a [routerLink]="['/ngx-bootstrap']">
+            <span class='glyphicon glyphicon-th-large'></span> ngx-Bootstrap demo
+          </a>
+        </li>
+        <li [routerLinkActive]="['link-active']" (click)="collapseMenu()">
+          <a [routerLink]="['/lazy']">
+            <span class='glyphicon glyphicon-star-empty'></span> Lazy-loaded demo
+          </a>
+        </li>
+        <!-- <li [routerLinkActive]="['link-active']" (click)="collapseMenu()">
+          <a [routerLink]="['/chat']">
+            <span class='glyphicon glyphicon-comment'></span> Chat
+          </a>
+        </li> -->
+      </ul>
+    </div>
+  </div>
+</div>

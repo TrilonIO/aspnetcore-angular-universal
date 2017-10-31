@@ -11,7 +11,12 @@
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
- 
+
+# yarn
+yarn.lock
+
+npm-debug.log.*
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
@@ -28,8 +33,9 @@ Obj/
 
 # Visual Studio 2015 cache/options directory
 .vs/
-/wwwroot/dist/**
-/Client/dist/**
+
+/wwwroot/dist/
+/ClientApp/dist/
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
@@ -181,6 +187,7 @@ BundleArtifacts/
 !*.[Cc]ache/
 
 # Others
+*.db
 ClientBin/
 ~$*
 *~
@@ -191,8 +198,10 @@ ClientBin/
 orleans.codegen.cs
 
 # Workaround for https://github.com/aspnet/JavaScriptServices/issues/235
-/node_modules/**
-!/node_modules/_placeholder.txt
+/node_modules
+node_modules
+node_modules/**/*
+node_modules/_placeholder.txt
 
 # RIA/Silverlight projects
 Generated_Code/
@@ -245,3 +254,12 @@ _Pvt_Extensions
 
 # Ignore AwesomeTypescript cache
 .awcache
+
+# VSCode files
+.vscode/chrome
+
+# Jest Code Coverage report
+coverage/
+
+.DS_Store
+package-lock.json
