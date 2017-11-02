@@ -11,6 +11,8 @@ enableProdMode();
 
 export default createServerRenderer((params) => {
 
+  console.log('server ?');
+
   // Platform-server provider configuration
   const setupOptions: IEngineOptions = {
     appSelector: '<app-root></app-root>',
@@ -24,6 +26,9 @@ export default createServerRenderer((params) => {
 
   return ngAspnetCoreEngine(setupOptions).then(response => {
 
+    // console.log('\n\n\naspnet-engine!!!\n\n\n')
+    console.log(response)
+
     // Apply your transferData to response.globals
     response.globals.transferData = createTransferScript({
       someData: 'Transfer this to the client on the window.TRANSFER_CACHE {} object',
@@ -31,7 +36,7 @@ export default createServerRenderer((params) => {
     });
 
     return ({
-      html: response.html, // our <app> serialized
+      html: response.html, // our <app-root> serialized
       globals: response.globals // all of our styles/scripts/meta-tags/link-tags for aspnet to serve up
     });
   });

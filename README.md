@@ -377,7 +377,7 @@ constructor(element: ElementRef, renderer: Renderer2) {
 ### How can I disable SSR (Server-side rendering)?
 
 Simply comment out the logic within HomeController, and replace `@Html.Raw(ViewData["SpaHtml"])` with just your applications root 
-AppComponent tag ("app" in our case): `<app-root></app-root>`.
+AppComponent tag ("app-root" in our case): `<app-root></app-root>`.
 
 > You could also remove any `isPlatformBrowser/etc` logic, and delete the boot.server, app.module.browser & app.module.server files, just make sure your `boot.browser` file points to `app.module`.
 

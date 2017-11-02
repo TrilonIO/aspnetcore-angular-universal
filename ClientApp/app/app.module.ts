@@ -4,6 +4,8 @@ import { CommonModule, APP_BASE_HREF } from '@angular/common';
 import { HttpModule, Http } from '@angular/http';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
+import { TransferHttpCacheModule } from '@nguniversal/common';
 
 import { Ng2BootstrapModule } from 'ngx-bootstrap';
 
@@ -17,15 +19,12 @@ import { HomeComponent } from './containers/home/home.component';
 import { UsersComponent } from './containers/users/users.component';
 import { UserDetailComponent } from './components/user-detail/user-detail.component';
 import { CounterComponent } from './containers/counter/counter.component';
-// import { ChatComponent } from './containers/chat/chat.component';
 import { NotFoundComponent } from './containers/not-found/not-found.component';
 import { NgxBootstrapComponent } from './containers/ngx-bootstrap-demo/ngx-bootstrap.component';
 
 import { LinkService } from './shared/link.service';
 import { UserService } from './shared/user.service';
-// import { ConnectionResolver } from './shared/route.resolver';
 import { ORIGIN_URL } from '@nguniversal/aspnetcore-engine';
-import { TransferHttpModule } from '../modules/transfer-http/transfer-http.module';
 
 export function createTranslateLoader(http: HttpClient, baseHref) {
     // Temporary Azure hack
@@ -44,18 +43,21 @@ export function createTranslateLoader(http: HttpClient, baseHref) {
         UsersComponent,
         UserDetailComponent,
         HomeComponent,
-        // ChatComponent,
         NotFoundComponent,
         NgxBootstrapComponent
     ],
     imports: [
         CommonModule,
-        HttpModule,
+        BrowserModule.withServerTransition({
+          appId: 'my-app-id' // make sure this matches with your Server NgModule
+        }),
         HttpClientModule,
+        TransferHttpCacheModule,
+        BrowserTransferStateModule,
+
+
         FormsModule,
         Ng2BootstrapModule.forRoot(), // You could also split this up if you don't want the Entire Module imported
-
-        TransferHttpModule, // Our Http TransferData method
 
         // i18n support
         TranslateModule.forRoot({
@@ -147,9 +149,9 @@ export function createTranslateLoader(http: HttpClient, baseHref) {
     providers: [
         LinkService,
         UserService,
-        // ConnectionResolver,
         TranslateModule
-    ]
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModuleShared {
 }
