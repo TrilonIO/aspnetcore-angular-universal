@@ -11,8 +11,6 @@ enableProdMode();
 
 export default createServerRenderer((params) => {
 
-  console.log('server ?');
-
   // Platform-server provider configuration
   const setupOptions: IEngineOptions = {
     appSelector: '<app-root></app-root>',
@@ -25,9 +23,6 @@ export default createServerRenderer((params) => {
   };
 
   return ngAspnetCoreEngine(setupOptions).then(response => {
-
-    // console.log('\n\n\naspnet-engine!!!\n\n\n')
-    console.log(response)
 
     // Apply your transferData to response.globals
     response.globals.transferData = createTransferScript({
