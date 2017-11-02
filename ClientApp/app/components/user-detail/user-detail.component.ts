@@ -3,7 +3,7 @@ import { IUser } from '../../models/User';
 import { UserService } from '../../shared/user.service';
 
 @Component({
-    selector: 'user-detail',
+    selector: 'app-user-detail',
     templateUrl: './user-detail.component.html'
 })
 export class UserDetailComponent {

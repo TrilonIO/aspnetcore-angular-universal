@@ -65,7 +65,11 @@ module.exports = (env) => {
                 entryModule: path.join(__dirname, 'ClientApp/app/app.module.browser#AppModule'),
                 exclude: ['./**/*.server.ts']
             })
-        ])
+        ]),
+        devtool: isDevBuild ? 'cheap-eval-source-map' : false,
+        node: {
+          fs: "empty"
+        }
     });
 
     // Configuration for server-side (prerendering) bundle suitable for running in Node
@@ -78,7 +82,19 @@ module.exports = (env) => {
                 manifest: require('./ClientApp/dist/vendor-manifest.json'),
                 sourceType: 'commonjs2',
                 name: './vendor'
-            })
+            }),
+            new webpack.ContextReplacementPlugin(
+              // fixes WARNING Critical dependency: the request of a dependency is an expression
+              /(.+)?angular(\\|\/)core(.+)?/,
+              path.join(__dirname, 'src'), // location of your src
+              {} // a map of your routes
+            ),
+            new webpack.ContextReplacementPlugin(
+              // fixes WARNING Critical dependency: the request of a dependency is an expression
+              /(.+)?express(\\|\/)(.+)?/,
+              path.join(__dirname, 'src'),
+              {}
+            )
         ].concat(isDevBuild ? [] : [
             new webpack.optimize.UglifyJsPlugin({
               compress: false,
@@ -96,7 +112,8 @@ module.exports = (env) => {
             path: path.join(__dirname, './ClientApp/dist')
         },
         target: 'node',
-        devtool: isDevBuild ? 'inline-source-map': false
+        // switch to "inline-source-map" if you want to debug the TS during SSR
+        devtool: isDevBuild ? 'cheap-eval-source-map' : false
     });
 
     return [clientBundleConfig, serverBundleConfig];

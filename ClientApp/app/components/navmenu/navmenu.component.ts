@@ -1,23 +1,23 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'nav-menu',
+    selector: 'app-nav-menu',
     templateUrl: './navmenu.component.html',
     styleUrls: ['./navmenu.component.css']
 })
 
 export class NavMenuComponent {
-    collapse: string = "collapse";
+    collapse: string = 'collapse';
 
     collapseNavbar(): void {
         if (this.collapse.length > 1) {
-            this.collapse = "";
+            this.collapse = '';
         } else {
-            this.collapse = "collapse";
+            this.collapse = 'collapse';
         }
     }
 
     collapseMenu() {
-        this.collapse = "collapse"
+        this.collapse = 'collapse';
     }
 }
