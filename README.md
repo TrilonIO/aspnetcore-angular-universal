@@ -1,6 +1,6 @@
 # ASP.NET Core 2.0 & Angular 5 (+) advanced starter - with Server-side prerendering (for Angular SEO)!
 
-> [(upcoming) Angular 5.0 demo Branch Here](https://github.com/MarkPieszak/aspnetcore-angular2-universal/tree/angular-5.0-updates)
+> Updated to the latest Angular 5.0 - Note ServerTransferModule still in the works - fix coming soon
 
 <p align="center">
     <img src="./docs/architecture.png" alt="ASP.NET Core 2.0 Angular 5+ Starter" title="ASP.NET Core 2.0 Angular 5+ Starter">
@@ -449,6 +449,10 @@ Copyright (c) 2016-2017 [Mark Pieszak](https://github.com/MarkPieszak)
 Check out **[www.DevHelp.Online](http://DevHelp.Online)** for more info!
 
 Contact us at <hello@devhelp.online>, and let's talk about your projects needs.
+
+<p align="center">
+    <img src="https://s3.amazonaws.com/media-p.slid.es/uploads/768119/images/4272479/Screen_Shot_2017-10-27_at_6.58.34_PM.png" alt="DevHelp.Online - Angular ASPNET JavaScript Consulting Development and Training">
+</p>
 
 ----
 
