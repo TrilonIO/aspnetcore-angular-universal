@@ -139,9 +139,8 @@ export ASPNETCORE_ENVIRONMENT=Development
 
 # Upcoming Features:
 
-- Update to use npm [ngAspnetCoreEngine](https://github.com/angular/universal/pull/682) (still need to tweak a few things there)
-- Potractor e2e testing
-- Add basic Redux State store (Will also hold state durijg HMR builds)
+- Fix HttpTransferCacheModule & ServerTransferModule to work with aspnet-engine
+- ~~Update to use npm [ngAspnetCoreEngine](https://github.com/angular/universal/pull/682) (still need to tweak a few things there)~~
 
 ----
 
@@ -268,7 +267,7 @@ Angular application gets serialized into a String, sent to the Browser, along wi
 
 The short-version is that we invoke that Node process, passing in our Request object & invoke the `boot.server` file, and we get back a nice object that we pass into .NETs `ViewData` object, and sprinkle through out our `Views/Shared/_Layout.cshtml` and `/Views/Home/index.cshtml` files!
 
-A more detailed explanation can be found here: [ng-AspnetCore-Engine Readme](https://github.com/angular/universal/tree/master/modules/ng-aspnetcore-engine)
+A more detailed explanation can be found here: [ng-AspnetCore-Engine Readme](https://github.com/angular/universal/tree/master/modules/aspnetcore-engine)
 
 ```csharp
 // Prerender / Serialize application
