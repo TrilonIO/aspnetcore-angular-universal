@@ -1,42 +1,55 @@
 using System;
-using System.IO;
+using AspCoreServer.Data;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
+using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.EntityFrameworkCore;
-using AspCoreServer.Data;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace AspCoreServer
 {
   public class Startup
   {
-
     public static void Main(string[] args)
     {
-      var host = new WebHostBuilder()
-          .UseKestrel()
-          .UseContentRoot(Directory.GetCurrentDirectory())
-          .UseIISIntegration()
-          .UseStartup<Startup>()
-          .Build();
+      var host = BuildWebHost(args);
+
+      using (var scope = host.Services.CreateScope())
+      {
+        var services = scope.ServiceProvider;
+
+        try
+        {
+          var context = services.GetRequiredService<SpaDbContext>();
+          //context.Database.Migrate();
+          DbInitializer.Initialize(context);
+        }
+        catch (Exception ex)
+        {
+          var logger = services.GetRequiredService<ILogger<Startup>>();
+          logger.LogError(ex, "An error occurred seeding the DB.");
+        }
+      }
 
       host.Run();
     }
-    public Startup(IHostingEnvironment env)
+
+    public static IWebHost BuildWebHost(string[] args) =>
+      WebHost.CreateDefaultBuilder(args)
+        .UseStartup<Startup>()
+        .Build();
+
+    public Startup(IConfiguration configuration)
     {
-      var builder = new ConfigurationBuilder()
-          .SetBasePath(env.ContentRootPath)
-          .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-          .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-          .AddEnvironmentVariables();
-      Configuration = builder.Build();
+      Configuration = configuration;
     }
 
-    public IConfigurationRoot Configuration { get; }
+    public IConfiguration Configuration { get; }
 
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
@@ -45,11 +58,11 @@ namespace AspCoreServer
       services.AddMvc();
       services.AddNodeServices();
 
-      var connectionStringBuilder = new Microsoft.Data.Sqlite.SqliteConnectionStringBuilder { DataSource = "spa.db" };
+      var connectionStringBuilder = new SqliteConnectionStringBuilder { DataSource = "spa.db" };
       var connectionString = connectionStringBuilder.ToString();
 
       services.AddDbContext<SpaDbContext>(options =>
-          options.UseSqlite(connectionString));
+        options.UseSqlite(connectionString));
 
       // Register the Swagger generator, defining one or more Swagger documents
       services.AddSwaggerGen(c =>
@@ -59,11 +72,9 @@ namespace AspCoreServer
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, SpaDbContext context)
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory,
+      SpaDbContext context)
     {
-      loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-      loggerFactory.AddDebug();
-
       app.UseStaticFiles();
 
       DbInitializer.Initialize(context);
@@ -90,8 +101,8 @@ namespace AspCoreServer
           builder.UseMvc(routes =>
           {
             routes.MapSpaFallbackRoute(
-                name: "spa-fallback",
-                defaults: new { controller = "Home", action = "Index" });
+              name: "spa-fallback",
+              defaults: new { controller = "Home", action = "Index" });
           });
         });
       }
@@ -100,18 +111,17 @@ namespace AspCoreServer
         app.UseMvc(routes =>
         {
           routes.MapRoute(
-           name: "default",
-           template: "{controller=Home}/{action=Index}/{id?}");
+            name: "default",
+            template: "{controller=Home}/{action=Index}/{id?}");
 
           routes.MapRoute(
-           "Sitemap",
-           "sitemap.xml",
-           new { controller = "Home", action = "SitemapXml" });
+            "Sitemap",
+            "sitemap.xml",
+            new { controller = "Home", action = "SitemapXml" });
 
           routes.MapSpaFallbackRoute(
             name: "spa-fallback",
             defaults: new { controller = "Home", action = "Index" });
-
         });
         app.UseExceptionHandler("/Home/Error");
       }
