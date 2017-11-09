@@ -1,23 +1,23 @@
-# ASP.NET Core 2.0 & Angular 4 (+) advanced starter - with Server-side prerendering (for Angular SEO)!
+# ASP.NET Core 2.0 & Angular 5 (+) advanced starter - with Server-side prerendering (for Angular SEO)!
 
-> [(upcoming) Angular 5.0 demo Branch Here](https://github.com/MarkPieszak/aspnetcore-angular2-universal/tree/angular-5.0-updates)
+> Updated to the latest Angular 5.0 - Note ServerTransferModule still in the works - fix coming soon
 
 <p align="center">
-    <img src="./docs/architecture.png" alt="ASP.NET Core 2.0 Angular 4+ Starter" title="ASP.NET Core 2.0 Angular 4+ Starter">
+    <img src="./docs/architecture.png" alt="ASP.NET Core 2.0 Angular 5+ Starter" title="ASP.NET Core 2.0 Angular 5+ Starter">
 </p>
 
-### Harness the power of Angular 4+, ASP.NET Core 2.0, now with SEO !
+### Harness the power of Angular 5+, ASP.NET Core 2.0, now with SEO !
 
 Angular SEO in action:
 
 <p align="center">
-  <img src="./docs/angular2-seo.png" alt="ASP.NET Core Angular4 SEO" title="ASP.NET Core Angular4 SEO">
+  <img src="./docs/angular2-seo.png" alt="ASP.NET Core Angular5 SEO" title="ASP.NET Core Angular5 SEO">
 </p>
 
 ### What is this repo? Live Demo here: http://aspnetcore-angular2-universal.azurewebsites.net
 
 This repository is maintained by [Angular](https://github.com/angular/angular) and is meant to be an advanced starter 
-for both ASP.NET Core 2.0 using Angular 4.0+, not only for the client-side, but to be rendered on the server for instant 
+for both ASP.NET Core 2.0 using Angular 5.0+, not only for the client-side, but to be rendered on the server for instant 
 application paints (Note: If you don't need SSR [read here](#faq) on how to disable it).
 
 This is meant to be a Feature-Rich Starter application containing all of the latest technologies, best build systems available, and include many real-world examples and libraries needed in todays Single Page Applications (SPAs).
@@ -51,7 +51,7 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
   - Swagger WebAPI documentation when running in development mode 
   - SignalR Chat demo! (Thanks to [@hakonamatata](https://github.com/hakonamatata))
 
-- **Angular 4.0.0** :
+- **Angular 5.0.0** :
   - (Minimal) Angular-CLI integration 
     - This is to be used mainly for Generating Components/Services/etc.
     - Usage examples: 
@@ -139,9 +139,8 @@ export ASPNETCORE_ENVIRONMENT=Development
 
 # Upcoming Features:
 
-- Update to use npm [ngAspnetCoreEngine](https://github.com/angular/universal/pull/682) (still need to tweak a few things there)
-- Potractor e2e testing
-- Add basic Redux State store (Will also hold state durijg HMR builds)
+- Fix HttpTransferCacheModule & ServerTransferModule to work with aspnet-engine
+- ~~Update to use npm [ngAspnetCoreEngine](https://github.com/angular/universal/pull/682) (still need to tweak a few things there)~~
 
 ----
 
@@ -268,7 +267,7 @@ Angular application gets serialized into a String, sent to the Browser, along wi
 
 The short-version is that we invoke that Node process, passing in our Request object & invoke the `boot.server` file, and we get back a nice object that we pass into .NETs `ViewData` object, and sprinkle through out our `Views/Shared/_Layout.cshtml` and `/Views/Home/index.cshtml` files!
 
-A more detailed explanation can be found here: [ng-AspnetCore-Engine Readme](https://github.com/angular/universal/tree/master/modules/ng-aspnetcore-engine)
+A more detailed explanation can be found here: [ng-AspnetCore-Engine Readme](https://github.com/angular/universal/tree/master/modules/aspnetcore-engine)
 
 ```csharp
 // Prerender / Serialize application
@@ -293,7 +292,7 @@ Take a look at the `_Layout.cshtml` file for example, notice how we let .NET han
     <head>
         <base href="/" />
         <!-- Title will be the one you set in your Angular application -->
-        <title>@ViewData["Title"] - AspNET.Core Angular 4.0.0 (+) starter</title>
+        <title>@ViewData["Title"] - AspNET.Core Angular 5.0.0 (+) starter</title>
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -334,7 +333,7 @@ Well now, your Client-side Angular will take over, and you'll have a fully funct
 
 - This repository uses ASP.Net Core 2.0, which has a hard requirement on .NET Core Runtime 2.0.0 and .NET Core SDK 2.0.0. Please install these items from [here](https://github.com/dotnet/core/blob/master/release-notes/download-archives/2.0.0-download.md)
 
-> When building components in Angular 4 there are a few things to keep in mind.
+> When building components in Angular 5 there are a few things to keep in mind.
 
  - **`window`**, **`document`**, **`navigator`**, and other browser types - _do not exist on the server_ - so using them, or any library that uses them (jQuery for example) will not work. You do have some options, if you truly need some of this functionality:
     - If you need to use them, consider limiting them to only your client and wrapping them situationally. You can use the Object injected using the PLATFORM_ID token to check whether the current platform is browser or server. 
@@ -379,7 +378,7 @@ constructor(element: ElementRef, renderer: Renderer2) {
 ### How can I disable SSR (Server-side rendering)?
 
 Simply comment out the logic within HomeController, and replace `@Html.Raw(ViewData["SpaHtml"])` with just your applications root 
-AppComponent tag ("app" in our case): `<app></app>`.
+AppComponent tag ("app-root" in our case): `<app-root></app-root>`.
 
 > You could also remove any `isPlatformBrowser/etc` logic, and delete the boot.server, app.module.browser & app.module.server files, just make sure your `boot.browser` file points to `app.module`.
 
@@ -394,7 +393,7 @@ You'll either want to remove SSR for now, or wait as support should be coming to
 ### How can I use jQuery and/or some jQuery plugins with this repo?
 
 > Note: If at all possible, try to avoid using jQuery or libraries dependent on it, as there are 
-better, more abstract ways of dealing with the DOM in Angular (4+) such as using the Renderer, etc.
+better, more abstract ways of dealing with the DOM in Angular (5+) such as using the Renderer, etc.
 
 Yes, of course but there are a few things you need to setup before doing this. First, make sure jQuery 
 is included in webpack vendor file, and that you have a webpack Plugin setup for it. `new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery' })`
@@ -444,9 +443,15 @@ Copyright (c) 2016-2017 [Mark Pieszak](https://github.com/MarkPieszak)
 
 ----
 
-# Looking for Angular & ASP.NET Consulting / Training / support?
+# DevHelp.Online - Angular & ASP.NET - Consulting | Training | Development
 
-Contact me at <mpieszak84@gmail.com>, and let's talk about your projects needs!
+Check out **[www.DevHelp.Online](http://DevHelp.Online)** for more info!
+
+Contact us at <hello@devhelp.online>, and let's talk about your projects needs.
+
+<p align="center">
+    <img src="https://s3.amazonaws.com/media-p.slid.es/uploads/768119/images/4272479/Screen_Shot_2017-10-27_at_6.58.34_PM.png" alt="DevHelp.Online - Angular ASPNET JavaScript Consulting Development and Training">
+</p>
 
 ----
 

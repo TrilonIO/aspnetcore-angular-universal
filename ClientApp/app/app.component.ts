@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, OnDestroy, Inject, ViewEncapsulation, RendererFactory2, PLATFORM_ID } from '@angular/core';
+﻿import { Component, OnInit, OnDestroy, Inject, ViewEncapsulation, RendererFactory2, PLATFORM_ID, Injector } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute, PRIMARY_OUTLET } from '@angular/router';
 import { Meta, Title, DOCUMENT, MetaDefinition } from '@angular/platform-browser';
 import { Subscription } from 'rxjs/Subscription';
@@ -7,10 +7,10 @@ import { LinkService } from './shared/link.service';
 
 // i18n support
 import { TranslateService } from '@ngx-translate/core';
-import { REQUEST } from './shared/constants/request';
+import { REQUEST } from '@nguniversal/aspnetcore-engine';
 
 @Component({
-    selector: 'app',
+    selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
     encapsulation: ViewEncapsulation.None
@@ -23,6 +23,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private defaultPageTitle: string = 'My App';
 
     private routerSub$: Subscription;
+    private request;
 
     constructor(
         private router: Router,
@@ -31,13 +32,15 @@ export class AppComponent implements OnInit, OnDestroy {
         private meta: Meta,
         private linkService: LinkService,
         public translate: TranslateService,
-        @Inject(REQUEST) private request
+        private injector: Injector
     ) {
         // this language will be used as a fallback when a translation isn't found in the current language
         translate.setDefaultLang('en');
 
         // the lang to use, if the lang isn't available, it will use the current loader to get them
         translate.use('en');
+
+        this.request = this.injector.get(REQUEST);
 
         console.log(`What's our REQUEST Object look like?`);
         console.log(`The Request object only really exists on the Server, but on the Browser we can at least see Cookies`);

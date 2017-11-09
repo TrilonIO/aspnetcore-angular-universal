@@ -11,7 +11,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const AotPlugin = require('@ngtools/webpack').AotPlugin;
+const AngularCompilerPlugin = require('@ngtools/webpack').AngularCompilerPlugin;
 const CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin;
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
@@ -60,12 +60,16 @@ module.exports = (env) => {
             // new BundleAnalyzerPlugin(),
             // Plugins that apply in production builds only
             new webpack.optimize.UglifyJsPlugin(),
-            new AotPlugin({
+            new AngularCompilerPlugin({
                 tsConfigPath: './tsconfig.json',
                 entryModule: path.join(__dirname, 'ClientApp/app/app.module.browser#AppModule'),
                 exclude: ['./**/*.server.ts']
             })
-        ])
+        ]),
+        devtool: isDevBuild ? 'cheap-eval-source-map' : false,
+        node: {
+          fs: "empty"
+        }
     });
 
     // Configuration for server-side (prerendering) bundle suitable for running in Node
@@ -78,14 +82,26 @@ module.exports = (env) => {
                 manifest: require('./ClientApp/dist/vendor-manifest.json'),
                 sourceType: 'commonjs2',
                 name: './vendor'
-            })
+            }),
+            new webpack.ContextReplacementPlugin(
+              // fixes WARNING Critical dependency: the request of a dependency is an expression
+              /(.+)?angular(\\|\/)core(.+)?/,
+              path.join(__dirname, 'src'), // location of your src
+              {} // a map of your routes
+            ),
+            new webpack.ContextReplacementPlugin(
+              // fixes WARNING Critical dependency: the request of a dependency is an expression
+              /(.+)?express(\\|\/)(.+)?/,
+              path.join(__dirname, 'src'),
+              {}
+            )
         ].concat(isDevBuild ? [] : [
             new webpack.optimize.UglifyJsPlugin({
               compress: false,
               mangle: false
             }),
             // Plugins that apply in production builds only
-            new AotPlugin({
+            new AngularCompilerPlugin({
                 tsConfigPath: './tsconfig.json',
                 entryModule: path.join(__dirname, 'ClientApp/app/app.module.server#AppModule'),
                 exclude: ['./**/*.browser.ts']
@@ -96,7 +112,8 @@ module.exports = (env) => {
             path: path.join(__dirname, './ClientApp/dist')
         },
         target: 'node',
-        devtool: isDevBuild ? 'inline-source-map': false
+        // switch to "inline-source-map" if you want to debug the TS during SSR
+        devtool: isDevBuild ? 'cheap-eval-source-map' : false
     });
 
     return [clientBundleConfig, serverBundleConfig];
