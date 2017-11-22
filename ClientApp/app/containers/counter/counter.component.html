@@ -5,3 +5,35 @@
 <p>Current count: <strong>{{ currentCount }}</strong></p>
 
 <button (click)="incrementCounter()">Increment</button>
+
+<br>
+
+<p>==================================Form============================</p>
+<form (ngSubmit)="sendUserMessage(userMessageModel)" class="contactForm" [formGroup]="cform" method="post">
+  <div class="row">
+    <div class="col-md-6">
+      <formly-form [model]="userMessageModel" [fields]="[userMessageFields[0]]" [options]="userOptions">
+      </formly-form>
+    </div>
+    <div class="col-md-6">
+      <formly-form [model]="userMessageModel" [fields]="[userMessageFields[1]]" [options]="userOptions">
+      </formly-form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12" style="padding-bottom: 6px;">
+      <formly-form [model]="userMessageModel" [fields]="[userMessageFields[2]]" [options]="userOptions">
+      </formly-form>
+      <button type="submit" class="btn btn-system btn-medium">Send Message</button>
+    </div>
+  </div>
+</form>
+<hr>
+<br><strong>FORM DATA:</strong><br>
+<pre>{{userMessageModel | json}}</pre><br>
+<h2>Form</h2>
+<pre>{{cform | json}}</pre>
+<h1>Fields</h1>
+<pre>{{ userMessageFields | circularJson }}</pre>
+<h2>Options</h2>
+<pre>{{userOptions | circularJson}}</pre>

@@ -6,6 +6,9 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { TransferHttpCacheModule } from '@nguniversal/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormlyModule } from '@ngx-formly/core';
+import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 
 import { Ng2BootstrapModule } from 'ngx-bootstrap';
 
@@ -15,6 +18,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
+import { CircularJsonPipe } from './components/json-circ/json-circ.pipe';
 import { HomeComponent } from './containers/home/home.component';
 import { UsersComponent } from './containers/users/users.component';
 import { UserDetailComponent } from './components/user-detail/user-detail.component';
@@ -44,7 +48,8 @@ export function createTranslateLoader(http: HttpClient, baseHref) {
         UserDetailComponent,
         HomeComponent,
         NotFoundComponent,
-        NgxBootstrapComponent
+        NgxBootstrapComponent,
+        CircularJsonPipe
     ],
     imports: [
         CommonModule,
@@ -57,6 +62,9 @@ export function createTranslateLoader(http: HttpClient, baseHref) {
 
 
         FormsModule,
+        ReactiveFormsModule,
+        FormlyModule.forRoot(),
+        FormlyBootstrapModule,
         Ng2BootstrapModule.forRoot(), // You could also split this up if you don't want the Entire Module imported
 
         // i18n support
