@@ -449,7 +449,7 @@ Copyright (c) 2016-2017 [Mark Pieszak](https://github.com/MarkPieszak)
 
 # DevHelp.Online - Angular & ASP.NET - Consulting | Training | Development
 
-Check out **[www.DevHelp.Online](http://DevHelp.Online)** for more info!
+Check out **[www.DevHelp.Online](http://DevHelp.Online)** for more info! Twitter [@DevHelpOnline](http://www.twitter.com/DevHelpOnline)
 
 Contact us at <hello@devhelp.online>, and let's talk about your projects needs.
 
