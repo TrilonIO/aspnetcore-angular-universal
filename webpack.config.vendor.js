@@ -16,13 +16,16 @@ const treeShakableModules = [
     'zone.js',
 ];
 const nonTreeShakableModules = [
-    // 'bootstrap',
-    // 'bootstrap/dist/css/bootstrap.css',
-    'core-js',
-    // 'es6-promise',
-    // 'es6-shim',
-    'event-source-polyfill',
-    // 'jquery',
+  //https://getbootstrap.com/docs/4.0/getting-started/webpack/
+  'bootstrap',
+  'bootstrap/dist/css/bootstrap.min.css',
+  //'bootstrap/js/dist/util';
+  //'bootstrap/js/dist/dropdown';
+  'core-js',
+  // 'es6-promise',
+  // 'es6-shim',
+  'event-source-polyfill'
+  // 'jquery',
 ];
 const allModules = treeShakableModules.concat(nonTreeShakableModules);
 
@@ -44,7 +47,15 @@ module.exports = (env) => {
             library: '[name]_[hash]'
         },
         plugins: [
-            // new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery' }), // Maps these identifiers to the jQuery package (because Bootstrap expects it to be a global variable)
+          new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
+            'window.jQuery': 'jquery',
+            Popper: ['popper.js', 'default'],
+            // In case you imported plugins individually, you must also require them here:
+            //Util: "exports-loader?Util!bootstrap/js/dist/util",
+            //Dropdown: "exports-loader?Dropdown!bootstrap/js/dist/dropdown"
+          }), // Maps these identifiers to the jQuery package (because Bootstrap expects it to be a global variable)
             new webpack.ContextReplacementPlugin(/\@angular\b.*\b(bundles|linker)/, path.join(__dirname, './ClientApp')), // Workaround for https://github.com/angular/angular/issues/11580
             new webpack.ContextReplacementPlugin(/(.+)?angular(\\|\/)core(.+)?/, path.join(__dirname, './ClientApp')), // Workaround for https://github.com/angular/angular/issues/14898
             new webpack.IgnorePlugin(/^vertx$/) // Workaround for https://github.com/stefanpenner/es6-promise/issues/100

@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Webpack (JavaScriptServices) with a few changes & updates
  * - This is to keep us inline with JSServices, and help those using that template to add things from this one
  *
@@ -113,7 +113,7 @@ module.exports = (env) => {
         },
         target: 'node',
         // switch to "inline-source-map" if you want to debug the TS during SSR
-        devtool: isDevBuild ? 'cheap-eval-source-map' : false
+        devtool: isDevBuild ? 'inline-source-map' : false
     });
 
     return [clientBundleConfig, serverBundleConfig];
