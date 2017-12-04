@@ -392,10 +392,6 @@ AppComponent tag ("app-root" in our case): `<app-root></app-root>`.
 
 Check the [Gotchas](#gotchas) on how to use `isPlatformBrowser()`.
 
-### How do I Material2 with this repo?
-
-You'll either want to remove SSR for now, or wait as support should be coming to handle platform-server rendering.
-
 ### How can I use jQuery and/or some jQuery plugins with this repo?
 
 > Note: If at all possible, try to avoid using jQuery or libraries dependent on it, as there are 
