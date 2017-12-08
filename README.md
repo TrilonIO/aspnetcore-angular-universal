@@ -1,5 +1,6 @@
 # ASP.NET Core 2.0 & Angular 5(+) Advanced Starter - with Server-side prerendering (for Angular SEO)! 
 
+> **NOTE** Currently issues with SSR and 5.x - SSR temporarily removed
 ## By [DevHelp.Online](http://www.DevHelp.Online)
 
 > Updated to the latest Angular 5.0 - 
