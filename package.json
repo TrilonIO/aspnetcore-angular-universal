@@ -11,6 +11,7 @@
     "build:dev": "npm run build:vendor && npm run build:webpack",
     "build:webpack": "webpack --progress --color",
     "build:prod": "npm run clean && npm run build:vendor -- --env.prod && npm run build:webpack -- --env.prod",
+    "build:p": "npm run build:webpack -- --env.prod",
     "build:vendor": "webpack --config webpack.config.vendor.js --progress --color",
     "clean": "rimraf wwwroot/dist clientapp/dist"
   },
@@ -68,7 +69,7 @@
   },
   "devDependencies": {
     "@angular/cli": "^1.5.0",
-    "@ngtools/webpack": "^1.8.0",
+    "@ngtools/webpack": "^1.9.0",
     "@types/chai": "^3.4.34",
     "@types/jasmine": "^2.5.37",
     "chai": "^3.5.0",
