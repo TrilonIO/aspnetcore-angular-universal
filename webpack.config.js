@@ -59,11 +59,12 @@ module.exports = (env) => {
         ] : [
             // new BundleAnalyzerPlugin(),
             // Plugins that apply in production builds only
-            new webpack.optimize.UglifyJsPlugin(),
+            // new webpack.optimize.UglifyJsPlugin(),
             new AngularCompilerPlugin({
-                tsConfigPath: './tsconfig.json',
-                entryModule: path.join(__dirname, 'ClientApp/app/app.module.browser#AppModule'),
-                exclude: ['./**/*.server.ts']
+              mainPath: path.join(__dirname, 'ClientApp/boot.browser.ts'),
+              tsConfigPath: './tsconfig.json',
+              entryModule: path.join(__dirname, 'ClientApp/app/app.module.browser#AppModule'),
+              exclude: ['./**/*.server.ts']
             })
         ]),
         devtool: isDevBuild ? 'cheap-eval-source-map' : false,
@@ -96,15 +97,16 @@ module.exports = (env) => {
               {}
             )
         ].concat(isDevBuild ? [] : [
-            new webpack.optimize.UglifyJsPlugin({
-              compress: false,
-              mangle: false
-            }),
+            // new webpack.optimize.UglifyJsPlugin({
+            //   compress: false,
+            //   mangle: false
+            // }),
             // Plugins that apply in production builds only
             new AngularCompilerPlugin({
-                tsConfigPath: './tsconfig.json',
-                entryModule: path.join(__dirname, 'ClientApp/app/app.module.server#AppModule'),
-                exclude: ['./**/*.browser.ts']
+              mainPath: path.join(__dirname, 'ClientApp/boot.server.ts'),
+              tsConfigPath: './tsconfig.json',
+              entryModule: path.join(__dirname, 'ClientApp/app/app.module.server#AppModule'),
+              exclude: ['./**/*.browser.ts']
             })
         ]),
         output: {
