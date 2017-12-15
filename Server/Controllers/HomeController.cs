@@ -32,11 +32,8 @@ namespace AspCoreServer.Controllers
       return View();
     }
 
-    [HttpGet]
-    [Route("sitemap.xml")]
-    public IActionResult SitemapXml()
-    => Content(string.Format(@"<?xml version=""1.0"" encoding=""utf-8""?>
-
+    const string SITEMAP_XML =
+@"<?xml version=""1.0"" encoding=""utf-8""?>
 <sitemapindex xmlns=""http://www.sitemaps.org/schemas/sitemap/0.9"">
 <sitemap>
   <loc>/home</loc>
@@ -47,9 +44,12 @@ namespace AspCoreServer.Controllers
   <lastmod>{0}</lastmod>
 </sitemap>
 </sitemapindex>
+";
 
-"), DateTime.Now.ToString("yyyy-MM-dd"));
-
+    [HttpGet]
+    [Route("sitemap.xml")]
+    public IActionResult SitemapXml()
+      => Content(string.Format(SITEMAP_XML, DateTime.Now.ToString("yyyy-MM-dd")));
 
     public IActionResult Error() => View();
     
