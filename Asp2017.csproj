@@ -14,6 +14,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="1.0.0" />
   </ItemGroup>
   <ItemGroup>
+      <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="2.0.0" />
+  </ItemGroup>    
+  <ItemGroup>
     <!-- Files not to show in IDE -->
     <None Remove="yarn.lock" />
     <Content Remove="wwwroot\dist\**" />
