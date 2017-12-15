@@ -19,6 +19,8 @@ namespace AspCoreServer.Controllers
     [HttpGet]
     public async Task<IActionResult> Index()
     {
+
+      await Task.CompletedTask; // Placeholder to disregard warnings for now.
       // var prerenderResult = await Request.BuildPrerender();
 
       // ViewData["SpaHtml"] = prerenderResult.Html; // our <app-root /> from Angular
@@ -36,6 +38,8 @@ namespace AspCoreServer.Controllers
     [Route("sitemap.xml")]
     public async Task<IActionResult> SitemapXml()
     {
+      await Task.CompletedTask; // Placeholder to disregard warnings for now.
+
       String xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
 
       xml += "<sitemapindex xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">";
