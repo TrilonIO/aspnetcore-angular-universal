@@ -38,8 +38,7 @@ namespace AspCoreServer.Controllers
     [HttpGet]
     [Route("sitemap.xml")]
     public IActionResult SitemapXml()
-      => Content(string.Format(@"
-<?xml version=""1.0"" encoding=""utf-8""?>
+    => Content(string.Format(@"<?xml version=""1.0"" encoding=""utf-8""?>
 
 <sitemapindex xmlns=""http://www.sitemaps.org/schemas/sitemap/0.9"">
 <sitemap>
