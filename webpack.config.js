@@ -37,7 +37,10 @@ module.exports = (env) => {
                 ...sharedModuleRules
             ]
         },
-        plugins: [new CheckerPlugin()]
+        plugins: [
+          new CheckerPlugin(),
+            new webpack.ContextReplacementPlugin(/angular(\\|\/)core(\\|\/)@angular/, path.join(__dirname, './ClientApp')), // Workaround for https://github.com/angular/angular/issues/14898
+        ]
     };
 
     // Configuration for client-side bundle suitable for running in browsers
