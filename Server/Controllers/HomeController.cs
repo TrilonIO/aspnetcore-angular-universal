@@ -32,30 +32,26 @@ namespace AspCoreServer.Controllers
       return View();
     }
 
+    const string SITEMAP_XML =
+@"<?xml version=""1.0"" encoding=""utf-8""?>
+<sitemapindex xmlns=""http://www.sitemaps.org/schemas/sitemap/0.9"">
+<sitemap>
+  <loc>/home</loc>
+  <lastmod>{0}</lastmod>
+</sitemap>
+<sitemap>
+  <loc>/counter</loc>
+  <lastmod>{0}</lastmod>
+</sitemap>
+</sitemapindex>
+";
+
     [HttpGet]
     [Route("sitemap.xml")]
-    public async Task<IActionResult> SitemapXml()
-    {
-      String xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
+    public IActionResult SitemapXml()
+      => Content(string.Format(SITEMAP_XML, DateTime.Now.ToString("yyyy-MM-dd")));
 
-      xml += "<sitemapindex xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">";
-      xml += "<sitemap>";
-      xml += "<loc>http://localhost:4251/home</loc>";
-      xml += "<lastmod>" + DateTime.Now.ToString("yyyy-MM-dd") + "</lastmod>";
-      xml += "</sitemap>";
-      xml += "<sitemap>";
-      xml += "<loc>http://localhost:4251/counter</loc>";
-      xml += "<lastmod>" + DateTime.Now.ToString("yyyy-MM-dd") + "</lastmod>";
-      xml += "</sitemap>";
-      xml += "</sitemapindex>";
-
-      return Content(xml, "text/xml");
-
-    }
-
-    public IActionResult Error()
-    {
-      return View();
-    }
+    public IActionResult Error() => View();
+    
   }
 }
