@@ -1,4 +1,5 @@
 {
+  "defaultSeverity": "warn",
   "rules": {
     "align": false,
     "ban": false,
@@ -75,7 +76,7 @@
     "no-switch-case-fall-through": true,
     "no-trailing-whitespace": false,
     "no-unused-expression": true,
-    "no-unused-variable": false,
+    "no-unused-variable": true,
     "no-use-before-declare": true,
     "no-var-keyword": true,
     "no-var-requires": false,
