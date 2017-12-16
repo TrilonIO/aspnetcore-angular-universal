@@ -8,7 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using AspCoreServer.Data;
-using Swashbuckle.AspNetCore.Swagger;
+using Swashbuckle.Swagger.Model;
 
 namespace AspCoreServer
 {
@@ -52,9 +52,16 @@ namespace AspCoreServer
           options.UseSqlite(connectionString));
 
       // Register the Swagger generator, defining one or more Swagger documents
-      services.AddSwaggerGen(c =>
+      services.AddSwaggerGen();
+
+      //Configure the Swagger generator
+      services.ConfigureSwaggerGen(options =>
       {
-        c.SwaggerDoc("v1", new Info { Title = "Angular 4.0 Universal & ASP.NET Core advanced starter-kit web API", Version = "v1" });
+        options.SingleApiVersion(new Info
+        {
+          Title = "Angular 5.0 Universal & ASP.NET Core advanced starter-kit web API",
+          Version = "v1"
+        });
       });
     }
 
@@ -74,13 +81,11 @@ namespace AspCoreServer
         app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
         {
           HotModuleReplacement = true,
-          HotModuleReplacementEndpoint = "/dist/__webpack_hmr"
+          HotModuleReplacementEndpoint = "/dist/"
         });
         app.UseSwagger();
-        app.UseSwaggerUI(c =>
-        {
-          c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-        });
+        //Set UI swagger endpoint
+        app.UseSwaggerUi("swagger");
 
         // Enable middleware to serve swagger-ui (HTML, JS, CSS etc.), specifying the Swagger JSON endpoint.
 

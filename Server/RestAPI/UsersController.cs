@@ -1,7 +1,8 @@
-﻿using AspCoreServer.Data;
+using AspCoreServer.Data;
 using AspCoreServer.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Swashbuckle.SwaggerGen.Annotations;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,7 +20,10 @@ namespace AspCoreServer.Controllers
     }
 
     [HttpGet]
-    public async Task<IActionResult> Get(int currentPageNo = 1, int pageSize = 20)
+    [SwaggerOperation("Get user")]
+    [ProducesResponseType(typeof(User[]), 200)]
+    [ProducesResponseType(typeof(string), 404)]
+    public async Task<IActionResult> Get([FromQuery]int currentPageNo = 1, [FromQuery]int pageSize = 20)
     {
       var users = await _context.User
           .OrderByDescending(u => u.EntryTime)
@@ -38,6 +42,9 @@ namespace AspCoreServer.Controllers
     }
 
     [HttpGet("{id}")]
+    [SwaggerOperation("Get user by id")]
+    [ProducesResponseType(typeof(User), 200)]
+    [ProducesResponseType(typeof(string), 404)]
     public async Task<IActionResult> Get(int id)
     {
       var user = await _context.User
@@ -56,6 +63,9 @@ namespace AspCoreServer.Controllers
     }
 
     [HttpPost]
+    [SwaggerOperation("Create user")]
+    [ProducesResponseType(typeof(User), 200)]
+    [ProducesResponseType(typeof(string), 400)]
     public async Task<IActionResult> Post([FromBody]User user)
     {
       if (!string.IsNullOrEmpty(user.Name))
@@ -71,6 +81,9 @@ namespace AspCoreServer.Controllers
     }
 
     [HttpPut("{id}")]
+    [SwaggerOperation("Update user")]
+    [ProducesResponseType(typeof(string), 200)]
+    [ProducesResponseType(typeof(string), 404)]
     public async Task<IActionResult> Put(int id, [FromBody]User userUpdateValue)
     {
       try
@@ -103,6 +116,9 @@ namespace AspCoreServer.Controllers
     }
 
     [HttpDelete("{id}")]
+    [SwaggerOperation("Delete user")]
+    [ProducesResponseType(typeof(string), 200)]
+    [ProducesResponseType(typeof(string), 404)]
     public async Task<IActionResult> Delete(int id)
     {
       var userToRemove = await _context.User

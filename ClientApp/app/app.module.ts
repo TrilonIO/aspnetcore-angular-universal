@@ -2,7 +2,13 @@ import { NgModule, Inject } from '@angular/core';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { CommonModule, APP_BASE_HREF } from '@angular/common';
 import { HttpModule, Http } from '@angular/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
+import { TransferHttpCacheModule } from '@nguniversal/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormlyModule } from '@ngx-formly/core';
+import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 
 import { Ng2BootstrapModule } from 'ngx-bootstrap';
 
@@ -12,21 +18,19 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
+import { CircularJsonPipe } from './components/json-circ/json-circ.pipe';
 import { HomeComponent } from './containers/home/home.component';
 import { UsersComponent } from './containers/users/users.component';
 import { UserDetailComponent } from './components/user-detail/user-detail.component';
 import { CounterComponent } from './containers/counter/counter.component';
-// import { ChatComponent } from './containers/chat/chat.component';
 import { NotFoundComponent } from './containers/not-found/not-found.component';
 import { NgxBootstrapComponent } from './containers/ngx-bootstrap-demo/ngx-bootstrap.component';
 
 import { LinkService } from './shared/link.service';
 import { UserService } from './shared/user.service';
-// import { ConnectionResolver } from './shared/route.resolver';
-import { ORIGIN_URL } from './shared/constants/baseurl.constants';
-import { TransferHttpModule } from '../modules/transfer-http/transfer-http.module';
+import { ORIGIN_URL } from '@nguniversal/aspnetcore-engine';
 
-export function createTranslateLoader(http: Http, baseHref) {
+export function createTranslateLoader(http: HttpClient, baseHref) {
     // Temporary Azure hack
     if (baseHref === null && typeof window !== 'undefined') {
         baseHref = window.location.origin;
@@ -43,24 +47,32 @@ export function createTranslateLoader(http: Http, baseHref) {
         UsersComponent,
         UserDetailComponent,
         HomeComponent,
-        // ChatComponent,
         NotFoundComponent,
-        NgxBootstrapComponent
+        NgxBootstrapComponent,
+        CircularJsonPipe
     ],
     imports: [
         CommonModule,
-        HttpModule,
-        FormsModule,
-        Ng2BootstrapModule.forRoot(), // You could also split this up if you don't want the Entire Module imported
+        BrowserModule.withServerTransition({
+          appId: 'my-app-id' // make sure this matches with your Server NgModule
+        }),
+        HttpClientModule,
+        TransferHttpCacheModule,
+        BrowserTransferStateModule,
 
-        TransferHttpModule, // Our Http TransferData method
+
+        FormsModule,
+        ReactiveFormsModule,
+        FormlyModule.forRoot(),
+        FormlyBootstrapModule,
+        Ng2BootstrapModule.forRoot(), // You could also split this up if you don't want the Entire Module imported
 
         // i18n support
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
                 useFactory: (createTranslateLoader),
-                deps: [Http, [ORIGIN_URL]]
+                deps: [HttpClient, [ORIGIN_URL]]
             }
         }),
 
@@ -145,9 +157,9 @@ export function createTranslateLoader(http: Http, baseHref) {
     providers: [
         LinkService,
         UserService,
-        // ConnectionResolver,
         TranslateModule
-    ]
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModuleShared {
 }

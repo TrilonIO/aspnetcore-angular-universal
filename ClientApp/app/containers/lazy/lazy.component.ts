@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'lazy-view',
+  selector: 'app-lazy-view',
   template: `
     <h1>Lazy-Loaded Component!</h1>
     <blockquote>
