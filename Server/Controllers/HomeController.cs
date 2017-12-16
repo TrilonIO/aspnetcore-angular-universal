@@ -21,7 +21,7 @@ namespace AspCoreServer.Controllers
     {
       var prerenderResult = await Request.BuildPrerender();
 
-      ViewData["SpaHtml"] = prerenderResult.Html; // our <app> from Angular
+      ViewData["SpaHtml"] = prerenderResult.Html; // our <app-root /> from Angular
       ViewData["Title"] = prerenderResult.Globals["title"]; // set our <title> from Angular
       ViewData["Styles"] = prerenderResult.Globals["styles"]; // put styles in the correct place
       ViewData["Scripts"] = prerenderResult.Globals["scripts"]; // scripts (that were in our header)
