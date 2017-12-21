@@ -389,7 +389,8 @@ Check the [Gotchas](#gotchas) on how to use `isPlatformBrowser()`.
 
 ### How do I Material2 with this repo?
 
-You'll either want to remove SSR for now, or wait as support should be coming to handle platform-server rendering.
+~~You'll either want to remove SSR for now, or wait as support should be coming to handle platform-server rendering.~~
+This is now possible, with the recently updated Angular Material changes. We do not have a tutorial available for this yet.
 
 ### How can I use jQuery and/or some jQuery plugins with this repo?
 
