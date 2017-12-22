@@ -374,7 +374,7 @@ constructor(element: ElementRef, renderer: Renderer2) {
 
 ----
  
-# FAQ - Also check out the [FAQ Issues label](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues?utf8=%E2%9C%93&q=is%3Aissue%20label%3Afaq)
+# FAQ - Also check out the [!FAQ Issues label!](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues?utf8=%E2%9C%93&q=is%3Aissue%20label%3Afaq) and the [!HOW-TO Issues Label!](https://github.com/MarkPieszak/aspnetcore-angular2-universal/issues?q=is%3Aissue+label%3A%22HOW+TO+-+Guide%22)
 
 ### How can I disable SSR (Server-side rendering)?
 
