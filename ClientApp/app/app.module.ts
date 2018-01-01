@@ -19,6 +19,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { CircularJsonPipe } from './components/json-circ/json-circ.pipe';
+import { CoverSlideModuleComponent } from './components/cover-slide-module/cover-slide-module.component';
 import { HomeComponent } from './containers/home/home.component';
 import { UsersComponent } from './containers/users/users.component';
 import { UserDetailComponent } from './components/user-detail/user-detail.component';
@@ -49,7 +50,8 @@ export function createTranslateLoader(http: HttpClient, baseHref) {
         HomeComponent,
         NotFoundComponent,
         NgxBootstrapComponent,
-        CircularJsonPipe
+      CircularJsonPipe,
+      CoverSlideModuleComponent
     ],
     imports: [
         CommonModule,

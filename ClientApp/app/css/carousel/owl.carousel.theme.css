@@ -1,0 +1,242 @@
+/*
+* 	Owl Carousel Owl Theme 
+*/
+
+.owl-theme {
+  text-align: center;
+}
+
+/* Styling Next and Prev buttons */
+
+.touch-slider .owl-nav div {
+  position: absolute;
+  top: 50%;
+  height: 60px;
+  line-height: 60px;
+  display: inline-block;
+  zoom: 1;
+  padding: 0 1px;
+  *display: inline; 
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+  background: #444;
+  filter: Alpha(Opacity=60);
+  opacity: 0.6;
+  margin-top: -30px;
+  transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+}
+
+.touch-slider:hover .owl-nav div {
+  filter: Alpha(Opacity=100);
+  opacity: 1;
+}
+
+.touch-slider .owl-nav div.owl-prev {
+  left: 0;
+  border-radius: 0 3px 3px 0;
+  -webkit-border-radius: 0 3px 3px 0;
+  -moz-border-radius: 0 3px 3px 0;
+  -o-border-radius: 0 3px 3px 0;
+}
+
+.touch-slider .owl-nav div.owl-next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+  -webkit-border-radius: 3px 0 0 3px;
+  -moz-border-radius: 3px 0 0 3px;
+  -o-border-radius: 3px 0 0 3px;
+}
+
+.touch-slider .owl-nav div i {
+  font-size: 1.8em;
+  color: #fff;
+}
+
+.touch-slider .owl-nav div:hover {
+  background-color: #00afd1;
+}
+
+.touch-carousel .owl-nav {
+  position: absolute;
+  top: -50px;
+  right: 2px;
+}
+
+.touch-carousel.projects-carousel .owl-nav {
+  right: 12px;
+}
+
+.touch-carousel.navigation-2 .owl-nav {
+  position: relative;
+  top: 0;
+  right: 0;
+}
+
+.touch-carousel.navigation-2.clients-carousel .owl-nav {
+  top: -8px;
+}
+
+.touch-carousel.navigation-2 .owl-nav div, .touch-carousel.navigation-3 .owl-nav div {
+  background-color: #f2f2f2;
+}
+
+.touch-carousel.navigation-2 .owl-nav div i, .touch-carousel.navigation-3 .owl-nav div i {
+  color: #666;
+}
+
+.touch-carousel.navigation-3 {
+  padding-top: 45px;
+}
+
+.touch-carousel.navigation-3.clients-carousel {
+  padding-top: 25px;
+}
+
+.touch-carousel.navigation-3 .owl-nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+}
+
+.touch-carousel.navigation-2 .owl-nav div, .touch-carousel.navigation-3 .owl-nav div {
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.touch-carousel.navigation-3.projects-carousel .owl-nav {
+  right: 9px;
+}
+
+.touch-carousel .owl-nav div, .testimonials-carousel .owl-nav div {
+  height: 22px;
+  width: 22px;
+  line-height: 22px;
+  display: inline-block;
+  zoom: 1;
+  *display: inline; 
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  background-color: #fff;
+  margin-left: 4px;
+  transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+}
+
+.touch-carousel .owl-nav div i, .testimonials-carousel .owl-nav div i {
+  font-size: 1.2em;
+  color: #ccc;
+  text-shadow: 0 1px 1px rgba(0,0,0,.2);
+  transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+}
+
+.testimonials-carousel .owl-nav div i {
+  color: #fff;
+}
+
+.touch-carousel .owl-nav div:hover i {
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0,0,0,.3);
+}
+
+.testimonials-carousel .owl-nav div:hover {
+  background-color: #fff;
+  box-shadow: 0 1px 1px rgba(0,0,0,.2);
+}
+
+
+/* Styling Pagination*/
+
+.owl-dots {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 5px;
+}
+
+.owl-theme .owl-dot {
+  display: inline-block;
+  zoom: 1;
+  *display: inline; 
+}
+
+.owl-theme .owl-dot span {
+  display: block;
+  width: 16px;
+  height: 16px;
+  margin: 2px 4px;
+  filter: Alpha(Opacity=50);
+  opacity: 0.5;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  border: 3px solid #444;
+  transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+}
+
+.touch-slider:hover .owl-dot span {
+  filter: Alpha(Opacity=100);
+  opacity: 1;
+}
+
+.owl-theme .owl-dot.active span,
+.owl-theme .owl-dot:hover span {
+  border-color: #0A95D8;
+}
+
+/* If PaginationNumbers is true */
+.owl-theme .owl-dot span.owl-numbers {
+  height: auto;
+  width: auto;
+  color: #FFF;
+  padding: 2px 10px;
+  font-size: 12px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -o-border-radius: 30px;
+  border-radius: 30px;
+}
+
+/*
+#bar {
+  width: 0%;
+  max-width: 100%;
+  height: 4px;
+  background: #444;
+  filter: Alpha(Opacity=50); 
+  opacity: 0.5;
+}
+
+#progressBar {
+  position: absolute;
+  top: 0;
+  z-index: 99;
+  width: 100%;
+}*/
+
+/* preloading images */
+/*.owl-item.loading {
+  min-height: 150px;
+  background: url(./css/images/icons/ajaxloader.gif) no-repeat center center
+}*/

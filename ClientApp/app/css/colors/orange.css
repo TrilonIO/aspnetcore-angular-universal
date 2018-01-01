@@ -1,0 +1,309 @@
+a {
+    color: #f36510;
+}
+
+.accent-color {
+	color: #f36510;
+}
+
+.accent-color-bg {
+	background-color: #f36510;
+}
+
+.top-bar a:hover {
+	color: #f36510;
+}
+
+.section-overlay {
+	background-color: #f36510;
+}
+
+.top-bar.color-bar {
+	background-color: #f36510;
+}
+
+.service-box .read-more {
+	color: #f36510;
+}
+
+a.main-button, input[type="submit"] {
+	background-color: #f36510;
+}
+
+.navbar-default .navbar-nav > li:hover > a,
+.navbar-default .navbar-nav > li.active-menu > a {
+	color: #f36510;
+}
+
+.dropdown > li:hover > a, .sup-dropdown li:hover > a {
+	color: #f36510;
+}
+
+.navbar-default .navbar-nav > li > a:after {
+	background-color: #f36510;
+}
+
+.navbar-default .navbar-nav > li.active-menu > a, .navbar-default .navbar-nav > li:hover > a {
+	border-color: #f36510;
+}
+
+.dropdown  li a.active, .sup-dropdown li a.active {
+	color: #f36510;
+}
+
+ul.breadcrumbs li a:hover {
+    color: #f36510;
+}
+
+.full-width-recent-projects .portfolio-item:hover .portfolio-thumb .thumb-overlay {
+	background-color: #f36510;
+}
+
+.tp-caption.color-bg {
+	background-color: #f36510;
+}
+
+.team-member .member-socail a.mail:hover i {
+	background-color: #f36510;
+}
+
+.post-share a.mail:hover {
+	background-color: #f36510;
+}
+
+.progress .progress-bar.progress-bar-primary {
+	background-color: #f36510;
+}
+
+.latest-posts-classic .left-meta-post .post-type i {
+	background-color: #f36510;
+}
+
+.latest-posts-classic .post-title a:hover {
+	color: #f36510;
+}
+
+.latest-posts-classic .read-more {
+	color: #f36510;
+}
+
+.panel-title a {
+	color: #f36510;
+}
+
+.panel-title a:hover {
+	color: #f36510;
+}
+
+.milestone-block .milestone-icon {
+	background-color: #f36510;
+}
+
+.milestone-block .milestone-icon:after {
+	background-color: #f36510;
+}
+
+.milestone-block .milestone-number {
+	color: #f36510;
+}
+
+.pricing-tables .pricing-table.highlight-plan .plan-name h3 {
+	color: #f36510;
+}
+
+.btn-system {
+	background-color: #f36510;
+}
+
+.btn-system.border-btn {
+	border-color: #f36510;
+	color: #f36510;
+}
+
+.btn-system.border-btn:hover {
+	background-color: #f36510;
+}
+
+.btn-system.border-btn.btn-wite:hover {
+	color: #f36510;
+}
+
+.btn-system.btn-wite{
+	color: #f36510;
+}
+
+ul.icons-list li i {
+	color: #f36510;
+}
+
+.nav-tabs > li > a:hover, .nav-tabs > li > a:focus {
+	background-color: #f36510;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover {
+	color: #f36510;
+}
+
+.icon-small {
+	text-shadow: 0 0 0 #f36510;
+}
+
+.icon-small:hover, .service-box:hover .icon-small {
+	color: #f36510;
+}
+.icon-medium {
+	text-shadow: 0 0 0 #f36510;
+}
+
+.icon-medium:hover, .service-box:hover .icon-medium {
+	color: #f36510;
+}
+
+.icon-large {
+	text-shadow: 0 0 0 #f36510;
+}
+
+.icon-large:hover, .service-box:hover .icon-large {
+	color: #f36510;
+}
+
+.icon-effect-1 {
+	box-shadow: 0 0 0 3px #f36510;
+	-o-box-shadow: 0 0 0 3px #f36510;
+	-moz-box-shadow: 0 0 0 3px #f36510;
+  	-webkit-box-shadow: 0 0 0 3px #f36510;
+}
+
+.icon-effect-1:after {
+	background-color: #f36510;
+}
+
+.icon-effect-1:hover, .service-box:hover .icon-effect-1 {
+	color: #f36510;
+}
+
+.icon-effect-2 {
+	color: #f36510;
+	box-shadow: 0 0 0 3px #f36510;
+	-o-box-shadow: 0 0 0 3px #f36510;
+	-moz-box-shadow: 0 0 0 3px #f36510;
+  	-webkit-box-shadow: 0 0 0 3px #f36510;
+}
+
+.icon-effect-2:after {
+	background-color: #f36510;
+}
+
+.icon-effect-3 {
+	color: #f36510;
+	box-shadow: 0 0 0 3px #f36510;
+	-o-box-shadow: 0 0 0 3px #f36510;
+	-moz-box-shadow: 0 0 0 3px #f36510;
+  	-webkit-box-shadow: 0 0 0 3px #f36510;
+}
+
+.icon-effect-4 {
+	color: #f36510;
+	box-shadow: 0 0 0 3px #f36510;
+	-o-box-shadow: 0 0 0 3px #f36510;
+	-moz-box-shadow: 0 0 0 3px #f36510;
+  	-webkit-box-shadow: 0 0 0 3px #f36510;
+}
+
+.icon-effect-5 {
+	color: #f36510;
+	box-shadow: 0 0 0 3px #f36510;
+	-o-box-shadow: 0 0 0 3px #f36510;
+	-moz-box-shadow: 0 0 0 3px #f36510;
+  	-webkit-box-shadow: 0 0 0 3px #f36510;
+}
+
+.icon-effect-6 {
+	color: #f36510;
+	box-shadow: 0 0 0 3px #f36510;
+	-o-box-shadow: 0 0 0 3px #f36510;
+	-moz-box-shadow: 0 0 0 3px #f36510;
+  	-webkit-box-shadow: 0 0 0 3px #f36510;
+}
+
+.team-member .member-photo .member-name span {
+	background-color: #f36510;
+}
+
+.classic-title span {
+	border-bottom-color: #f36510;
+}
+
+.portfolio-filter li a:hover {
+	color: #f36510;
+}
+
+.portfolio-filter li a.selected {
+	border-color: #f36510;
+	background-color: #f36510;
+}
+
+.portfolio-item:hover .portfolio-details h4 {
+	color: #f36510;
+}
+
+.project-content h4 span {
+	border-bottom-color: #f36510;
+}
+
+.recent-projects h4.title span {
+	border-bottom-color: #f36510;
+}
+
+ul.post-meta li a:hover {
+	color: #f36510;
+}
+
+#pagination span.current {
+	border-color: #f36510;
+	background-color: #f36510;
+}
+
+#pagination a:hover {
+	color: #f36510;
+}
+
+.post-tags-list a:hover {
+	background-color: #f36510;
+}
+
+.post-share a.mail {
+	background-color: #f36510;
+}
+
+.sidebar a:hover {
+	color: #f36510;
+}
+
+.widget-search .search-btn {
+	background-color: #f36510;
+}
+
+.sidebar .tagcloud a:hover {
+    background-color: #f36510;
+}
+
+.back-to-top:hover i {
+    background-color: #f36510;
+}
+
+.touch-slider .owl-controls.clickable .owl-buttons div:hover {
+	background-color: #f36510;
+}
+
+.touch-carousel .owl-controls.clickable .owl-buttons div:hover {
+	background-color: #f36510;
+}
+
+.testimonials-carousel .owl-controls.clickable .owl-buttons div {
+	background-color: #f36510;
+}
+
+.testimonials-carousel .owl-controls.clickable .owl-buttons div:hover i {
+	color: #f36510;
+}

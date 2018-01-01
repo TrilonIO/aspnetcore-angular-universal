@@ -17,15 +17,17 @@ const treeShakableModules = [
 ];
 const nonTreeShakableModules = [
   //https://getbootstrap.com/docs/4.0/getting-started/webpack/
-  'bootstrap',
-  'bootstrap/dist/css/bootstrap.min.css',
+  //'bootstrap',
+  //'bootstrap/dist/css/bootstrap.min.css',
   //'bootstrap/js/dist/util';
   //'bootstrap/js/dist/dropdown';
   'core-js',
   // 'es6-promise',
   // 'es6-shim',
-  'event-source-polyfill'
-  // 'jquery',
+  'event-source-polyfill',
+    'jquery',// 'jquery',
+  './ClientApp/jquery.plugins/jquery.themepunch.plugins.min.js',
+  './ClientApp/jquery.plugins/jquery.themepunch.revolution.min.js'
 ];
 const allModules = treeShakableModules.concat(nonTreeShakableModules);
 
@@ -51,6 +53,7 @@ module.exports = (env) => {
             $: 'jquery',
             jQuery: 'jquery',
             'window.jQuery': 'jquery',
+            'window.$': 'jquery',
             Popper: ['popper.js', 'default'],
             // In case you imported plugins individually, you must also require them here:
             //Util: "exports-loader?Util!bootstrap/js/dist/util",

@@ -1,0 +1,207 @@
+﻿ul.nav-wizard {
+  background-color: #f9f9f9;
+  border: 1px solid #d4d4d4;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  *zoom: 1;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+ul.nav-wizard:before {
+  display: block;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 46px;
+  height: 47px;
+  border-top: 1px solid #d4d4d4;
+  border-bottom: 1px solid #d4d4d4;
+  z-index: 11;
+  content: " ";
+}
+ul.nav-wizard:after {
+  display: block;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 138px;
+  height: 47px;
+  border-top: 1px solid #d4d4d4;
+  border-bottom: 1px solid #d4d4d4;
+  z-index: 11;
+  content: " ";
+}
+ul.nav-wizard li {
+  position: relative;
+  float: left;
+  height: 46px;
+  display: inline-block;
+  text-align: middle;
+  padding: 0; /*0 20px 0 30px;*/
+  margin: 0;
+  font-size: 16px;
+  line-height: 46px;
+}
+ul.nav-wizard li a {
+  color: #468847;
+  /*background-color: #dff0d8;*/
+  padding: 0;
+  padding: 0 20px 0 25px;
+}
+ul.nav-wizard li a:hover {
+  background-color: transparent;
+}
+ul.nav-wizard li.done a {
+    background-color: #dff0d8 !important;
+}
+
+ul.nav-wizard li.done a:hover {
+    background-color: #dfe9d8 !important;
+}
+
+ul.nav-wizard li:not(:last-child):before {
+  position: absolute;
+  display: block;
+  border: 24px solid transparent;
+  border-left: 16px solid #d4d4d4;
+  border-right: 0;
+  top: -1px;
+  z-index: 10;
+  content: '';
+  right: -16px;
+}
+ul.nav-wizard li:not(:last-child):after {
+  position: absolute;
+  display: block;
+  border: 24px solid transparent;
+  /*border-left: 16px solid #dff0d8;*/
+  border-left: 16px solid #ededed;
+  border-right: 0;
+  top: -1px;
+  z-index: 10;
+  content: '';
+  right: -15px;
+}
+ul.nav-wizard li.done:not(:last-child):after {
+    border-left: 16px solid #dff0d8;
+}
+ul.nav-wizard li:hover:not(:last-child):after {
+    border-left: 16px solid #dfe9d8;
+}
+
+ul.nav-wizard li.editing {
+  color: #3a87ad;
+  background: #d9edf7;
+}
+ul.nav-wizard li.editing:not(:last-child):after {
+  border-left: 16px solid #d9edf7;
+}
+ul.nav-wizard li.editing a,
+ul.nav-wizard li.editing a:active,
+ul.nav-wizard li.editing a:visited,
+ul.nav-wizard li.editing a:focus {
+  color: #3a87ad;
+  background: #d9edf7;
+}
+ul.nav-wizard .editing ~ li {
+  color: #999999;
+  background: #ededed;
+}
+/*ul.nav-wizard .editing ~ li:not(:last-child):after {
+  border-left: 16px solid  #ededed;
+}*/
+ul.nav-wizard .editing ~ li:hover:not(:last-child):after {
+  border-left: 16px solid  #dfe9d8;
+}
+ul.nav-wizard .editing ~ li a,
+ul.nav-wizard .editing ~ li a:active,
+ul.nav-wizard .editing ~ li a:visited,
+ul.nav-wizard .editing ~ li a:focus {
+  color: #999999;
+  background: #ededed;
+}
+
+ul.nav-wizard.nav-wizard-backnav li:hover {
+  color: #468847;
+  background: #f6fbfd;
+}
+ul.nav-wizard.nav-wizard-backnav li:not(:last-child):hover:after {
+  border-left: 16px solid #f6fbfd;
+}
+ul.nav-wizard.nav-wizard-backnav li:hover a,
+ul.nav-wizard.nav-wizard-backnav li:hover a:active,
+ul.nav-wizard.nav-wizard-backnav li:hover a:visited,
+ul.nav-wizard.nav-wizard-backnav li:hover a:focus {
+  color: #468847;
+  background: #f6fbfd;
+}
+
+ul.nav-wizard.nav-wizard-backnav .editing ~ li {
+  color: #999999;
+  background: #ededed;
+}
+ul.nav-wizard.nav-wizard-backnav .editing ~ li:not(:last-child):after {
+  border-left: 16px solid #ededed;
+}
+ul.nav-wizard.nav-wizard-backnav .editing ~ li a,
+ul.nav-wizard.nav-wizard-backnav .editing ~ li a:active,
+ul.nav-wizard.nav-wizard-backnav .editing ~ li a:visited,
+ul.nav-wizard.nav-wizard-backnav .editing ~ li a:focus {
+  color: #999999;
+  background: #ededed;
+}
+
+
+/*set current selection styles*/
+
+ul.nav-wizard li.current {
+  color: #3a87ad;
+  background: #d9edf7;
+}
+ul.nav-wizard li.current:not(:last-child):after {
+  border-left: 16px solid #d9edf7;
+}
+ul.nav-wizard li.current a,
+ul.nav-wizard li.current a:active,
+ul.nav-wizard li.current a:visited,
+ul.nav-wizard li.current a:focus {
+  color: #3a87ad;
+  background: #d9edf7;
+}
+ul.nav-wizard .current ~ li {
+  color: #999999;
+  background: #ededed;
+}
+ul.nav-wizard .current ~ li:not(:last-child):after {
+  border-left: 16px solid #ededed;
+}
+ul.nav-wizard .current ~ li a,
+ul.nav-wizard .current ~ li a:active,
+ul.nav-wizard .current ~ li a:visited,
+ul.nav-wizard .current ~ li a:focus {
+  color: #999999;
+  background: #ededed;
+}
+ul.nav-wizard.nav-wizard-backnav .current ~ li {
+  color: #999999;
+  background: #ededed;
+}
+ul.nav-wizard.nav-wizard-backnav .current ~ li:not(:last-child):after {
+  border-left: 16px solid #ededed;
+}
+ul.nav-wizard.nav-wizard-backnav .current ~ li a,
+ul.nav-wizard.nav-wizard-backnav .current ~ li a:active,
+ul.nav-wizard.nav-wizard-backnav .current ~ li a:visited,
+ul.nav-wizard.nav-wizard-backnav .current ~ li a:focus {
+  color: #999999;
+  background: #ededed;
+}
+/*END set current selection styles*/
+
+/*stop events content default. ng-click stop to work for that items*/
+.steps-indicator li.default {
+  pointer-events: none;
+}
+/*END stop events content default*/

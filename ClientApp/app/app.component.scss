@@ -3,10 +3,12 @@ $light-orange: #ff8c00;
 $navbar-default-color: $light-orange;
 
 /* Import Bootstrap & Fonts */
-/*$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";*/
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
-@import '~bootstrap/dist/css/bootstrap.min.css';
+/*@import '~bootstrap/dist/css/bootstrap.min.css';*/
+
+@import "./css/browser.styles";
 
 
 /* *** Overall APP Styling can go here ***

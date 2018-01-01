@@ -1,0 +1,309 @@
+a {
+    color: #6a3da3;
+}
+
+.accent-color {
+	color: #6a3da3;
+}
+
+.accent-color-bg {
+	background-color: #6a3da3;
+}
+
+.top-bar a:hover {
+	color: #6a3da3;
+}
+
+.section-overlay {
+	background-color: #6a3da3;
+}
+
+.top-bar.color-bar {
+	background-color: #6a3da3;
+}
+
+.service-box .read-more {
+	color: #6a3da3;
+}
+
+a.main-button, input[type="submit"] {
+	background-color: #6a3da3;
+}
+
+.navbar-default .navbar-nav > li:hover > a,
+.navbar-default .navbar-nav > li.active-menu > a {
+	color: #6a3da3;
+}
+
+.dropdown > li:hover > a, .sup-dropdown li:hover > a {
+	color: #6a3da3;
+}
+
+.navbar-default .navbar-nav > li > a:after {
+	background-color: #6a3da3;
+}
+
+.navbar-default .navbar-nav > li.active-menu > a, .navbar-default .navbar-nav > li:hover > a {
+	border-color: #6a3da3;
+}
+
+.dropdown  li a.active, .sup-dropdown li a.active {
+	color: #6a3da3;
+}
+
+ul.breadcrumbs li a:hover {
+    color: #6a3da3;
+}
+
+.full-width-recent-projects .portfolio-item:hover .portfolio-thumb .thumb-overlay {
+	background-color: #6a3da3;
+}
+
+.tp-caption.color-bg {
+	background-color: #6a3da3;
+}
+
+.team-member .member-socail a.mail:hover i {
+	background-color: #6a3da3;
+}
+
+.post-share a.mail:hover {
+	background-color: #6a3da3;
+}
+
+.progress .progress-bar.progress-bar-primary {
+	background-color: #6a3da3;
+}
+
+.latest-posts-classic .left-meta-post .post-type i {
+	background-color: #6a3da3;
+}
+
+.latest-posts-classic .post-title a:hover {
+	color: #6a3da3;
+}
+
+.latest-posts-classic .read-more {
+	color: #6a3da3;
+}
+
+.panel-title a {
+	color: #6a3da3;
+}
+
+.panel-title a:hover {
+	color: #6a3da3;
+}
+
+.milestone-block .milestone-icon {
+	background-color: #6a3da3;
+}
+
+.milestone-block .milestone-icon:after {
+	background-color: #6a3da3;
+}
+
+.milestone-block .milestone-number {
+	color: #6a3da3;
+}
+
+.pricing-tables .pricing-table.highlight-plan .plan-name h3 {
+	color: #6a3da3;
+}
+
+.btn-system {
+	background-color: #6a3da3;
+}
+
+.btn-system.border-btn {
+	border-color: #6a3da3;
+	color: #6a3da3;
+}
+
+.btn-system.border-btn:hover {
+	background-color: #6a3da3;
+}
+
+.btn-system.border-btn.btn-wite:hover {
+	color: #6a3da3;
+}
+
+.btn-system.btn-wite{
+	color: #6a3da3;
+}
+
+ul.icons-list li i {
+	color: #6a3da3;
+}
+
+.nav-tabs > li > a:hover, .nav-tabs > li > a:focus {
+	background-color: #6a3da3;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover {
+	color: #6a3da3;
+}
+
+.icon-small {
+	text-shadow: 0 0 0 #6a3da3;
+}
+
+.icon-small:hover, .service-box:hover .icon-small {
+	color: #6a3da3;
+}
+.icon-medium {
+	text-shadow: 0 0 0 #6a3da3;
+}
+
+.icon-medium:hover, .service-box:hover .icon-medium {
+	color: #6a3da3;
+}
+
+.icon-large {
+	text-shadow: 0 0 0 #6a3da3;
+}
+
+.icon-large:hover, .service-box:hover .icon-large {
+	color: #6a3da3;
+}
+
+.icon-effect-1 {
+	box-shadow: 0 0 0 3px #6a3da3;
+	-o-box-shadow: 0 0 0 3px #6a3da3;
+	-moz-box-shadow: 0 0 0 3px #6a3da3;
+  	-webkit-box-shadow: 0 0 0 3px #6a3da3;
+}
+
+.icon-effect-1:after {
+	background-color: #6a3da3;
+}
+
+.icon-effect-1:hover, .service-box:hover .icon-effect-1 {
+	color: #6a3da3;
+}
+
+.icon-effect-2 {
+	color: #6a3da3;
+	box-shadow: 0 0 0 3px #6a3da3;
+	-o-box-shadow: 0 0 0 3px #6a3da3;
+	-moz-box-shadow: 0 0 0 3px #6a3da3;
+  	-webkit-box-shadow: 0 0 0 3px #6a3da3;
+}
+
+.icon-effect-2:after {
+	background-color: #6a3da3;
+}
+
+.icon-effect-3 {
+	color: #6a3da3;
+	box-shadow: 0 0 0 3px #6a3da3;
+	-o-box-shadow: 0 0 0 3px #6a3da3;
+	-moz-box-shadow: 0 0 0 3px #6a3da3;
+  	-webkit-box-shadow: 0 0 0 3px #6a3da3;
+}
+
+.icon-effect-4 {
+	color: #6a3da3;
+	box-shadow: 0 0 0 3px #6a3da3;
+	-o-box-shadow: 0 0 0 3px #6a3da3;
+	-moz-box-shadow: 0 0 0 3px #6a3da3;
+  	-webkit-box-shadow: 0 0 0 3px #6a3da3;
+}
+
+.icon-effect-5 {
+	color: #6a3da3;
+	box-shadow: 0 0 0 3px #6a3da3;
+	-o-box-shadow: 0 0 0 3px #6a3da3;
+	-moz-box-shadow: 0 0 0 3px #6a3da3;
+  	-webkit-box-shadow: 0 0 0 3px #6a3da3;
+}
+
+.icon-effect-6 {
+	color: #6a3da3;
+	box-shadow: 0 0 0 3px #6a3da3;
+	-o-box-shadow: 0 0 0 3px #6a3da3;
+	-moz-box-shadow: 0 0 0 3px #6a3da3;
+  	-webkit-box-shadow: 0 0 0 3px #6a3da3;
+}
+
+.team-member .member-photo .member-name span {
+	background-color: #6a3da3;
+}
+
+.classic-title span {
+	border-bottom-color: #6a3da3;
+}
+
+.portfolio-filter li a:hover {
+	color: #6a3da3;
+}
+
+.portfolio-filter li a.selected {
+	border-color: #6a3da3;
+	background-color: #6a3da3;
+}
+
+.portfolio-item:hover .portfolio-details h4 {
+	color: #6a3da3;
+}
+
+.project-content h4 span {
+	border-bottom-color: #6a3da3;
+}
+
+.recent-projects h4.title span {
+	border-bottom-color: #6a3da3;
+}
+
+ul.post-meta li a:hover {
+	color: #6a3da3;
+}
+
+#pagination span.current {
+	border-color: #6a3da3;
+	background-color: #6a3da3;
+}
+
+#pagination a:hover {
+	color: #6a3da3;
+}
+
+.post-tags-list a:hover {
+	background-color: #6a3da3;
+}
+
+.post-share a.mail {
+	background-color: #6a3da3;
+}
+
+.sidebar a:hover {
+	color: #6a3da3;
+}
+
+.widget-search .search-btn {
+	background-color: #6a3da3;
+}
+
+.sidebar .tagcloud a:hover {
+    background-color: #6a3da3;
+}
+
+.back-to-top:hover i {
+    background-color: #6a3da3;
+}
+
+.touch-slider .owl-controls.clickable .owl-buttons div:hover {
+	background-color: #6a3da3;
+}
+
+.touch-carousel .owl-controls.clickable .owl-buttons div:hover {
+	background-color: #6a3da3;
+}
+
+.testimonials-carousel .owl-controls.clickable .owl-buttons div {
+	background-color: #6a3da3;
+}
+
+.testimonials-carousel .owl-controls.clickable .owl-buttons div:hover i {
+	color: #6a3da3;
+}
