@@ -1,6 +1,8 @@
-﻿<!-- @Html.Raw(ViewData["SpaHtml"]) -->
+﻿<!-- Remove this if you want to remove Server-side rendering -->
+@Html.Raw(ViewData["SpaHtml"])
 
-<app-root></app-root>
+<!-- if you only want Client-side rendering uncomment this -->
+<!-- <app-root></app-root> -->
 
 <script src="~/dist/vendor.js" asp-append-version="true"></script>
 @section scripts {
