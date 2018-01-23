@@ -4,7 +4,7 @@ import { enableProdMode } from '@angular/core';
 import { createServerRenderer } from 'aspnet-prerendering';
 
 // Grab the (Node) server-specific NgModule
-import { AppModule } from './app/app.module.server';
+const { AppModuleNgFactory } = require('./app/app.module.server.ngfactory'); // <-- ignore this - this is Production only
 import { ngAspnetCoreEngine, IEngineOptions, createTransferScript } from '@nguniversal/aspnetcore-engine';
 
 enableProdMode();
@@ -14,7 +14,7 @@ export default createServerRenderer((params) => {
   // Platform-server provider configuration
   const setupOptions: IEngineOptions = {
     appSelector: '<app-root></app-root>',
-    ngModule: AppModule,
+    ngModule: AppModuleNgFactory,
     request: params,
     providers: [
       // Optional - Any other Server providers you want to pass

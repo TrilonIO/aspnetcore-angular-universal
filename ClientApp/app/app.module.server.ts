@@ -5,33 +5,28 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppModuleShared } from './app.module';
 import { AppComponent } from './app.component';
-import { ServerTransferStateModule } from '../modules/transfer-state/server-transfer-state.module';
-import { TransferState } from '../modules/transfer-state/transfer-state';
+import { ServerTransferStateModule } from '@angular/platform-server';
 
 import { ServerPrebootModule } from 'preboot/server';
 
 @NgModule({
   bootstrap: [AppComponent],
   imports: [
-    BrowserModule.withServerTransition({
-      appId: 'my-app-id' // make sure this matches with your Browser NgModule
-    }),
+    // Our Common AppModule
+    AppModuleShared,
+
     ServerModule,
-    ServerPrebootModule.recordEvents({ appRoot: 'app' }),
+    ServerPrebootModule.recordEvents({ appRoot: 'app-root' }),
     NoopAnimationsModule,
 
-    ServerTransferStateModule,
-
-    // Our Common AppModule
-    AppModuleShared
+    // HttpTransferCacheModule still needs fixes for 5.0
+    //   Leave this commented out for now, as it breaks Server-renders
+    //   Looking into fixes for this! - @MarkPieszak
+    // ServerTransferStateModule // <-- broken for the time-being with ASP.NET
   ]
 })
 export class AppModule {
 
-  constructor(private transferState: TransferState) { }
+  constructor() { }
 
-  // Gotcha (needs to be an arrow function)
-  ngOnBootstrap = () => {
-    this.transferState.inject();
-  }
 }
