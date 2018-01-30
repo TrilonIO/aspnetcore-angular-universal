@@ -65,10 +65,11 @@ module.exports = (env) => {
               entryModule: path.join(__dirname, 'ClientApp/app/app.module.browser#AppModule'),
               exclude: ['./**/*.server.ts']
             }),
-            // new webpack.optimize.UglifyJsPlugin({
-            //   compress: false,
-            //   mangle: false
-            // })
+            new webpack.optimize.UglifyJsPlugin({
+                output: {
+                    ascii_only: true,
+                }
+            }),
           ]),
         devtool: isDevBuild ? 'cheap-eval-source-map' : false,
         node: {
@@ -104,10 +105,13 @@ module.exports = (env) => {
               {}
             )
         ] : [
-            // new webpack.optimize.UglifyJsPlugin({
-            //   compress: false,
-            //   mangle: false
-            // }),
+            new webpack.optimize.UglifyJsPlugin({
+                mangle: false,
+                compress: false,
+                output: {
+                    ascii_only: true,
+                }
+            }),
             // Plugins that apply in production builds only
             new AngularCompilerPlugin({
               mainPath: path.join(__dirname, 'ClientApp/boot.server.PRODUCTION.ts'),
