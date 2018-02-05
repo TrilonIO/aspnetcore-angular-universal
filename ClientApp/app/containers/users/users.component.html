@@ -1,4 +1,4 @@
-﻿<h1>This is a RestAPI Example (hitting WebAPI in our case)</h1>
+<h1>This is a RestAPI Example (hitting WebAPI in our case)</h1>
 
 <blockquote>
   Let's get some fake users from Rest:<br>
@@ -26,4 +26,4 @@
     </button>
   </li>
 </ul>
-<app-user-detail [user]="selectedUser"></app-user-detail>
+<app-user-detail (userUpdate)="onUserUpdate($event)" [user]="selectedUser"></app-user-detail>

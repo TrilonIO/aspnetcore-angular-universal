@@ -1,4 +1,4 @@
-﻿using AspCoreServer.Data;
+using AspCoreServer.Data;
 using AspCoreServer.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -89,7 +89,7 @@ namespace AspCoreServer.Controllers
         {
           _context.Update(userUpdateValue);
           await _context.SaveChangesAsync();
-          return Ok("Updated user - " + userUpdateValue.Name);
+          return Json("Updated user - " + userUpdateValue.Name);
         }
       }
       catch (DbUpdateException)
@@ -116,7 +116,7 @@ namespace AspCoreServer.Controllers
       {
         _context.User.Remove(userToRemove);
         await _context.SaveChangesAsync();
-        return Ok("Deleted user - " + userToRemove.Name);
+        return Json("Deleted user - " + userToRemove.Name);
       }
     }
   }

@@ -1,4 +1,4 @@
-﻿import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { IUser } from '../../models/User';
 import { UserService } from '../../shared/user.service';
 
@@ -8,7 +8,7 @@ import { UserService } from '../../shared/user.service';
 })
 export class UserDetailComponent {
     @Input() user: IUser;
-
+    @Output() userUpdate: EventEmitter<any> = new EventEmitter();
     constructor(private userService: UserService) { }
 
 
@@ -17,6 +17,7 @@ export class UserDetailComponent {
             console.log('Put user result: ', result);
         }, error => {
             console.log(`There was an issue. ${error._body}.`);
-        });
+          });
+      this.userUpdate.emit(null);
     }
 }
