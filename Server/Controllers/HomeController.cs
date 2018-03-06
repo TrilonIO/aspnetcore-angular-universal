@@ -38,16 +38,16 @@ namespace AspCoreServer.Controllers
     {
       String xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
 
-      xml += "<sitemapindex xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">";
-      xml += "<sitemap>";
+      xml += "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">";
+      xml += "<url>";
       xml += "<loc>http://localhost:4251/home</loc>";
       xml += "<lastmod>" + DateTime.Now.ToString("yyyy-MM-dd") + "</lastmod>";
-      xml += "</sitemap>";
-      xml += "<sitemap>";
+      xml += "</url>";
+      xml += "<url>";
       xml += "<loc>http://localhost:4251/counter</loc>";
       xml += "<lastmod>" + DateTime.Now.ToString("yyyy-MM-dd") + "</lastmod>";
-      xml += "</sitemap>";
-      xml += "</sitemapindex>";
+      xml += "</url>";
+      xml += "</urlset>";
 
       return Content(xml, "text/xml");
 
