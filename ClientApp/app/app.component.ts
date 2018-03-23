@@ -7,7 +7,7 @@ import { LinkService } from './shared/link.service';
 
 // i18n support
 import { TranslateService } from '@ngx-translate/core';
-import { REQUEST } from '@nguniversal/aspnetcore-engine';
+import { REQUEST } from '@nguniversal/aspnetcore-engine/tokens';
 
 @Component({
     selector: 'app-root',
