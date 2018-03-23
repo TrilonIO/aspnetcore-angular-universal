@@ -24,7 +24,7 @@ import { NgxBootstrapComponent } from './containers/ngx-bootstrap-demo/ngx-boots
 
 import { LinkService } from './shared/link.service';
 import { UserService } from './shared/user.service';
-import { ORIGIN_URL } from '@nguniversal/aspnetcore-engine';
+import { ORIGIN_URL } from '@nguniversal/aspnetcore-engine/tokens';
 
 export function createTranslateLoader(http: HttpClient, baseHref) {
     // Temporary Azure hack
