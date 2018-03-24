@@ -37,7 +37,15 @@ module.exports = (env) => {
                 ...sharedModuleRules
             ]
         },
-        plugins: [new CheckerPlugin()]
+        plugins: [
+            new CheckerPlugin(),
+            new webpack.ContextReplacementPlugin(
+                // fixes WARNING Critical dependency: the request of a dependency is an expression
+                /(.+)?angular(\\|\/)core(.+)?/,
+                path.join(__dirname, 'src'), // location of your src
+                {} // a map of your routes
+              ),
+        ]
     };
 
     // Configuration for client-side bundle suitable for running in browsers
@@ -89,19 +97,7 @@ module.exports = (env) => {
                 manifest: require('./ClientApp/dist/vendor-manifest.json'),
                 sourceType: 'commonjs2',
                 name: './vendor'
-            }),
-            new webpack.ContextReplacementPlugin(
-              // fixes WARNING Critical dependency: the request of a dependency is an expression
-              /(.+)?angular(\\|\/)core(.+)?/,
-              path.join(__dirname, 'src'), // location of your src
-              {} // a map of your routes
-            ),
-            new webpack.ContextReplacementPlugin(
-              // fixes WARNING Critical dependency: the request of a dependency is an expression
-              /(.+)?express(\\|\/)(.+)?/,
-              path.join(__dirname, 'src'),
-              {}
-            )
+            })
         ].concat(isDevBuild ? [] : [
             // new webpack.optimize.UglifyJsPlugin({
             //   compress: false,
