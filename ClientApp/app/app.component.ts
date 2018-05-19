@@ -1,7 +1,9 @@
-﻿import { Component, OnInit, OnDestroy, Inject, ViewEncapsulation, RendererFactory2, PLATFORM_ID, Injector } from '@angular/core';
+
+import {mergeMap, map, filter} from 'rxjs/operators';
+import { Component, OnInit, OnDestroy, Inject, ViewEncapsulation, RendererFactory2, PLATFORM_ID, Injector } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute, PRIMARY_OUTLET } from '@angular/router';
 import { Meta, Title, DOCUMENT, MetaDefinition } from '@angular/platform-browser';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import { isPlatformServer } from '@angular/common';
 import { LinkService } from './shared/link.service';
 
@@ -60,15 +62,15 @@ export class AppComponent implements OnInit, OnDestroy {
 
     private _changeTitleOnNavigation() {
 
-        this.routerSub$ = this.router.events
-            .filter(event => event instanceof NavigationEnd)
-            .map(() => this.activatedRoute)
-            .map(route => {
+        this.routerSub$ = this.router.events.pipe(
+            filter(event => event instanceof NavigationEnd),
+            map(() => this.activatedRoute),
+            map(route => {
                 while (route.firstChild) route = route.firstChild;
                 return route;
-            })
-            .filter(route => route.outlet === 'primary')
-            .mergeMap(route => route.data)
+            }),
+            filter(route => route.outlet === 'primary'),
+            mergeMap(route => route.data),)
             .subscribe((event) => {
                 this._setMetaAndLinks(event);
             });
