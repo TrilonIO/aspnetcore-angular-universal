@@ -1,8 +1,8 @@
-# ASP.NET Core 2.0 & Angular 5(+) Advanced Starter - with Server-side prerendering (for Angular SEO)! 
+# ASP.NET Core 2.0 & Angular 6(+) Advanced Starter - with Server-side prerendering (for Angular SEO)! 
 
 ## By [DevHelp.Online](http://www.DevHelp.Online)
 
-> Updated to the latest Angular 5.x
+> Updated to the latest Angular 6.x
 
 > Note ServerTransferModule still in the works - fix coming soon
 
