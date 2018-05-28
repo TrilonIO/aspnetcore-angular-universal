@@ -81,7 +81,7 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
   - Codelyzer (for Real-time static code analysis) 
     - VSCode & Atom provide real-time analysis out of the box.
 
-- **ASP.NET Core 2.0**
+- **ASP.NET Core 2.1**
   
   - Integration with NodeJS to provide pre-rendering, as well as any other Node module asset you want to use.
 
@@ -113,7 +113,7 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
 
 ### Visual Studio 2017
 
-Make sure you have .NET Core 2.0 installed and/or VS2017 15.3.
+Make sure you have .NET Core 2.1 installed and/or VS2017 15.3.
 VS2017 will automatically install all the neccessary npm & .NET dependencies when you open the project.
 
 Simply push F5 to start debugging !
