@@ -65,26 +65,12 @@ module.exports = (env) => {
               tsConfigPath: './tsconfig.json',
               entryModule: path.join(__dirname, 'ClientApp/app/app.module.browser#AppModule'),
               exclude: ['./**/*.server.ts']
-            })
+            }),
+            
           ]),
         devtool: isDevBuild ? 'cheap-eval-source-map' : false,
         node: {
           fs: "empty"
-        },
-        optimization: {
-          minimizer: [].concat(isDevBuild ? [] : [
-            // we specify a custom UglifyJsPlugin here to get source maps in production
-            new UglifyJsPlugin({
-              cache: true,
-              parallel: true,
-              uglifyOptions: {
-                compress: false,
-                ecma: 6,
-                mangle: true
-              },
-              sourceMap: true
-            })
-          ])
         }
     });
 
@@ -130,22 +116,7 @@ module.exports = (env) => {
         },
         target: 'node',
         // switch to "inline-source-map" if you want to debug the TS during SSR
-        devtool: isDevBuild ? 'cheap-eval-source-map' : false,
-        optimization: {
-          minimizer: [].concat(isDevBuild ? [] : [
-            // we specify a custom UglifyJsPlugin here to get source maps in production
-            new UglifyJsPlugin({
-              cache: true,
-              parallel: true,
-              uglifyOptions: {
-                compress: false,
-                ecma: 6,
-                mangle: true
-              },
-              sourceMap: true
-            })
-          ])
-        }
+        devtool: isDevBuild ? 'cheap-eval-source-map' : false
     });
 
     return [clientBundleConfig, serverBundleConfig];

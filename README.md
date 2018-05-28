@@ -1,4 +1,4 @@
-# ASP.NET Core 2.0 & Angular 6(+) Advanced Starter - with Server-side prerendering (for Angular SEO)! 
+# ASP.NET Core 2.1 & Angular 6(+) Advanced Starter - with Server-side prerendering (for Angular SEO)! 
 
 ## By [DevHelp.Online](http://www.DevHelp.Online)
 
@@ -7,21 +7,21 @@
 > Note ServerTransferModule still in the works - fix coming soon
 
 <p align="center">
-    <img src="./docs/architecture.png" alt="ASP.NET Core 2.0 Angular 5+ Starter" title="ASP.NET Core 2.0 Angular 5+ Starter">
+    <img src="./docs/architecture.png" alt="ASP.NET Core 2.1 Angular 6+ Starter" title="ASP.NET Core 2.1 Angular 6+ Starter">
 </p>
 
-### Harness the power of Angular 5+, ASP.NET Core 2.0, now with SEO !
+### Harness the power of Angular 6+, ASP.NET Core 2.0, now with SEO !
 
 Angular SEO in action:
 
 <p align="center">
-  <img src="./docs/angular2-seo.png" alt="ASP.NET Core Angular5 SEO" title="ASP.NET Core Angular5 SEO">
+  <img src="./docs/angular2-seo.png" alt="ASP.NET Core Angular6 SEO" title="ASP.NET Core Angular6 SEO">
 </p>
 
 ### What is this repo? Live Demo here: http://aspnetcore-angular2-universal.azurewebsites.net
 
 This repository is maintained by [Angular](https://github.com/angular/angular) and is meant to be an advanced starter 
-for both ASP.NET Core 2.0 using Angular 5.0+, not only for the client-side, but to be rendered on the server for instant 
+for both ASP.NET Core 2.0 using Angular 6.0+, not only for the client-side, but to be rendered on the server for instant 
 application paints (Note: If you don't need SSR [read here](#faq) on how to disable it).
 
 This is meant to be a Feature-Rich Starter application containing all of the latest technologies, best build systems available, and include many real-world examples and libraries needed in todays Single Page Applications (SPAs).
@@ -55,7 +55,7 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
   - Swagger WebAPI documentation when running in development mode 
   - SignalR Chat demo! (Thanks to [@hakonamatata](https://github.com/hakonamatata))
 
-- **Angular 5.0.0** :
+- **Angular 6.0.0** :
   - (Minimal) Angular-CLI integration 
     - This is to be used mainly for Generating Components/Services/etc.
     - Usage examples: 
@@ -296,7 +296,7 @@ Take a look at the `_Layout.cshtml` file for example, notice how we let .NET han
     <head>
         <base href="/" />
         <!-- Title will be the one you set in your Angular application -->
-        <title>@ViewData["Title"] - AspNET.Core Angular 5.0.0 (+) starter</title>
+        <title>@ViewData["Title"] - AspNET.Core Angular 6.0.0 (+) starter</title>
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -335,9 +335,9 @@ Well now, your Client-side Angular will take over, and you'll have a fully funct
 
 # "Gotchas"
 
-- This repository uses ASP.Net Core 2.0, which has a hard requirement on .NET Core Runtime 2.0.0 and .NET Core SDK 2.0.0. Please install these items from [here](https://github.com/dotnet/core/blob/master/release-notes/download-archives/2.0.0-download.md)
+- This repository uses ASP.Net Core 2.1, which has a hard requirement on .NET Core Runtime 2.1+ and .NET Core SDK 2.1+. Please install these items from [here](https://github.com/dotnet/core/releases)
 
-> When building components in Angular 5 there are a few things to keep in mind.
+> When building components in Angular 6 there are a few things to keep in mind.
 
  - Make sure you provide Absolute URLs when calling any APIs. (The server can't understand relative paths, so `/api/whatever` will fail).
  
@@ -402,7 +402,7 @@ This is now possible, with the recently updated Angular Material changes. We do 
 ### How can I use jQuery and/or some jQuery plugins with this repo?
 
 > Note: If at all possible, try to avoid using jQuery or libraries dependent on it, as there are 
-better, more abstract ways of dealing with the DOM in Angular (5+) such as using the Renderer, etc.
+better, more abstract ways of dealing with the DOM in Angular (6+) such as using the Renderer, etc.
 
 Yes, of course but there are a few things you need to setup before doing this. First, make sure jQuery 
 is included in webpack vendor file, and that you have a webpack Plugin setup for it. `new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery' })`
