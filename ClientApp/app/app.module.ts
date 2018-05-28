@@ -1,31 +1,24 @@
-import { NgModule, Inject } from '@angular/core';
-import { RouterModule, PreloadAllModules } from '@angular/router';
-import { CommonModule, APP_BASE_HREF } from '@angular/common';
-import { HttpModule, Http } from '@angular/http';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
+import { PreloadAllModules, RouterModule } from '@angular/router';
+import { ORIGIN_URL } from '@nguniversal/aspnetcore-engine/tokens';
 import { TransferHttpCacheModule } from '@nguniversal/common';
-
-import { Ng2BootstrapModule } from 'ngx-bootstrap';
-
-// i18n support
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-
+import { AccordionModule } from 'ngx-bootstrap';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
-import { HomeComponent } from './containers/home/home.component';
-import { UsersComponent } from './containers/users/users.component';
 import { UserDetailComponent } from './components/user-detail/user-detail.component';
 import { CounterComponent } from './containers/counter/counter.component';
-import { NotFoundComponent } from './containers/not-found/not-found.component';
+import { HomeComponent } from './containers/home/home.component';
 import { NgxBootstrapComponent } from './containers/ngx-bootstrap-demo/ngx-bootstrap.component';
-
+import { NotFoundComponent } from './containers/not-found/not-found.component';
+import { UsersComponent } from './containers/users/users.component';
 import { LinkService } from './shared/link.service';
 import { UserService } from './shared/user.service';
-import { ORIGIN_URL } from '@nguniversal/aspnetcore-engine/tokens';
-
 export function createTranslateLoader(http: HttpClient, baseHref) {
     // Temporary Azure hack
     if (baseHref === null && typeof window !== 'undefined') {
@@ -48,17 +41,15 @@ export function createTranslateLoader(http: HttpClient, baseHref) {
     ],
     imports: [
         CommonModule,
+        // PrebootModule.withConfig({ appRoot: 'app-root', replay: false }),
+        AccordionModule.forRoot(),
         BrowserModule.withServerTransition({
-          appId: 'my-app-id' // make sure this matches with your Server NgModule
+            appId: 'my-app-id' // make sure this matches with your Server NgModule
         }),
         HttpClientModule,
         TransferHttpCacheModule,
         BrowserTransferStateModule,
-
-
         FormsModule,
-        Ng2BootstrapModule.forRoot(), // You could also split this up if you don't want the Entire Module imported
-
         // i18n support
         TranslateModule.forRoot({
             loader: {
@@ -126,7 +117,7 @@ export function createTranslateLoader(http: HttpClient, baseHref) {
                 }
             },
 
-            { path: 'lazy', loadChildren: './containers/lazy/lazy.module#LazyModule'},
+            { path: 'lazy', loadChildren: './containers/lazy/lazy.module#LazyModule' },
 
             {
                 path: '**', component: NotFoundComponent,
@@ -140,11 +131,11 @@ export function createTranslateLoader(http: HttpClient, baseHref) {
                 }
             }
         ], {
-          // Router options
-          useHash: false,
-          preloadingStrategy: PreloadAllModules,
-          initialNavigation: 'enabled'
-        })
+                // Router options
+                useHash: false,
+                preloadingStrategy: PreloadAllModules,
+                initialNavigation: 'enabled'
+            })
     ],
     providers: [
         LinkService,

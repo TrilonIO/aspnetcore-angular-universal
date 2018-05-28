@@ -1,10 +1,7 @@
-﻿import { Injectable, Inject, Injector } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Http, URLSearchParams } from '@angular/http';
-import { APP_BASE_HREF } from '@angular/common';
+﻿import { HttpClient } from '@angular/common/http';
+import { Injectable, Injector } from '@angular/core';
 import { ORIGIN_URL } from '@nguniversal/aspnetcore-engine/tokens';
 import { IUser } from '../models/User';
-import { Observable } from 'rxjs/Observable';
 
 
 @Injectable()

@@ -1,6 +1,6 @@
-import { Component, OnInit, Inject } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+
 
 @Component({
     selector: 'app-home',
@@ -8,7 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class HomeComponent implements OnInit {
 
-    title: string = 'Angular 5.x Universal & ASP.NET Core 2.0 advanced starter-kit';
+    title: string = 'Angular 6.x Universal & ASP.NET Core 2.0 advanced starter-kit';
 
     // Use "constructor"s only for dependency injection
     constructor(

@@ -6,9 +6,9 @@
  * Soon there will be an overall HeadService within Angular that handles Meta/Link everything
  */
 
-import { Injectable, PLATFORM_ID, Optional, RendererFactory2, ViewEncapsulation, Inject } from '@angular/core';
-import { DOCUMENT } from '@angular/platform-browser';
 import { isPlatformServer } from '@angular/common';
+import { Inject, Injectable, PLATFORM_ID, RendererFactory2, ViewEncapsulation } from '@angular/core';
+import { DOCUMENT } from '@angular/platform-browser';
 
 @Injectable()
 export class LinkService {

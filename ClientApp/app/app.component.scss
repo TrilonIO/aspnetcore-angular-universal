@@ -1,63 +1,109 @@
 ﻿$navbar-default-bg: #312312;
 $light-orange: #ff8c00;
 $navbar-default-color: $light-orange;
-
 /* Import Bootstrap & Fonts */
-$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
-
-
-
+@import "~bootstrap/scss/bootstrap";
 /* *** Overall APP Styling can go here ***
    --------------------------------------------
    Note: This Component has ViewEncapsulation.None so the styles will bleed out
 
 */
+
 @media (max-width: 767px) {
-  body {
-    background: #f1f1f1;
-    line-height: 18px;
-    padding-top: 30px;
-  }
-
-  h1 {
-    border-bottom: 3px #4189C7 solid;
-    font-size: 24px;
-  }
-
-  h2 {
-    font-size: 20px;
-  }
-
-  h1, h2, h3 {
-    padding: 3px 0;
-  }
+    body {
+        background: #f1f1f1;
+        line-height: 18px;
+        padding-top: 30px;
+    }
+    h1 {
+        border-bottom: 3px #4189C7 solid;
+        font-size: 24px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    h1,
+    h2,
+    h3 {
+        padding: 3px 0;
+    }
 }
 
 @media (min-width: 768px) {
-  body {
-    background: #f1f1f1;
-    line-height: 18px;
-    padding-top: 0px;
-  }
-
-  h1 {
-    border-bottom: 5px #4189C7 solid;
-    font-size: 36px;
-  }
-
-  h2 {
-    font-size: 30px;
-  }
-
-  h1, h2, h3 {
-    padding: 10px 0;
-  }
+    body {
+        background: #f1f1f1;
+        line-height: 18px;
+        padding-top: 0px;
+    }
+    h1 {
+        border-bottom: 5px #4189C7 solid;
+        font-size: 36px;
+    }
+    h2 {
+        font-size: 30px;
+    }
+    h1,
+    h2,
+    h3 {
+        padding: 10px 0;
+    }
 }
 
-ul { padding: 10px 25px; }
-ul li { padding: 5px 0; }
+ul {
+    padding: 10px 25px;
+}
 
-blockquote { margin: 25px 10px; padding: 10px 35px 10px 10px; border-left: 10px #158a15 solid; background: #edffed; }
-blockquote a, blockquote a:hover { color: #068006; }
+ul li {
+    padding: 5px 0;
+}
+
+blockquote {
+    margin: 25px 10px;
+    padding: 10px 35px 10px 10px;
+    border-left: 10px #158a15 solid;
+    background: #edffed;
+}
+
+blockquote a,
+blockquote a:hover {
+    color: #068006;
+}
+
+//These are just to make the application appear as it did in bootstrap 3, 
+a {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+.panel-heading {
+    padding: 8px 15px;
+    .btn {
+        padding:0px;
+    }
+}
+
+.btn-link {
+    font-weight: 400;
+    color: #337ab7;
+    background-color: transparent;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+
+.btn-primary:active:hover,
+.btn-primary:active:focus,
+.btn-primary:active.focus,
+.btn-primary.active:hover,
+.btn-primary.active:focus,
+.btn-primary.active.focus,
+.open>.btn-primary.dropdown-toggle:hover,
+.open>.btn-primary.dropdown-toggle:focus,
+.open>.btn-primary.dropdown-toggle.focus {
+    color: #fff;
+    background-color: #204d74;
+    border-color: #122b40;
+}

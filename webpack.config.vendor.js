@@ -1,3 +1,4 @@
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -27,12 +28,13 @@ const nonTreeShakableModules = [
 const allModules = treeShakableModules.concat(nonTreeShakableModules);
 
 module.exports = (env) => {
-  console.log(`env = ${JSON.stringify(env)}`)
+    console.log(`env = ${JSON.stringify(env)}`)
     const extractCSS = new ExtractTextPlugin('vendor.css');
     const isDevBuild = !(env && env.prod);
     const sharedConfig = {
+        mode: isDevBuild ? 'development' : 'production',
         stats: { modules: false },
-        resolve: { extensions: [ '.js' ] },
+        resolve: { extensions: ['.js'] },
         module: {
             rules: [
                 { test: /\.(png|woff|woff2|eot|ttf|svg)(\?|$)/, use: 'url-loader?limit=100000' }
@@ -69,9 +71,23 @@ module.exports = (env) => {
                 path: path.join(__dirname, 'wwwroot', 'dist', '[name]-manifest.json'),
                 name: '[name]_[hash]'
             })
-        ].concat(isDevBuild ? [] : [
-            new webpack.optimize.UglifyJsPlugin()
-        ])
+        ],
+        optimization: isDevBuild ? {} : {
+            minimizer: [
+                // we specify a custom UglifyJsPlugin here to get source maps in production
+                new UglifyJsPlugin({
+                    cache: true,
+                    parallel: true,
+                    uglifyOptions: {
+                        compress: false,
+                        ecma: 6,
+                        mangle: true
+                    },
+                    sourceMap: true
+                })
+            ]
+        }
+
     });
 
     const serverBundleConfig = merge(sharedConfig, {
@@ -83,16 +99,29 @@ module.exports = (env) => {
             libraryTarget: 'commonjs2',
         },
         module: {
-            rules: [ { test: /\.css(\?|$)/, use: ['to-string-loader', isDevBuild ? 'css-loader' : 'css-loader?minimize' ] } ]
+            rules: [{ test: /\.css(\?|$)/, use: ['to-string-loader', isDevBuild ? 'css-loader' : 'css-loader?minimize'] }]
         },
         plugins: [
             new webpack.DllPlugin({
                 path: path.join(__dirname, 'ClientApp', 'dist', '[name]-manifest.json'),
                 name: '[name]_[hash]'
             })
-        ].concat(isDevBuild ? [] : [
-          new webpack.optimize.UglifyJsPlugin()
-      ])
+        ],
+        optimization: isDevBuild ? {} : {
+            minimizer: [
+                // we specify a custom UglifyJsPlugin here to get source maps in production
+                new UglifyJsPlugin({
+                    cache: true,
+                    parallel: true,
+                    uglifyOptions: {
+                        compress: false,
+                        ecma: 6,
+                        mangle: true
+                    },
+                    sourceMap: true
+                })
+            ]
+        }
     });
 
     return [clientBundleConfig, serverBundleConfig];

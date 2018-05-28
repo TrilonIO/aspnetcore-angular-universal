@@ -99,7 +99,8 @@ namespace AspCoreServer
         app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
         {
           HotModuleReplacement = true,
-          HotModuleReplacementEndpoint = "/dist/"
+          HotModuleReplacementEndpoint = "/dist/",
+          ConfigFile = "webpack.config.js",
         });
         app.UseSwagger();
         app.UseSwaggerUI(c =>

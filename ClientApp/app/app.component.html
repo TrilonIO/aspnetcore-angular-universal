@@ -1,6 +1,9 @@
-<div class="col-sm-3">
-    <app-nav-menu></app-nav-menu>
-</div>
-<div class="col-sm-9 body-content">
-    <router-outlet></router-outlet>
+
+<div class="container-fluid">
+    <div class="row">
+        <app-nav-menu></app-nav-menu>
+        <div class="col-sm-9 body-content ml-sm-auto">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
 </div>

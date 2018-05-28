@@ -1,8 +1,5 @@
-import {
-  Component, OnInit,
-  // animation imports
-  trigger, state, style, transition, animate, Inject
-} from '@angular/core';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { Component, OnInit } from '@angular/core';
 import { IUser } from '../../models/User';
 import { UserService } from '../../shared/user.service';
 

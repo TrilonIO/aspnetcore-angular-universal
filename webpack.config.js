@@ -14,16 +14,17 @@ const merge = require('webpack-merge');
 const AngularCompilerPlugin = require('@ngtools/webpack').AngularCompilerPlugin;
 const CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin;
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const { sharedModuleRules } = require('./webpack.additions');
 
 module.exports = (env) => {
     // Configuration in common to both client-side and server-side bundles
     const isDevBuild = !(env && env.prod);
     const sharedConfig = {
+        mode: isDevBuild ? 'development' : 'production',
         stats: { modules: false },
         context: __dirname,
-        resolve: { extensions: [ '.js', '.ts' ] },
+        resolve: { extensions: ['.js', '.ts'] },
         output: {
             filename: '[name].js',
             publicPath: 'dist/' // Webpack dev middleware, if enabled, handles requests for this URL prefix
@@ -32,7 +33,7 @@ module.exports = (env) => {
             rules: [
                 { test: /\.ts$/, use: isDevBuild ? ['awesome-typescript-loader?silent=true', 'angular2-template-loader', 'angular2-router-loader'] : '@ngtools/webpack' },
                 { test: /\.html$/, use: 'html-loader?minimize=false' },
-                { test: /\.css$/, use: [ 'to-string-loader', isDevBuild ? 'css-loader' : 'css-loader?minimize' ] },
+                { test: /\.css$/, use: ['to-string-loader', isDevBuild ? 'css-loader' : 'css-loader?minimize'] },
                 { test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader?limit=25000' },
                 ...sharedModuleRules
             ]
@@ -57,23 +58,34 @@ module.exports = (env) => {
                 moduleFilenameTemplate: path.relative(clientBundleOutputDir, '[resourcePath]') // Point sourcemap entries to the original file locations on disk
             })
         ] : [
-            // new BundleAnalyzerPlugin(),
-            // Plugins that apply in production builds only
-            new AngularCompilerPlugin({
-              mainPath: path.join(__dirname, 'ClientApp/boot.browser.ts'),
-              tsConfigPath: './tsconfig.json',
-              entryModule: path.join(__dirname, 'ClientApp/app/app.module.browser#AppModule'),
-              exclude: ['./**/*.server.ts']
-            }),
-            new webpack.optimize.UglifyJsPlugin({
-                output: {
-                    ascii_only: true,
-                }
-            }),
-          ]),
+                // new BundleAnalyzerPlugin(),
+                // Plugins that apply in production builds only
+                new AngularCompilerPlugin({
+                    mainPath: path.join(__dirname, 'ClientApp/boot.browser.ts'),
+                    tsConfigPath: './tsconfig.json',
+                    entryModule: path.join(__dirname, 'ClientApp/app/app.module.browser#AppModule'),
+                    exclude: ['./**/*.server.ts']
+                })
+            ]),
         devtool: isDevBuild ? 'cheap-eval-source-map' : false,
+
+        optimization: isDevBuild ? {} : {
+            minimizer: [
+                // we specify a custom UglifyJsPlugin here to get source maps in production
+                new UglifyJsPlugin({
+                    cache: true,
+                    parallel: true,
+                    uglifyOptions: {
+                        compress: false,
+                        ecma: 6,
+                        mangle: true
+                    },
+                    sourceMap: true
+                })
+            ]
+        },
         node: {
-          fs: "empty"
+            fs: "empty"
         }
     });
 
@@ -81,8 +93,8 @@ module.exports = (env) => {
     const serverBundleConfig = merge(sharedConfig, {
         // resolve: { mainFields: ['main'] },
         entry: {
-          'main-server':
-          isDevBuild ? './ClientApp/boot.server.ts' : './ClientApp/boot.server.PRODUCTION.ts'
+            'main-server':
+                isDevBuild ? './ClientApp/boot.server.ts' : './ClientApp/boot.server.PRODUCTION.ts'
         },
         plugins: [
             new webpack.DllReferencePlugin({
@@ -93,40 +105,48 @@ module.exports = (env) => {
             })
         ].concat(isDevBuild ? [
             new webpack.ContextReplacementPlugin(
-              // fixes WARNING Critical dependency: the request of a dependency is an expression
-              /(.+)?angular(\\|\/)core(.+)?/,
-              path.join(__dirname, 'src'), // location of your src
-              {} // a map of your routes
+                // fixes WARNING Critical dependency: the request of a dependency is an expression
+                /(.+)?angular(\\|\/)core(.+)?/,
+                path.join(__dirname, 'src'), // location of your src
+                {} // a map of your routes
             ),
             new webpack.ContextReplacementPlugin(
-              // fixes WARNING Critical dependency: the request of a dependency is an expression
-              /(.+)?express(\\|\/)(.+)?/,
-              path.join(__dirname, 'src'),
-              {}
+                // fixes WARNING Critical dependency: the request of a dependency is an expression
+                /(.+)?express(\\|\/)(.+)?/,
+                path.join(__dirname, 'src'),
+                {}
             )
         ] : [
-            new webpack.optimize.UglifyJsPlugin({
-                mangle: false,
-                compress: false,
-                output: {
-                    ascii_only: true,
-                }
-            }),
-            // Plugins that apply in production builds only
-            new AngularCompilerPlugin({
-              mainPath: path.join(__dirname, 'ClientApp/boot.server.PRODUCTION.ts'),
-              tsConfigPath: './tsconfig.json',
-              entryModule: path.join(__dirname, 'ClientApp/app/app.module.server#AppModule'),
-              exclude: ['./**/*.browser.ts']
-            })
-        ]),
+                // Plugins that apply in production builds only
+                new AngularCompilerPlugin({
+                    mainPath: path.join(__dirname, 'ClientApp/boot.server.PRODUCTION.ts'),
+                    tsConfigPath: './tsconfig.json',
+                    entryModule: path.join(__dirname, 'ClientApp/app/app.module.server#AppModule'),
+                    exclude: ['./**/*.browser.ts']
+                })
+            ]),
         output: {
             libraryTarget: 'commonjs',
             path: path.join(__dirname, './ClientApp/dist')
         },
         target: 'node',
         // switch to "inline-source-map" if you want to debug the TS during SSR
-        devtool: isDevBuild ? 'cheap-eval-source-map' : false
+        devtool: isDevBuild ? 'cheap-eval-source-map' : false,
+        optimization: isDevBuild ? {} : {
+            minimizer: [
+                // we specify a custom UglifyJsPlugin here to get source maps in production
+                new UglifyJsPlugin({
+                    cache: true,
+                    parallel: true,
+                    uglifyOptions: {
+                        compress: false,
+                        ecma: 6,
+                        mangle: true
+                    },
+                    sourceMap: true
+                })
+            ]
+        }
     });
 
     return [clientBundleConfig, serverBundleConfig];

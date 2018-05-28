@@ -1,13 +1,9 @@
 ﻿import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { APP_BASE_HREF } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { ORIGIN_URL, REQUEST } from '@nguniversal/aspnetcore-engine/tokens';
-import { AppModuleShared } from './app.module';
 import { AppComponent } from './app.component';
-import { BrowserTransferStateModule } from '@angular/platform-browser';
-import { BrowserPrebootModule } from 'preboot/browser';
+import { AppModuleShared } from './app.module';
+
 
 export function getOriginUrl() {
   return window.location.origin;
@@ -21,7 +17,6 @@ export function getRequest() {
 @NgModule({
     bootstrap: [AppComponent],
     imports: [
-        BrowserPrebootModule.replayEvents(),
         BrowserAnimationsModule,
 
         // Our Common AppModule

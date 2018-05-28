@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IUser } from '../../models/User';
 import { UserService } from '../../shared/user.service';
 
