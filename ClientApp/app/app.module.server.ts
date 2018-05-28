@@ -7,7 +7,7 @@ import { AppModuleShared } from './app.module';
 import { AppComponent } from './app.component';
 import { ServerTransferStateModule } from '@angular/platform-server';
 
-import { ServerPrebootModule } from 'preboot/server';
+import { PrebootModule } from 'preboot';
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -16,7 +16,7 @@ import { ServerPrebootModule } from 'preboot/server';
     AppModuleShared,
 
     ServerModule,
-    ServerPrebootModule.recordEvents({ appRoot: 'app-root' }),
+    PrebootModule.withConfig({ appRoot: 'app-root' }),
     NoopAnimationsModule,
 
     // HttpTransferCacheModule still needs fixes for 5.0

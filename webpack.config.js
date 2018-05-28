@@ -21,6 +21,7 @@ module.exports = (env) => {
     // Configuration in common to both client-side and server-side bundles
     const isDevBuild = !(env && env.prod);
     const sharedConfig = {
+        mode: isDevBuild ? "development" : "production",
         stats: { modules: false },
         context: __dirname,
         resolve: { extensions: [ '.js', '.ts' ] },
@@ -64,16 +65,26 @@ module.exports = (env) => {
               tsConfigPath: './tsconfig.json',
               entryModule: path.join(__dirname, 'ClientApp/app/app.module.browser#AppModule'),
               exclude: ['./**/*.server.ts']
-            }),
-            new webpack.optimize.UglifyJsPlugin({
-                output: {
-                    ascii_only: true,
-                }
-            }),
+            })
           ]),
         devtool: isDevBuild ? 'cheap-eval-source-map' : false,
         node: {
           fs: "empty"
+        },
+        optimization: {
+          minimizer: [].concat(isDevBuild ? [] : [
+            // we specify a custom UglifyJsPlugin here to get source maps in production
+            new UglifyJsPlugin({
+              cache: true,
+              parallel: true,
+              uglifyOptions: {
+                compress: false,
+                ecma: 6,
+                mangle: true
+              },
+              sourceMap: true
+            })
+          ])
         }
     });
 
@@ -105,13 +116,6 @@ module.exports = (env) => {
               {}
             )
         ] : [
-            new webpack.optimize.UglifyJsPlugin({
-                mangle: false,
-                compress: false,
-                output: {
-                    ascii_only: true,
-                }
-            }),
             // Plugins that apply in production builds only
             new AngularCompilerPlugin({
               mainPath: path.join(__dirname, 'ClientApp/boot.server.PRODUCTION.ts'),
@@ -126,7 +130,22 @@ module.exports = (env) => {
         },
         target: 'node',
         // switch to "inline-source-map" if you want to debug the TS during SSR
-        devtool: isDevBuild ? 'cheap-eval-source-map' : false
+        devtool: isDevBuild ? 'cheap-eval-source-map' : false,
+        optimization: {
+          minimizer: [].concat(isDevBuild ? [] : [
+            // we specify a custom UglifyJsPlugin here to get source maps in production
+            new UglifyJsPlugin({
+              cache: true,
+              parallel: true,
+              uglifyOptions: {
+                compress: false,
+                ecma: 6,
+                mangle: true
+              },
+              sourceMap: true
+            })
+          ])
+        }
     });
 
     return [clientBundleConfig, serverBundleConfig];

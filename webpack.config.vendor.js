@@ -27,10 +27,11 @@ const nonTreeShakableModules = [
 const allModules = treeShakableModules.concat(nonTreeShakableModules);
 
 module.exports = (env) => {
-  console.log(`env = ${JSON.stringify(env)}`)
+    console.log(`env = ${JSON.stringify(env)}`)
     const extractCSS = new ExtractTextPlugin('vendor.css');
     const isDevBuild = !(env && env.prod);
     const sharedConfig = {
+        mode: isDevBuild ? "development" : "production",
         stats: { modules: false },
         resolve: { extensions: [ '.js' ] },
         module: {
@@ -70,8 +71,23 @@ module.exports = (env) => {
                 name: '[name]_[hash]'
             })
         ].concat(isDevBuild ? [] : [
-            new webpack.optimize.UglifyJsPlugin()
-        ])
+
+        ]),
+        optimization: {
+          minimizer: [].concat(isDevBuild ? [] : [
+            // we specify a custom UglifyJsPlugin here to get source maps in production
+            new UglifyJsPlugin({
+              cache: true,
+              parallel: true,
+              uglifyOptions: {
+                compress: false,
+                ecma: 6,
+                mangle: true
+              },
+              sourceMap: true
+            })
+          ])
+        }
     });
 
     const serverBundleConfig = merge(sharedConfig, {
@@ -91,8 +107,22 @@ module.exports = (env) => {
                 name: '[name]_[hash]'
             })
         ].concat(isDevBuild ? [] : [
-          new webpack.optimize.UglifyJsPlugin()
-      ])
+        ]),
+        optimization: {
+          minimizer: [].concat(isDevBuild ? [] : [
+            // we specify a custom UglifyJsPlugin here to get source maps in production
+            new UglifyJsPlugin({
+              cache: true,
+              parallel: true,
+              uglifyOptions: {
+                compress: false,
+                ecma: 6,
+                mangle: true
+              },
+              sourceMap: true
+            })
+          ])
+        }
     });
 
     return [clientBundleConfig, serverBundleConfig];
