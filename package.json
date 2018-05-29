@@ -38,7 +38,7 @@
     "awesome-typescript-loader": "^5.0.0",
     "bootstrap": "^4.1.1",
     "bootstrap-sass": "^3.3.7",
-    "core-js": "^2.5.6",
+    "core-js": "^2.5.7",
     "css": "^2.2.3",
     "css-loader": "^0.28.11",
     "event-source-polyfill": "^0.0.12",
@@ -61,7 +61,7 @@
     "to-string-loader": "^1.1.5",
     "typescript": "~2.7.2",
     "url-loader": "^1.0.1",
-    "webpack": "^4.9.1",
+    "webpack": "^4.9.2",
     "webpack-hot-middleware": "^2.22.2",
     "webpack-merge": "^4.1.2",
     "zone.js": "^0.8.26"
@@ -88,8 +88,8 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.4",
     "tslint": "^5.10.0",
-    "uglifyjs-webpack-plugin": "^1.2.5",
     "webpack-bundle-analyzer": "^2.13.1",
-    "webpack-cli": "^2.1.4"
+    "webpack-cli": "^2.1.4",
+    "@angular-devkit/build-angular": "~0.6.5"
   }
 }

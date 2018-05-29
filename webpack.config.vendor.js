@@ -70,24 +70,7 @@ module.exports = (env) => {
                 path: path.join(__dirname, 'wwwroot', 'dist', '[name]-manifest.json'),
                 name: '[name]_[hash]'
             })
-        ].concat(isDevBuild ? [] : [
-
-        ]),
-        optimization: {
-          minimizer: [].concat(isDevBuild ? [] : [
-            // we specify a custom UglifyJsPlugin here to get source maps in production
-            new UglifyJsPlugin({
-              cache: true,
-              parallel: true,
-              uglifyOptions: {
-                compress: false,
-                ecma: 6,
-                mangle: true
-              },
-              sourceMap: true
-            })
-          ])
-        }
+        ]
     });
 
     const serverBundleConfig = merge(sharedConfig, {
@@ -106,23 +89,7 @@ module.exports = (env) => {
                 path: path.join(__dirname, 'ClientApp', 'dist', '[name]-manifest.json'),
                 name: '[name]_[hash]'
             })
-        ].concat(isDevBuild ? [] : [
-        ]),
-        optimization: {
-          minimizer: [].concat(isDevBuild ? [] : [
-            // we specify a custom UglifyJsPlugin here to get source maps in production
-            new UglifyJsPlugin({
-              cache: true,
-              parallel: true,
-              uglifyOptions: {
-                compress: false,
-                ecma: 6,
-                mangle: true
-              },
-              sourceMap: true
-            })
-          ])
-        }
+        ]
     });
 
     return [clientBundleConfig, serverBundleConfig];
