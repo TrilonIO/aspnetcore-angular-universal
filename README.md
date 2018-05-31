@@ -1,4 +1,4 @@
-# ASP.NET Core 2.0 & Angular 6(+) Advanced Starter - with Server-side prerendering (for Angular SEO)! 
+# ASP.NET Core 2.1 & Angular 6(+) Advanced Starter - with Server-side prerendering (for Angular SEO)! 
 
 ## By [DevHelp.Online](http://www.DevHelp.Online)
 
@@ -19,7 +19,7 @@ Angular SEO in action:
 ### What is this repo? Live Demo here: http://aspnetcore-angular2-universal.azurewebsites.net
 
 This repository is maintained by [Angular](https://github.com/angular/angular) and is meant to be an advanced starter 
-for both ASP.NET Core 2.0 using Angular 6.0+, not only for the client-side, but to be rendered on the server for instant 
+for both ASP.NET Core 2.1 using Angular 6.0+, not only for the client-side, but to be rendered on the server for instant 
 application paints (Note: If you don't need SSR [read here](#faq) on how to disable it).
 
 This is meant to be a Feature-Rich Starter application containing all of the latest technologies, best build systems available, and include many real-world examples and libraries needed in todays Single Page Applications (SPAs).
