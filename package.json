@@ -2,6 +2,7 @@
   "name": "angular4-aspnetcore-universal",
   "version": "1.0.0-rc3",
   "scripts": {
+    "clean:install": "npm run clean && rimraf ./node_modules ./bin ./obj ./package-lock.json && dotnet restore && npm i",
     "lint": "tslint -p tsconfig.json",
     "test": "npm run build:vendor && karma start ClientApp/test/karma.conf.js",
     "test:watch": "npm run test -- --auto-watch --no-single-run",
@@ -90,6 +91,7 @@
     "tslint": "^5.10.0",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "webpack-bundle-analyzer": "^2.13.1",
-    "webpack-cli": "^2.1.4"
+    "webpack-cli": "^2.1.4",
+    "@angular-devkit/build-angular": "~0.6.6"
   }
 }

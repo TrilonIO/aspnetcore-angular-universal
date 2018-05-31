@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const merge = require('webpack-merge');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const treeShakableModules = [
     '@angular/animations',
     '@angular/common',
@@ -24,6 +25,7 @@ const nonTreeShakableModules = [
     'event-source-polyfill',
     // 'jquery',
 ];
+
 const allModules = treeShakableModules.concat(nonTreeShakableModules);
 
 module.exports = (env) => {
