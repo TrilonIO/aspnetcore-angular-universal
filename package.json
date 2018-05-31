@@ -37,7 +37,6 @@
     "aspnet-webpack": "^2.0.3",
     "awesome-typescript-loader": "^5.0.0",
     "bootstrap": "^4.1.1",
-    "bootstrap-sass": "^3.3.7",
     "core-js": "^2.5.6",
     "css": "^2.2.3",
     "css-loader": "^0.28.11",

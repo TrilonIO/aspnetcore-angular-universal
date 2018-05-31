@@ -1,9 +1,24 @@
-﻿<div *ngIf="user">
-  <h2>{{user.name}} details:</h2>
-  <div><label>id: </label>{{user.id}}</div>
+﻿<div class="panel">
+  <h2 class="title">{{user.name}} details:</h2>
+  <form class="body" [formGroup]="userForm"(ngSubmit)="updateUser()">
+    <div class="form-group">
+      <label for="userId">Id</label>
+      <input type="input" formControlName="id" class="form-control" id="userId" placeholder="Id" readonly>
+    </div>
+    <div class="form-group">
+      <label for="userName">Name</label>
+      <input formControlName="name" placeholder="name" id="userName" class="form-control" placeholder="Name">
+    </div>
+    <div class="d-flex flex-row justify-content-end">
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </form>
+</div>
+<!-- 
+  <div>
+    <label>id: </label>{{user.id}}</div>
   <div>
     <label>name: </label>
     <input [(ngModel)]="user.name" placeholder="name" #details="ngModel" />
   </div>
-  <button [class.disabled]="details.pristine" class="btn btn-success" (click)="updateUser(user)">Save</button>
-</div>
+  <button [class.disabled]="details.pristine" class="btn btn-success" (click)="updateUser(user)">Save</button> -->
