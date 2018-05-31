@@ -1,15 +1,20 @@
 import {
-  Component, OnInit,
-  // animation imports
-  trigger, state, style, transition, animate, Inject
+  Component, OnInit, Inject
 } from '@angular/core';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
 import { IUser } from '../../models/User';
 import { UserService } from '../../shared/user.service';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css'],
+  styleUrls: ['./users.component.scss'],
   animations: [
     // Animation example
     // Triggered in the ngFor with [@flyInOut]
@@ -59,15 +64,15 @@ export class UsersComponent implements OnInit {
     });
   }
 
-  onUserUpdate(event) {
-    this.clearUser();
+  onUserUpdate(user: IUser) {
+    this.users[this.users.findIndex((u => u.id == user.id))] = user;
   }
 
   addUser(newUserName) {
-    this.clearUser();
     this.userService.addUser(newUserName).subscribe(result => {
       console.log('Post user result: ', result);
       this.users.push(result);
+      this.selectedUser = result;
     }, error => {
       console.log(`There was an issue. ${error._body}.`);
     });

@@ -1,0 +1,114 @@
+﻿@import "../../variables";
+// Mobile first styling. 
+/* Apply for small displays */
+
+.navbar {
+  position: fixed;
+  background-color: theme-color("primary");
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+
+.navbar,
+a,
+button {
+  color: $body-bg;
+}
+
+.nav {
+  padding: 0px;
+  background-color: white;
+}
+
+.nav-item a {
+  /* If a menu item's text is too long, truncate it */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 5px;
+}
+
+.nav-link {
+  display: flex;
+  svg {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.navbar-brand {
+  font-size: 1.15rem;
+}
+
+li a {
+  border: 1px solid transparent;
+  &:hover {
+    border: 1px solid theme-color-level(primary, 2);
+  }
+}
+
+li.link-active a,
+li.link-active a:hover,
+li.link-active a:focus {
+  background-color: theme-color("accent");
+  color: $body-bg;
+}
+
+@include media-breakpoint-up(lg) {
+  .navbar {
+    width: 275px;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    background-color: $body-bg;
+    flex: 0 0 $menu-max-width;
+    min-width: $menu-max-width;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 0px;
+    align-items: flex-start;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+  }
+  .navbar,
+  a,
+  button {
+    color: theme-color("primary");
+  }
+  .navbar-brand {
+    padding: 15px 15px;
+    font-size: 100%;
+    line-height: 20px;
+    height: 50px;
+  }
+  .navbar-collapse {
+    width: 100%;
+    flex: 1;
+    align-items: flex-start;
+  }
+  .nav {
+    width: 100%;
+    border-top: 1px solid #444;
+    background-color: transparent;
+  }
+  .nav-item {
+    float: none;
+    font-size: 15px;
+    margin: 6px;
+  }
+  .nav-item a {
+    padding: 10px 16px;
+    border-radius: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
