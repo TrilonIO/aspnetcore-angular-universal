@@ -3,7 +3,7 @@ import { RouterModule, PreloadAllModules } from '@angular/router';
 import { CommonModule, APP_BASE_HREF } from '@angular/common';
 import { HttpModule, Http } from '@angular/http';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { TransferHttpCacheModule } from '@nguniversal/common';
 
@@ -54,9 +54,8 @@ export function createTranslateLoader(http: HttpClient, baseHref) {
         HttpClientModule,
         TransferHttpCacheModule,
         BrowserTransferStateModule,
-
-
         FormsModule,
+        ReactiveFormsModule,
         AccordionModule.forRoot(), // You could also split this up if you don't want the Entire Module imported
 
         // i18n support

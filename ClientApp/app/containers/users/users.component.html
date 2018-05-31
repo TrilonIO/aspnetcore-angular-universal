@@ -1,29 +1,38 @@
 <h1>This is a RestAPI Example (hitting WebAPI in our case)</h1>
 
 <blockquote>
-  Let's get some fake users from Rest:<br>
-  You can find the Web API Routes in <code>{{ "/Server/RestAPI/ ... "}}</code>
+  Let's get some fake users from Rest:
+  <br> You can find the Web API Routes in
+  <code>{{ "/Server/RestAPI/ ... "}}</code>
 </blockquote>
+<div class="panel">
+  <h2 class="title">Users</h2>
+  <div class="body">
+    <div class="users-wrapper col-md-5 col-xl-4">
+      <p *ngIf="!users">
+        <em>Loading...</em>
+      </p>
+      <ul class="users">
+        <li *ngFor="let user of users" class="user" [class.selected]="user === selectedUser" (click)="onSelect(user)" [@flyInOut]>
+          <span class="user-id">{{user.id}}</span>
+          <p> {{user.name}} </p>
+          <button class="delete-user" (click)="deleteUser(user); $event.stopPropagation()">
+            <i class="fas fa-times"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div class="card-wrapper">
+      <form class="mb-3" (ngSubmit)="addUser(userName.value); userName.value=''">
+        <div class="input-group ">
+          <input type="text" class="form-control" placeholder="User name:" #userName aria-label="User name:" aria-describedby="">
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">Add</button>
+          </div>
+        </div>
+      </form>
+      <app-user-detail (userUpdate)="onUserUpdate($event)" *ngIf="selectedUser" [user]="selectedUser"></app-user-detail>
+    </div>
+  </div>
 
-<div>
-  <label>User name:</label> <input #userName />
-  <button class="btn btn-default" (click)="addUser(userName.value); userName.value=''">
-    Add
-  </button>
 </div>
-
-<p *ngIf="!users"><em>Loading...</em></p>
-<h2>Users</h2>
-<ul class="users">
-  <li *ngFor="let user of users"
-      [class.selected]="user === selectedUser"
-      (click)="onSelect(user)"
-      [@flyInOut]>
-    <span class="badge">{{user.id}}</span> {{user.name}}
-    <button class="delete"
-            (click)="deleteUser(user); $event.stopPropagation()">
-      x
-    </button>
-  </li>
-</ul>
-<app-user-detail (userUpdate)="onUserUpdate($event)" [user]="selectedUser"></app-user-detail>

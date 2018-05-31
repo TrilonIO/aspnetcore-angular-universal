@@ -29,7 +29,8 @@ namespace AspCoreServer.Data
                new User(){Name = "paonath"},
                new User(){Name = "nalex095"},
                new User(){Name = "ORuban"},
-               new User(){Name = "Gaulomatic"}
+               new User(){Name = "Gaulomatic"},
+               new User(){Name = "GRIMMR3AP3R"}
             };
 
             foreach (User s in users)
