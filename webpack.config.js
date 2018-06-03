@@ -39,7 +39,21 @@ module.exports = (env) => {
                 ...sharedModuleRules
             ]
         },
-        plugins: [new CheckerPlugin()]
+        plugins: [new CheckerPlugin()],
+        optimization: {
+          minimizer: [].concat(isDevBuild ? [] : [
+            new UglifyJsPlugin({
+              cache: true,
+              parallel: true,
+              uglifyOptions: {
+                compress: false,
+                ecma: 6,
+                mangle: false
+              },
+              sourceMap: true
+            })
+          ])
+        }
     };
 
     // Configuration for client-side bundle suitable for running in browsers
@@ -71,21 +85,6 @@ module.exports = (env) => {
         devtool: isDevBuild ? 'cheap-eval-source-map' : false,
         node: {
           fs: "empty"
-        },
-        optimization: {
-          minimizer: [].concat(isDevBuild ? [] : [
-            // we specify a custom UglifyJsPlugin here to get source maps in production
-            new UglifyJsPlugin({
-              cache: true,
-              parallel: true,
-              uglifyOptions: {
-                compress: false,
-                ecma: 6,
-                mangle: true
-              },
-              sourceMap: true
-            })
-          ])
         }
     });
 
@@ -131,22 +130,7 @@ module.exports = (env) => {
         },
         target: 'node',
         // switch to "inline-source-map" if you want to debug the TS during SSR
-        devtool: isDevBuild ? 'cheap-eval-source-map' : false,
-        optimization: {
-          minimizer: [].concat(isDevBuild ? [] : [
-            // we specify a custom UglifyJsPlugin here to get source maps in production
-            new UglifyJsPlugin({
-              cache: true,
-              parallel: true,
-              uglifyOptions: {
-                compress: false,
-                ecma: 6,
-                mangle: true
-              },
-              sourceMap: true
-            })
-          ])
-        }
+        devtool: isDevBuild ? 'cheap-eval-source-map' : false
     });
 
     return [clientBundleConfig, serverBundleConfig];

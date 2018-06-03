@@ -51,7 +51,21 @@ module.exports = (env) => {
             new webpack.ContextReplacementPlugin(/\@angular\b.*\b(bundles|linker)/, path.join(__dirname, './ClientApp')), // Workaround for https://github.com/angular/angular/issues/11580
             new webpack.ContextReplacementPlugin(/(.+)?angular(\\|\/)core(.+)?/, path.join(__dirname, './ClientApp')), // Workaround for https://github.com/angular/angular/issues/14898
             new webpack.IgnorePlugin(/^vertx$/) // Workaround for https://github.com/stefanpenner/es6-promise/issues/100
-        ]
+        ],
+        optimization: {
+          minimizer: [].concat(isDevBuild ? [] : [
+            new UglifyJsPlugin({
+              cache: true,
+              parallel: true,
+              uglifyOptions: {
+                compress: false,
+                ecma: 6,
+                mangle: false
+              },
+              sourceMap: true
+            })
+          ])
+        }
     };
 
     const clientBundleConfig = merge(sharedConfig, {
@@ -74,22 +88,7 @@ module.exports = (env) => {
             })
         ].concat(isDevBuild ? [] : [
 
-        ]),
-        optimization: {
-          minimizer: [].concat(isDevBuild ? [] : [
-            // we specify a custom UglifyJsPlugin here to get source maps in production
-            new UglifyJsPlugin({
-              cache: true,
-              parallel: true,
-              uglifyOptions: {
-                compress: false,
-                ecma: 6,
-                mangle: true
-              },
-              sourceMap: true
-            })
-          ])
-        }
+        ])
     });
 
     const serverBundleConfig = merge(sharedConfig, {
@@ -109,22 +108,7 @@ module.exports = (env) => {
                 name: '[name]_[hash]'
             })
         ].concat(isDevBuild ? [] : [
-        ]),
-        optimization: {
-          minimizer: [].concat(isDevBuild ? [] : [
-            // we specify a custom UglifyJsPlugin here to get source maps in production
-            new UglifyJsPlugin({
-              cache: true,
-              parallel: true,
-              uglifyOptions: {
-                compress: false,
-                ecma: 6,
-                mangle: true
-              },
-              sourceMap: true
-            })
-          ])
-        }
+        ])
     });
 
     return [clientBundleConfig, serverBundleConfig];

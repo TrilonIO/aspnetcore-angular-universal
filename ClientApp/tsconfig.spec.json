@@ -4,7 +4,7 @@
     "outDir": "../out-tsc/spec",
     "module": "commonjs",
     "target": "es5",
-    "baseUrl": "",
+    "baseUrl": "./",
     "types": [
       "jasmine",
       "node"
@@ -16,5 +16,19 @@
   "include": [
     "**/*.spec.ts",
     "**/*.d.ts"
-  ]
+  ],
+  "rules": {
+    "directive-selector": [
+      true,
+      "attribute",
+      "app",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "app",
+      "kebab-case"
+    ]
+  }
 }
