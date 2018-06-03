@@ -5,10 +5,10 @@
 > Updated to the latest Angular 6.x
 
 <p align="center">
-    <img src="./docs/architecture.png" alt="ASP.NET Core 2.0 Angular 6+ Starter" title="ASP.NET Core 2.0 Angular 6+ Starter">
+    <img src="./docs/architecture.png" alt="ASP.NET Core 2.1 Angular 6+ Starter" title="ASP.NET Core 2.1 Angular 6+ Starter">
 </p>
 
-### Harness the power of Angular 6+, ASP.NET Core 2.0, now with SEO !
+### Harness the power of Angular 6+, ASP.NET Core 2.1, now with SEO !
 
 Angular SEO in action:
 
@@ -53,7 +53,7 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
   - Swagger WebAPI documentation when running in development mode 
   - SignalR Chat demo! (Thanks to [@hakonamatata](https://github.com/hakonamatata))
 
-- **Angular 6.0.0** :
+- **Angular 6.0.3** :
   - (Minimal) Angular-CLI integration 
     - This is to be used mainly for Generating Components/Services/etc.
     - Usage examples: 
@@ -63,8 +63,7 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
 	  - Faster initial paints, SEO (Search-engine optimization w Title/Meta/Link tags), social media link-previews, etc
   - i18n internationalization support (via/ ngx-translate)
   - Baked in best-practices (follows Angular style guide)
-  - Bootstrap3 (with ngx-bootstrap) - (can be rendered on the server!)
-    - Can be easily replaced with bootstrap4 (3 is provided for browser support)
+  - Bootstrap4 (with ngx-bootstrap) - (can be rendered on the server!)
     - Bootstrap using SCSS / SASS for easy theming / styling!
 
 - **Webpack build system (Webpack 4)**
