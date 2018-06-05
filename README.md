@@ -26,6 +26,10 @@ This is meant to be a Feature-Rich Starter application containing all of the lat
 
 This utilizes all the latest standards, no gulp, no bower, no typings, no manually "building" anything. NPM, Webpack and .NET handle everything for you!
 
+### Join us on Gitter
+
+[![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/aspnetcore-angular2-universal/)
+
 # Table of Contents
 
 * [Features](#features)
