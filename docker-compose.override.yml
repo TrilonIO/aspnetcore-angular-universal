@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+  asp2017:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      #- ASPNETCORE_ENVIRONMENT=Production
+    ports:
+      - "80"

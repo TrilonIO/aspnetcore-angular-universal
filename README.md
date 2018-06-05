@@ -95,7 +95,11 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
         instrumentationKey: 'Your-Application-Insights-instrumentationKey'
       })
     ```
- 
+- **Docker**
+  - Built in Visual Studio F5 Debugging support
+  - Uses the very light weight microsoft/dotnet image
+  - Currently limited to Linux image as there is a bug with running nodejs in a container on Windows. 
+
 
 ----
 
@@ -113,6 +117,8 @@ Make sure you have .NET Core 2.1 installed and/or VS2017 15.3.
 VS2017 will automatically install all the neccessary npm & .NET dependencies when you open the project.
 
 Simply push F5 to start debugging !
+
+**Docker-Support**: Change the startup project to docker-compose and press F5
 
 **Note**: If you get any errors after this such as `module not found: boot.server` (or similar), open up command line and run `npm run build:dev` to make sure all the assets have been properly built by Webpack.
 
@@ -373,6 +379,7 @@ constructor(element: ElementRef, renderer: Renderer2) {
     - Use a cache that's transferred from server to client (TODO: Point to the example)
  - Know the difference between attributes and properties in relation to the DOM.
  - Keep your directives stateless as much as possible. For stateful directives, you may need to provide an attribute that reflects the corresponding property with an initial string value such as url in img tag. For our native element the src attribute is reflected as the src property of the element type HTMLImageElement.
+ - Error: `sass-loader` requires `node-sass` >=4: Either in the docker container or localhost run <b>npm rebuild node-sass -f</b>
 
 ----
 

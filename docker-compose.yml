@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  asp2017:
+    image: ${DOCKER_REGISTRY}asp2017
+    build:
+      context: .
+      dockerfile: Dockerfile
