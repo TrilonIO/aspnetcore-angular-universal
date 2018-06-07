@@ -51,6 +51,7 @@
     "moment": "2.22.1",
     "ngx-bootstrap": "^3.0.0",
     "node-sass": "^4.9.0",
+    "npm": "^6.1.0",
     "preboot": "^6.0.0-beta.4",
     "raw-loader": "^0.5.1",
     "rimraf": "^2.6.2",
