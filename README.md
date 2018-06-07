@@ -1,4 +1,4 @@
-# ASP.NET Core 2.1 & Angular 6(+) Advanced Starter - with Server-side prerendering (for Angular SEO)! 
+# ASP.NET Core 2.1 & Angular 6(+) Advanced Starter - PWA & Server-side prerendering (for Angular SEO)! 
 
 ## By [DevHelp.Online](http://www.DevHelp.Online)
 
@@ -58,6 +58,7 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
   - SignalR Chat demo! (Thanks to [@hakonamatata](https://github.com/hakonamatata))
 
 - **Angular 6.0.0** :
+  - PWA (Progressive Web App)
   - (Minimal) Angular-CLI integration 
     - This is to be used mainly for Generating Components/Services/etc.
     - Usage examples: 
@@ -435,6 +436,7 @@ To support IE9 through IE11 open the `polyfills.ts` file in the `polyfills` fold
 Many thanks go out to Steve Sanderson ([@SteveSandersonMS](https://github.com/SteveSandersonMS)) from Microsoft and his amazing work on JavaScriptServices and integrating the world of Node with ASP.NET Core.
 
 Also thank you to the many Contributors !
+- [@GRIMMR3AP3R](https://github.com/GRIMMR3AP3R)
 - [@Isaac2004](https://github.com/Isaac2004)
 - [@AbrarJahin](https://github.com/AbrarJahin)
 - [@LiverpoolOwen](https://github.com/LiverpoolOwen)
