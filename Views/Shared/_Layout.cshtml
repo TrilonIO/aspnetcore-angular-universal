@@ -12,7 +12,6 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 
     @Html.Raw(ViewData["Styles"])
-    <meta name="theme-color" content="#4189C7">
     <link rel="manifest" href="/manifest.json">
   </head>
   <body>
@@ -22,7 +21,6 @@
     @Html.Raw(ViewData["TransferData"])
     @Html.Raw(ViewData["Scripts"])
 
-    @RenderSection("scripts", required: false)
-
+    @RenderSection("scripts", required: false)   
   </body>
 </html>

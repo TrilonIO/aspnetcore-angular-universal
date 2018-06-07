@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Net.Http.Headers;
 using Swashbuckle.AspNetCore.Swagger;
+using WebEssentials.AspNetCore.Pwa;
 
 namespace AspCoreServer {
   public class Startup {
@@ -42,7 +43,7 @@ namespace AspCoreServer {
       services.AddMvc ();
       services.AddNodeServices ();
       services.AddHttpContextAccessor ();
-      services.AddProgressiveWebApp ();
+      services.AddProgressiveWebApp (new PwaOptions { Strategy = ServiceWorkerStrategy.CacheFirst, RegisterServiceWorker = true, RegisterWebmanifest = true }, "manifest.json");
 
       var connectionStringBuilder = new Microsoft.Data.Sqlite.SqliteConnectionStringBuilder { DataSource = "spa.db" };
       var connectionString = connectionStringBuilder.ToString ();
