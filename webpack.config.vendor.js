@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const merge = require('webpack-merge');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const treeShakableModules = [
@@ -30,7 +30,12 @@ const allModules = treeShakableModules.concat(nonTreeShakableModules);
 
 module.exports = (env) => {
   console.log(`env = ${JSON.stringify(env)}`)
-  const extractCSS = new ExtractTextPlugin('vendor.css');
+  const extractCSS = new MiniCssExtractPlugin({
+    // Options similar to the same options in webpackOptions.output
+    // both options are optional
+    filename: "[name].css",
+    chunkFilename: "[id].css"
+  });
   const isDevBuild = !(env && env.prod);
   const sharedConfig = {
     mode: isDevBuild ? "development" : "production",
@@ -71,9 +76,10 @@ module.exports = (env) => {
     module: {
       rules: [{
         test: /\.css(\?|$)/,
-        use: extractCSS.extract({
-          use: isDevBuild ? 'css-loader' : 'css-loader?minimize'
-        })
+        use: [
+          MiniCssExtractPlugin.loader,
+          isDevBuild ? 'css-loader' : 'css-loader?minimize'
+        ]
       }]
     },
     plugins: [
@@ -119,7 +125,10 @@ module.exports = (env) => {
     module: {
       rules: [{
         test: /\.css(\?|$)/,
-        use: ['to-string-loader', isDevBuild ? 'css-loader' : 'css-loader?minimize']
+        use: [
+          MiniCssExtractPlugin.loader,
+          isDevBuild ? 'css-loader' : 'css-loader?minimize'
+        ]
       }]
     },
     plugins: [
