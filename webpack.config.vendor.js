@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const merge = require('webpack-merge');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const treeShakableModules = [
@@ -30,7 +30,6 @@ const allModules = treeShakableModules.concat(nonTreeShakableModules);
 
 module.exports = (env) => {
   console.log(`env = ${JSON.stringify(env)}`)
-  const extractCSS = new ExtractTextPlugin('vendor.css');
   const isDevBuild = !(env && env.prod);
   const sharedConfig = {
     mode: isDevBuild ? "development" : "production",
@@ -71,13 +70,13 @@ module.exports = (env) => {
     module: {
       rules: [{
         test: /\.css(\?|$)/,
-        use: extractCSS.extract({
-          use: isDevBuild ? 'css-loader' : 'css-loader?minimize'
-        })
+        use: ['style-loader', MiniCssExtractPlugin.loader, isDevBuild ? 'css-loader' : 'css-loader?minimize']
       }]
     },
     plugins: [
-      extractCSS,
+      new MiniCssExtractPlugin({
+        filename: 'vendor.css',
+      }),
       new webpack.DllPlugin({
         path: path.join(__dirname, 'wwwroot', 'dist', '[name]-manifest.json'),
         name: '[name]_[hash]'
