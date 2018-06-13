@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const merge = require('webpack-merge');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const treeShakableModules = [
@@ -83,7 +83,9 @@ module.exports = (env) => {
       }]
     },
     plugins: [
-      extractCSS,
+      new MiniCssExtractPlugin({
+        filename: 'vendor.css',
+      }),
       new webpack.DllPlugin({
         path: path.join(__dirname, 'wwwroot', 'dist', '[name]-manifest.json'),
         name: '[name]_[hash]'
