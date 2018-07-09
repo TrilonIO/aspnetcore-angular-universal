@@ -6,9 +6,5 @@
     "baseUrl": "",
     "types": []
   },
-  "exclude": [
-    "test.ts",
-    "**/*.spec.ts",
-    "boot.server.PRODUCTION.ts"
-  ]
+  "exclude": ["test.ts", "**/*.spec.ts", "boot.server.PRODUCTION.ts"]
 }

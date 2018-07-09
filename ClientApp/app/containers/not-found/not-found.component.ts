@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'app-not-found',
-    templateUrl: './not-found.component.html'
+  selector: 'app-not-found',
+  templateUrl: './not-found.component.html'
 })
 export class NotFoundComponent implements OnInit {
-    constructor() { }
+  constructor() {}
 
-    ngOnInit() { }
+  ngOnInit() {}
 }

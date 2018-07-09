@@ -1,10 +1,10 @@
-﻿@import "../../variables";
-// Mobile first styling. 
+﻿@import '../../variables';
+// Mobile first styling.
 /* Apply for small displays */
 
 .navbar {
   position: fixed;
-  background-color: theme-color("primary");
+  background-color: theme-color('primary');
   top: 0;
   right: 0;
   left: 0;
@@ -53,7 +53,7 @@ li a {
 li.link-active a,
 li.link-active a:hover,
 li.link-active a:focus {
-  background-color: theme-color("accent");
+  background-color: theme-color('accent');
   color: $body-bg;
 }
 
@@ -81,7 +81,7 @@ li.link-active a:focus {
   .navbar,
   a,
   button {
-    color: theme-color("primary");
+    color: theme-color('primary');
   }
   .navbar-brand {
     padding: 15px 15px;

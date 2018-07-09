@@ -1,13 +1,11 @@
 import {
-  Component, OnInit, Inject
-} from '@angular/core';
-import {
-  trigger,
+  animate,
   state,
   style,
-  animate,
-  transition
+  transition,
+  trigger
 } from '@angular/animations';
+import { Component, OnInit } from '@angular/core';
 import { IUser } from '../../models/User';
 import { UserService } from '../../shared/user.service';
 
@@ -31,14 +29,11 @@ import { UserService } from '../../shared/user.service';
   ]
 })
 export class UsersComponent implements OnInit {
-
   users: IUser[];
   selectedUser: IUser;
 
   // Use "constructor"s only for dependency injection
-  constructor(
-    private userService: UserService
-  ) { }
+  constructor(private userService: UserService) {}
 
   // Here you want to handle anything with @Input()'s @Output()'s
   // Data retrieval / etc - this is when the Component is "ready" and wired up
@@ -55,27 +50,33 @@ export class UsersComponent implements OnInit {
 
   deleteUser(user) {
     this.clearUser();
-    this.userService.deleteUser(user).subscribe(result => {
-      console.log('Delete user result: ', result);
-      let position = this.users.indexOf(user);
-      this.users.splice(position, 1);
-    }, error => {
-      console.log(`There was an issue. ${error._body}.`);
-    });
+    this.userService.deleteUser(user).subscribe(
+      result => {
+        console.log('Delete user result: ', result);
+        let position = this.users.indexOf(user);
+        this.users.splice(position, 1);
+      },
+      error => {
+        console.log(`There was an issue. ${error._body}.`);
+      }
+    );
   }
 
   onUserUpdate(user: IUser) {
-    this.users[this.users.findIndex((u => u.id == user.id))] = user;
+    this.users[this.users.findIndex(u => u.id == user.id)] = user;
   }
 
   addUser(newUserName) {
-    this.userService.addUser(newUserName).subscribe(result => {
-      console.log('Post user result: ', result);
-      this.users.push(result);
-      this.selectedUser = result;
-    }, error => {
-      console.log(`There was an issue. ${error._body}.`);
-    });
+    this.userService.addUser(newUserName).subscribe(
+      result => {
+        console.log('Post user result: ', result);
+        this.users.push(result);
+        this.selectedUser = result;
+      },
+      error => {
+        console.log(`There was an issue. ${error._body}.`);
+      }
+    );
   }
 
   clearUser() {
