@@ -39,7 +39,11 @@ module.exports = (env) => {
     module: {
       rules: [{
           test: /\.ts$/,
-          use: isDevBuild ? ['awesome-typescript-loader?silent=true', 'angular2-template-loader', 'angular2-router-loader'] : '@ngtools/webpack'
+          use: ['awesome-typescript-loader?silent=true', 'angular2-template-loader']
+        },
+        {
+          test: /\.(ts|js)$/,
+          use: 'angular-router-loader'
         },
         {
           test: /\.html$/,
