@@ -28,7 +28,7 @@ namespace AspCoreServer.Data {
                 new User () { Name = "GRIMMR3AP3R" }
             };
 
-            foreach (User s in users) {
+            foreach (var s in users) {
                 context.User.Add (s);
             }
             context.SaveChanges ();
