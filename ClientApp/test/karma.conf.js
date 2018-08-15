@@ -1,15 +1,12 @@
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/0.13/config/configuration-file.html
 
-module.exports = function (config) {
+module.exports = function(config) {
   config.set({
     basePath: '.',
     frameworks: ['jasmine'],
     exclude: [],
-    files: [
-      '../../wwwroot/dist/vendor.js',
-      './boot-tests.js'
-    ],
+    files: ['../../wwwroot/dist/vendor.js', './boot-tests.js'],
     preprocessors: {
       './boot-tests.js': ['coverage', 'webpack', 'sourcemap']
     },
@@ -45,7 +42,7 @@ module.exports = function (config) {
     },
     // you can define custom flags
     customLaunchers: {
-      'PhantomJS_custom': {
+      PhantomJS_custom: {
         base: 'PhantomJS',
         options: {
           windowName: 'test-window',
@@ -53,7 +50,7 @@ module.exports = function (config) {
             webSecurityEnabled: false
           }
         },
-        flags: ['--load-images=true'],
+        flags: ['--load-images=true']
         // debug: true
       }
     },

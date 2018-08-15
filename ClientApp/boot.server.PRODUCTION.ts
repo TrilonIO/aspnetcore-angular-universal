@@ -1,16 +1,19 @@
-﻿import 'zone.js/dist/zone-node';
-import './polyfills/server.polyfills';
-import { enableProdMode } from '@angular/core';
+﻿import { enableProdMode } from '@angular/core';
+import {
+  createTransferScript,
+  IEngineOptions,
+  ngAspnetCoreEngine
+} from '@nguniversal/aspnetcore-engine';
 import { createServerRenderer } from 'aspnet-prerendering';
+import 'zone.js/dist/zone-node';
+import './polyfills/server.polyfills';
 
 // Grab the (Node) server-specific NgModule
 const { AppModuleNgFactory } = require('./app/app.module.server.ngfactory'); // <-- ignore this - this is Production only
-import { ngAspnetCoreEngine, IEngineOptions, createTransferScript } from '@nguniversal/aspnetcore-engine';
 
 enableProdMode();
 
-export default createServerRenderer((params) => {
-
+export default createServerRenderer(params => {
   // Platform-server provider configuration
   const setupOptions: IEngineOptions = {
     appSelector: '<app-root></app-root>',
@@ -23,16 +26,16 @@ export default createServerRenderer((params) => {
   };
 
   return ngAspnetCoreEngine(setupOptions).then(response => {
-
     // Apply your transferData to response.globals
     response.globals.transferData = createTransferScript({
-      someData: 'Transfer this to the client on the window.TRANSFER_CACHE {} object',
+      someData:
+        'Transfer this to the client on the window.TRANSFER_CACHE {} object',
       fromDotnet: params.data.thisCameFromDotNET // example of data coming from dotnet, in HomeController
     });
 
-    return ({
+    return {
       html: response.html, // our <app-root> serialized
       globals: response.globals // all of our styles/scripts/meta-tags/link-tags for aspnet to serve up
-    });
+    };
   });
 });

@@ -5,7 +5,7 @@ const webpack = require('webpack');
 var path = require('path');
 var rootPath = path.join.bind(path, path.resolve(__dirname, '../../'));
 
-module.exports = function (options) {
+module.exports = function(options) {
   return {
     devtool: 'inline-source-map',
     resolve: {
@@ -13,7 +13,8 @@ module.exports = function (options) {
       modules: [rootPath('ClientApp'), 'node_modules']
     },
     module: {
-      rules: [{
+      rules: [
+        {
           enforce: 'pre',
           test: /\.js$/,
           loader: 'source-map-loader',
@@ -24,7 +25,8 @@ module.exports = function (options) {
         },
         {
           test: /\.ts$/,
-          use: [{
+          use: [
+            {
               loader: 'awesome-typescript-loader',
               query: {
                 sourceMap: false,
@@ -32,7 +34,7 @@ module.exports = function (options) {
                 compilerOptions: {
                   removeComments: true
                 }
-              },
+              }
             },
             'angular2-template-loader'
           ],
@@ -58,13 +60,8 @@ module.exports = function (options) {
             esModules: true
           },
           include: rootPath('ClientApp'),
-          exclude: [
-            /ClientApp\\test/,
-            /\.(e2e|spec)\.ts$/,
-            /node_modules/
-          ]
+          exclude: [/ClientApp\\test/, /\.(e2e|spec)\.ts$/, /node_modules/]
         }
-
       ]
     },
     plugins: [
@@ -91,8 +88,7 @@ module.exports = function (options) {
            * legacy options go here
            */
         }
-      }),
-
+      })
     ],
     performance: {
       hints: false
@@ -112,6 +108,5 @@ module.exports = function (options) {
       clearImmediate: false,
       setImmediate: false
     }
-
   };
-}
+};

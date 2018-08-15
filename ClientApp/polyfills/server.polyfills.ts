@@ -1,3 +1,2 @@
-﻿import './polyfills.ts';
-
-import 'zone.js';
+﻿import 'zone.js';
+import './polyfills.ts';

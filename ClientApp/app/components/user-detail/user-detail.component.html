@@ -1,6 +1,6 @@
 ﻿<div class="panel">
   <h2 class="title">{{user.name}} details:</h2>
-  <form class="body" [formGroup]="userForm"(ngSubmit)="updateUser()">
+  <form class="body" [formGroup]="userForm" (ngSubmit)="updateUser()">
     <div class="form-group">
       <label for="userId">Id</label>
       <input type="input" formControlName="id" class="form-control" id="userId" placeholder="Id" readonly>
