@@ -5,10 +5,10 @@
 > Updated to the latest Angular 6.x
 
 <p align="center">
-    <img src="./docs/architecture.png" alt="ASP.NET Core 2.0 Angular 6+ Starter" title="ASP.NET Core 2.0 Angular 6+ Starter">
+    <img src="./docs/architecture.png" alt="ASP.NET Core 2.1 Angular 6+ Starter" title="ASP.NET Core 2.1 Angular 6+ Starter">
 </p>
 
-### Harness the power of Angular 6+, ASP.NET Core 2.0, now with SEO !
+### Harness the power of Angular 6+, ASP.NET Core 2.1, now with SEO !
 
 Angular SEO in action:
 
