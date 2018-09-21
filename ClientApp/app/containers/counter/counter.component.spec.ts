@@ -1,6 +1,8 @@
 ﻿import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CounterComponent } from './counter.component';
 
+import {} from 'jasmine';
+
 let fixture: ComponentFixture<CounterComponent>;
 
 describe('Counter component', () => {

@@ -1,15 +1,11 @@
-﻿import { enableProdMode } from '@angular/core';
-import {
-  createTransferScript,
-  IEngineOptions,
-  ngAspnetCoreEngine
-} from '@nguniversal/aspnetcore-engine';
-import { createServerRenderer } from 'aspnet-prerendering';
-import 'zone.js/dist/zone-node';
+﻿import 'zone.js/dist/zone-node';
 import './polyfills/server.polyfills';
+import { enableProdMode } from '@angular/core';
+import { createServerRenderer } from 'aspnet-prerendering';
 
 // Grab the (Node) server-specific NgModule
 const { AppModuleNgFactory } = require('./app/app.module.server.ngfactory'); // <-- ignore this - this is Production only
+import { ngAspnetCoreEngine, IEngineOptions, createTransferScript } from '@nguniversal/aspnetcore-engine';
 
 enableProdMode();
 

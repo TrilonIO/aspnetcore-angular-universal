@@ -38,7 +38,7 @@ module.exports = env => {
     module: {
       rules: [
         {
-          test: /\.ts$/,
+          test: /^(?!.*\.spec\.ts$).*\.ts$/,
           use: isDevBuild
             ? [
                 'awesome-typescript-loader?silent=true',
@@ -99,7 +99,7 @@ module.exports = env => {
             // Plugins that apply in production builds only
             new AngularCompilerPlugin({
               mainPath: path.join(__dirname, 'ClientApp/boot.browser.ts'),
-              tsConfigPath: './tsconfig.json',
+              tsConfigPath: './ClientApp/tsconfig.app.json',
               entryModule: path.join(
                 __dirname,
                 'ClientApp/app/app.module.browser#AppModule'
@@ -174,7 +174,7 @@ module.exports = env => {
                 __dirname,
                 'ClientApp/boot.server.PRODUCTION.ts'
               ),
-              tsConfigPath: './tsconfig.json',
+              tsConfigPath: './ClientApp/tsconfig.app.json',
               entryModule: path.join(
                 __dirname,
                 'ClientApp/app/app.module.server#AppModule'

@@ -1,8 +1,13 @@
 {
-  "name": "angular4-aspnetcore-universal",
-  "version": "1.0.0-rc3",
+  "name": "angular6-aspnetcore-universal",
+  "author": {
+    "name": "Mark Pieszak",
+    "email": "hello@devhelp.online",
+    "url": "http://DevHelp.Online"
+  },
+  "version": "1.0.0-rc4",
   "scripts": {
-    "clean:install": "npm run clean && rimraf ./node_modules ./bin ./obj ./package-lock.json && dotnet restore && npm i",
+    "clean:install": "npm run clean && rimraf ./node_modules ./bin ./obj ./package-lock.json && dotnet restore Asp2017.csproj && npm i",
     "lint": "tslint -p tsconfig.json",
     "test": "npm run build:vendor && karma start ClientApp/test/karma.conf.js",
     "test:watch": "npm run test -- --auto-watch --no-single-run",
@@ -92,5 +97,11 @@
     "uglifyjs-webpack-plugin": "^1.2.5",
     "webpack-bundle-analyzer": "^2.13.1",
     "webpack-cli": "^2.1.4"
-  }
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/MarkPieszak/aspnetcore-angular2-universal"
+  },
+  "readme": "https://github.com/MarkPieszak/aspnetcore-angular2-universal/blob/master/README.md"
 }
