@@ -38,10 +38,10 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
 * [Upcoming Features](#upcoming-features)
 * [Application Structure](#application-structure)
 * [Gotchas](#gotchas)
-* [FAQ](#faq---also-check-out-the-faq-issues-label)
+* [FAQ](#faq---also-check-out-the-faq-issues-label-and-the-how-to-issues-label)
 * [Special Thanks](#special-thanks)
 * [License](#license)
-* [Consulting & Training](#looking-for-angular--aspnet-consulting--training--support)
+* [Consulting & Training](#devhelponline---angular--aspnet---consulting--training--development)
 
 ---
 
