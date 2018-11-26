@@ -460,6 +460,8 @@ Nothing's ever perfect, but please let me know by creating an issue (make sure t
 
 Copyright (c) 2016-2018 [Mark Pieszak](https://github.com/MarkPieszak)
 
+[![Twitter Follow](https://img.shields.io/twitter/follow/MarkPieszak.svg?style=social)](https://twitter.com/MarkPieszak)
+
 ----
 
 # DevHelp.Online - Angular & ASP.NET - Consulting | Training | Development
