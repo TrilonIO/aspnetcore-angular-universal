@@ -427,7 +427,7 @@ import * as $ from 'jquery';
 
 ### How can I support IE9 through IE11?
 
-To support IE9 through IE11 open the `polyfills.ts` file in the `polyfills` folder and uncomment out the 'import polyfills' as needed.
+To support IE9 through IE11 open the `polyfills.ts` file in the `polyfills` folder and uncomment out the 'import polyfills' as needed. ALSO - make sure that your `webpack.config` and `webpack.config.vendor` change option of `UglifyJsPlugin` from `ecma: 6` to **`ecma: 5`**.
 
 ----
 
