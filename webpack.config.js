@@ -15,7 +15,7 @@ const AngularCompilerPlugin = require('@ngtools/webpack').AngularCompilerPlugin;
 const CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin;
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin;
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 const { sharedModuleRules } = require('./webpack.additions');
 
@@ -118,19 +118,17 @@ module.exports = env => {
         isDevBuild
           ? []
           : [
-              // we specify a custom UglifyJsPlugin here to get source maps in production
-              new UglifyJsPlugin({
-                cache: true,
-                parallel: true,
-                uglifyOptions: {
-                  compress: false,
+              // we specify a custom TerserPlugin here to get source maps in production
+              new TerserPlugin({
+                sourceMap: true,
+                terserOptions: {
+                  compress: true,
                   ecma: 6,
                   mangle: true,
                   keep_classnames: true,
-                  keep_fnames: true
+                  keep_fnames: true,
                 },
-                sourceMap: true
-              })
+              }),
             ]
       )
     }
@@ -196,18 +194,18 @@ module.exports = env => {
         isDevBuild
           ? []
           : [
-              // we specify a custom UglifyJsPlugin here to get source maps in production
-              new UglifyJsPlugin({
+              // we specify a custom TerserPlugin here to get source maps in production
+              new TerserPlugin({
                 cache: true,
                 parallel: true,
-                uglifyOptions: {
+                sourceMap: true,
+                terserOptions: {
                   compress: false,
                   ecma: 6,
                   mangle: true,
                   keep_classnames: true,
-                  keep_fnames: true
+                  keep_fnames: true,
                 },
-                sourceMap: true
               })
             ]
       )

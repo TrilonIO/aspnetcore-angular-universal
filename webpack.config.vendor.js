@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const merge = require('webpack-merge');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const treeShakableModules = [
   '@angular/animations',
   '@angular/common',
@@ -95,18 +95,18 @@ module.exports = (env) => {
     ]),
     optimization: {
       minimizer: [].concat(isDevBuild ? [] : [
-        // we specify a custom UglifyJsPlugin here to get source maps in production
-        new UglifyJsPlugin({
+        // we specify a custom TerserPlugin here to get source maps in production
+        new TerserPlugin({
           cache: true,
           parallel: true,
-          uglifyOptions: {
+          sourceMap: true,
+          terserOptions: {
             compress: false,
             ecma: 6,
             mangle: true,
             keep_classnames: true,
-            keep_fnames: true
+            keep_fnames: true,
           },
-          sourceMap: true
         })
       ])
     }
@@ -141,18 +141,18 @@ module.exports = (env) => {
     ].concat(isDevBuild ? [] : []),
     optimization: {
       minimizer: [].concat(isDevBuild ? [] : [
-        // we specify a custom UglifyJsPlugin here to get source maps in production
-        new UglifyJsPlugin({
+        // we specify a custom TerserPlugin here to get source maps in production
+        new TerserPlugin({
           cache: true,
           parallel: true,
-          uglifyOptions: {
+          sourceMap: true,
+          terserOptions: {
             compress: false,
             ecma: 6,
             mangle: true,
             keep_classnames: true,
-            keep_fnames: true
+            keep_fnames: true,
           },
-          sourceMap: true
         })
       ])
     }
