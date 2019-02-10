@@ -1,8 +1,8 @@
 {
-  "name": "ASP.NET Core 2.1 & Angular 6(+) Advanced Starter",
+  "name": "ASP.NET Core 2.1 & Angular 7(+) Advanced Starter",
   "short_name": "aspnetcore-angular2-universal",
   "description":
-    "ASP.NET Core 2.1 & Angular 6(+) Advanced Starter - with Server-side prerendering (for Angular SEO)!",
+    "ASP.NET Core 2.1 & Angular 7(+) Advanced Starter - with Server-side prerendering (for Angular SEO)!",
   "icons": [
     {
       "src": "/images/icon192x192.png",

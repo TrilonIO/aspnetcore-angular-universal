@@ -42,7 +42,7 @@ namespace AspCoreServer {
 
             // Register the Swagger generator, defining one or more Swagger documents
             services.AddSwaggerGen (c => {
-                c.SwaggerDoc ("v1", new Info { Title = "Angular 6.0 Universal & ASP.NET Core advanced starter-kit web API", Version = "v1" });
+                c.SwaggerDoc ("v1", new Info { Title = "Angular 7.0 Universal & ASP.NET Core advanced starter-kit web API", Version = "v1" });
             });
         }
 
