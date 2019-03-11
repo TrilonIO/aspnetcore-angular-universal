@@ -1,6 +1,6 @@
 # ASP.NET Core 2.1 & Angular 7(+) Advanced Starter - PWA & Server-side prerendering (for Angular SEO)! 
 
-## By [DevHelp.Online](http://www.DevHelp.Online)
+## By [Trilon.io](https://Trilon.io)
 
 > Updated to the latest Angular 7.x
 
@@ -18,7 +18,7 @@ Angular SEO in action:
 
 ### What is this repo? Live Demo here: http://aspnetcore-angular2-universal.azurewebsites.net
 
-This repository is maintained by [Angular](https://github.com/angular/angular) and is meant to be an advanced starter 
+This repository is maintained by [Trilon.io](https://Trilon.io) and the [Angular](https://github.com/angular/angular) Universal team and is meant to be an advanced starter 
 for both ASP.NET Core 2.1 using Angular 7.0+, not only for the client-side, but to be rendered on the server for instant 
 application paints (Note: If you don't need SSR [read here](#faq) on how to disable it).
 
@@ -458,7 +458,7 @@ Nothing's ever perfect, but please let me know by creating an issue (make sure t
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](/LICENSE) 
 
-Copyright (c) 2016-2018 [Mark Pieszak](https://github.com/MarkPieszak)
+Copyright (c) 2016-2019 [Mark Pieszak](https://github.com/MarkPieszak)
 
 [![Twitter Follow](https://img.shields.io/twitter/follow/MarkPieszak.svg?style=social)](https://twitter.com/MarkPieszak)
 
@@ -466,16 +466,14 @@ Copyright (c) 2016-2018 [Mark Pieszak](https://github.com/MarkPieszak)
 
 # DevHelp.Online - Angular & ASP.NET - Consulting | Training | Development
 
-Check out **[www.DevHelp.Online](http://DevHelp.Online)** for more info! Twitter [@DevHelpOnline](http://www.twitter.com/DevHelpOnline)
+Check out **[Trilon.io](https://Trilon.io)** for more info! Twitter [@Trilon_io](http://www.twitter.com/Trilon_io)
 
-Contact us at <hello@devhelp.online>, and let's talk about your projects needs.
+Contact us at <hello@trilon.io>, and let's talk about your projects needs.
 
 <p align="center">
-    <img src="https://s3.amazonaws.com/media-p.slid.es/uploads/768119/images/4272479/Screen_Shot_2017-10-27_at_6.58.34_PM.png" alt="DevHelp.Online - Angular ASPNET JavaScript Consulting Development and Training">
+    <img src="https://trilon.io/meta/og-image.png" alt="Trilon.io - Angular Universal, NestJS, JavaScript Application Consulting Development and Training">
 </p>
 
-----
+## Follow Trilon online:
 
-## Follow me online:
-
-Twitter: [@MarkPieszak](http://twitter.com/MarkPieszak) | Medium: [@MarkPieszak](https://medium.com/@MarkPieszak)
+Twitter: [@Trilon_io](http://twitter.com/Trilon_io)
