@@ -41,7 +41,7 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
 * [FAQ](#faq---also-check-out-the-faq-issues-label-and-the-how-to-issues-label)
 * [Special Thanks](#special-thanks)
 * [License](#license)
-* [Consulting & Training](#devhelponline---angular--aspnet---consulting--training--development)
+* [Trilon - Consulting & Training](#trilon---angular--aspnet---consulting--training--development)
 
 ---
 
@@ -464,7 +464,7 @@ Copyright (c) 2016-2019 [Mark Pieszak](https://github.com/MarkPieszak)
 
 ----
 
-# DevHelp.Online - Angular & ASP.NET - Consulting | Training | Development
+# Trilon - Angular & ASP.NET - Consulting | Training | Development
 
 Check out **[Trilon.io](https://Trilon.io)** for more info! Twitter [@Trilon_io](http://www.twitter.com/Trilon_io)
 
