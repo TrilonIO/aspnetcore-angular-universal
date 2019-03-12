@@ -1,9 +1,9 @@
 {
   "name": "angular7-aspnetcore-universal",
   "author": {
-    "name": "Mark Pieszak",
-    "email": "hello@devhelp.online",
-    "url": "http://DevHelp.Online"
+    "name": "Mark Pieszak | Trilon Consulting",
+    "email": "hello@trilon.io",
+    "url": "https://trilon.io"
   },
   "version": "1.0.0-rc4",
   "scripts": {
