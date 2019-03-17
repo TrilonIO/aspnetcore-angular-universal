@@ -1,15 +1,12 @@
 # ASP.NET Core 2.1 & Angular 7(+) Advanced Starter - PWA & Server-side prerendering (for Angular SEO)! 
 
-## Made with :heart: by [Trilon.io](https://Trilon.io)
+### Made with :heart: by [Trilon.io](https://Trilon.io)
 <p>
   <a href="https://trilon.io" target="_blank">
         <img width="200" height="auto" src="https://trilon.io/meta/og-image.png" alt="Trilon.io - Angular Universal, NestJS, JavaScript Application Consulting Development and Training">
   </a>
 </p>
 
----
-
-## High-level architectural diagram
 
 <p align="center">
     <img src="./docs/architecture.png" alt="ASP.NET Core 2.1 Angular 7+ Starter" title="ASP.NET Core 2.1 Angular 7+ Starter">
