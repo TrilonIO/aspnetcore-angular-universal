@@ -7,17 +7,18 @@
   </a>
 </p>
 
-
-<p align="center">
-    <img src="./docs/architecture.png" alt="ASP.NET Core 2.1 Angular 7+ Starter" title="ASP.NET Core 2.1 Angular 7+ Starter">
-</p>
-
 ### Harness the power of Angular 7+, ASP.NET Core 2.1, now with SEO !
 
 Angular SEO in action:
 
 <p align="center">
   <img src="./docs/angular2-seo.png" alt="ASP.NET Core Angular7 SEO" title="ASP.NET Core Angular7 SEO">
+</p>
+
+### Angular Universal Application Architecture
+
+<p align="center">
+    <img src="./docs/architecture.png" alt="ASP.NET Core 2.1 Angular 7+ Starter" title="ASP.NET Core 2.1 Angular 7+ Starter">
 </p>
 
 ### What is this repo? Live Demo here: http://aspnetcore-angular2-universal.azurewebsites.net
