@@ -7,6 +7,8 @@
   </a>
 </p>
 
+---
+
 ### Harness the power of Angular 7+, ASP.NET Core 2.1, now with SEO !
 
 Angular SEO in action:
