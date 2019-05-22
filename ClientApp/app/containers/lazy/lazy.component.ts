@@ -10,4 +10,4 @@ import { Component } from '@angular/core';
     </blockquote>
   `
 })
-export class LazyComponent { }
+export class LazyComponent {}

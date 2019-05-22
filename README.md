@@ -1,25 +1,37 @@
-# ASP.NET Core 2.1 & Angular 6(+) Advanced Starter - PWA & Server-side prerendering (for Angular SEO)! 
+# ASP.NET Core 2.1 & Angular 7(+) Advanced Starter - PWA & Server-side prerendering (for Angular SEO)! 
 
-## By [DevHelp.Online](http://www.DevHelp.Online)
+---
 
-> Updated to the latest Angular 6.x
-
+<br>
 <p align="center">
-    <img src="./docs/architecture.png" alt="ASP.NET Core 2.0 Angular 6+ Starter" title="ASP.NET Core 2.0 Angular 6+ Starter">
+  <a href="https://trilon.io" target="_blank">
+        <img width="500" height="auto" src="https://trilon.io/trilon-logo-clear.png" alt="Trilon.io - Angular Universal, NestJS, JavaScript Application Consulting Development and Training">
+  </a>
 </p>
 
-### Harness the power of Angular 6+, ASP.NET Core 2.0, now with SEO !
+
+<h3 align="center"> Made with :heart: by <a href="https://trilon.io">Trilon.io</a></h3>
+
+---
+
+### Harness the power of Angular 7+, ASP.NET Core 2.1, now with SEO !
 
 Angular SEO in action:
 
 <p align="center">
-  <img src="./docs/angular2-seo.png" alt="ASP.NET Core Angular6 SEO" title="ASP.NET Core Angular6 SEO">
+  <img src="./docs/angular2-seo.png" alt="ASP.NET Core Angular7 SEO" title="ASP.NET Core Angular7 SEO">
+</p>
+
+### Angular Universal Application Architecture
+
+<p align="center">
+    <img src="./docs/architecture.png" alt="ASP.NET Core 2.1 Angular 7+ Starter" title="ASP.NET Core 2.1 Angular 7+ Starter">
 </p>
 
 ### What is this repo? Live Demo here: http://aspnetcore-angular2-universal.azurewebsites.net
 
-This repository is maintained by [Angular](https://github.com/angular/angular) and is meant to be an advanced starter 
-for both ASP.NET Core 2.1 using Angular 6.0+, not only for the client-side, but to be rendered on the server for instant 
+This repository is maintained by [Trilon.io](https://Trilon.io) and the [Angular](https://github.com/angular/angular) Universal team and is meant to be an advanced starter 
+for both ASP.NET Core 2.1 using Angular 7.0+, not only for the client-side, but to be rendered on the server for instant 
 application paints (Note: If you don't need SSR [read here](#faq) on how to disable it).
 
 This is meant to be a Feature-Rich Starter application containing all of the latest technologies, best build systems available, and include many real-world examples and libraries needed in todays Single Page Applications (SPAs).
@@ -38,10 +50,10 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
 * [Upcoming Features](#upcoming-features)
 * [Application Structure](#application-structure)
 * [Gotchas](#gotchas)
-* [FAQ](#faq---also-check-out-the-faq-issues-label)
+* [FAQ](#faq---also-check-out-the-faq-issues-label-and-the-how-to-issues-label)
 * [Special Thanks](#special-thanks)
 * [License](#license)
-* [Consulting & Training](#looking-for-angular--aspnet-consulting--training--support)
+* [Trilon - Consulting & Training](#trilon---angular--aspnet---consulting--training--development)
 
 ---
 
@@ -57,7 +69,7 @@ This utilizes all the latest standards, no gulp, no bower, no typings, no manual
   - Swagger WebAPI documentation when running in development mode 
   - SignalR Chat demo! (Thanks to [@hakonamatata](https://github.com/hakonamatata))
 
-- **Angular 6.0.0** :
+- **Angular 7.0.0** :
   - PWA (Progressive Web App)
   - (Minimal) Angular-CLI integration 
     - This is to be used mainly for Generating Components/Services/etc.
@@ -304,7 +316,7 @@ Take a look at the `_Layout.cshtml` file for example, notice how we let .NET han
     <head>
         <base href="/" />
         <!-- Title will be the one you set in your Angular application -->
-        <title>@ViewData["Title"] - AspNET.Core Angular 6.0.0 (+) starter</title>
+        <title>@ViewData["Title"] - AspNET.Core Angular 7.0.0 (+) starter</title>
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -345,7 +357,7 @@ Well now, your Client-side Angular will take over, and you'll have a fully funct
 
 - This repository uses ASP.Net Core 2.1, which has a hard requirement on .NET Core Runtime 2.1 and .NET Core SDK 2.1. Please install these items from [here](https://blogs.msdn.microsoft.com/dotnet/2018/05/30/announcing-net-core-2-1/?WT.mc_id=blog-twitter-timheuer)
 
-> When building components in Angular 6 there are a few things to keep in mind.
+> When building components in Angular 7 there are a few things to keep in mind.
 
  - Make sure you provide Absolute URLs when calling any APIs. (The server can't understand relative paths, so `/api/whatever` will fail).
  
@@ -427,7 +439,7 @@ import * as $ from 'jquery';
 
 ### How can I support IE9 through IE11?
 
-To support IE9 through IE11 open the `polyfills.ts` file in the `polyfills` folder and uncomment out the 'import polyfills' as needed.
+To support IE9 through IE11 open the `polyfills.ts` file in the `polyfills` folder and uncomment out the 'import polyfills' as needed. ALSO - make sure that your `webpack.config` and `webpack.config.vendor` change option of `TerserPlugin` from `ecma: 6` to **`ecma: 5`**.
 
 ----
 
@@ -458,22 +470,24 @@ Nothing's ever perfect, but please let me know by creating an issue (make sure t
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](/LICENSE) 
 
-Copyright (c) 2016-2018 [Mark Pieszak](https://github.com/MarkPieszak)
+Copyright (c) 2016-2019 [Mark Pieszak](https://github.com/MarkPieszak)
+
+[![Twitter Follow](https://img.shields.io/twitter/follow/MarkPieszak.svg?style=social)](https://twitter.com/MarkPieszak)
 
 ----
 
-# DevHelp.Online - Angular & ASP.NET - Consulting | Training | Development
+# Trilon - Angular & ASP.NET - Consulting | Training | Development
 
-Check out **[www.DevHelp.Online](http://DevHelp.Online)** for more info! Twitter [@DevHelpOnline](http://www.twitter.com/DevHelpOnline)
+Check out **[Trilon.io](https://Trilon.io)** for more info! Twitter [@Trilon_io](http://www.twitter.com/Trilon_io)
 
-Contact us at <hello@devhelp.online>, and let's talk about your projects needs.
+Contact us at <hello@trilon.io>, and let's talk about your projects needs.
 
 <p align="center">
-    <img src="https://s3.amazonaws.com/media-p.slid.es/uploads/768119/images/4272479/Screen_Shot_2017-10-27_at_6.58.34_PM.png" alt="DevHelp.Online - Angular ASPNET JavaScript Consulting Development and Training">
+  <a href="https://trilon.io" target="_blank">
+        <img src="https://trilon.io/trilon-logo-clear.png" alt="Trilon.io - Angular Universal, NestJS, JavaScript Application Consulting Development and Training">
+  </a>
 </p>
 
-----
+## Follow Trilon online:
 
-## Follow me online:
-
-Twitter: [@MarkPieszak](http://twitter.com/MarkPieszak) | Medium: [@MarkPieszak](https://medium.com/@MarkPieszak)
+Twitter: [@Trilon_io](http://twitter.com/Trilon_io)

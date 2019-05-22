@@ -9,8 +9,7 @@ import { ngAspnetCoreEngine, IEngineOptions, createTransferScript } from '@nguni
 
 enableProdMode();
 
-export default createServerRenderer((params) => {
-
+export default createServerRenderer(params => {
   // Platform-server provider configuration
   const setupOptions: IEngineOptions = {
     appSelector: '<app-root></app-root>',
@@ -23,16 +22,16 @@ export default createServerRenderer((params) => {
   };
 
   return ngAspnetCoreEngine(setupOptions).then(response => {
-
     // Apply your transferData to response.globals
     response.globals.transferData = createTransferScript({
-      someData: 'Transfer this to the client on the window.TRANSFER_CACHE {} object',
+      someData:
+        'Transfer this to the client on the window.TRANSFER_CACHE {} object',
       fromDotnet: params.data.thisCameFromDotNET // example of data coming from dotnet, in HomeController
     });
 
-    return ({
+    return {
       html: response.html, // our <app-root> serialized
       globals: response.globals // all of our styles/scripts/meta-tags/link-tags for aspnet to serve up
-    });
+    };
   });
 });

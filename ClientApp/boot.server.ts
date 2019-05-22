@@ -1,11 +1,12 @@
 ﻿import 'zone.js/dist/zone-node';
 import './polyfills/server.polyfills';
+
 import { enableProdMode } from '@angular/core';
+import { createTransferScript, IEngineOptions, ngAspnetCoreEngine } from '@nguniversal/aspnetcore-engine';
 import { createServerRenderer } from 'aspnet-prerendering';
 
 // Grab the (Node) server-specific NgModule
 import { AppModule } from './app/app.module.server';
-import { ngAspnetCoreEngine, IEngineOptions, createTransferScript } from '@nguniversal/aspnetcore-engine';
 
 enableProdMode();
 

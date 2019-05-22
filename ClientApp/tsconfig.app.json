@@ -4,11 +4,11 @@
     "outDir": "../out-tsc/app",
     "module": "es2015",
     "baseUrl": "",
-    "types": []
+    "sourceMap": true,
+    "types": ["node"]
   },
   "exclude": [
-    "test.ts",
-    "**/*.spec.ts",
-    "boot.server.PRODUCTION.ts"
+    "test.ts", 
+    "**/*.spec.ts"
   ]
 }
