@@ -1,16 +1,20 @@
 ﻿using System;
-using System.Linq;
-using AspCoreServer;
+using System.Threading.Tasks;
 using AspCoreServer.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace AspCoreServer.Data {
-    public static class DbInitializer {
-        public static void Initialize (SpaDbContext context) {
-            context.Database.EnsureCreated ();
+namespace AspCoreServer.Data
+{
+    public static class SimpleContentEFStartup
+    {
+        public static async Task InitializeDatabaseAsync(IServiceProvider services)
+        {
+            var context = services.GetRequiredService<SpaDbContext>();
 
-            if (context.User.Any ()) {
+
+            if (await context.User.AnyAsync())
+            {
                 return; // DB has been seeded
             }
             var users = new User[] {
@@ -27,11 +31,9 @@ namespace AspCoreServer.Data {
                 new User () { Name = "Gaulomatic" },
                 new User () { Name = "GRIMMR3AP3R" }
             };
+            await context.User.AddRangeAsync(users);
 
-            foreach (var s in users) {
-                context.User.Add (s);
-            }
-            context.SaveChanges ();
+            await context.SaveChangesAsync();
         }
     }
 }
